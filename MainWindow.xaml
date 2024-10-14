@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cliente"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        >
+    <Viewbox>
+        <Grid Height="720" Width="1280">
+                <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" Source="Vistas/Lobby.xaml"
+                />
+        </Grid>
+    </Viewbox>
 </Window>

@@ -24,5 +24,15 @@ namespace Cliente.Vistas
         {
             InitializeComponent();
         }
+
+        private void Btn_enviarMensaje(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ContenedorDeMensaje(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

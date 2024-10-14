@@ -118,33 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Btn_Registrarme" xml:space="preserve">
-    <value>Registrarme</value>
+    <value>Sign up</value>
   </data>
   <data name="Btn_IniciarSesión" xml:space="preserve">
-    <value>IniciarSesión</value>
+    <value>Sign in</value>
   </data>
   <data name="Btn_Invitado" xml:space="preserve">
-    <value>Invitado</value>
+    <value>Guest</value>
   </data>
   <data name="Btn_Enviar" xml:space="preserve">
-    <value>Enviar</value>
+    <value>Send</value>
   </data>
   <data name="Btn_AceptarGlobal" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>Accept</value>
   </data>
   <data name="Btn_CancelarGlobal" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>Cancel</value>
   </data>
   <data name="Lbl_CorreoGlobal" xml:space="preserve">
-    <value>Correo</value>
+    <value>Email</value>
   </data>
   <data name="Lbl_ContraseñaGlobal" xml:space="preserve">
-    <value>Contraseña</value>
+    <value>Password</value>
   </data>
   <data name="Lbl_TituloJuegoGlobal" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="Title_Inicio" xml:space="preserve">
-    <value>Inicio</value>
+    <value>Home</value>
   </data>
 </root>

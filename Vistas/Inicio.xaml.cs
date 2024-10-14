@@ -24,5 +24,20 @@ namespace Cliente.Vistas
         {
             InitializeComponent();
         }
+
+        private void Btn_registrarUsuario(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_iniciarSesion(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_invitado(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

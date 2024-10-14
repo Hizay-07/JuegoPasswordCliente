@@ -1,42 +1,41 @@
-﻿<Page x:Class="PasswordWPFApp.Vistas.Lobby"
+﻿<Page x:Class="Cliente.Vistas.Inicio"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:local="clr-namespace:PasswordWPFApp.Vistas"
-      xmlns:p="clr-namespace:PasswordWPFApp.Properties"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cliente.Vistas"
+      xmlns:p="clr-namespace:Cliente.Properties"
       mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280">
     <DockPanel>
         <Grid>
-            <Border>
+            <Border RenderTransformOrigin="0.586,0.526">
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
                 </Border.Background>
-                <StackPanel VerticalAlignment="Center" Background="Black" Height="84" Margin="592,0,208,0" Orientation="Horizontal">
 
-                    <Button Content="Iniciar Sesión"
+                <Button x:Name="IniciarSesion" Content="{x:Static p:Resources.Btn_IniciarSesión}"
                         Width="167" Height="40"
                         Background="#33c1ff"
                         Foreground="Black"
                         FontWeight="Bold"
                         FontSize="20"
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Center"
-                        Click="BtnSendMessage_Click" RenderTransformOrigin="0.766,0.547">
-                        <Button.Effect>
-                            <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
-                        </Button.Effect>
-                    </Button>
+                        Margin="640,380,473,0"
+                        VerticalAlignment="Top"
+                        Click="Btn_iniciarSesion" RenderTransformOrigin="0.766,0.547">
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
 
 
-                </StackPanel>
+
             </Border>
 
             <Grid>
 
 
-                <Image x:Name="imgPet"  
+                <Image x:Name="Logo"  
                        Source="/Imagenes/Iconos/PasswordLogo.png"
                        Width="277" Height="226"
                        HorizontalAlignment="Left"
@@ -48,26 +47,38 @@
 
 
 
-                <StackPanel VerticalAlignment="Bottom" Background="Black" Height="84" Margin="613,0,187,458" Orientation="Horizontal">
 
-                    <Button Content="Registrarme"
+
+                <Button x:Name="Registrarme" Content="{x:Static p:Resources.Btn_Registrarme}"
                         Width="138" Height="40"
                         Background="#33c1ff"
                         Foreground="Black"
                         FontWeight="Bold"
                         FontSize="20"
-                        Margin="10,0,0,0"
-                        VerticalAlignment="Center"
-                        Click="BtnSendMessage_Click" RenderTransformOrigin="0.766,0.547">
-                        <Button.Effect>
-                            <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
-                        </Button.Effect>
-                    </Button>
+                        Click="Btn_registrarUsuario" RenderTransformOrigin="0.766,0.547" Margin="640,283,502,397">
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+
+                <Button x:Name="Invitado" Content="{x:Static p:Resources.Btn_Invitado}"
+                    Width="138" Height="40"
+                    Background="#33c1ff"
+                    Foreground="Black"
+                    FontWeight="Bold"
+                    FontSize="20"
+                    Click="Btn_invitado" RenderTransformOrigin="0.766,0.547" Margin="640,484,502,196">
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
 
 
-                </StackPanel>
+
+
             </Grid>
         </Grid>
 
     </DockPanel>
 </Page>
+
