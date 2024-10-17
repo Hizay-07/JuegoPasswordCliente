@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Cliente.Vistas
 {
@@ -25,19 +14,20 @@ namespace Cliente.Vistas
             InitializeComponent();
         }
 
-        private void Btn_registrarUsuario(object sender, RoutedEventArgs e)
+        private void RegistrarUsuario(object sender, RoutedEventArgs e)
         {
-
+            Registro registroPage = new Registro();
+            this.NavigationService.Navigate(registroPage);
         }
 
-        private void Btn_iniciarSesion(object sender, RoutedEventArgs e)
+        private void IniciarSesion(object sender, RoutedEventArgs e)
         {
-
+            InicioSesion inicioSesionPage = new InicioSesion();
+            this.NavigationService.Navigate(inicioSesionPage);
         }
 
-        private void Btn_invitado(object sender, RoutedEventArgs e)
+        private void Invitado(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }

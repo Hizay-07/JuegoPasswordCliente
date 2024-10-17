@@ -147,4 +147,25 @@
   <data name="Title_Inicio" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Title_InicioSesion" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="Btn_OlvideMiContrasena" xml:space="preserve">
+    <value>ForgetMyPassword</value>
+  </data>
+  <data name="Title_Registro" xml:space="preserve">
+    <value>Sign up</value>
+  </data>
+  <data name="Lbl_Nombre" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Lbl_Apellidos" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="PoliticaContraseña" xml:space="preserve">
+    <value>The password must be at least 8 characters, one capital letter, one number and one special character.</value>
+  </data>
 </root>

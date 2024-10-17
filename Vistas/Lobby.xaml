@@ -30,15 +30,13 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto" 
                               Background="#66FFFFFF" 
                               Margin="640,91,160,185">
-                    <StackPanel x:Name="ChatMessagesPanel">
-                        <!-- Aquí irán los mensajes (esto se llenará dinámicamente) -->
-                    </StackPanel>
+                    <TextBlock Name="Txb_Conversacion" TextWrapping="Wrap" FontSize="20" Foreground="White" />
                 </ScrollViewer>
 
 
                 <StackPanel VerticalAlignment="Bottom" Background="Black" Height="84" Margin="658,0,142,96" Orientation="Horizontal">
 
-                    <TextBox x:Name="txtMessageInput" Height="40"
+                    <TextBox x:Name="Txb_Mensaje" Height="40"
                          Background="#2F2F2F"
                          Foreground="White"
                          BorderBrush="White"
@@ -48,7 +46,7 @@
                          FontSize="20"
                          MaxLength="100"
                          Width="328"
-                         TextChanged="ContenedorDeMensaje">
+                         >
                         <TextBox.Effect>
                             <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                         </TextBox.Effect>
@@ -62,7 +60,7 @@
                         FontSize="20"
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
-                        Click="Btn_enviarMensaje" RenderTransformOrigin="0.766,0.547">
+                        Click="EnviarMensaje" RenderTransformOrigin="0.766,0.547">
                         <Button.Effect>
                             <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                         </Button.Effect>

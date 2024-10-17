@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Cliente.ServidorPassword;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,21 +20,29 @@ namespace Cliente.Vistas
     /// <summary>
     /// Lógica de interacción para Lobby.xaml
     /// </summary>
-    public partial class Lobby : Page
+    public partial class Lobby : Page,ServidorPassword.IServicioChatCallback
     {
+        private ServidorPassword.ServicioChatClient servicioChat;
         public Lobby()
         {
             InitializeComponent();
+            InstanceContext contexto = new InstanceContext(this);
+            servicioChat = new ServidorPassword.ServicioChatClient(contexto);
+            servicioChat.Chatear("Un nuevo usuario se ha conectado");
         }
 
-        private void Btn_enviarMensaje(object sender, RoutedEventArgs e)
+        public void Responder(string respuesta)
         {
-
+            Txb_Conversacion.Text += respuesta;
         }
 
-        private void ContenedorDeMensaje(object sender, TextChangedEventArgs e)
+        private void EnviarMensaje(object sender, RoutedEventArgs e)
         {
-
+            String mensaje = Txb_Mensaje.Text;
+            Txb_Mensaje.Text = string.Empty;
+            servicioChat.Chatear(mensaje);
         }
+
+       
     }
 }

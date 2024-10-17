@@ -14,15 +14,14 @@
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
                 </Border.Background>
 
-                <Button x:Name="IniciarSesion" Content="{x:Static p:Resources.Btn_IniciarSesión}"
-                        Width="167" Height="40"
+                <Button x:Name="IniciarSesion" Content="{x:Static p:Resources.Btn_IniciarSesión}" Height="57"
                         Background="#33c1ff"
                         Foreground="Black"
                         FontWeight="Bold"
                         FontSize="20"
-                        Margin="640,380,473,0"
+                        Margin="640,382,376,0"
                         VerticalAlignment="Top"
-                        Click="Btn_iniciarSesion" RenderTransformOrigin="0.766,0.547">
+                        Click="IniciarSesion" RenderTransformOrigin="0.766,0.547">
                     <Button.Effect>
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
@@ -50,24 +49,22 @@
 
 
                 <Button x:Name="Registrarme" Content="{x:Static p:Resources.Btn_Registrarme}"
-                        Width="138" Height="40"
                         Background="#33c1ff"
                         Foreground="Black"
                         FontWeight="Bold"
                         FontSize="20"
-                        Click="Btn_registrarUsuario" RenderTransformOrigin="0.766,0.547" Margin="640,283,502,397">
+                        Click="RegistrarUsuario" RenderTransformOrigin="0.766,0.547" Margin="640,283,372,377">
                     <Button.Effect>
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
 
-                <Button x:Name="Invitado" Content="{x:Static p:Resources.Btn_Invitado}"
-                    Width="138" Height="40"
+                <Button x:Name="Invitado" Content="{x:Static p:Resources.Btn_Invitado}" Height="40"
                     Background="#33c1ff"
                     Foreground="Black"
                     FontWeight="Bold"
                     FontSize="20"
-                    Click="Btn_invitado" RenderTransformOrigin="0.766,0.547" Margin="640,484,502,196">
+                    Click="Invitado" RenderTransformOrigin="0.766,0.547" Margin="640,484,372,196">
                     <Button.Effect>
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>

@@ -121,7 +121,7 @@
     <value>Registrarme</value>
   </data>
   <data name="Btn_IniciarSesión" xml:space="preserve">
-    <value>IniciarSesión</value>
+    <value>Iniciar Sesión</value>
   </data>
   <data name="Btn_Invitado" xml:space="preserve">
     <value>Invitado</value>
@@ -146,5 +146,26 @@
   </data>
   <data name="Title_Inicio" xml:space="preserve">
     <value>Inicio</value>
+  </data>
+  <data name="Title_InicioSesion" xml:space="preserve">
+    <value>Inicio Sesion</value>
+  </data>
+  <data name="Btn_OlvideMiContrasena" xml:space="preserve">
+    <value>Olvide Mi Contraseña</value>
+  </data>
+  <data name="Title_Registro" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="Lbl_Nombre" xml:space="preserve">
+    <value>Nombre(s)</value>
+  </data>
+  <data name="Lbl_Apellidos" xml:space="preserve">
+    <value>Apellido(s)</value>
+  </data>
+  <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="PoliticaContraseña" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
   </data>
 </root>

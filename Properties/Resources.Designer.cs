@@ -88,7 +88,7 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a IniciarSesión.
+        ///   Busca una cadena traducida similar a Iniciar Sesión.
         /// </summary>
         public static string Btn_IniciarSesión {
             get {
@@ -106,11 +106,29 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Olvide Mi Contraseña.
+        /// </summary>
+        public static string Btn_OlvideMiContrasena {
+            get {
+                return ResourceManager.GetString("Btn_OlvideMiContrasena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Registrarme.
         /// </summary>
         public static string Btn_Registrarme {
             get {
                 return ResourceManager.GetString("Btn_Registrarme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Apellido(s).
+        /// </summary>
+        public static string Lbl_Apellidos {
+            get {
+                return ResourceManager.GetString("Lbl_Apellidos", resourceCulture);
             }
         }
         
@@ -133,6 +151,33 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nombre(s).
+        /// </summary>
+        public static string Lbl_Nombre {
+            get {
+                return ResourceManager.GetString("Lbl_Nombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de usuario.
+        /// </summary>
+        public static string Lbl_NombreUsuarioRegistro {
+            get {
+                return ResourceManager.GetString("Lbl_NombreUsuarioRegistro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial..
+        /// </summary>
+        public static string Lbl_PoliticaContraseña {
+            get {
+                return ResourceManager.GetString("Lbl_PoliticaContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Password.
         /// </summary>
         public static string Lbl_TituloJuegoGlobal {
@@ -147,6 +192,24 @@ namespace Cliente.Properties {
         public static string Title_Inicio {
             get {
                 return ResourceManager.GetString("Title_Inicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inicio Sesion.
+        /// </summary>
+        public static string Title_InicioSesion {
+            get {
+                return ResourceManager.GetString("Title_InicioSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Registro.
+        /// </summary>
+        public static string Title_Registro {
+            get {
+                return ResourceManager.GetString("Title_Registro", resourceCulture);
             }
         }
     }
