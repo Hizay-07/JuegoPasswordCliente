@@ -18,9 +18,9 @@ namespace Cliente.Vistas
     /// <summary>
     /// Lógica de interacción para Registro.xaml
     /// </summary>
-    public partial class Registro : Page
+    public partial class VentanaRegistro : Page
     {
-        public Registro()
+        public VentanaRegistro()
         {
             InitializeComponent();
         }
@@ -32,10 +32,13 @@ namespace Cliente.Vistas
 
         private void CancelarRegistro(object sender, RoutedEventArgs e)
         {
-            Inicio inicioPage = new Inicio();
+            VentanaInicio inicioPage = new VentanaInicio();
             this.NavigationService.Navigate(inicioPage);
         }
 
-        
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

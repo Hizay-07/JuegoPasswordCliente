@@ -5,29 +5,30 @@ using System.Windows.Controls;
 namespace Cliente.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para Inicio.xaml
+    /// Lógica de interacción para VentanaInicio.xaml
     /// </summary>
-    public partial class Inicio : Page
+    public partial class VentanaInicio : Page
     {
-        public Inicio()
+        public VentanaInicio()
         {
             InitializeComponent();
         }
 
         private void RegistrarUsuario(object sender, RoutedEventArgs e)
         {
-            Registro registroPage = new Registro();
+            VentanaRegistro registroPage = new VentanaRegistro();
             this.NavigationService.Navigate(registroPage);
         }
 
         private void IniciarSesion(object sender, RoutedEventArgs e)
         {
-            InicioSesion inicioSesionPage = new InicioSesion();
+            VentanaInicioSesion inicioSesionPage = new VentanaInicioSesion();
             this.NavigationService.Navigate(inicioSesionPage);
         }
 
         private void Invitado(object sender, RoutedEventArgs e)
         {
+
         }
     }
 }
