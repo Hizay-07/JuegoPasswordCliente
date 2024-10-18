@@ -20,10 +20,10 @@ namespace Cliente.Vistas
     /// <summary>
     /// Lógica de interacción para Lobby.xaml
     /// </summary>
-    public partial class Lobby : Page,ServidorPassword.IServicioChatCallback
+    public partial class VentanaLobby : Page,ServidorPassword.IServicioChatCallback
     {
         private ServidorPassword.ServicioChatClient servicioChat;
-        public Lobby()
+        public VentanaLobby()
         {
             InitializeComponent();
             InstanceContext contexto = new InstanceContext(this);

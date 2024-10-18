@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Oscar Hizay\Desktop\Clientegg\ClienteVentanaInicioSesionCompleta\ClienteVentanaInicioSesionCompleta\ClienteVentanaInicioSesionCompleta\ClienteVentanaInicioSesion\Cliente\obj\Debug\
+C:\Users\Oscar Hizay\Desktop\Cliente\obj\Debug\
 Cliente
 none
 false
 DEBUG;TRACE
-C:\Users\Oscar Hizay\Desktop\Clientegg\ClienteVentanaInicioSesionCompleta\ClienteVentanaInicioSesionCompleta\ClienteVentanaInicioSesionCompleta\ClienteVentanaInicioSesion\Cliente\App.xaml
-51935454389
+C:\Users\Oscar Hizay\Desktop\Cliente\App.xaml
+5-175131191
 
-131597450311
+132049400983
 15-472223226
-MainWindow.xaml;Vistas\Inicio.xaml;Vistas\InicioSesion.xaml;Vistas\Lobby.xaml;Vistas\Registro.xaml;
+MainWindow.xaml;Vistas\VentanaInicio.xaml;Vistas\VentanaInicioSesion.xaml;Vistas\VentanaLobby.xaml;Vistas\VentanaRegistro.xaml;
 
-False
+True
 

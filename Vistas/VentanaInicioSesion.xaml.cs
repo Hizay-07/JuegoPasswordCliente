@@ -19,9 +19,9 @@ namespace Cliente.Vistas
     /// <summary>
     /// Lógica de interacción para InicioSesion.xaml
     /// </summary>
-    public partial class InicioSesion : Page,ServidorPassword.IServicioChatCallback
+    public partial class VentanaInicioSesion : Page,ServidorPassword.IServicioChatCallback
     {
-        public InicioSesion()
+        public VentanaInicioSesion()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace Cliente.Vistas
 
         private void CancelarInicioDeSesion(object sender, RoutedEventArgs e)
         {
-            Inicio inicioPage = new Inicio();
+            VentanaInicio inicioPage = new VentanaInicio();
             this.NavigationService.Navigate(inicioPage);
         }
 
@@ -54,7 +54,7 @@ namespace Cliente.Vistas
             acceso.contrasenia = Txb_Contrasenia.Text;
             if (proxy.ValidarInicioDeSesion(acceso) == 1)
             {
-                Lobby sala = new Lobby();
+                VentanaLobby sala = new VentanaLobby();
                 this.NavigationService.Navigate(sala);
             }
         }
