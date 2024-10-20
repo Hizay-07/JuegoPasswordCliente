@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:Cliente.Vistas"
       xmlns:p="clr-namespace:Cliente.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="{x:Static p:Resources.Title_Registro}">
+      d:DesignHeight="720" d:DesignWidth="1280"  
+    Title="{x:Static p:Resources.Title_Registro}">
 
     <DockPanel>
         <Border CornerRadius="20">
@@ -15,172 +15,134 @@
                 <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
             </Border.Background>
 
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="417" Width="720">
-                    <Label Content="{x:Static p:Resources.Title_Registro}"
-                           Background="#6c6c6c"
-                           Foreground="White"
-                           FontWeight="Bold"
-                           FontSize="24"
-                           HorizontalAlignment="Center"
-                           Margin="0,20,0,20"
-                           Padding="10"
-                           BorderBrush="Transparent" />
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="397" Width="1058">
+                <Label Content="{x:Static p:Resources.Title_Registro}"
+                       Background="#6c6c6c"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       FontSize="45"
+                       HorizontalAlignment="Left"
+                       Margin="446,-125,0,437"
+                       Padding="10"
+                       BorderBrush="Transparent" Width="228" />
 
-                    <Grid Width="543">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="40" />
-                            <!-- Ajustar altura -->
-                            <RowDefinition Height="40" />
-                            <RowDefinition Height="40" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                <Label Content="{x:Static p:Resources.Lbl_Nombre}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Margin="0,3,911,0" Width="147" />
+                <TextBox Foreground="Black" 
+                         FontSize="25"
+                         Margin="231,3,16,348" />
 
-                        <!-- Nombre -->
-                        <Label Content="{x:Static p:Resources.Lbl_Nombre}"
-                            Background="#3b92c4"
-                            Foreground="Beige"
-                            FontWeight="Bold"
-                            FontSize="14"
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Padding="5"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center" />
-                        <TextBox Grid.Row="0" Grid.Column="1"                                  
-                                 Foreground="White" 
-                                 FontSize="16"
-                                 Margin="24,0,10,20" />
+                <Label Content="{x:Static p:Resources.Lbl_Apellidos}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Margin="0,67,911,0" RenderTransformOrigin="-0.436,0.898" Width="147" />
 
-                        <!-- Apellidos -->
-                        <Label Content="{x:Static p:Resources.Lbl_Apellidos}"
-                            Background="#3b92c4"
-                            Foreground="Beige"
-                            FontWeight="Bold"
-                            FontSize="14"
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Padding="5"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center" />
-                        <TextBox Grid.Row="1" Grid.Column="1"
-                                 Foreground="White"
-                                 FontSize="16"
-                                 Margin="24,0,10,20" />
+                <TextBox Foreground="Black"
+                         FontSize="25"
+                         Margin="231,143,16,211" />
 
-                        <!-- Nombre de Usuario -->
-                        <Label Content="{x:Static p:Resources.Lbl_NombreUsuarioRegistro}"
-                            Background="#3b92c4"
-                            Foreground="Beige"
-                            FontWeight="Bold"
-                            FontSize="14"
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            Padding="5"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center" />
-                        <TextBox Grid.Row="2" Grid.Column="1"
-                                 Foreground="White"
-                                 FontSize="16"
-                                 Margin="24,0,10,20" />
+                <Label Content="{x:Static p:Resources.Lbl_NombreUsuarioRegistro}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="23"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="0,210,0,0" />
+                <TextBox Foreground="Black"
+                         FontSize="25"
+                         Margin="231,69,16,281" />
 
-                        <!-- Correo -->
-                        <Label Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
-                            Background="#3b92c4"
-                            Foreground="Beige"
-                            FontWeight="Bold"
-                            FontSize="14"
-                            Grid.Row="3"
-                            Grid.Column="0"
-                            Padding="5"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center" />
-                        <TextBox Grid.Row="3" Grid.Column="1"
-                                 Foreground="White"
-                                 FontSize="16"
-                                 Margin="24,0,10,20" />
+                <Label Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Margin="0,143,921,0" RenderTransformOrigin="-0.78,0.462" Width="137" />
+                <TextBox Foreground="Black"
+                         FontSize="25"
+                         Margin="231,210,14,143" />
 
-                        <!-- Contraseña -->
-                        <Label Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
-                            Background="#3b92c4"
-                            Foreground="Beige"
-                            FontWeight="Bold"
-                            FontSize="14"
-                            Grid.Row="4"
-                            Grid.Column="0"
-                            Padding="5"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Center" />
-                        <TextBox Grid.Row="4" Grid.Column="1"
-                                 Foreground="White"
-                                 FontSize="16"
-                                 Margin="24,0,10,20" />
-                    </Grid>
+                <Label Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Margin="0,276,911,0" Width="147" />
+                <TextBox Foreground="Black"
+                         FontSize="25"
+                         Margin="229,272,16,82" />
 
-                    <!-- Política de Contraseña -->
-                    <Label Content="{x:Static p:Resources.Lbl_PoliticaContraseña}" 
-                        Foreground="White" 
-                        FontSize="12"
-                        Width="569" Height="34" 
-                        HorizontalAlignment="Center"
-                        Margin="0,10,0,0" />
+                <Label Content="{x:Static p:Resources.Lbl_PoliticaContraseña}" 
+                       Foreground="White" 
+                       FontSize="20"
+                       HorizontalAlignment="Left"
+                       Margin="10,339,0,10" Width="952" />
 
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,20,0,0">
-                        <Button Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
-                                Width="120" Height="40"
-                                Background="LightGreen"
-                                Foreground="White"
-                                FontWeight="Bold"
-                                FontSize="16"
-                                BorderThickness="0"
-                                Click="AceptarRegistro">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}" 
-                                        CornerRadius="10" 
-                                        BorderThickness="0">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
+                <Button Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
+                        Width="143"
+                        Background="LightGreen"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="25"
+                        BorderThickness="0"
+                        HorizontalAlignment="Left"
+                        Margin="370,424,0,-91"
+                        Click="AceptarRegistro">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="10" 
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
 
-                            <Button.Effect>
-                                <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
-                            </Button.Effect>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
 
-                        </Button>
+                <Button Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
+                        Width="147"
+                        Background="Red"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="25"
+                        HorizontalAlignment="Left"
+                        Margin="601,427,0,-91"
+                        BorderThickness="0"
+                        Click="CancelarRegistro">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="10" 
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
 
-                        <Button Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
-                                Width="120" Height="40"
-                                Background="Red"
-                                Foreground="White"
-                                FontWeight="Bold"
-                                FontSize="16"
-                                Margin="20,0,0,0"
-                                BorderThickness="0"
-                                Click="CancelarRegistro">
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}" 
-                                        CornerRadius="10" 
-                                        BorderThickness="0">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
 
-                            <Button.Effect>
-                                <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
-                            </Button.Effect>
-
-                        </Button>
-                    </StackPanel>
-                </StackPanel>
             </Grid>
         </Border>
     </DockPanel>
