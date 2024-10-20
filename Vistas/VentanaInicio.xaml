@@ -15,7 +15,7 @@
                 </Border.Background>
 
                 <Button x:Name="InicioDeSesion" Content="{x:Static p:Resources.Btn_IniciarSesión}" Height="57"
-                        Background="#33c1ff"
+                        Background="#00A5CF"
                         Foreground="Black"
                         FontWeight="Bold"
                         FontSize="20"
@@ -58,7 +58,7 @@
 
 
                 <Button x:Name="Registrarme" Content="{x:Static p:Resources.Btn_Registrarme}"
-                        Background="#33c1ff"
+                        Background="#00FFB3"
                         Foreground="Black"
                         FontWeight="Bold"
                         FontSize="20"
@@ -78,7 +78,7 @@
                 </Button>
 
                 <Button x:Name="IniciarInvitado" Content="{x:Static p:Resources.Btn_Invitado}" Height="40"
-                    Background="#33c1ff"
+                    Background="Gray"
                     Foreground="Black"
                     FontWeight="Bold"
                     FontSize="20"
