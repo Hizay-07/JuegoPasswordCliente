@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Btn_Registrarme" xml:space="preserve">
-    <value>Registrarme</value>
-  </data>
   <data name="Btn_IniciarSesión" xml:space="preserve">
     <value>Iniciar Sesión</value>
   </data>
@@ -151,7 +148,7 @@
     <value>Inicio Sesión</value>
   </data>
   <data name="Btn_OlvideMiContrasena" xml:space="preserve">
-    <value>Olvidé mi constraseña</value>
+    <value>Olvidé Mi Contraseña</value>
   </data>
   <data name="Title_Registro" xml:space="preserve">
     <value>Registro</value>
@@ -167,5 +164,8 @@
   </data>
   <data name="Lbl_PoliticaContraseña" xml:space="preserve">
     <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
+  </data>
+  <data name="Btn_Registrarme" xml:space="preserve">
+    <value>Registrarme</value>
   </data>
 </root>

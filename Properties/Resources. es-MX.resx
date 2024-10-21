@@ -117,55 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Btn_Registrarme" xml:space="preserve">
+    <value>Registrarme</value>
+  </data>
   <data name="Btn_IniciarSesión" xml:space="preserve">
-    <value>Login</value>
+    <value>Iniciar Sesión</value>
   </data>
   <data name="Btn_Invitado" xml:space="preserve">
-    <value>Guest</value>
+    <value>Invitado</value>
   </data>
   <data name="Btn_Enviar" xml:space="preserve">
-    <value>Send</value>
+    <value>Enviar</value>
   </data>
   <data name="Btn_AceptarGlobal" xml:space="preserve">
-    <value>Accept</value>
+    <value>Aceptar</value>
   </data>
   <data name="Btn_CancelarGlobal" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Cancelar</value>
   </data>
   <data name="Lbl_CorreoGlobal" xml:space="preserve">
-    <value>Email</value>
+    <value>Correo</value>
   </data>
   <data name="Lbl_ContraseñaGlobal" xml:space="preserve">
-    <value>Password</value>
+    <value>Contraseña</value>
   </data>
   <data name="Lbl_TituloJuegoGlobal" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="Title_Inicio" xml:space="preserve">
-    <value>Home</value>
+    <value>Inicio</value>
   </data>
   <data name="Title_InicioSesion" xml:space="preserve">
-    <value>Login</value>
+    <value>Inicio Sesion</value>
   </data>
   <data name="Btn_OlvideMiContrasena" xml:space="preserve">
-    <value>Forgot my password</value>
+    <value>Olvide Mi Contraseña</value>
   </data>
   <data name="Title_Registro" xml:space="preserve">
-    <value>Sing in</value>
+    <value>Registro</value>
   </data>
   <data name="Lbl_Nombre" xml:space="preserve">
-    <value>Name</value>
+    <value>Nombre(s)</value>
   </data>
   <data name="Lbl_Apellidos" xml:space="preserve">
-    <value>Lastnames</value>
+    <value>Apellido(s)</value>
   </data>
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
-    <value>Username</value>
+    <value>Nombre de usuario</value>
   </data>
   <data name="Lbl_PoliticaContraseña" xml:space="preserve">
-    <value>The password must be at least 8 characters, one capital letter, one number and one special character.</value>
-  </data>
-  <data name="Btn_Registrarme" xml:space="preserve">
-    <value>Register</value>
+    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
   </data>
 </root>
