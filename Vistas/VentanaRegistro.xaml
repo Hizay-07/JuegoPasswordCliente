@@ -34,7 +34,8 @@
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
                        Margin="0,3,911,0" Width="147" />
-                <TextBox Foreground="Black" 
+                <TextBox Name="Txb_Nombre"
+                         Foreground="Black" 
                          FontSize="25"
                          Margin="231,3,16,348" />
 
@@ -47,7 +48,8 @@
                        VerticalAlignment="Top"
                        Margin="0,67,911,0" RenderTransformOrigin="-0.436,0.898" Width="147" />
 
-                <TextBox Foreground="Black"
+                <TextBox Name="Txb_Correo"
+                         Foreground="Black"
                          FontSize="25"
                          Margin="231,143,16,211" />
 
@@ -59,7 +61,8 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
                        Margin="0,210,0,0" />
-                <TextBox Foreground="Black"
+                <TextBox Name="Txb_Apellidos"
+                         Foreground="Black"
                          FontSize="25"
                          Margin="231,69,16,281" />
 
@@ -71,7 +74,8 @@
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
                        Margin="0,143,921,0" RenderTransformOrigin="-0.78,0.462" Width="137" />
-                <TextBox Foreground="Black"
+                <TextBox Name="Txb_NombreUsuario"
+                         Foreground="Black"
                          FontSize="25"
                          Margin="231,210,14,143" />
 
@@ -83,7 +87,8 @@
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
                        Margin="0,276,911,0" Width="147" />
-                <TextBox Foreground="Black"
+                <TextBox Name="Txb_Contrasenia"
+                         Foreground="Black"
                          FontSize="25"
                          Margin="229,272,16,82" />
 
@@ -93,7 +98,8 @@
                        HorizontalAlignment="Left"
                        Margin="10,339,0,10" Width="952" />
 
-                <Button Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
+                <Button Name="Btn_Aceptar"
+                        Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
                         Width="143"
                         Background="LightGreen"
                         Foreground="White"
@@ -118,7 +124,8 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
+                <Button Name="Txb_Cancelar"
+                        Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
                         Width="147"
                         Background="Red"
                         Foreground="White"

@@ -46,9 +46,9 @@
                        VerticalAlignment="Top"
                        Margin="0,154,901,0" RenderTransformOrigin="-0.436,0.898" Width="147" />
 
-                <TextBox Name="Txb_Contrasenia" Foreground="Black"
+                <PasswordBox Name="Pwd_Contrasenia" Foreground="Black"
                          FontSize="25"
-                         Margin="231,143,16,211" />
+                         Margin="231,156,16,199" />
 
                 <Button Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
                         Width="143"

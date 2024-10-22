@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cliente.Auxiliares;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -19,15 +20,13 @@ namespace Cliente.Vistas
     /// <summary>
     /// Lógica de interacción para InicioSesion.xaml
     /// </summary>
-    public partial class VentanaInicioSesion : Page,ServidorPassword.IServicioChatCallback
+    public partial class VentanaInicioSesion : Page
     {
         public VentanaInicioSesion()
         {
             InitializeComponent();
         }
-
         
-
         private void CancelarInicioDeSesion(object sender, RoutedEventArgs e)
         {
             VentanaInicio inicioPage = new VentanaInicio();
@@ -37,26 +36,28 @@ namespace Cliente.Vistas
         private void Btn_OlvideMiContrasena(object sender, RoutedEventArgs e)
         {
 
-        }
-
-       
-
-        public void Responder(string respuesta)
-        {
-            throw new NotImplementedException();
-        }
+        }               
 
         private void AceptarInicioDeSesion(object sender, RoutedEventArgs e)
         {
             ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
             ServidorPassword.Acceso acceso = new ServidorPassword.Acceso();
             acceso.correo = Txb_Correo.Text;
-            acceso.contrasenia = Txb_Contrasenia.Text;
+            acceso.contrasenia = Pwd_Contrasenia.Password;
             if (proxy.ValidarInicioDeSesion(acceso) == 1)
             {
+                ObtenerJugadorSingleton(acceso.correo);
                 VentanaLobby sala = new VentanaLobby();
                 this.NavigationService.Navigate(sala);
             }
         }
+
+        private void ObtenerJugadorSingleton(string correo)
+        {
+            ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
+            ServidorPassword.Cuenta cuenta = proxy.RecuperarCuentaPorCorreo(correo);
+            JugadorSingleton.jugadorSingleton.CrearJugadorSingleton(cuenta);
+        }
+
     }
 }
