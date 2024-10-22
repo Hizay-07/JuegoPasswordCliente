@@ -117,11 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Btn_Registrarme" xml:space="preserve">
-    <value>Sign up</value>
-  </data>
   <data name="Btn_IniciarSesión" xml:space="preserve">
-    <value>Sign in</value>
+    <value>Login</value>
   </data>
   <data name="Btn_Invitado" xml:space="preserve">
     <value>Guest</value>
@@ -148,24 +145,27 @@
     <value>Home</value>
   </data>
   <data name="Title_InicioSesion" xml:space="preserve">
-    <value>Sign up</value>
+    <value>Login</value>
   </data>
   <data name="Btn_OlvideMiContrasena" xml:space="preserve">
-    <value>ForgetMyPassword</value>
+    <value>Forgot my password</value>
   </data>
   <data name="Title_Registro" xml:space="preserve">
-    <value>Sign up</value>
+    <value>Sing in</value>
   </data>
   <data name="Lbl_Nombre" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="Lbl_Apellidos" xml:space="preserve">
-    <value>Last name</value>
+    <value>Lastnames</value>
   </data>
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="PoliticaContraseña" xml:space="preserve">
+  <data name="Lbl_PoliticaContraseña" xml:space="preserve">
     <value>The password must be at least 8 characters, one capital letter, one number and one special character.</value>
+  </data>
+  <data name="Btn_Registrarme" xml:space="preserve">
+    <value>Register</value>
   </data>
 </root>
