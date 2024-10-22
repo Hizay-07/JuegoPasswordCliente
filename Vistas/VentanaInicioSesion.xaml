@@ -21,9 +21,9 @@
                        FontWeight="Bold"
                        FontSize="45"
                        HorizontalAlignment="Left"
-                       Margin="446,-125,0,437"
+                       Margin="370,-122,0,434"
                        Padding="10"
-                       BorderBrush="Transparent" Width="228" />
+                       BorderBrush="Transparent" Width="302" />
 
                 <Label Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
                        Background="#3b92c4"
@@ -33,7 +33,7 @@
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
                        Margin="0,3,911,0" Width="147" />
-                <TextBox Foreground="Black" 
+                <TextBox Name="Txb_Correo" Foreground="Black" 
                          FontSize="25"
                          Margin="231,3,16,348" />
 
@@ -44,9 +44,9 @@
                        FontSize="25"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
-                       Margin="0,67,911,0" RenderTransformOrigin="-0.436,0.898" Width="147" />
+                       Margin="0,154,901,0" RenderTransformOrigin="-0.436,0.898" Width="147" />
 
-                <TextBox Foreground="Black"
+                <TextBox Name="Txb_Contrasenia" Foreground="Black"
                          FontSize="25"
                          Margin="231,143,16,211" />
 
