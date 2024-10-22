@@ -168,4 +168,25 @@
   <data name="Btn_Registrarme" xml:space="preserve">
     <value>Registrarme</value>
   </data>
+  <data name="Title_PersonalizarPerfil" xml:space="preserve">
+    <value>Personalizar perfil</value>
+  </data>
+  <data name="Lbl_PersonalizarPerfil" xml:space="preserve">
+    <value>Personalizar perfil</value>
+  </data>
+  <data name="Lbl_DescripcionPerfil" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Lbl_NombreUsuarioPerfil" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="Btn_CambiarContrasenia" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="Btn_GuardarCambios" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
+  <data name="Lbl_MensajeContraseñaPerfil" xml:space="preserve">
+    <value>La contraseña ha sido cambiada correctamente</value>
+  </data>
 </root>

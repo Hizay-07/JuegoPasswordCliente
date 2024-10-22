@@ -70,6 +70,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cambiar contraseña.
+        /// </summary>
+        public static string Btn_CambiarContrasenia {
+            get {
+                return ResourceManager.GetString("Btn_CambiarContrasenia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cancelar.
         /// </summary>
         public static string Btn_CancelarGlobal {
@@ -84,6 +93,15 @@ namespace Cliente.Properties {
         public static string Btn_Enviar {
             get {
                 return ResourceManager.GetString("Btn_Enviar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guardar cambios.
+        /// </summary>
+        public static string Btn_GuardarCambios {
+            get {
+                return ResourceManager.GetString("Btn_GuardarCambios", resourceCulture);
             }
         }
         
@@ -151,6 +169,24 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Descripción.
+        /// </summary>
+        public static string Lbl_DescripcionPerfil {
+            get {
+                return ResourceManager.GetString("Lbl_DescripcionPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña ha sido cambiada correctamente.
+        /// </summary>
+        public static string Lbl_MensajeContraseñaPerfil {
+            get {
+                return ResourceManager.GetString("Lbl_MensajeContraseñaPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombre(s).
         /// </summary>
         public static string Lbl_Nombre {
@@ -162,9 +198,27 @@ namespace Cliente.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Nombre de usuario.
         /// </summary>
+        public static string Lbl_NombreUsuarioPerfil {
+            get {
+                return ResourceManager.GetString("Lbl_NombreUsuarioPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de usuario.
+        /// </summary>
         public static string Lbl_NombreUsuarioRegistro {
             get {
                 return ResourceManager.GetString("Lbl_NombreUsuarioRegistro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Personalizar perfil.
+        /// </summary>
+        public static string Lbl_PersonalizarPerfil {
+            get {
+                return ResourceManager.GetString("Lbl_PersonalizarPerfil", resourceCulture);
             }
         }
         
@@ -201,6 +255,15 @@ namespace Cliente.Properties {
         public static string Title_InicioSesion {
             get {
                 return ResourceManager.GetString("Title_InicioSesion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Personalizar perfil.
+        /// </summary>
+        public static string Title_PersonalizarPerfil {
+            get {
+                return ResourceManager.GetString("Title_PersonalizarPerfil", resourceCulture);
             }
         }
         
