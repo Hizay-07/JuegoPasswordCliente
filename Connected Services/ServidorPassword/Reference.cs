@@ -1372,6 +1372,195 @@ namespace Cliente.ServidorPassword {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Cuenta", Namespace="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares")]
+    [System.SerializableAttribute()]
+    public partial class Cuenta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ApellidosField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ContraseniaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CorreoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescripcionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdAccesoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdJugadorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdPerfilField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NombreUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RutaImagenField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Apellidos {
+            get {
+                return this.ApellidosField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApellidosField, value) != true)) {
+                    this.ApellidosField = value;
+                    this.RaisePropertyChanged("Apellidos");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Contrasenia {
+            get {
+                return this.ContraseniaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ContraseniaField, value) != true)) {
+                    this.ContraseniaField = value;
+                    this.RaisePropertyChanged("Contrasenia");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Correo {
+            get {
+                return this.CorreoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CorreoField, value) != true)) {
+                    this.CorreoField = value;
+                    this.RaisePropertyChanged("Correo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion {
+            get {
+                return this.DescripcionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescripcionField, value) != true)) {
+                    this.DescripcionField = value;
+                    this.RaisePropertyChanged("Descripcion");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdAcceso {
+            get {
+                return this.IdAccesoField;
+            }
+            set {
+                if ((this.IdAccesoField.Equals(value) != true)) {
+                    this.IdAccesoField = value;
+                    this.RaisePropertyChanged("IdAcceso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdJugador {
+            get {
+                return this.IdJugadorField;
+            }
+            set {
+                if ((this.IdJugadorField.Equals(value) != true)) {
+                    this.IdJugadorField = value;
+                    this.RaisePropertyChanged("IdJugador");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdPerfil {
+            get {
+                return this.IdPerfilField;
+            }
+            set {
+                if ((this.IdPerfilField.Equals(value) != true)) {
+                    this.IdPerfilField = value;
+                    this.RaisePropertyChanged("IdPerfil");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre {
+            get {
+                return this.NombreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
+                    this.NombreField = value;
+                    this.RaisePropertyChanged("Nombre");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NombreUsuario {
+            get {
+                return this.NombreUsuarioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NombreUsuarioField, value) != true)) {
+                    this.NombreUsuarioField = value;
+                    this.RaisePropertyChanged("NombreUsuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RutaImagen {
+            get {
+                return this.RutaImagenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RutaImagenField, value) != true)) {
+                    this.RutaImagenField = value;
+                    this.RaisePropertyChanged("RutaImagen");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServidorPassword.IServicioChat", CallbackContract=typeof(Cliente.ServidorPassword.IServicioChatCallback))]
     public interface IServicioChat {
@@ -1432,10 +1621,10 @@ namespace Cliente.ServidorPassword {
     public interface IServicioGestionAcceso {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugador", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugadorResponse")]
-        void RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador);
+        int RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugador", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugadorResponse")]
-        System.Threading.Tasks.Task RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador);
+        System.Threading.Tasks.Task<int> RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/ValidarInicioDeSesion", ReplyAction="http://tempuri.org/IServicioGestionAcceso/ValidarInicioDeSesionResponse")]
         int ValidarInicioDeSesion(Cliente.ServidorPassword.Acceso acceso);
@@ -1460,6 +1649,12 @@ namespace Cliente.ServidorPassword {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/ValidarNombreUsuario", ReplyAction="http://tempuri.org/IServicioGestionAcceso/ValidarNombreUsuarioResponse")]
         System.Threading.Tasks.Task<bool> ValidarNombreUsuarioAsync(string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorCorreo", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorCorreoResponse")]
+        Cliente.ServidorPassword.Cuenta RecuperarCuentaPorCorreo(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorCorreo", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorCorreoResponse")]
+        System.Threading.Tasks.Task<Cliente.ServidorPassword.Cuenta> RecuperarCuentaPorCorreoAsync(string correo);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1489,11 +1684,11 @@ namespace Cliente.ServidorPassword {
                 base(binding, remoteAddress) {
         }
         
-        public void RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador) {
-            base.Channel.RegistrarNuevoJugador(acceso, perfil, jugador);
+        public int RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador) {
+            return base.Channel.RegistrarNuevoJugador(acceso, perfil, jugador);
         }
         
-        public System.Threading.Tasks.Task RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador) {
+        public System.Threading.Tasks.Task<int> RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador) {
             return base.Channel.RegistrarNuevoJugadorAsync(acceso, perfil, jugador);
         }
         
@@ -1527,6 +1722,14 @@ namespace Cliente.ServidorPassword {
         
         public System.Threading.Tasks.Task<bool> ValidarNombreUsuarioAsync(string nombreUsuario) {
             return base.Channel.ValidarNombreUsuarioAsync(nombreUsuario);
+        }
+        
+        public Cliente.ServidorPassword.Cuenta RecuperarCuentaPorCorreo(string correo) {
+            return base.Channel.RecuperarCuentaPorCorreo(correo);
+        }
+        
+        public System.Threading.Tasks.Task<Cliente.ServidorPassword.Cuenta> RecuperarCuentaPorCorreoAsync(string correo) {
+            return base.Channel.RecuperarCuentaPorCorreoAsync(correo);
         }
     }
 }

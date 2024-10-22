@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Oscar Hizay\Desktop\Cliente\obj\Debug\
+C:\Users\mario\Desktop\JuegoPasswordCliente\obj\Debug\
 Cliente
 none
 false
 DEBUG;TRACE
-C:\Users\Oscar Hizay\Desktop\Cliente\App.xaml
+C:\Users\mario\Desktop\JuegoPasswordCliente\App.xaml
 5-175131191
 
-132049400983
-15-472223226
+17-2084485790
+19-1615373198
 MainWindow.xaml;Vistas\VentanaInicio.xaml;Vistas\VentanaInicioSesion.xaml;Vistas\VentanaLobby.xaml;Vistas\VentanaRegistro.xaml;
 
-True
+False
 

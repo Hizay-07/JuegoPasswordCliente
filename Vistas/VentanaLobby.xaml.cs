@@ -1,4 +1,5 @@
-﻿using Cliente.ServidorPassword;
+﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +23,15 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaLobby : Page,ServidorPassword.IServicioChatCallback
     {
-        private ServidorPassword.ServicioChatClient servicioChat;
+        private ServidorPassword.ServicioChatClient _servicioChat;
         public VentanaLobby()
         {
             InitializeComponent();
             InstanceContext contexto = new InstanceContext(this);
-            servicioChat = new ServidorPassword.ServicioChatClient(contexto);
-            servicioChat.Chatear("Un nuevo usuario se ha conectado");
+            _servicioChat = new ServidorPassword.ServicioChatClient(contexto);
+            string nombreUsuario = JugadorSingleton.NombreUsuario;
+            string mensajeInicial = $"{nombreUsuario} se ha conectado.";
+            _servicioChat.Chatear(mensajeInicial);
         }
 
         public void Responder(string respuesta)
@@ -38,11 +41,10 @@ namespace Cliente.Vistas
 
         private void EnviarMensaje(object sender, RoutedEventArgs e)
         {
-            String mensaje = Txb_Mensaje.Text;
+            string nombreUsuario = JugadorSingleton.NombreUsuario;
+            string mensaje = $"{nombreUsuario}: " + Txb_Mensaje.Text;
             Txb_Mensaje.Text = string.Empty;
-            servicioChat.Chatear(mensaje);
-        }
-
-       
+            _servicioChat.Chatear(mensaje);
+        }       
     }
 }
