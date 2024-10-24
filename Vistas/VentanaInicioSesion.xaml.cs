@@ -47,8 +47,8 @@ namespace Cliente.Vistas
             if (proxy.ValidarInicioDeSesion(acceso) == 1)
             {
                 ObtenerJugadorSingleton(acceso.correo);
-                VentanaLobby sala = new VentanaLobby();
-                this.NavigationService.Navigate(sala);
+                VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+                this.NavigationService.Navigate(paginaMenuPrincipal);
             }
         }
 
