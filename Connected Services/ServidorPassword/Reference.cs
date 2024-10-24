@@ -1732,4 +1732,117 @@ namespace Cliente.ServidorPassword {
             return base.Channel.RecuperarCuentaPorCorreoAsync(correo);
         }
     }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServidorPassword.IServicioPersonalizacionPerfil")]
+    public interface IServicioPersonalizacionPerfil {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarCorreoPorIdAcceso", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarCorreoPorIdAccesoResponse" +
+            "")]
+        int EditarCorreoPorIdAcceso(int idAcceso, string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarCorreoPorIdAcceso", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarCorreoPorIdAccesoResponse" +
+            "")]
+        System.Threading.Tasks.Task<int> EditarCorreoPorIdAccesoAsync(int idAcceso, string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfilRes" +
+            "ponse")]
+        int EditarDescripcionPorIdPerfil(int idPerfil, string descripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfilRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<int> EditarDescripcionPorIdPerfilAsync(int idPerfil, string descripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfilR" +
+            "esponse")]
+        int EditarNombreUsuarioPorIdPerfil(int idPerfil, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfilR" +
+            "esponse")]
+        System.Threading.Tasks.Task<int> EditarNombreUsuarioPorIdPerfilAsync(int idPerfil, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfilResp" +
+            "onse")]
+        int EditarRutaImagenPorIdPerfil(int idPerfil, string rutaImagen);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfilResp" +
+            "onse")]
+        System.Threading.Tasks.Task<int> EditarRutaImagenPorIdPerfilAsync(int idPerfil, string rutaImagen);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAcceso", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAccesoRes" +
+            "ponse")]
+        int EditarContraseniaPorIdAcceso(int idAcceso, string contrasenia);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAcceso", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAccesoRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<int> EditarContraseniaPorIdAccesoAsync(int idAcceso, string contrasenia);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioPersonalizacionPerfilChannel : Cliente.ServidorPassword.IServicioPersonalizacionPerfil, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioPersonalizacionPerfilClient : System.ServiceModel.ClientBase<Cliente.ServidorPassword.IServicioPersonalizacionPerfil>, Cliente.ServidorPassword.IServicioPersonalizacionPerfil {
+        
+        public ServicioPersonalizacionPerfilClient() {
+        }
+        
+        public ServicioPersonalizacionPerfilClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioPersonalizacionPerfilClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioPersonalizacionPerfilClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioPersonalizacionPerfilClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public int EditarCorreoPorIdAcceso(int idAcceso, string correo) {
+            return base.Channel.EditarCorreoPorIdAcceso(idAcceso, correo);
+        }
+        
+        public System.Threading.Tasks.Task<int> EditarCorreoPorIdAccesoAsync(int idAcceso, string correo) {
+            return base.Channel.EditarCorreoPorIdAccesoAsync(idAcceso, correo);
+        }
+        
+        public int EditarDescripcionPorIdPerfil(int idPerfil, string descripcion) {
+            return base.Channel.EditarDescripcionPorIdPerfil(idPerfil, descripcion);
+        }
+        
+        public System.Threading.Tasks.Task<int> EditarDescripcionPorIdPerfilAsync(int idPerfil, string descripcion) {
+            return base.Channel.EditarDescripcionPorIdPerfilAsync(idPerfil, descripcion);
+        }
+        
+        public int EditarNombreUsuarioPorIdPerfil(int idPerfil, string nombreUsuario) {
+            return base.Channel.EditarNombreUsuarioPorIdPerfil(idPerfil, nombreUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<int> EditarNombreUsuarioPorIdPerfilAsync(int idPerfil, string nombreUsuario) {
+            return base.Channel.EditarNombreUsuarioPorIdPerfilAsync(idPerfil, nombreUsuario);
+        }
+        
+        public int EditarRutaImagenPorIdPerfil(int idPerfil, string rutaImagen) {
+            return base.Channel.EditarRutaImagenPorIdPerfil(idPerfil, rutaImagen);
+        }
+        
+        public System.Threading.Tasks.Task<int> EditarRutaImagenPorIdPerfilAsync(int idPerfil, string rutaImagen) {
+            return base.Channel.EditarRutaImagenPorIdPerfilAsync(idPerfil, rutaImagen);
+        }
+        
+        public int EditarContraseniaPorIdAcceso(int idAcceso, string contrasenia) {
+            return base.Channel.EditarContraseniaPorIdAcceso(idAcceso, contrasenia);
+        }
+        
+        public System.Threading.Tasks.Task<int> EditarContraseniaPorIdAccesoAsync(int idAcceso, string contrasenia) {
+            return base.Channel.EditarContraseniaPorIdAccesoAsync(idAcceso, contrasenia);
+        }
+    }
 }
