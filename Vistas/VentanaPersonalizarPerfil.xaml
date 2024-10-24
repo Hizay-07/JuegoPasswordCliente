@@ -72,8 +72,7 @@
                         FontSize="25"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="231,324,0,-19"
-                        Click="CamiarContrasenia">
+                        Margin="231,324,0,-19">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 

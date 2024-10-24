@@ -73,8 +73,7 @@
                         FontSize="35"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="793,346,0,-69"
-                        Click="Jugar">
+                        Margin="793,346,0,-69">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -100,8 +99,7 @@
                         FontSize="30"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="13,402,0,-69"
-                        Click="GenerarCodigo">
+                        Margin="13,402,0,-69">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -126,7 +124,7 @@
                         HorizontalAlignment="Left"
                         Margin="793,74,0,231"
                         BorderThickness="0"
-                        Click="VerListaDeAmigos" RenderTransformOrigin="0.515,0.26">
+                        RenderTransformOrigin="0.515,0.26">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 

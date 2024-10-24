@@ -15,5 +15,15 @@ namespace Cliente.Auxiliares
             RuleFor(perfil => perfil.nombreUsuario).NotEmpty().MaximumLength(50);
             RuleFor(perfil => perfil.descripcion).MaximumLength(280);
         }
+
+        public bool ValidarDescripcion(string descripcion) 
+        {
+            return !string.IsNullOrEmpty(descripcion) && descripcion.Length <= 280;            
+        }
+
+        public bool ValidarNombreUsuario(string nombreUsuario) 
+        {
+            return !string.IsNullOrEmpty(nombreUsuario) && nombreUsuario.Length <= 50;
+        }
     }
 }
