@@ -75,6 +75,31 @@
                     </Button.Effect>
                 </Button>
 
+                <Button Content="Olvide mi contraseña" 
+                        Width="282"
+                        Background="Gray"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="25"
+                        BorderThickness="0"
+                        HorizontalAlignment="Left"
+                        Margin="719,253,0,78"
+                        Click="Btn_OlvideMiContrasena" RenderTransformOrigin="2.091,0.357">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="10" 
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+
                 <Button Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
                         Width="147"
                         Background="Red"
