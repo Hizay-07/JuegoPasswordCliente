@@ -189,4 +189,46 @@
   <data name="Lbl_MensajeContraseñaPerfil" xml:space="preserve">
     <value>The password has been changed successfully</value>
   </data>
+  <data name="VentanaEmergenteError" xml:space="preserve">
+    <value>An error has ocurred </value>
+  </data>
+  <data name="VentanaEmergenteAdvertencia" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="VentanaEmergenteExito" xml:space="preserve">
+    <value>Operation Succes</value>
+  </data>
+  <data name="VentanaEmergenteConfirmacion" xml:space="preserve">
+    <value>Action confirm</value>
+  </data>
+  <data name="MensajeCamposRequeridos" xml:space="preserve">
+    <value>Please ensure all required fields are filled.</value>
+  </data>
+  <data name="MensajeCambiosGuardados" xml:space="preserve">
+    <value>The changes have been saved.</value>
+  </data>
+  <data name="MensajeCorreoRegistrado" xml:space="preserve">
+    <value>The selected email is already registered, please try logging in.</value>
+  </data>
+  <data name="MensajeErrorBaseDeDatos" xml:space="preserve">
+    <value>No connection to the database. Please try again later.</value>
+  </data>
+  <data name="MensajeInformacionInvalida" xml:space="preserve">
+    <value>Please ensure the field information is correct.</value>
+  </data>
+  <data name="MensajeUsuarioNoDisponible" xml:space="preserve">
+    <value>The chosen username is unavailable, please select another.</value>
+  </data>
+  <data name="MensajeRegistroExitoso" xml:space="preserve">
+    <value>Your registration has been successful; you can now log in with your email and chosen password. </value>
+  </data>
+  <data name="MensajeCamposIncorrectos" xml:space="preserve">
+    <value>Please check that the information in the fields is correct. </value>
+  </data>
+  <data name="MensajeErrorConexion" xml:space="preserve">
+    <value>There is no network connection. Please try again later. </value>
+  </data>
+  <data name="MensajeEnvioContrasena" xml:space="preserve">
+    <value>A new password will be sent to the registered email. </value>
+  </data>
 </root>
