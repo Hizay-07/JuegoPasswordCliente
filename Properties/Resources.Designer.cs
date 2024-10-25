@@ -241,6 +241,96 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Los cambios han sido guardados. .
+        /// </summary>
+        public static string MensajeCambiosGuardados {
+            get {
+                return ResourceManager.GetString("MensajeCambiosGuardados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Revise que la información de los campos sea correcta..
+        /// </summary>
+        public static string MensajeCamposIncorrectos {
+            get {
+                return ResourceManager.GetString("MensajeCamposIncorrectos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Revise que todos los campos solicitados estén llenos. .
+        /// </summary>
+        public static string MensajeCamposRequeridos {
+            get {
+                return ResourceManager.GetString("MensajeCamposRequeridos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo elegido ya se encuentra registrado, intente iniciar sesión. .
+        /// </summary>
+        public static string MensajeCorreoRegistrado {
+            get {
+                return ResourceManager.GetString("MensajeCorreoRegistrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se le enviará una nueva contraseña al correo que registre..
+        /// </summary>
+        public static string MensajeEnvioContrasena {
+            get {
+                return ResourceManager.GetString("MensajeEnvioContrasena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay conexión con la base de datos. Por favor, inténtelo más tarde. .
+        /// </summary>
+        public static string MensajeErrorBaseDeDatos {
+            get {
+                return ResourceManager.GetString("MensajeErrorBaseDeDatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay conexión a la red. Por favor, inténtelo más tarde. .
+        /// </summary>
+        public static string MensajeErrorConexion {
+            get {
+                return ResourceManager.GetString("MensajeErrorConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Revise que la información de los campos sea correcta. .
+        /// </summary>
+        public static string MensajeInformacionInvalida {
+            get {
+                return ResourceManager.GetString("MensajeInformacionInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Su registro ha sido exitoso, ahora puede iniciar sesión con su correo y contraseña elegida..
+        /// </summary>
+        public static string MensajeRegistroExitoso {
+            get {
+                return ResourceManager.GetString("MensajeRegistroExitoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario elegido no está disponible, elija otro. .
+        /// </summary>
+        public static string MensajeUsuarioNoDisponible {
+            get {
+                return ResourceManager.GetString("MensajeUsuarioNoDisponible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Inicio.
         /// </summary>
         public static string Title_Inicio {
@@ -273,6 +363,42 @@ namespace Cliente.Properties {
         public static string Title_Registro {
             get {
                 return ResourceManager.GetString("Title_Registro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Advertencia.
+        /// </summary>
+        public static string VentanaEmergenteAdvertencia {
+            get {
+                return ResourceManager.GetString("VentanaEmergenteAdvertencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Confirmación de acción.
+        /// </summary>
+        public static string VentanaEmergenteConfirmacion {
+            get {
+                return ResourceManager.GetString("VentanaEmergenteConfirmacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ha ocurrido un error.
+        /// </summary>
+        public static string VentanaEmergenteError {
+            get {
+                return ResourceManager.GetString("VentanaEmergenteError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Éxito.
+        /// </summary>
+        public static string VentanaEmergenteExito {
+            get {
+                return ResourceManager.GetString("VentanaEmergenteExito", resourceCulture);
             }
         }
     }
