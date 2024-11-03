@@ -231,4 +231,10 @@
   <data name="MensajeEnvioContrasena" xml:space="preserve">
     <value>A new password will be sent to the registered email. </value>
   </data>
+  <data name="VentanaEmergenteExpulsion" xml:space="preserve">
+    <value>The player will be kicked from the game</value>
+  </data>
+  <data name="VentanaEmergenteExpulsado" xml:space="preserve">
+    <value>The player was correctly ejected</value>
+  </data>
 </root>

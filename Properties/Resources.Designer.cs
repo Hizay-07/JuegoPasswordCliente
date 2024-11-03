@@ -401,5 +401,23 @@ namespace Cliente.Properties {
                 return ResourceManager.GetString("VentanaEmergenteExito", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se expulsó al jugador correctamente.
+        /// </summary>
+        public static string VentanaEmergenteExpulsado {
+            get {
+                return ResourceManager.GetString("VentanaEmergenteExpulsado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se expulsará al juador de la partida.
+        /// </summary>
+        public static string VentanaEmergenteExpulsion {
+            get {
+                return ResourceManager.GetString("VentanaEmergenteExpulsion", resourceCulture);
+            }
+        }
     }
 }
