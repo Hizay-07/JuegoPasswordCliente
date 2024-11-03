@@ -29,5 +29,15 @@ namespace Cliente.Auxiliares
             MessageBoxResult result = MessageBox.Show(confirmMessage, Properties.Resources.VentanaEmergenteConfirmacion, MessageBoxButton.OKCancel, MessageBoxImage.Question);
             return result == MessageBoxResult.OK;
         }
+
+        public static void MostrarVentanaEmergenteExpulsion(string successMessage)
+        {
+            MessageBox.Show(successMessage, Properties.Resources.VentanaEmergenteExpulsion, MessageBoxButton.OKCancel, MessageBoxImage.Information);
+        }
+
+        public static void MostrarVentanaEmergenteExpulsado(string successMessage)
+        {
+            MessageBox.Show(successMessage, Properties.Resources.VentanaEmergenteExpulsado, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }

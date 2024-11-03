@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Oscar Hizay\Desktop\Cliente\JuegoPasswordCliente\App.xaml
-71655215446
+12-1382711023
 
-19-1455286365
+24-719805060
 19-1458451721
-MainWindow.xaml;Vistas\VentanaInicio.xaml;Vistas\VentanaInicioSesion.xaml;Vistas\VentanaLobby.xaml;Vistas\VentanaMenuPrincipal.xaml;Vistas\VentanaPersonalizarPerfil.xaml;Vistas\VentanaRegistro.xaml;
+MainWindow.xaml;Vistas\VentanaAmigos.xaml;Vistas\VentanaCodigoInvitado.xaml;Vistas\VentanaInicio.xaml;Vistas\VentanaInicioSesion.xaml;Vistas\VentanaJugadores.xaml;Vistas\VentanaLobby.xaml;Vistas\VentanaMenuPrincipal.xaml;Vistas\VentanaPerfilDeJugador.xaml;Vistas\VentanaPersonalizarPerfil.xaml;Vistas\VentanaRegistro.xaml;Vistas\VentanaSalaDeEspera.xaml;
 
 False
 
