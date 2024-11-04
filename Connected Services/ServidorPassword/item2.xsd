@@ -47,6 +47,7 @@
       <xs:element minOccurs="0" name="fechaSolicitud" type="xs:dateTime" />
       <xs:element minOccurs="0" name="idAmistad" type="xs:int" />
       <xs:element minOccurs="0" name="idJugadorAmigo" type="xs:int" />
+      <xs:element minOccurs="0" name="respuesta" nillable="true" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Amistad" nillable="true" type="tns:Amistad" />
@@ -114,7 +115,6 @@
       <xs:element minOccurs="0" name="FKidPartida" type="xs:int" />
       <xs:element minOccurs="0" name="Partida" nillable="true" type="tns:Partida" />
       <xs:element minOccurs="0" name="Respuesta" nillable="true" type="tns:ArrayOfRespuesta" />
-      <xs:element minOccurs="0" name="duracion" type="xs:int" />
       <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
       <xs:element minOccurs="0" name="pregunta1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="respuestaCorrecta" nillable="true" type="xs:string" />

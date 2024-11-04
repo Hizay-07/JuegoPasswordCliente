@@ -14,21 +14,22 @@ namespace Cliente.Vistas
             InitializeComponent();
         }
 
-        private void RegistrarUsuario(object sender, RoutedEventArgs e)
+        private void RegistrarUsuario(object remitente, RoutedEventArgs argumento)
         {
-            VentanaRegistro registroPage = new VentanaRegistro();
-            this.NavigationService.Navigate(registroPage);
+            VentanaRegistro paginaRegistro = new VentanaRegistro();
+            this.NavigationService.Navigate(paginaRegistro);
         }
 
-        private void IniciarSesion(object sender, RoutedEventArgs e)
+        private void IniciarSesion(object remitente, RoutedEventArgs argumento)
         {
-            VentanaInicioSesion inicioSesionPage = new VentanaInicioSesion();
-            this.NavigationService.Navigate(inicioSesionPage);
+            VentanaInicioSesion paginaInicioSesion = new VentanaInicioSesion();
+            this.NavigationService.Navigate(paginaInicioSesion);
         }
 
-        private void Invitado(object sender, RoutedEventArgs e)
+        private void UnirseComoInvitado(object remitente, RoutedEventArgs argumento)
         {
-
+            VentanaCodigoInvitado paginaCodigoInvitado=new VentanaCodigoInvitado();
+            this.NavigationService.Navigate(paginaCodigoInvitado);
         }
     }
 }

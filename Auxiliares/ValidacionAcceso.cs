@@ -19,16 +19,14 @@ namespace Cliente.Auxiliares
 
         public bool ValidarCorreo(string correo) 
         {
-            bool validacion = false;
-            if (!string.IsNullOrEmpty(correo)) 
-            {
-                string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-                if (Regex.IsMatch(correo, patronCorreo)) 
-                {
-                    validacion = true;
-                }
-            }
-            return validacion;
+            string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(correo, patronCorreo);                         
+        }
+
+        public bool ValidarContrasenia(string contrasenia)
+        {            
+            string patronContrasenia = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$";
+            return Regex.IsMatch(contrasenia, patronContrasenia);
         }
     }
 }

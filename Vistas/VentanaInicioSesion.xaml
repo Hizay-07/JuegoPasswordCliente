@@ -84,7 +84,7 @@
                         BorderThickness="0"
                         HorizontalAlignment="Left"
                         Margin="719,253,0,78"
-                        Click="Btn_OlvideMiContrasena" RenderTransformOrigin="2.091,0.357">
+                        Click="ObtenerNuevaContrasenia" RenderTransformOrigin="2.091,0.357">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 

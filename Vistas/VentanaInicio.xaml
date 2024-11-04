@@ -82,7 +82,7 @@
                     Foreground="Black"
                     FontWeight="Bold"
                     FontSize="20"
-                    Click="Invitado" RenderTransformOrigin="0.766,0.547" Margin="506,565,506,115">
+                    Click="UnirseComoInvitado" RenderTransformOrigin="0.766,0.547" Margin="506,565,506,115">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
