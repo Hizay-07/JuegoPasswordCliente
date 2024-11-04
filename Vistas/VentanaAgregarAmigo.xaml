@@ -19,20 +19,16 @@
                        FontWeight="Bold" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" 
                        Margin="0,20,0,0" Padding="10" Width="400" />
 
-                <!-- Texto de búsqueda -->
                 <Label Content="Buscar por correo" Foreground="White" FontSize="18" 
                        HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" />
 
                 <TextBox Name="Txb_Correo" Width="400" Height="35" FontSize="18" 
                          HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,140,0,0" 
-                         Text="marioMiguel@gmail.com" />
-
-                <Label Content="MarioMiguel" Foreground="White" FontSize="25" 
-                       HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,200,0,0" />
+                          />
 
                 <Button Content="Agregar amigo" Width="150" Height="40" Background="#00d2ff" Foreground="White" 
-                        FontWeight="Bold" FontSize="18" BorderThickness="0" HorizontalAlignment="Center" 
-                        VerticalAlignment="Top" Margin="150,250,0,0" Click="AgregarAmigoClick">
+                        FontWeight="Bold" FontSize="18" BorderThickness="0" HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" Margin="350,223,0,0" Click="AgregarAmigo">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">

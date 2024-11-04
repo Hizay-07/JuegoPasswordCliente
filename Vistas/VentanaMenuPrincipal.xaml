@@ -23,7 +23,8 @@
                        VerticalAlignment="Top"
                        Margin="50,238,0,0"
                        RenderTransformOrigin="0.5,0.5"
-                       Panel.ZIndex="1">
+                       Panel.ZIndex="1"
+                       MouseLeftButtonDown="AgregarAmigo">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -41,7 +42,8 @@
                        VerticalAlignment="Top"
                        Margin="51,70,0,0"
                        RenderTransformOrigin="0.283,0.329"
-                       Panel.ZIndex="1">
+                       Panel.ZIndex="1"
+                       MouseLeftButtonDown="PersonalizarPerfil">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -91,7 +93,7 @@
 
 
 
-                <Button Content="Generar código"
+                <Button Content="Solicitudes"
                         Width="226"
                         Background="Gray"
                         Foreground="White"
@@ -99,7 +101,7 @@
                         FontSize="30"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="13,402,0,-69">
+                        Margin="381,402,0,-69">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -124,7 +126,7 @@
                         HorizontalAlignment="Left"
                         Margin="793,74,0,231"
                         BorderThickness="0"
-                        RenderTransformOrigin="0.515,0.26">
+                        RenderTransformOrigin="0.515,0.26" Click="ConsultarAmigos">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -139,7 +141,29 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
-                <Button Content="Button" HorizontalAlignment="Left" Margin="42,66,0,0" VerticalAlignment="Top" Height="86" Width="91" Background="Transparent" Click="PersonalizarPerfil"/>
+                <Button Content="Salir"
+                    Width="226"
+                    Background="Red"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="30"
+                    BorderThickness="0"
+                    HorizontalAlignment="Left"
+                    Margin="13,402,0,-69" Click="SalirDelJuego">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10" 
+                                BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
 
             </Grid>
         </Border>

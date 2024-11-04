@@ -1,8 +1,10 @@
 ﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
 using System;
 using System.Collections.Generic;
 using System.IO.Packaging;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -39,15 +41,9 @@ namespace Cliente.Vistas
 
         private void CompararCampos()
         {
+            ReiniciarCampos();
             int idPerfil = JugadorSingleton.IdPerfil;
-            int idAcceso = JugadorSingleton.IdAcceso;
-
-            if (string.IsNullOrWhiteSpace(Txb_Correo.Text) || string.IsNullOrWhiteSpace(Txb_Descripcion.Text) || string.IsNullOrWhiteSpace(Txb_NombreDeUsuario.Text))
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCamposRequeridos);
-                return;
-            }
-
+            int idAcceso = JugadorSingleton.IdAcceso;            
             if (Txb_Correo.Text != JugadorSingleton.Correo)
             {
                 EditarCorreoPorIdAcceso(idAcceso, Txb_Correo.Text);
@@ -65,91 +61,148 @@ namespace Cliente.Vistas
         }
 
         public void EditarCorreoPorIdAcceso(int idAcceso, string nuevoCorreo)
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            if (validacionAcceso.ValidarCorreo(nuevoCorreo))
+        {            
+            if (ValidarNuevoCorreo(nuevoCorreo))
             {
                 try
                 {
                     ServidorPassword.ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
-                    int resultadoEdicionCorreo = proxy.EditarCorreoPorIdAcceso(idAcceso, nuevoCorreo);
-
-                    if (resultadoEdicionCorreo == 1)
+                    ServidorPassword.ServicioGestionAccesoClient proxyAcceso = new ServicioGestionAccesoClient();
+                    int validacionCorreo = proxyAcceso.ValidarPresenciaDeCorreo(nuevoCorreo);
+                    if (validacionCorreo == 0)
                     {
-                        MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
-                        JugadorSingleton.Correo = nuevoCorreo;
+                        int resultadoEdicionCorreo = proxy.EditarCorreoPorIdAcceso(idAcceso, nuevoCorreo);
+                        if (resultadoEdicionCorreo == 1)
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
+                            JugadorSingleton.Correo = nuevoCorreo;
+                        }
+                        else
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                        }
                     }
-                    else
+                    else if (validacionCorreo == 1)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCorreoRegistrado);
                     }
+                    else 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }                    
                 }
-                catch (Exception)
+                catch (EndpointNotFoundException)
                 {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 }
             }
             else
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
+                Txb_Correo.BorderBrush = Brushes.Red;
+                Txb_Correo.BorderThickness = new Thickness(2);
             }
         }
 
-        public void EditarDescripcionPorIdPerfil(int idPerfil, string nuevaDescripcion)
+        private void ReiniciarCampos() 
+        {
+            Txb_Correo.BorderBrush = Brushes.Transparent;
+            Txb_Correo.BorderThickness = new Thickness(1);
+            Txb_Descripcion.BorderBrush = Brushes.Transparent;
+            Txb_Descripcion.BorderThickness = new Thickness(1);
+            Txb_NombreDeUsuario.BorderBrush = Brushes.Transparent;
+            Txb_NombreDeUsuario.BorderThickness = new Thickness(1);
+        }
+        private bool ValidarNuevoCorreo(string correo) 
+        {
+            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
+            return validacionAcceso.ValidarCorreo(correo);
+        }
+
+        private bool ValidarNuevaDescripcion(string descripcion) 
         {
             ValidacionPerfil validacionPerfil = new ValidacionPerfil();
-            if (validacionPerfil.ValidarDescripcion(nuevaDescripcion))
+            return validacionPerfil.ValidarDescripcion(descripcion);
+        }
+
+        private bool ValidarNuevoNombreUsuario(string nombreUsuario) 
+        {
+            ValidacionPerfil validacionPerfil = new ValidacionPerfil();
+            return validacionPerfil.ValidarNombreUsuario(nombreUsuario);
+        }
+
+        public void EditarDescripcionPorIdPerfil(int idPerfil, string nuevaDescripcion)
+        {            
+            if (ValidarNuevaDescripcion(nuevaDescripcion))
             {
                 try
                 {
                     ServidorPassword.ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
                     int resultadoEdicionDescripcion = proxy.EditarDescripcionPorIdPerfil(idPerfil, nuevaDescripcion);
-
                     if (resultadoEdicionDescripcion == 1)
                     {
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
                         JugadorSingleton.Descripcion = nuevaDescripcion;
                     }
+                    else 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }
                 }
-                catch (Exception)
+                catch (EndpointNotFoundException)
                 {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 }
             }
             else
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
+                Txb_Descripcion.BorderBrush = Brushes.Red;
+                Txb_Descripcion.BorderThickness = new Thickness(2);
             }
         }
 
         public void EditarNombreUsuarioPorIdPerfil(int idPerfil, string nuevoNombreUsuario)
-        {
-            ValidacionPerfil validacionPerfil = new ValidacionPerfil();
-            if (validacionPerfil.ValidarNombreUsuario(nuevoNombreUsuario))
+        {            
+            if (ValidarNuevoNombreUsuario(nuevoNombreUsuario))
             {
                 try
                 {
                     ServidorPassword.ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
-                    int resultadoEdicionNombreUsuario = proxy.EditarNombreUsuarioPorIdPerfil(idPerfil, nuevoNombreUsuario);
-
-                    if (resultadoEdicionNombreUsuario == 1)
+                    ServidorPassword.ServicioGestionAccesoClient proxyAcceso = new ServicioGestionAccesoClient();
+                    int validacionNombreUsuario = proxyAcceso.ValidarNombreUsuario(nuevoNombreUsuario);
+                    if (validacionNombreUsuario == 0)
                     {
-                        MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
-                        JugadorSingleton.NombreUsuario = nuevoNombreUsuario;
+                        int resultadoEdicionNombreUsuario = proxy.EditarNombreUsuarioPorIdPerfil(idPerfil, nuevoNombreUsuario);
+                        if (resultadoEdicionNombreUsuario == 1)
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
+                            JugadorSingleton.NombreUsuario = nuevoNombreUsuario;
+                        }
+                        else
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                        }
                     }
-                    else
+                    else if (validacionNombreUsuario == 1)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
                     }
+                    else 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }                    
                 }
-                catch (Exception)
+                catch (EndpointNotFoundException)
                 {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 }
             }
             else
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
+                Txb_NombreDeUsuario.BorderBrush = Brushes.Red;
+                Txb_NombreDeUsuario.BorderThickness = new Thickness(2);
             }
         }
 
@@ -157,6 +210,12 @@ namespace Cliente.Vistas
         {
             VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
             this.NavigationService.Navigate(paginaMenuPrincipal);
+        }
+
+        private void CambiarContrasenia(object sender, RoutedEventArgs e)
+        {
+            VentanaCambioContrasenia paginaCambioContrasenia = new VentanaCambioContrasenia();
+            this.NavigationService.Navigate(paginaCambioContrasenia);
         }
     }
 }

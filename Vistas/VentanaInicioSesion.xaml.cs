@@ -1,4 +1,5 @@
 ﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,61 +28,111 @@ namespace Cliente.Vistas
             InitializeComponent();
         }
 
-        private void CancelarInicioDeSesion(object sender, RoutedEventArgs e)
+        private void CancelarInicioDeSesion(object remitente, RoutedEventArgs argumento)
         {
             VentanaInicio inicioPage = new VentanaInicio();
             this.NavigationService.Navigate(inicioPage);
         }
 
-        private void Btn_OlvideMiContrasena(object sender, RoutedEventArgs e)
+        private void ObtenerNuevaContrasenia(object remitente, RoutedEventArgs argumento)
         {
-            if (string.IsNullOrWhiteSpace(Txb_Correo.Text))
+            VentanaContraseniaOlvidada paginaContraseniaOlvidada=new VentanaContraseniaOlvidada();
+            this.NavigationService.Navigate(paginaContraseniaOlvidada);            
+        }
+
+        private Acceso ObtenerAcceso() 
+        {
+            Acceso acceso = new Acceso
             {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCamposRequeridos);
+                correo=Txb_Correo.Text,
+                contrasenia=Pwd_Contrasenia.Password,
+            };
+            return acceso;
+        }
+
+        private bool ValidarCampos() 
+        {
+            bool validacion=false;
+            Acceso acceso = ObtenerAcceso();
+            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
+            FluentValidation.Results.ValidationResult resultadoAcceso = validacionAcceso.Validate(acceso);
+            if (resultadoAcceso.IsValid)
+            {
+                validacion = true;
             }
             else
             {
-                MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeEnvioContrasena);
-            }
-        }
-
-        private void AceptarInicioDeSesion(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(Txb_Correo.Text) || string.IsNullOrWhiteSpace(Pwd_Contrasenia.Password))
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCamposRequeridos);
-                return;
-            }
-
-            ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
-            ServidorPassword.Acceso acceso = new ServidorPassword.Acceso
-            {
-                correo = Txb_Correo.Text,
-                contrasenia = Pwd_Contrasenia.Password
-            };
-
-            try
-            {
-                int resultado = proxy.ValidarInicioDeSesion(acceso);
-                if (resultado == 1)
+                MarcarErrores();
+                if (string.IsNullOrWhiteSpace(Txb_Correo.Text) || string.IsNullOrWhiteSpace(Pwd_Contrasenia.Password))
                 {
-                    ObtenerJugadorSingleton(acceso.correo);
-                    VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
-                    this.NavigationService.Navigate(paginaMenuPrincipal);
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCamposRequeridos);
                 }
-                else
+                else 
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
                 }
             }
-            catch (EndpointNotFoundException)
+            return validacion;
+        }
+
+        private void MarcarErrores() 
+        {
+            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
+            if (!validacionAcceso.ValidarCorreo(Txb_Correo.Text))
             {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                Txb_Correo.BorderBrush = Brushes.Red;
+                Txb_Correo.BorderThickness = new Thickness(2);
             }
-            catch (CommunicationException)
+            if (!validacionAcceso.ValidarContrasenia(Pwd_Contrasenia.Password))
             {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                Pwd_Contrasenia.BorderBrush = Brushes.Red;
+                Pwd_Contrasenia.BorderThickness = new Thickness(2);
             }
+        }
+
+        private void ReiniciarCampos() 
+        {
+            Txb_Correo.BorderBrush = Brushes.Transparent;
+            Txb_Correo.BorderThickness = new Thickness(1);
+            Pwd_Contrasenia.BorderBrush = Brushes.Transparent;
+            Pwd_Contrasenia.BorderThickness = new Thickness(1);
+        }
+
+        private void AceptarInicioDeSesion(object remitente, RoutedEventArgs argumento)
+        {
+            ReiniciarCampos();
+            if (ValidarCampos()) 
+            {
+                Acceso acceso = ObtenerAcceso();
+                try
+                {
+                    ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
+                    int resultado = proxy.ValidarInicioDeSesion(acceso);
+                    if (resultado == 1)
+                    {
+                        ObtenerJugadorSingleton(acceso.correo);
+                        VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+                        this.NavigationService.Navigate(paginaMenuPrincipal);
+                    }
+                    else if (resultado == 0)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
+                    }
+                    else 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }
+
+                }
+                catch (EndpointNotFoundException)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                }
+                catch (CommunicationException)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                }
+            }                                  
         }
 
         private void ObtenerJugadorSingleton(string correo)
