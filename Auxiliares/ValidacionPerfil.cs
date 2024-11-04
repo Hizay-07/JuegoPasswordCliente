@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Cliente.Auxiliares
@@ -12,18 +13,19 @@ namespace Cliente.Auxiliares
     {
         public ValidacionPerfil()
         {
-            RuleFor(perfil => perfil.nombreUsuario).NotEmpty().MaximumLength(50);
+            RuleFor(perfil => perfil.nombreUsuario).NotEmpty().MaximumLength(50).Matches(@"^[^\s]+$");
             RuleFor(perfil => perfil.descripcion).MaximumLength(280);
         }
 
         public bool ValidarDescripcion(string descripcion) 
         {
-            return !string.IsNullOrEmpty(descripcion) && descripcion.Length <= 280;            
+            return descripcion.Length <= 280;            
         }
 
         public bool ValidarNombreUsuario(string nombreUsuario) 
         {
-            return !string.IsNullOrEmpty(nombreUsuario) && nombreUsuario.Length <= 50;
+            string patronNombreUsuario = @"^[^\s]+$";            
+            return !string.IsNullOrEmpty(nombreUsuario) && nombreUsuario.Length <= 50&& Regex.IsMatch(nombreUsuario, patronNombreUsuario);
         }
     }
 }

@@ -25,10 +25,28 @@ namespace Cliente.Vistas
             InitializeComponent();
         }
 
-        private void PersonalizarPerfil(object sender, RoutedEventArgs e)
+        private void PersonalizarPerfil(object remitente, RoutedEventArgs argumento)
         {
             VentanaPersonalizarPerfil paginaPersonalizarPerfil = new VentanaPersonalizarPerfil();
             this.NavigationService.Navigate(paginaPersonalizarPerfil);
+        }
+
+        private void AgregarAmigo(object remitente, RoutedEventArgs argumento) 
+        {
+            VentanaAgregarAmigo paginaAgregarAmigo = new VentanaAgregarAmigo();
+            this.NavigationService.Navigate(paginaAgregarAmigo);
+        }
+
+        private void SalirDelJuego(object sender, RoutedEventArgs e)
+        {
+            VentanaInicio paginaInicio= new VentanaInicio();
+            this.NavigationService.Navigate(paginaInicio);
+        }
+
+        private void ConsultarAmigos(object remitente, RoutedEventArgs argumento)
+        {
+            VentanaAmigos paginaAmigos= new VentanaAmigos();
+            this.NavigationService.Navigate(paginaAmigos);
         }
     }
 }

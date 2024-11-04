@@ -87,6 +87,64 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioGestionAmistad_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioGestionPartida_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -116,12 +174,6 @@
   <wsdl:message name="IServicioGestionAcceso_ValidarInicioDeSesion_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidarInicioDeSesionResponse" />
   </wsdl:message>
-  <wsdl:message name="IServicioGestionAcceso_ValidarNuevoRegistro_InputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarNuevoRegistro" />
-  </wsdl:message>
-  <wsdl:message name="IServicioGestionAcceso_ValidarNuevoRegistro_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ValidarNuevoRegistroResponse" />
-  </wsdl:message>
   <wsdl:message name="IServicioGestionAcceso_EncriptarContrasenia_InputMessage">
     <wsdl:part name="parameters" element="tns:EncriptarContrasenia" />
   </wsdl:message>
@@ -139,6 +191,12 @@
   </wsdl:message>
   <wsdl:message name="IServicioGestionAcceso_RecuperarCuentaPorCorreo_OutputMessage">
     <wsdl:part name="parameters" element="tns:RecuperarCuentaPorCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAcceso_ValidarPresenciaDeCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarPresenciaDeCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAcceso_ValidarPresenciaDeCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarPresenciaDeCorreoResponse" />
   </wsdl:message>
   <wsdl:message name="IServicioPersonalizacionPerfil_EditarCorreoPorIdAcceso_InputMessage">
     <wsdl:part name="parameters" element="tns:EditarCorreoPorIdAcceso" />
@@ -170,6 +228,72 @@
   <wsdl:message name="IServicioPersonalizacionPerfil_EditarContraseniaPorIdAcceso_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditarContraseniaPorIdAccesoResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioPersonalizacionPerfil_RecuperarIdAccesoPorCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarIdAccesoPorCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioPersonalizacionPerfil_RecuperarIdAccesoPorCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarIdAccesoPorCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_RegistrarAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAmistad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_RegistrarAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarAmistadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ResponderSolicitudAmistad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResponderSolicitudAmistad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ResponderSolicitudAmistad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResponderSolicitudAmistadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ConsultarSolicitudesAmistadPorIdJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarSolicitudesAmistadPorIdJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ConsultarSolicitudesAmistadPorIdJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarSolicitudesAmistadPorIdJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ConsultarAmistadesPorIdJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarAmistadesPorIdJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ConsultarAmistadesPorIdJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarAmistadesPorIdJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ConsultarIdJugadorPorCorreo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarIdJugadorPorCorreo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ConsultarIdJugadorPorCorreo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarIdJugadorPorCorreoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_RegistrarPartidaPorIdJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarPartidaPorIdJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_RegistrarPartidaPorIdJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarPartidaPorIdJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ActualizarEstadoPorIdPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoPorIdPartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ActualizarEstadoPorIdPartida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarEstadoPorIdPartidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ValidarCodigoPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCodigoPartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ValidarCodigoPartida_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarCodigoPartidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ObtenerPreguntas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPreguntas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ObtenerPreguntas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPreguntasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ObtenerRespuestaPorIdPregunta_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRespuestaPorIdPregunta" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_ObtenerRespuestaPorIdPregunta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerRespuestaPorIdPreguntaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioChat">
     <wsdl:operation name="Chatear">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioChat/Chatear" message="tns:IServicioChat_Chatear_InputMessage" />
@@ -188,10 +312,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarInicioDeSesion" message="tns:IServicioGestionAcceso_ValidarInicioDeSesion_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarInicioDeSesionResponse" message="tns:IServicioGestionAcceso_ValidarInicioDeSesion_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ValidarNuevoRegistro">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarNuevoRegistro" message="tns:IServicioGestionAcceso_ValidarNuevoRegistro_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarNuevoRegistroResponse" message="tns:IServicioGestionAcceso_ValidarNuevoRegistro_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="EncriptarContrasenia">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAcceso/EncriptarContrasenia" message="tns:IServicioGestionAcceso_EncriptarContrasenia_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAcceso/EncriptarContraseniaResponse" message="tns:IServicioGestionAcceso_EncriptarContrasenia_OutputMessage" />
@@ -203,6 +323,10 @@
     <wsdl:operation name="RecuperarCuentaPorCorreo">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorCorreo" message="tns:IServicioGestionAcceso_RecuperarCuentaPorCorreo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorCorreoResponse" message="tns:IServicioGestionAcceso_RecuperarCuentaPorCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarPresenciaDeCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreo" message="tns:IServicioGestionAcceso_ValidarPresenciaDeCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreoResponse" message="tns:IServicioGestionAcceso_ValidarPresenciaDeCorreo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioPersonalizacionPerfil">
@@ -225,6 +349,54 @@
     <wsdl:operation name="EditarContraseniaPorIdAcceso">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAcceso" message="tns:IServicioPersonalizacionPerfil_EditarContraseniaPorIdAcceso_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAccesoResponse" message="tns:IServicioPersonalizacionPerfil_EditarContraseniaPorIdAcceso_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarIdAccesoPorCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioPersonalizacionPerfil/RecuperarIdAccesoPorCorreo" message="tns:IServicioPersonalizacionPerfil_RecuperarIdAccesoPorCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioPersonalizacionPerfil/RecuperarIdAccesoPorCorreoResponse" message="tns:IServicioPersonalizacionPerfil_RecuperarIdAccesoPorCorreo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioGestionAmistad">
+    <wsdl:operation name="RegistrarAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/RegistrarAmistad" message="tns:IServicioGestionAmistad_RegistrarAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/RegistrarAmistadResponse" message="tns:IServicioGestionAmistad_RegistrarAmistad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResponderSolicitudAmistad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ResponderSolicitudAmistad" message="tns:IServicioGestionAmistad_ResponderSolicitudAmistad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ResponderSolicitudAmistadResponse" message="tns:IServicioGestionAmistad_ResponderSolicitudAmistad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarSolicitudesAmistadPorIdJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarSolicitudesAmistadPorIdJugador" message="tns:IServicioGestionAmistad_ConsultarSolicitudesAmistadPorIdJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarSolicitudesAmistadPorIdJugadorResponse" message="tns:IServicioGestionAmistad_ConsultarSolicitudesAmistadPorIdJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAmistadesPorIdJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugador" message="tns:IServicioGestionAmistad_ConsultarAmistadesPorIdJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugadorResponse" message="tns:IServicioGestionAmistad_ConsultarAmistadesPorIdJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarIdJugadorPorCorreo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreo" message="tns:IServicioGestionAmistad_ConsultarIdJugadorPorCorreo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreoResponse" message="tns:IServicioGestionAmistad_ConsultarIdJugadorPorCorreo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioGestionPartida">
+    <wsdl:operation name="RegistrarPartidaPorIdJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/RegistrarPartidaPorIdJugador" message="tns:IServicioGestionPartida_RegistrarPartidaPorIdJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/RegistrarPartidaPorIdJugadorResponse" message="tns:IServicioGestionPartida_RegistrarPartidaPorIdJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstadoPorIdPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/ActualizarEstadoPorIdPartida" message="tns:IServicioGestionPartida_ActualizarEstadoPorIdPartida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/ActualizarEstadoPorIdPartidaResponse" message="tns:IServicioGestionPartida_ActualizarEstadoPorIdPartida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCodigoPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/ValidarCodigoPartida" message="tns:IServicioGestionPartida_ValidarCodigoPartida_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/ValidarCodigoPartidaResponse" message="tns:IServicioGestionPartida_ValidarCodigoPartida_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreguntas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/ObtenerPreguntas" message="tns:IServicioGestionPartida_ObtenerPreguntas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/ObtenerPreguntasResponse" message="tns:IServicioGestionPartida_ObtenerPreguntas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRespuestaPorIdPregunta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/ObtenerRespuestaPorIdPregunta" message="tns:IServicioGestionPartida_ObtenerRespuestaPorIdPregunta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/ObtenerRespuestaPorIdPreguntaResponse" message="tns:IServicioGestionPartida_ObtenerRespuestaPorIdPregunta_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioChat" type="tns:IServicioChat">
@@ -267,15 +439,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ValidarNuevoRegistro">
-      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAcceso/ValidarNuevoRegistro" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="EncriptarContrasenia">
       <soap12:operation soapAction="http://tempuri.org/IServicioGestionAcceso/EncriptarContrasenia" style="document" />
       <wsdl:input>
@@ -296,6 +459,15 @@
     </wsdl:operation>
     <wsdl:operation name="RecuperarCuentaPorCorreo">
       <soap12:operation soapAction="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarPresenciaDeCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -352,6 +524,113 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RecuperarIdAccesoPorCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IServicioPersonalizacionPerfil/RecuperarIdAccesoPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioGestionAmistad" type="tns:IServicioGestionAmistad">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioGestionAmistad_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="RegistrarAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/RegistrarAmistad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResponderSolicitudAmistad">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/ResponderSolicitudAmistad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarSolicitudesAmistadPorIdJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/ConsultarSolicitudesAmistadPorIdJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarAmistadesPorIdJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarIdJugadorPorCorreo">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioGestionPartida" type="tns:IServicioGestionPartida">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioGestionPartida_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="RegistrarPartidaPorIdJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionPartida/RegistrarPartidaPorIdJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarEstadoPorIdPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionPartida/ActualizarEstadoPorIdPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarCodigoPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionPartida/ValidarCodigoPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPreguntas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionPartida/ObtenerPreguntas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRespuestaPorIdPregunta">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionPartida/ObtenerRespuestaPorIdPregunta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicioPassword">
     <wsdl:port name="NetTcpBinding_IServicioChat" binding="tns:NetTcpBinding_IServicioChat">
@@ -359,7 +638,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>HIZAY-PC\Oscar Hizay</Upn>
+          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -368,7 +647,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>HIZAY-PC\Oscar Hizay</Upn>
+          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -377,7 +656,25 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>HIZAY-PC\Oscar Hizay</Upn>
+          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioGestionAmistad" binding="tns:NetTcpBinding_IServicioGestionAmistad">
+      <soap12:address location="net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioGestionPartida" binding="tns:NetTcpBinding_IServicioGestionPartida">
+      <soap12:address location="net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

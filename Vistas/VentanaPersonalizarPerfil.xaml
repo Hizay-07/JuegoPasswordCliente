@@ -64,15 +64,15 @@
                          Margin="231,242,16,112" />
 
 
-                <Button Content="Cambiar &#xD;&#xA;contraseña" 
-                        Width="142"
+                <Button Content="Cambiar contraseña" 
+                        Width="293"
                         Background="#00E0FF"
                         Foreground="White"
                         FontWeight="Bold"
                         FontSize="25"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="231,324,0,-19">
+                        Margin="231,324,0,10" Click="CambiarContrasenia">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
