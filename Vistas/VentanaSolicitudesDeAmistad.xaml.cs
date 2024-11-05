@@ -2,6 +2,7 @@
 using Cliente.ServidorPassword;
 using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -26,34 +27,186 @@ namespace Cliente.Vistas
         public VentanaSolicitudesDeAmistad()
         {
             InitializeComponent();
+            RecuperarAmistadesPendientes();
         }
 
-        private void RecuperarAmistadesPendientes() 
+        private void RecuperarAmistadesPendientes()
         {
             try
             {
-                ServicioGestionAmistadClient proxy = new ServicioGestionAmistadClient();
-                List<Amistad> amistades = new List<Amistad>();
-                amistades = proxy.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
-                Amistad amistad = amistades.First();
-                if (amistad.idAmistad != -1)
+                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
+                List<int> amistades = proxy.ConsultarSolicitudesAmistadPorIdJugador(JugadorSingleton.IdJugador).ToList();
+                if (amistades.Count > 0)
                 {
-                    RecuperarJugadores(amistades);
+                    int amistad = amistades.First();
+                    if (amistad != -1)
+                    {
+                        RecuperarJugadores(amistades);
+                    }
+                    else
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }
+                }
+                else 
+                {
+                    MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeSinSolicitudes);
+                }                
+            }
+            catch (EndpointNotFoundException)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+            }
+        }
+
+        private void RecuperarJugadores(List<int> amistades)
+        {
+            try
+            {
+                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
+                List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
+                AsignarNombresUsuario(nombresUsuario,amistades);
+            }
+            catch (EndpointNotFoundException)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+            }
+        }
+
+        private void AsignarNombresUsuario(List<string> nombresUsuario,List<int> idJugadores)
+        {
+            string primerNombreUsuario = nombresUsuario.First();
+            if (primerNombreUsuario != "excepcion")
+            {
+                List<JugadorAmistad> amistades=CombinarListas(idJugadores, nombresUsuario);
+                ListaSolicitudes.ItemsSource = amistades;                
+            }
+            else
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+            }
+        }
+
+        private void RegresarMenuPrincipal(object remitente, RoutedEventArgs argumento)
+        {
+            VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+            this.NavigationService.Navigate(paginaMenuPrincipal);
+        }
+
+        private int ObtenerIdAmidstadPorIdJugadores(int idJugadorDestinatario)
+        {
+            int idAmistad = 0;
+            try
+            {
+                ServidorPassword.ServicioGestionAmistadClient proxy=new ServidorPassword.ServicioGestionAmistadClient();
+                idAmistad=proxy.RecuperarIdAmistadPorIdJugadores(idJugadorDestinatario, JugadorSingleton.IdJugador);
+            }
+            catch (EndpointNotFoundException) 
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+            }
+            return idAmistad;
+        }
+
+        private void AceptarSolicitud(object remitente, RoutedEventArgs argumento)
+        {            
+            if (ListaSolicitudes.SelectedItem is JugadorAmistad jugadorSeleccionado)
+            {                
+                int idJugadorDestinatario = jugadorSeleccionado.IdJugador;
+                int idAmistad=ObtenerIdAmidstadPorIdJugadores(idJugadorDestinatario);
+                if (idAmistad > 0)
+                {
+                    Amistad amistad = ObtenerAmistadAceptada();
+                    amistad.idAmistad=idAmistad;
+                    try
+                    {
+                        ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
+                        int resultadoRegistro = proxy.ResponderSolicitudAmistad(amistad);
+                        if (resultadoRegistro == 1)
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                            RecuperarAmistadesPendientes();
+                        }
+                        else
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                        }
+                    }
+                    catch (EndpointNotFoundException)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    }
                 }
                 else 
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
-            }
-            catch (EndpointNotFoundException) 
-            {
-
-            }            
+            }                            
         }
 
-        private void RecuperarJugadores(List<Amistad> amistades) 
+        private void CancelarSolicitud(object remitente, RoutedEventArgs argumento) 
         {
-
+            if (ListaSolicitudes.SelectedItem is JugadorAmistad jugadorSeleccionado)
+            {
+                int idJugadorDestinatario = jugadorSeleccionado.IdJugador;
+                int idAmistad = ObtenerIdAmidstadPorIdJugadores(idJugadorDestinatario);
+                if (idAmistad > 0)
+                {
+                    Amistad amistad = ObtenerAmistadRechazada();
+                    amistad.idAmistad = idAmistad;
+                    try
+                    {
+                        ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
+                        int resultadoRegistro = proxy.ResponderSolicitudAmistad(amistad);
+                        if (resultadoRegistro == 1)
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                            RecuperarAmistadesPendientes();
+                        }
+                        else
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                        }
+                    }
+                    catch (EndpointNotFoundException)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    }
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
         }
+
+        private Amistad ObtenerAmistadAceptada()
+        {             
+            Amistad amistad = new Amistad
+            {                
+                respuesta = true,
+                fechaRespuesta = DateTime.Now,
+            };
+            return amistad;
+        }
+
+        private Amistad ObtenerAmistadRechazada() 
+        {
+            Amistad amistad = new Amistad
+            {
+                respuesta = false,
+                fechaRespuesta = DateTime.Now,
+            };
+            return amistad;
+        }
+
+        private List<JugadorAmistad> CombinarListas(List<int> idJugadores, List<string> nombresUsuario) 
+        {
+            List<JugadorAmistad> jugadores=idJugadores.Zip(nombresUsuario,(id,nombre)=>new JugadorAmistad { 
+                IdJugador=id,
+            NombreUsuario=nombre}).ToList();
+            return jugadores;
+        }
+
     }
 }

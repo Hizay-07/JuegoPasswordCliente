@@ -39,12 +39,18 @@ namespace Cliente.Vistas
             Txb_Conversacion.Text += respuesta;
         }
 
-        private void EnviarMensaje(object sender, RoutedEventArgs e)
+        private void EnviarMensaje(object remitente, RoutedEventArgs argumento)
         {
             string nombreUsuario = JugadorSingleton.NombreUsuario;
             string mensaje = $"{nombreUsuario}: " + Txb_Mensaje.Text;
             Txb_Mensaje.Text = string.Empty;
             _servicioChat.Chatear(mensaje);
-        }       
+        }
+
+        private void SalirMenuPrincipal(object remitente, RoutedEventArgs argumento)
+        {
+            VentanaMenuPrincipal paginaMenuPrincipal=new VentanaMenuPrincipal();
+            this.NavigationService.Navigate(paginaMenuPrincipal);
+        }
     }
 }

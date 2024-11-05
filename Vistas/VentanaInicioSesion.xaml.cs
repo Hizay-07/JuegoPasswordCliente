@@ -127,11 +127,7 @@ namespace Cliente.Vistas
                 catch (EndpointNotFoundException)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                }
-                catch (CommunicationException)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                }
+                }                
             }                                  
         }
 

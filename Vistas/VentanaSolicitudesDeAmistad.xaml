@@ -24,9 +24,9 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <TextBlock Text="{Binding Nombre}" FontSize="20" Foreground="White" Margin="0,0,10,0"/>
+                                <TextBlock Text="{Binding NombreUsuario}" Name="Txbl_NombreUsuario" FontSize="20" Foreground="Black" Margin="0,0,10,0"/>
                                 <Button Content="Aceptar" Width="80" Height="30" Background="LightGreen" Foreground="White" 
-                                        FontSize="16" Margin="0,0,5,0" Click="AceptarClick">
+                                        FontSize="16" Margin="0,0,5,0" Click="AceptarSolicitud">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
@@ -36,7 +36,7 @@
                                     </Button.Template>
                                 </Button>
                                 <Button Content="Rechazar" Width="80" Height="30" Background="#ff0000" Foreground="White" 
-                                        FontSize="16" Click="RechazarClick">
+                                        FontSize="16" Click="CancelarSolicitud">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
@@ -50,9 +50,9 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <Button Content="Regresar" Width="150" Height="40" Background="#00f0ff" Foreground="Black" 
+                <Button Content="Regresar" Width="150" Height="50" Background="#00f0ff" Foreground="Black" 
                         FontWeight="Bold" FontSize="18" BorderThickness="0" HorizontalAlignment="Center" 
-                        VerticalAlignment="Bottom" Margin="0,20,0,20" Click="OnRegresarClick">
+                        VerticalAlignment="Top" Margin="0,340,0,0" Click="RegresarMenuPrincipal" >
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">

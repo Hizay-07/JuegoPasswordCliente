@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\obj\Debug\
+C:\Users\mario\Desktop\ClienteNuevo\JuegoPasswordCliente\obj\Debug\
 Cliente
 none
 false
 DEBUG;TRACE
-C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\App.xaml
+C:\Users\mario\Desktop\ClienteNuevo\JuegoPasswordCliente\App.xaml
 161996783894
 
-311714666603
-19-370006608
+322119202139
+19-1336685885
 MainWindow.xaml;Vistas\VentanaAgregarAmigo.xaml;Vistas\VentanaAmigos.xaml;Vistas\VentanaCambioContrasenia.xaml;Vistas\VentanaCodigoInvitado.xaml;Vistas\VentanaContraseniaOlvidada.xaml;Vistas\VentanaInicio.xaml;Vistas\VentanaInicioSesion.xaml;Vistas\VentanaJugadores.xaml;Vistas\VentanaLobby.xaml;Vistas\VentanaMenuPrincipal.xaml;Vistas\VentanaPerfilDeJugador.xaml;Vistas\VentanaPersonalizarPerfil.xaml;Vistas\VentanaRegistro.xaml;Vistas\VentanaSalaDeEspera.xaml;Vistas\VentanaSolicitudesDeAmistad.xaml;
 
-True
+False
 

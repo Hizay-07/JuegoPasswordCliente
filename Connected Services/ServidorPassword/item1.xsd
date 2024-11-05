@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos" />
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="Chatear">
     <xs:complexType>
       <xs:sequence>
@@ -234,7 +235,7 @@
   <xs:element name="ConsultarSolicitudesAmistadPorIdJugadorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ConsultarSolicitudesAmistadPorIdJugadorResult" nillable="true" type="q8:ArrayOfAmistad" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConsultarSolicitudesAmistadPorIdJugadorResult" nillable="true" type="q8:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -266,11 +267,55 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ObtenerNombresDeUsuarioPorIdJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idJugadores" nillable="true" type="q10:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNombresDeUsuarioPorIdJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerNombresDeUsuarioPorIdJugadoresResult" nillable="true" type="q11:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarExistenciaAmistadPorIdJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugadorUno" type="xs:int" />
+        <xs:element minOccurs="0" name="idJugadorDos" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarExistenciaAmistadPorIdJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarExistenciaAmistadPorIdJugadoresResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarIdAmistadPorIdJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugadorUno" type="xs:int" />
+        <xs:element minOccurs="0" name="idJugadorDos" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarIdAmistadPorIdJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecuperarIdAmistadPorIdJugadoresResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RegistrarPartidaPorIdJugador">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="idJugador" type="xs:int" />
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="partida" nillable="true" type="q10:Partida" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="partida" nillable="true" type="q12:Partida" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -318,7 +363,7 @@
   <xs:element name="ObtenerPreguntasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ObtenerPreguntasResult" nillable="true" type="q11:ArrayOfPregunta" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ObtenerPreguntasResult" nillable="true" type="q13:ArrayOfPregunta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -332,7 +377,7 @@
   <xs:element name="ObtenerRespuestaPorIdPreguntaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ObtenerRespuestaPorIdPreguntaResult" nillable="true" type="q12:ArrayOfRespuesta" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ObtenerRespuestaPorIdPreguntaResult" nillable="true" type="q14:ArrayOfRespuesta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
