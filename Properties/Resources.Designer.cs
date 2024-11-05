@@ -241,6 +241,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Ya ha enviado o le han enviado una solicitud de amistad el jugador.
+        /// </summary>
+        public static string MensajeAmistadAnterior {
+            get {
+                return ResourceManager.GetString("MensajeAmistadAnterior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Los cambios han sido guardados. .
         /// </summary>
         public static string MensajeCambiosGuardados {
@@ -304,6 +313,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El correo no pudo ser enviado, intentálo más tarde.
+        /// </summary>
+        public static string MensajeErrorEnvioCorreo {
+            get {
+                return ResourceManager.GetString("MensajeErrorEnvioCorreo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Revise que la información de los campos sea correcta. .
         /// </summary>
         public static string MensajeInformacionInvalida {
@@ -318,6 +336,15 @@ namespace Cliente.Properties {
         public static string MensajeRegistroExitoso {
             get {
                 return ResourceManager.GetString("MensajeRegistroExitoso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualmente no tienes solicitudes de amistad.
+        /// </summary>
+        public static string MensajeSinSolicitudes {
+            get {
+                return ResourceManager.GetString("MensajeSinSolicitudes", resourceCulture);
             }
         }
         

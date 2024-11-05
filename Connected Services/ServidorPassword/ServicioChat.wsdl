@@ -151,6 +151,7 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServicioChat_Chatear_InputMessage">
@@ -264,6 +265,24 @@
   <wsdl:message name="IServicioGestionAmistad_ConsultarIdJugadorPorCorreo_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConsultarIdJugadorPorCorreoResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ObtenerNombresDeUsuarioPorIdJugadores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombresDeUsuarioPorIdJugadores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ObtenerNombresDeUsuarioPorIdJugadores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerNombresDeUsuarioPorIdJugadoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ValidarExistenciaAmistadPorIdJugadores_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarExistenciaAmistadPorIdJugadores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_ValidarExistenciaAmistadPorIdJugadores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarExistenciaAmistadPorIdJugadoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_RecuperarIdAmistadPorIdJugadores_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarIdAmistadPorIdJugadores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAmistad_RecuperarIdAmistadPorIdJugadores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarIdAmistadPorIdJugadoresResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioGestionPartida_RegistrarPartidaPorIdJugador_InputMessage">
     <wsdl:part name="parameters" element="tns:RegistrarPartidaPorIdJugador" />
   </wsdl:message>
@@ -375,6 +394,18 @@
     <wsdl:operation name="ConsultarIdJugadorPorCorreo">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreo" message="tns:IServicioGestionAmistad_ConsultarIdJugadorPorCorreo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreoResponse" message="tns:IServicioGestionAmistad_ConsultarIdJugadorPorCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombresDeUsuarioPorIdJugadores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ObtenerNombresDeUsuarioPorIdJugadores" message="tns:IServicioGestionAmistad_ObtenerNombresDeUsuarioPorIdJugadores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ObtenerNombresDeUsuarioPorIdJugadoresResponse" message="tns:IServicioGestionAmistad_ObtenerNombresDeUsuarioPorIdJugadores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarExistenciaAmistadPorIdJugadores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ValidarExistenciaAmistadPorIdJugadores" message="tns:IServicioGestionAmistad_ValidarExistenciaAmistadPorIdJugadores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/ValidarExistenciaAmistadPorIdJugadoresResponse" message="tns:IServicioGestionAmistad_ValidarExistenciaAmistadPorIdJugadores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarIdAmistadPorIdJugadores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAmistad/RecuperarIdAmistadPorIdJugadores" message="tns:IServicioGestionAmistad_RecuperarIdAmistadPorIdJugadores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAmistad/RecuperarIdAmistadPorIdJugadoresResponse" message="tns:IServicioGestionAmistad_RecuperarIdAmistadPorIdJugadores_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioGestionPartida">
@@ -575,6 +606,33 @@
     </wsdl:operation>
     <wsdl:operation name="ConsultarIdJugadorPorCorreo">
       <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNombresDeUsuarioPorIdJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/ObtenerNombresDeUsuarioPorIdJugadores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarExistenciaAmistadPorIdJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/ValidarExistenciaAmistadPorIdJugadores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarIdAmistadPorIdJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAmistad/RecuperarIdAmistadPorIdJugadores" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

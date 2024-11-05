@@ -51,6 +51,8 @@ namespace Cliente.Vistas
                         {
                             EnviarCorreo(nuevaContrasenia);
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                            VentanaInicio paginaInicio=new VentanaInicio();
+                            this.NavigationService.Navigate(paginaInicio);
                         }
                         else 
                         {

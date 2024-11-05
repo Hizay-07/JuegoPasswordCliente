@@ -237,4 +237,13 @@
   <data name="VentanaEmergenteExpulsado" xml:space="preserve">
     <value>Se expulsó al jugador correctamente</value>
   </data>
+  <data name="MensajeAmistadAnterior" xml:space="preserve">
+    <value>Ya ha enviado o le han enviado una solicitud de amistad el jugador</value>
+  </data>
+  <data name="MensajeErrorEnvioCorreo" xml:space="preserve">
+    <value>El correo no pudo ser enviado, intentálo más tarde</value>
+  </data>
+  <data name="MensajeSinSolicitudes" xml:space="preserve">
+    <value>Actualmente no tienes solicitudes de amistad</value>
+  </data>
 </root>

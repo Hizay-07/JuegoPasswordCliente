@@ -23,14 +23,12 @@ namespace Cliente.Auxiliares
                 SmtpClient clienteSmtp = new SmtpClient("smtp.gmail.com", 587);
                 clienteSmtp.Credentials = new NetworkCredential("juegopswdlis@gmail.com", "kdpp iien niys fmvo");
                 clienteSmtp.EnableSsl = true;                 
-                clienteSmtp.Send(mensaje);
-                Console.WriteLine("Correo enviado con éxito.");
+                clienteSmtp.Send(mensaje);                
             }
-            catch (SmtpException excepcionSMTP)
+            catch (SmtpException)
             {
-                Console.WriteLine("Error al enviar el correo: " + excepcionSMTP.Message);
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorEnvioCorreo);
             }
-
         }        
     }
 }

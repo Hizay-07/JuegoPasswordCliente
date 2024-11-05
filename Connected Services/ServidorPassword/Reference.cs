@@ -1881,12 +1881,12 @@ namespace Cliente.ServidorPassword {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ConsultarSolicitudesAmistadPorIdJugado" +
             "r", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ConsultarSolicitudesAmistadPorIdJugado" +
             "rResponse")]
-        Cliente.ServidorPassword.Amistad[] ConsultarSolicitudesAmistadPorIdJugador(int idJugador);
+        int[] ConsultarSolicitudesAmistadPorIdJugador(int idJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ConsultarSolicitudesAmistadPorIdJugado" +
             "r", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ConsultarSolicitudesAmistadPorIdJugado" +
             "rResponse")]
-        System.Threading.Tasks.Task<Cliente.ServidorPassword.Amistad[]> ConsultarSolicitudesAmistadPorIdJugadorAsync(int idJugador);
+        System.Threading.Tasks.Task<int[]> ConsultarSolicitudesAmistadPorIdJugadorAsync(int idJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugadorResponse" +
             "")]
@@ -1901,6 +1901,32 @@ namespace Cliente.ServidorPassword {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreo", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreoResponse")]
         System.Threading.Tasks.Task<int> ConsultarIdJugadorPorCorreoAsync(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ObtenerNombresDeUsuarioPorIdJugadores", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ObtenerNombresDeUsuarioPorIdJugadoresR" +
+            "esponse")]
+        string[] ObtenerNombresDeUsuarioPorIdJugadores(int[] idJugadores);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ObtenerNombresDeUsuarioPorIdJugadores", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ObtenerNombresDeUsuarioPorIdJugadoresR" +
+            "esponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerNombresDeUsuarioPorIdJugadoresAsync(int[] idJugadores);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ValidarExistenciaAmistadPorIdJugadores" +
+            "", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ValidarExistenciaAmistadPorIdJugadores" +
+            "Response")]
+        int ValidarExistenciaAmistadPorIdJugadores(int idJugadorUno, int idJugadorDos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ValidarExistenciaAmistadPorIdJugadores" +
+            "", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ValidarExistenciaAmistadPorIdJugadores" +
+            "Response")]
+        System.Threading.Tasks.Task<int> ValidarExistenciaAmistadPorIdJugadoresAsync(int idJugadorUno, int idJugadorDos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/RecuperarIdAmistadPorIdJugadores", ReplyAction="http://tempuri.org/IServicioGestionAmistad/RecuperarIdAmistadPorIdJugadoresRespon" +
+            "se")]
+        int RecuperarIdAmistadPorIdJugadores(int idJugadorUno, int idJugadorDos);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/RecuperarIdAmistadPorIdJugadores", ReplyAction="http://tempuri.org/IServicioGestionAmistad/RecuperarIdAmistadPorIdJugadoresRespon" +
+            "se")]
+        System.Threading.Tasks.Task<int> RecuperarIdAmistadPorIdJugadoresAsync(int idJugadorUno, int idJugadorDos);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1946,11 +1972,11 @@ namespace Cliente.ServidorPassword {
             return base.Channel.ResponderSolicitudAmistadAsync(amistad);
         }
         
-        public Cliente.ServidorPassword.Amistad[] ConsultarSolicitudesAmistadPorIdJugador(int idJugador) {
+        public int[] ConsultarSolicitudesAmistadPorIdJugador(int idJugador) {
             return base.Channel.ConsultarSolicitudesAmistadPorIdJugador(idJugador);
         }
         
-        public System.Threading.Tasks.Task<Cliente.ServidorPassword.Amistad[]> ConsultarSolicitudesAmistadPorIdJugadorAsync(int idJugador) {
+        public System.Threading.Tasks.Task<int[]> ConsultarSolicitudesAmistadPorIdJugadorAsync(int idJugador) {
             return base.Channel.ConsultarSolicitudesAmistadPorIdJugadorAsync(idJugador);
         }
         
@@ -1968,6 +1994,30 @@ namespace Cliente.ServidorPassword {
         
         public System.Threading.Tasks.Task<int> ConsultarIdJugadorPorCorreoAsync(string correo) {
             return base.Channel.ConsultarIdJugadorPorCorreoAsync(correo);
+        }
+        
+        public string[] ObtenerNombresDeUsuarioPorIdJugadores(int[] idJugadores) {
+            return base.Channel.ObtenerNombresDeUsuarioPorIdJugadores(idJugadores);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerNombresDeUsuarioPorIdJugadoresAsync(int[] idJugadores) {
+            return base.Channel.ObtenerNombresDeUsuarioPorIdJugadoresAsync(idJugadores);
+        }
+        
+        public int ValidarExistenciaAmistadPorIdJugadores(int idJugadorUno, int idJugadorDos) {
+            return base.Channel.ValidarExistenciaAmistadPorIdJugadores(idJugadorUno, idJugadorDos);
+        }
+        
+        public System.Threading.Tasks.Task<int> ValidarExistenciaAmistadPorIdJugadoresAsync(int idJugadorUno, int idJugadorDos) {
+            return base.Channel.ValidarExistenciaAmistadPorIdJugadoresAsync(idJugadorUno, idJugadorDos);
+        }
+        
+        public int RecuperarIdAmistadPorIdJugadores(int idJugadorUno, int idJugadorDos) {
+            return base.Channel.RecuperarIdAmistadPorIdJugadores(idJugadorUno, idJugadorDos);
+        }
+        
+        public System.Threading.Tasks.Task<int> RecuperarIdAmistadPorIdJugadoresAsync(int idJugadorUno, int idJugadorDos) {
+            return base.Channel.RecuperarIdAmistadPorIdJugadoresAsync(idJugadorUno, idJugadorDos);
         }
     }
     

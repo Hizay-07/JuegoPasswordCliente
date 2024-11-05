@@ -237,4 +237,13 @@
   <data name="VentanaEmergenteExpulsado" xml:space="preserve">
     <value>The player was correctly ejected</value>
   </data>
+  <data name="MensajeAmistadAnterior" xml:space="preserve">
+    <value>The player has already sent or has been sent a friend request</value>
+  </data>
+  <data name="MensajeErrorEnvioCorreo" xml:space="preserve">
+    <value>The email could not be sent, please try again later</value>
+  </data>
+  <data name="MensajeSinSolicitudes" xml:space="preserve">
+    <value>You currently have no friend requests</value>
+  </data>
 </root>
