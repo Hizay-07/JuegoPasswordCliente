@@ -13,6 +13,7 @@
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
                 </Border.Background>
+                <Button Content="Salir" Margin="111,0,1037,111" Height="44" VerticalAlignment="Bottom" FontSize="20" Background="Red" Foreground="White" Click="SalirMenuPrincipal"/>
             </Border>
 
             <Grid>

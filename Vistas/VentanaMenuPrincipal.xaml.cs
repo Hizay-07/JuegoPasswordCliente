@@ -48,5 +48,17 @@ namespace Cliente.Vistas
             VentanaAmigos paginaAmigos= new VentanaAmigos();
             this.NavigationService.Navigate(paginaAmigos);
         }
+
+        private void VerSolicitudesDeAmistad(object remitente, RoutedEventArgs argumento)
+        {
+            VentanaSolicitudesDeAmistad paginaSolicitudesDeAmistad=new VentanaSolicitudesDeAmistad();
+            this.NavigationService.Navigate(paginaSolicitudesDeAmistad);
+        }
+
+        private void AbrirSalaEspera(object remitente, RoutedEventArgs argumento)
+        {
+            VentanaLobby paginaSalaEspera=new VentanaLobby();
+            this.NavigationService.Navigate(paginaSalaEspera);
+        }
     }
 }

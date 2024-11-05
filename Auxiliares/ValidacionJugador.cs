@@ -14,19 +14,19 @@ namespace Cliente.Auxiliares
     {
         public ValidacionJugador()
         {
-            RuleFor(jugador => jugador.nombre).NotEmpty().MaximumLength(100).Matches(@"^[a-zA-Z\s]+$");
-            RuleFor(jugador => jugador.apellidos).NotEmpty().MaximumLength(100).Matches(@"^[a-zA-Z\s]+$");
+            RuleFor(jugador => jugador.nombre).NotEmpty().MaximumLength(100).Matches(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$");
+            RuleFor(jugador => jugador.apellidos).NotEmpty().MaximumLength(100).Matches(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$");
         }
 
         public bool ValidarNombre(string nombre) 
         {
-            string patronNombre= @"^[a-zA-Z\s]+$";
+            string patronNombre= @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$";
             return Regex.IsMatch(nombre, patronNombre);
         }
 
         public bool ValidarApellidos(string apellidos) 
         {
-            string patronApellido = @"^[a-zA-Z\s]+$";
+            string patronApellido = @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$";
             return Regex.IsMatch(apellidos, patronApellido);
         }
 

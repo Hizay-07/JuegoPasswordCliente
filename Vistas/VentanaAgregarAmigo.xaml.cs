@@ -43,16 +43,28 @@ namespace Cliente.Vistas
                     int idJugador = proxy.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
                     if (idJugador > 0)
                     {
-                        Amistad amistad=ObtenerAmistad(idJugador);
-                        int resultadoRegistroAmistad=proxy.RegistrarAmistad(amistad);
-                        if (resultadoRegistroAmistad == 1)
+                        int validacionExistenciaAmistad = proxy.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
+                        if (validacionExistenciaAmistad == 0)
                         {
-                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                            Amistad amistad = ObtenerAmistad(idJugador);
+                            int resultadoRegistroAmistad = proxy.RegistrarAmistad(amistad);
+                            if (resultadoRegistroAmistad == 1)
+                            {
+                                MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                            }
+                            else
+                            {
+                                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                            }
+                        }
+                        else if (validacionExistenciaAmistad == 1) 
+                        {
+                            MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeAmistadAnterior);
                         }
                         else 
                         {
                             MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }
+                        }                        
                     }
                     else if (idJugador == 0)
                     {
