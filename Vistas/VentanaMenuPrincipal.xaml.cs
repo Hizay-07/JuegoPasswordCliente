@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cliente.Auxiliares;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,8 @@ namespace Cliente.Vistas
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
-        }
+            Img_Perfil.Source = new BitmapImage(new Uri(JugadorSingleton.RutaImagen));
+        }       
 
         private void PersonalizarPerfil(object remitente, RoutedEventArgs argumento)
         {

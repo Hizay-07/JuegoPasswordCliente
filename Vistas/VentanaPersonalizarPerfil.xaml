@@ -88,6 +88,30 @@
                     </Button.Effect>
                 </Button>
 
+                <Button Content="Elegir imagen de jugador" 
+                        Width="318"
+                        Background="#6c6c6c"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="25"
+                        BorderThickness="0"
+                        HorizontalAlignment="Left"
+                        Margin="636,324,0,10" Click="CambiarImagen">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="10" 
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+
 
 
                 <Button Content="Aceptar"
