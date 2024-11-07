@@ -15,24 +15,46 @@
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
 
-                <Label Content="Seleccionar imagen de juagador" Background="#6c6c6c" Foreground="White" 
-                       FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" 
-                       Margin="0,20,0,0" Padding="10" Width="472" />
+                <Label Content="Seleccionar imagen de jugador" Background="#6c6c6c" Foreground="White" 
+                       FontWeight="Bold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="10" Width="472" />
 
-                <UniformGrid Rows="2" Columns="4" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,0,60">
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil1.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil2.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil3.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil4.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil5.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil6.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil7.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
-                    <Image Source="C:\Users\Oscar Hizay\Desktop\JuegoPasswordCliente\Imagenes\Fondos\perfil8.png" Width="80" Height="80" Stretch="UniformToFill" Margin="10" Cursor="Hand"/>
+                <UniformGrid Rows="2" Columns="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="580" Height="280">
+                    <UniformGrid.Resources>
+                        <Style TargetType="Image">
+                            <Setter Property="Width" Value="120" />
+                            <Setter Property="Height" Value="120" />
+                            <Setter Property="Margin" Value="10" />
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter Property="Stretch" Value="UniformToFill" />
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="Black" ShadowDepth="0" BlurRadius="5" Opacity="0"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="Tag" Value="Selected">
+                                    <Setter Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect Color="#00d2ff" ShadowDepth="0" BlurRadius="10" Opacity="1"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </UniformGrid.Resources>
+                    <Image Source="/Imagenes/Fondos/perfil1.png" MouseLeftButtonDown="SeleccionarImagen"/>
+                    <Image Source="/Imagenes/Fondos/perfil2.png" MouseLeftButtonDown="SeleccionarImagen"/>
+                    <Image Source="/Imagenes/Fondos/perfil3.png" MouseLeftButtonDown="SeleccionarImagen"/>
+                    <Image Source="/Imagenes/Fondos/perfil4.png" MouseLeftButtonDown="SeleccionarImagen"/>
+                    <Image Source="/Imagenes/Fondos/perfil5.png" MouseLeftButtonDown="SeleccionarImagen"/>
+                    <Image Source="/Imagenes/Fondos/perfil6.png" MouseLeftButtonDown="SeleccionarImagen"/>
+                    <Image Source="/Imagenes/Fondos/perfil7.png" MouseLeftButtonDown="SeleccionarImagen"/>
+                    <Image Source="/Imagenes/Fondos/perfil8.png" MouseLeftButtonDown="SeleccionarImagen"/>
                 </UniformGrid>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
                     <Button Content="Aceptar" Width="100" Height="40" Background="#00d2ff" Foreground="White" 
-                            FontWeight="Bold" FontSize="16" Margin="10,0" Click="AceptarClick">
+                            FontWeight="Bold" FontSize="16" Margin="10,0" Click="GuardarImagenPerfil">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
