@@ -167,7 +167,7 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
-                <Image Source="{Binding ImagenDeJugador}" Cursor="Hand" Margin="809,208,125,99"/>
+                <Image Name="Img_Perfil" Cursor="Hand" Margin="815,196,123,81" Width="120" Height="120"/>
 
             </Grid>
         </Border>
