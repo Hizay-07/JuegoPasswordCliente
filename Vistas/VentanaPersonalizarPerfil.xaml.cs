@@ -217,5 +217,11 @@ namespace Cliente.Vistas
             VentanaCambioContrasenia paginaCambioContrasenia = new VentanaCambioContrasenia();
             this.NavigationService.Navigate(paginaCambioContrasenia);
         }
+
+        private void CambiarImagen(object sender, RoutedEventArgs e)
+        {
+            VentanaImagenDeJugador paginaImagenDeJugador = new VentanaImagenDeJugador();
+            this.NavigationService.Navigate(paginaImagenDeJugador);
+        }
     }
 }
