@@ -10,7 +10,7 @@
     <DockPanel>
         <Border CornerRadius="20">
             <Border.Background>
-                <ImageBrush ImageSource="pack://application:,,,/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="592" Width="918">
@@ -18,7 +18,7 @@
                        FontWeight="Bold" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Top" 
                        Margin="0,20,0,0" Padding="10" BorderBrush="Transparent" Width="483" />
 
-                <Image Source="/Imagenes/Fondos/peppo.png" Width="192" Height="168" Margin="0,105,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                <Image Source="{Binding ImagenDeAmigo}" Width="192" Height="168" Margin="0,105,363,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
 
                 <Label Content="Correo:" Background="#3b92c4" Foreground="Beige" 
                        FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" 
