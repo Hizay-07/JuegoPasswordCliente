@@ -1,0 +1,37 @@
+﻿<Page x:Class="Cliente.Vistas.VentanaPregunta"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="VentanaPregunta">
+
+    <DockPanel>
+        <Border CornerRadius="10" BorderThickness="2" BorderBrush="DarkSlateGray">
+            <Border.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+            </Border.Background>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0">
+                    <TextBlock Text=" " Width="10" />
+                    <TextBlock Text="{Binding NumeroPregunta}" FontSize="20" Foreground="White" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <TextBlock Text="{Binding TiempoRestante}" FontSize="20" FontWeight="Bold" Foreground="White" Background="#00d2ff"
+                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,20,0" Padding="10" />
+
+                <TextBlock Text="{Binding PreguntaActual}" FontSize="28" FontWeight="Bold" Foreground="White" 
+                           Background="#00b0ff" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0" Padding="10" />
+
+                <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,150,0,0" Width="500" Height="200">
+                    <Button Content="{Binding Respuesta1}" Background="#6c6c6c" Foreground="White" FontSize="16" Padding="10" Margin="5" Click="RevisarRespuesta" />
+                    <Button Content="{Binding Respuesta2}" Background="#6c6c6c" Foreground="White" FontSize="16" Padding="10" Margin="5" Click="RevisarRespuesta"/>
+                    <Button Content="{Binding Respuesta3}" Background="#6c6c6c" Foreground="White" FontSize="16" Padding="10" Margin="5" Click="RevisarRespuesta"/>
+                    <Button Content="{Binding Respuesta4}" Background="#6c6c6c" Foreground="White" FontSize="16" Padding="10" Margin="5" Click="RevisarRespuesta"/>
+                </UniformGrid>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Page>

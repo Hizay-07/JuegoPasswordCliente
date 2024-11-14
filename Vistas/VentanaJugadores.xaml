@@ -65,13 +65,13 @@
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Bottom" 
                             Margin="0,0,0,40">
-                    <Button Content="Hecho" 
-                            Width="131" 
-                            Height="64" 
-                            Background="#00D27F" 
-                            Foreground="Black" 
+                    <Button Content="Aceptar" 
+                            Width="150" 
+                            Height="65" 
+                            Background="#36D25B" 
+                            Foreground="White" 
                             FontWeight="Bold" 
-                            FontSize="20" 
+                            FontSize="25" 
                             Margin="10" 
                             Click="Hecho_Click">
                         <Button.Template>
@@ -88,10 +88,10 @@
                     <Button Content="Cancelar" 
                             Width="138" 
                             Height="64" 
-                            Background="#D23636" 
+                            Background="Red" 
                             Foreground="White" 
                             FontWeight="Bold" 
-                            FontSize="20" 
+                            FontSize="25" 
                             Margin="10" 
                             Click="Cancelar_Click">
                         <Button.Template>

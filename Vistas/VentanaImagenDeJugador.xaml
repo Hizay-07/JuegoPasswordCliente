@@ -53,8 +53,8 @@
                 </UniformGrid>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
-                    <Button Content="Aceptar" Width="100" Height="40" Background="#00d2ff" Foreground="White" 
-                            FontWeight="Bold" FontSize="16" Margin="10,0" Click="GuardarImagenPerfil">
+                    <Button Content="Aceptar" Width="120" Height="50" Background="#36D25B" Foreground="White" 
+                            FontWeight="Bold" FontSize="20" Margin="10,0" Click="GuardarImagenPerfil">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
@@ -67,8 +67,8 @@
                         </Button.Effect>
                     </Button>
 
-                    <Button Content="Cancelar" Width="100" Height="40" Background="Red" Foreground="White" 
-                            FontWeight="Bold" FontSize="16" Margin="10,0" Click="CancelarClick">
+                    <Button Content="Cancelar" Width="120" Height="50" Background="Red" Foreground="White" 
+                            FontWeight="Bold" FontSize="20" Margin="10,0" Click="CancelarClick">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
