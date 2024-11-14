@@ -30,7 +30,7 @@
         />
 
 
-                <Button Content="Aceptar" Width="150" Height="65" Background="#00D27F" Foreground="White" 
+                <Button Content="Aceptar" Width="150" Height="65" Background="#36D25B" Foreground="White" 
                       FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Left" 
                       VerticalAlignment="Top" Margin="353,286,0,0" Click="AceptarCambioContrasena">
                     <Button.Template>
