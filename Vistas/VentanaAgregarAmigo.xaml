@@ -41,9 +41,9 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Regresar" Width="150" Height="40" Background="#00f0ff" Foreground="Black" 
-                        FontWeight="Bold" FontSize="18" BorderThickness="0" HorizontalAlignment="Center" 
-                        VerticalAlignment="Top" Margin="0,350,0,0" Click="RegresarClick">
+                <Button Content="Regresar" Width="150" Height="65" Background="#00f0ff" Foreground="White" 
+                        FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Center" 
+                        VerticalAlignment="Top" Margin="0,335,0,0" Click="RegresarClick">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">

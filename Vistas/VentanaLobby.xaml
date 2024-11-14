@@ -13,7 +13,7 @@
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
                 </Border.Background>
-                <Button Content="Salir" Margin="111,0,1037,111" Height="44" VerticalAlignment="Bottom" FontSize="20" Background="Red" Foreground="White" Click="SalirMenuPrincipal"/>
+                <Button Content="Salir" Margin="111,0,1014,111" Height="65" VerticalAlignment="Bottom" FontSize="25" Background="Red" Foreground="White" FontWeight="Bold" Click="SalirMenuPrincipal" RenderTransformOrigin="0.362,0.457"/>
             </Border>
 
             <Grid>
@@ -56,9 +56,9 @@
                     <Button x:Name="Enviar" Content="{x:Static p:Resources.Btn_Enviar}"
                         Width="116" Height="40"
                         Background="#33c1ff"
-                        Foreground="Black"
+                        Foreground="White"
                         FontWeight="Bold"
-                        FontSize="20"
+                        FontSize="25"
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
                         Click="EnviarMensaje" RenderTransformOrigin="0.766,0.547">
