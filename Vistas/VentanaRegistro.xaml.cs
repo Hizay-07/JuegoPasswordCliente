@@ -102,6 +102,7 @@ namespace Cliente.Vistas
             Perfil perfil = new Perfil
             {
                 nombreUsuario = Txb_NombreUsuario.Text,
+                rutaImagen= "pack://application:,,,/Imagenes/Fondos/perfil1.png",
             };            
             return perfil;
         }

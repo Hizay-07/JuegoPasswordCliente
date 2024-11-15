@@ -37,11 +37,11 @@
                                        Height="50" 
                                        Margin="5" />
 
-                                <TextBlock Text="{Binding NombreAmigo}"
-                                           FontSize="20" 
-                                           Foreground="White" 
-                                           VerticalAlignment="Center" 
-                                           Margin="20,0,20,0"/>
+                                <TextBlock Text="{Binding NombreUsuario}" 
+                                       FontSize="25" 
+                                       Foreground="White" 
+                                       VerticalAlignment="Center" 
+                                       Margin="20,0,20,0"/>
 
                                 <Button Content="Ver perfil" 
                                         Width="100" 
@@ -49,8 +49,10 @@
                                         Background="#00BCD4" 
                                         Foreground="White" 
                                         FontWeight="Bold" 
-                                        FontSize="14" 
-                                        HorizontalAlignment="Right">
+                                        FontSize="20" 
+                                        HorizontalAlignment="Right"
+                                        Click="VerPerfil" 
+                                        Tag="{Binding IdJugador}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Border Background="{TemplateBinding Background}" 

@@ -14,7 +14,7 @@
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="592" Width="918">
-                <Label Content="Nombre del Jugador" Background="#6c6c6c" Foreground="White" 
+                <Label Name="Lbl_NombreJugador" Content="Nombre del Jugador" Background="#6c6c6c" Foreground="White" 
                        FontWeight="Bold" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Top" 
                        Margin="0,20,0,0" Padding="10" BorderBrush="Transparent" Width="483" />
 

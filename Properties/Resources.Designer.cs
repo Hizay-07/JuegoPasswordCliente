@@ -142,6 +142,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Has sido invitado a una nueva partida.
+        /// </summary>
+        public static string CorreoInvitacionPartida {
+            get {
+                return ResourceManager.GetString("CorreoInvitacionPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Apellido(s).
         /// </summary>
         public static string Lbl_Apellidos {
@@ -273,6 +282,15 @@ namespace Cliente.Properties {
         public static string MensajeCamposRequeridos {
             get {
                 return ResourceManager.GetString("MensajeCamposRequeridos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El correo ha sido enviado.
+        /// </summary>
+        public static string MensajeCorreoEnviado {
+            get {
+                return ResourceManager.GetString("MensajeCorreoEnviado", resourceCulture);
             }
         }
         

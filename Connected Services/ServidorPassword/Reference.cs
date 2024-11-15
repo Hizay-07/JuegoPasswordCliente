@@ -1655,6 +1655,12 @@ namespace Cliente.ServidorPassword {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreo", ReplyAction="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreoResponse")]
         System.Threading.Tasks.Task<int> ValidarPresenciaDeCorreoAsync(string correo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorIdJugadorResponse")]
+        Cliente.ServidorPassword.Cuenta RecuperarCuentaPorIdJugador(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorIdJugadorResponse")]
+        System.Threading.Tasks.Task<Cliente.ServidorPassword.Cuenta> RecuperarCuentaPorIdJugadorAsync(int idJugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1730,6 +1736,14 @@ namespace Cliente.ServidorPassword {
         
         public System.Threading.Tasks.Task<int> ValidarPresenciaDeCorreoAsync(string correo) {
             return base.Channel.ValidarPresenciaDeCorreoAsync(correo);
+        }
+        
+        public Cliente.ServidorPassword.Cuenta RecuperarCuentaPorIdJugador(int idJugador) {
+            return base.Channel.RecuperarCuentaPorIdJugador(idJugador);
+        }
+        
+        public System.Threading.Tasks.Task<Cliente.ServidorPassword.Cuenta> RecuperarCuentaPorIdJugadorAsync(int idJugador) {
+            return base.Channel.RecuperarCuentaPorIdJugadorAsync(idJugador);
         }
     }
     
@@ -1890,11 +1904,11 @@ namespace Cliente.ServidorPassword {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugadorResponse" +
             "")]
-        Cliente.ServidorPassword.Amistad[] ConsultarAmistadesPorIdJugador(int idJugador);
+        int[] ConsultarAmistadesPorIdJugador(int idJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ConsultarAmistadesPorIdJugadorResponse" +
             "")]
-        System.Threading.Tasks.Task<Cliente.ServidorPassword.Amistad[]> ConsultarAmistadesPorIdJugadorAsync(int idJugador);
+        System.Threading.Tasks.Task<int[]> ConsultarAmistadesPorIdJugadorAsync(int idJugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreo", ReplyAction="http://tempuri.org/IServicioGestionAmistad/ConsultarIdJugadorPorCorreoResponse")]
         int ConsultarIdJugadorPorCorreo(string correo);
@@ -1980,11 +1994,11 @@ namespace Cliente.ServidorPassword {
             return base.Channel.ConsultarSolicitudesAmistadPorIdJugadorAsync(idJugador);
         }
         
-        public Cliente.ServidorPassword.Amistad[] ConsultarAmistadesPorIdJugador(int idJugador) {
+        public int[] ConsultarAmistadesPorIdJugador(int idJugador) {
             return base.Channel.ConsultarAmistadesPorIdJugador(idJugador);
         }
         
-        public System.Threading.Tasks.Task<Cliente.ServidorPassword.Amistad[]> ConsultarAmistadesPorIdJugadorAsync(int idJugador) {
+        public System.Threading.Tasks.Task<int[]> ConsultarAmistadesPorIdJugadorAsync(int idJugador) {
             return base.Channel.ConsultarAmistadesPorIdJugadorAsync(idJugador);
         }
         
