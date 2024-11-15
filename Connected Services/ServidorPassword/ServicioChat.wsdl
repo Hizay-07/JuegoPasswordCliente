@@ -199,6 +199,12 @@
   <wsdl:message name="IServicioGestionAcceso_ValidarPresenciaDeCorreo_OutputMessage">
     <wsdl:part name="parameters" element="tns:ValidarPresenciaDeCorreoResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionAcceso_RecuperarCuentaPorIdJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarCuentaPorIdJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionAcceso_RecuperarCuentaPorIdJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarCuentaPorIdJugadorResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioPersonalizacionPerfil_EditarCorreoPorIdAcceso_InputMessage">
     <wsdl:part name="parameters" element="tns:EditarCorreoPorIdAcceso" />
   </wsdl:message>
@@ -346,6 +352,10 @@
     <wsdl:operation name="ValidarPresenciaDeCorreo">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreo" message="tns:IServicioGestionAcceso_ValidarPresenciaDeCorreo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreoResponse" message="tns:IServicioGestionAcceso_ValidarPresenciaDeCorreo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarCuentaPorIdJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorIdJugador" message="tns:IServicioGestionAcceso_RecuperarCuentaPorIdJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorIdJugadorResponse" message="tns:IServicioGestionAcceso_RecuperarCuentaPorIdJugador_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioPersonalizacionPerfil">
@@ -499,6 +509,15 @@
     </wsdl:operation>
     <wsdl:operation name="ValidarPresenciaDeCorreo">
       <soap12:operation soapAction="http://tempuri.org/IServicioGestionAcceso/ValidarPresenciaDeCorreo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarCuentaPorIdJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionAcceso/RecuperarCuentaPorIdJugador" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

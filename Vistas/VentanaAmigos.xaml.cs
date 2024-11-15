@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,11 +26,101 @@ namespace Cliente.Vistas
         public VentanaAmigos()
         {
             InitializeComponent();
+            RecuperarAmigos();
         }
 
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
+
+        private void RecuperarAmigos()
+        {
+            try
+            {
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                List<int> idAmistades = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
+                int idAmistad = idAmistades.FirstOrDefault();
+                if (idAmistad == -1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+                else
+                {
+                    RecuperarJugadores(idAmistades);
+                }
+            }
+            catch (EndpointNotFoundException)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+            }
+        }
+
+        private void RecuperarJugadores(List<int> amistades)
+        {
+            try
+            {
+                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
+                List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
+                AsignarNombresUsuario(nombresUsuario,amistades);
+            }
+            catch (EndpointNotFoundException)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+            }
+        }
+
+        private void AsignarNombresUsuario(List<string> nombresUsuario,List<int> idAmistades)
+        {
+            string primerNombreUsuario = nombresUsuario.First();
+            if (primerNombreUsuario != "excepcion")
+            {
+                List<JugadorAmistad> amistades = CombinarListas(idAmistades, nombresUsuario);
+                ListaAmigos.ItemsSource = amistades;
+            }
+            else
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+            }
+        }
+
+        private List<JugadorAmistad> CombinarListas(List<int> idJugadores, List<string> nombresUsuario)
+        {
+            List<JugadorAmistad> jugadores = idJugadores.Zip(nombresUsuario, (id, nombre) => new JugadorAmistad
+            {
+                IdJugador = id,
+                NombreUsuario = nombre
+            }).ToList();
+            return jugadores;
+        }
+
+        private void VerPerfil(object remitente, RoutedEventArgs argumento)
+        {
+            if (remitente is Button Btn_VerPerfilAmigo && Btn_VerPerfilAmigo.Tag is int idJugador)
+            {
+                try
+                {
+                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                    Cuenta cuenta=servicioGestionAcceso.RecuperarCuentaPorIdJugador(idJugador);
+                    if (cuenta.IdAcceso != -1)
+                    {
+                        VentanaPerfilDeJugador paginaPerfilDeJugador=new VentanaPerfilDeJugador();
+                        paginaPerfilDeJugador.Txb_Correo.Text = cuenta.Correo;
+                        paginaPerfilDeJugador.Txb_Descripcion.Text = cuenta.Descripcion;
+                        paginaPerfilDeJugador.Lbl_NombreJugador.Content = cuenta.NombreUsuario;
+                        this.NavigationService.Navigate(paginaPerfilDeJugador);
+                    }
+                    else 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }
+                }
+                catch (EndpointNotFoundException) 
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                }                             
+            }
+        }
+
     }
 }

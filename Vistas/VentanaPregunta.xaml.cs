@@ -98,6 +98,11 @@ namespace Cliente.Vistas
             }
         }
 
+        private void RevisarRespuesta(object remitentes, EventArgs argumento)
+        {
+
+        }
+
         protected void OnPropertyChanged(string name)
         {
             var handler = PropertyChanged;

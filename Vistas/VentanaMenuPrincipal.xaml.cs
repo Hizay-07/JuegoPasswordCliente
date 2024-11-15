@@ -1,7 +1,9 @@
 ﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,8 +26,13 @@ namespace Cliente.Vistas
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
-            Img_Perfil.Source = new BitmapImage(new Uri(JugadorSingleton.RutaImagen));
-        }       
+            ConfigurarImagenPerfil();
+        }
+
+        private void ConfigurarImagenPerfil() 
+        {         
+            Img_Perfil.Source = new BitmapImage(new Uri(JugadorSingleton.RutaImagen));            
+        }
 
         private void PersonalizarPerfil(object remitente, RoutedEventArgs argumento)
         {
@@ -60,7 +67,37 @@ namespace Cliente.Vistas
         private void AbrirSalaEspera(object remitente, RoutedEventArgs argumento)
         {
             VentanaLobby paginaSalaEspera=new VentanaLobby();
+            string codigoPartida=ObtenerCodigoPartida();
+            paginaSalaEspera.Txbl_CodigoPartida.Text=codigoPartida;
             this.NavigationService.Navigate(paginaSalaEspera);
+        }
+
+        private string ObtenerCodigoPartida() { 
+            GeneradorCodigo generadorCodigo=new GeneradorCodigo();
+            string codigoPartida = generadorCodigo.GenerarCodigoPartida();
+            try
+            {
+                ServicioGestionPartidaClient servicioGestionPartida=new ServicioGestionPartidaClient();                
+                int resultadoValidacion=servicioGestionPartida.ValidarCodigoPartida(codigoPartida);
+                switch (resultadoValidacion) 
+                {
+                    case -1:
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                        break;
+                    case 1:
+                        while (resultadoValidacion == 1)
+                        {
+                            codigoPartida = generadorCodigo.GenerarCodigoPartida();
+                            resultadoValidacion = servicioGestionPartida.ValidarCodigoPartida(codigoPartida);
+                        }
+                    break;
+                }                
+            }
+            catch (EndpointNotFoundException) 
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+            }
+            return codigoPartida;
         }
     }
 }
