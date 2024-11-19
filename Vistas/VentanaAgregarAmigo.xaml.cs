@@ -1,5 +1,6 @@
 ﻿using Cliente.Auxiliares;
 using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaAgregarAmigo : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public VentanaAgregarAmigo()
         {
             InitializeComponent();
@@ -76,9 +79,10 @@ namespace Cliente.Vistas
                     }
 
                 }
-                catch (EndpointNotFoundException) 
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                 }
             }
             else 

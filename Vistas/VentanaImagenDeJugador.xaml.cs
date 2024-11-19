@@ -1,5 +1,6 @@
 ﻿using Cliente.Auxiliares;
 using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaImagenDeJugador : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private Image _imagenSeleccionada;
         public VentanaImagenDeJugador()
         {
@@ -53,9 +55,10 @@ namespace Cliente.Vistas
                         NavigationService.GoBack();
                     }
                 }
-                catch (EndpointNotFoundException) 
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                 }
             }
 

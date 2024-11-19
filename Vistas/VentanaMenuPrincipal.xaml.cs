@@ -1,7 +1,10 @@
 ﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,11 +24,18 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaMenuPrincipal : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
-            Img_Perfil.Source = new BitmapImage(new Uri(JugadorSingleton.RutaImagen));
-        }       
+            ConfigurarImagenPerfil();
+        }
+
+        private void ConfigurarImagenPerfil() 
+        {         
+            Img_Perfil.Source = new BitmapImage(new Uri(JugadorSingleton.RutaImagen));            
+        }
 
         private void PersonalizarPerfil(object remitente, RoutedEventArgs argumento)
         {
@@ -57,10 +67,16 @@ namespace Cliente.Vistas
             this.NavigationService.Navigate(paginaSolicitudesDeAmistad);
         }
 
-        private void AbrirSalaEspera(object remitente, RoutedEventArgs argumento)
+        private void ElegirDificultadPartida(object remitente, RoutedEventArgs argumento)
         {
-            VentanaLobby paginaSalaEspera=new VentanaLobby();
-            this.NavigationService.Navigate(paginaSalaEspera);
+            VentanaDificultadPartida paginaDificultadPartida = new VentanaDificultadPartida();
+            this.NavigationService.Navigate(paginaDificultadPartida);
+        }
+
+        private void AbrirCodigoPartida(object remitente, RoutedEventArgs argumento)
+        {
+            VentanaUnionPartida paginaUnionPartida=new VentanaUnionPartida();
+            this.NavigationService.Navigate(paginaUnionPartida);
         }
     }
 }

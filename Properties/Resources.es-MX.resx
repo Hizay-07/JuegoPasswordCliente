@@ -246,4 +246,16 @@
   <data name="MensajeSinSolicitudes" xml:space="preserve">
     <value>Actualmente no tienes solicitudes de amistad</value>
   </data>
+  <data name="CorreoInvitacionPartida" xml:space="preserve">
+    <value>Has sido invitado a una nueva partida</value>
+  </data>
+  <data name="MensajeCorreoEnviado" xml:space="preserve">
+    <value>El correo ha sido enviado</value>
+  </data>
+  <data name="MensajeCodigoPartidaInexistente" xml:space="preserve">
+    <value>El código proporcionado no pertenece a ninguna partida, asegurese de colocar el código correcto</value>
+  </data>
+  <data name="MensajePartidaNoDisponible" xml:space="preserve">
+    <value>La partida ya no se encuentra disponible</value>
+  </data>
 </root>

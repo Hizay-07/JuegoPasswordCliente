@@ -75,7 +75,7 @@
                         FontSize="35"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="793,346,0,-69" Click="AbrirSalaEspera">
+                        Margin="793,346,0,-69" Click="ElegirDificultadPartida">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -167,7 +167,30 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
-                <Image Name="Img_Perfil" Cursor="Hand" Margin="815,196,123,81" Width="120" Height="120"/>
+                <Image Name="Img_Perfil" Cursor="Hand" Margin="384,134,454,61"/>
+                <Button Content="Unirse" 
+                    Width="164"
+                    Background="#00E0FF"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="35"
+                    BorderThickness="0"
+                    HorizontalAlignment="Left"
+                    Margin="793,235,0,81" Click="AbrirCodigoPartida">
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10" 
+                                BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
 
             </Grid>
         </Border>

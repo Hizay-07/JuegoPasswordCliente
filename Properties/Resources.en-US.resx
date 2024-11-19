@@ -246,4 +246,16 @@
   <data name="MensajeSinSolicitudes" xml:space="preserve">
     <value>You currently have no friend requests</value>
   </data>
+  <data name="CorreoInvitacionPartida" xml:space="preserve">
+    <value>You have been invited to a new game</value>
+  </data>
+  <data name="MensajeCorreoEnviado" xml:space="preserve">
+    <value>The mail has been sent</value>
+  </data>
+  <data name="MensajeCodigoPartidaInexistente" xml:space="preserve">
+    <value>The code provided does not belong to any game, make sure you enter the correct code</value>
+  </data>
+  <data name="MensajePartidaNoDisponible" xml:space="preserve">
+    <value>The game is no longer available</value>
+  </data>
 </root>

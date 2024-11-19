@@ -35,7 +35,8 @@
                        Margin="0,3,911,0" Width="147" />
                 <TextBox Name="Txb_Correo" Foreground="Black" 
                          FontSize="25"
-                         Margin="231,3,16,348" />
+                         Margin="231,3,16,348" 
+                         MaxLength="150" />
 
                 <Label Content="Descripcion"
                        Background="#3b92c4"
@@ -48,7 +49,8 @@
 
                 <TextBox Name="Txb_Descripcion" Foreground="Black"
                          FontSize="25"
-                         Margin="231,97,16,182" />
+                         Margin="231,97,16,182" 
+                         MaxLength="280"/>
 
                 <Label Content="Nombre de &#xD;&#xA;usuario"
                        Background="#3b92c4"
@@ -61,7 +63,8 @@
 
                 <TextBox Name="Txb_NombreDeUsuario" Foreground="Black"
                          FontSize="25"
-                         Margin="231,242,16,112" />
+                         Margin="231,242,16,112" 
+                         MaxLength="50" />
 
 
                 <Button Content="Cambiar contraseña" 

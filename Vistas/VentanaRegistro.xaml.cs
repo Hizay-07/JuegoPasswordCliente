@@ -1,5 +1,6 @@
 ﻿using Cliente.Auxiliares;
 using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaRegistro : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public VentanaRegistro()
         {
             InitializeComponent();
@@ -70,9 +72,10 @@ namespace Cliente.Vistas
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
                 }
-                catch (EndpointNotFoundException) 
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                 }                                                          
             }            
         }
@@ -102,6 +105,7 @@ namespace Cliente.Vistas
             Perfil perfil = new Perfil
             {
                 nombreUsuario = Txb_NombreUsuario.Text,
+                rutaImagen= "pack://application:,,,/Imagenes/Fondos/perfil1.png",
             };            
             return perfil;
         }

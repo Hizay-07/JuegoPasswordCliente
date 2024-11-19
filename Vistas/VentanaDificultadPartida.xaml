@@ -1,0 +1,81 @@
+﻿<Page x:Class="Cliente.Vistas.VentanaDificultadPartida"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="VentanaDificultadPartida">
+
+    <DockPanel>
+        <Grid>
+            <!-- Fondo -->
+            <Border>
+                <Border.Background>
+                    <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+                </Border.Background>
+            </Border>
+
+            
+            <Grid Margin="30">
+            
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+            
+                    <RowDefinition Height="*"/>
+            
+                    <RowDefinition Height="Auto"/>
+            
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+            
+                    <ColumnDefinition Width="*"/>
+            
+                    <ColumnDefinition Width="*"/>
+            
+                </Grid.ColumnDefinitions>
+
+
+                <TextBlock Text="Dificultad" Grid.Row="0" Grid.ColumnSpan="3" 
+                           FontSize="25" TextAlignment="Center" 
+                           Background="#00b0ff" Foreground="White" 
+                           FontWeight="Bold" Padding="10"
+                           Width="300"/>
+
+
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                    <Button Width="145" Height="70" Background="#81C784" Foreground="White" Click="RegistrarPartidaFacil" Margin="10,0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Licenciatura" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock Text="Fácil" FontSize="15" TextAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Width="145" Height="70" Background="#FFEB3B" Foreground="Black" Click="RegistrarPartidaMedia" Margin="10,0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Maestría" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock Text="Medio" FontSize="15" TextAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Width="145" Height="70" Background="#E53935" Foreground="White" Click="RegistrarPartidaDificil" Margin="10,0">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Doctorado" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock Text="Difícil" FontSize="15" TextAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+
+                <Button Content="Salir" Grid.Row="2" 
+                        Height="38" FontSize="20" Background="Red" 
+                        Foreground="White" FontWeight="Bold" 
+                        HorizontalAlignment="Left" VerticalAlignment="Center" Width="112" Margin="43,0,0,0"
+                        Click="RegresarMenuPrincipal"/>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Page>

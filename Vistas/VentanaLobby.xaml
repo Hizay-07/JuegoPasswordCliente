@@ -18,15 +18,6 @@
 
             <Grid>
 
-                <Image x:Name="logo"  
-                       Source="/Imagenes/Iconos/PasswordLogo.png"
-                       Width="277" Height="226"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       Margin="295,65,0,0"
-                       RenderTransformOrigin="0.5,0.5"
-                       Panel.ZIndex="1"/>
-
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto" 
                               Background="#66FFFFFF" 
@@ -35,7 +26,7 @@
                 </ScrollViewer>
 
 
-                <StackPanel VerticalAlignment="Bottom" Background="Black" Height="84" Margin="658,0,142,96" Orientation="Horizontal">
+                <StackPanel VerticalAlignment="Bottom" Background="Black" Height="84" Margin="640,0,142,96" Orientation="Horizontal">
 
                     <TextBox x:Name="Txb_Mensaje" Height="40"
                          Background="#2F2F2F"
@@ -75,6 +66,136 @@
                             <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                         </Button.Effect>
                     </Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="640,46,160,629">
+
+                    <TextBlock 
+                        FontWeight="Bold"
+                        TextWrapping="Wrap" 
+                        Text="Código de partida" 
+                        Width="238"
+                        FontSize="25"
+                        Background="Black"
+                        Foreground="White" 
+                        Height="46"
+                        HorizontalAlignment="Left"/>
+                    <TextBlock Width="auto"/>
+                    <TextBlock 
+                        Name="Txbl_CodigoPartida"
+                        FontWeight="Bold"
+                        TextWrapping="Wrap"                         
+                        Width="242"
+                        FontSize="25"
+                        Background="#33c1ff"
+                        Foreground="White" 
+                        Height="46"/>
+                </StackPanel>
+
+                <StackPanel Name="Stpl_Amigos" Orientation="Vertical" Margin="100,200,815,200">
+                    <ScrollViewer Width="361">
+                        <ListBox Name="Ltv_Amigos" 
+                                 Height="317" 
+                                 Width="348" 
+                                 Background="#33c1ff" 
+                                 FontSize="20">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" 
+                                                HorizontalAlignment="Stretch">
+
+                                        <TextBlock Text="{Binding NombreUsuario}" 
+                                                   Foreground="Black" 
+                                                   Width="200" 
+                                                   VerticalAlignment="Center" 
+                                                   FontSize="20"/>
+
+                                        <Button Name="Btn_Enviar" 
+                                                Content="Invitar" 
+                                                Click="InvitarAPartida" 
+                                                Width="120" 
+                                                Height="40" 
+                                                Tag="{Binding IdJugador}">
+
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Border Background="{TemplateBinding Background}" 
+                                                        CornerRadius="10"  
+                                                        BorderThickness="0">
+                                                        <ContentPresenter HorizontalAlignment="Center" 
+                                                                          VerticalAlignment="Center" />
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                            <Button.Background>
+                                                <SolidColorBrush Color="White"/>
+                                            </Button.Background>
+                                            <Button.Effect>
+                                                <DropShadowEffect Color="Black" 
+                                                                  ShadowDepth="3" 
+                                                                  Opacity="0.5" 
+                                                                  BlurRadius="10"/>
+                                            </Button.Effect>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                </StackPanel>
+                <StackPanel Margin="100,46,678,548">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="125">
+                        <StackPanel Orientation="Horizontal">
+                            
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Anfitrion" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreAnfitrion" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador2" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador2" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"
+                                           Text="{Binding NombreUsuario}"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador3" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador3" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador5" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador5" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador6" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador6" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador7" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador7" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador8" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador8" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador9" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador9" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador10" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador10" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </ScrollViewer>
                 </StackPanel>
             </Grid>
         </Grid>

@@ -72,8 +72,7 @@
                             Foreground="White" 
                             FontWeight="Bold" 
                             FontSize="25" 
-                            Margin="10" 
-                            Click="Hecho_Click">
+                            Margin="10">
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
                                 <Border Background="{TemplateBinding Background}" 
