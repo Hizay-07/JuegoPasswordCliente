@@ -22,8 +22,8 @@
                 <Label Content="Correo" Foreground="White" FontSize="25" 
  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,110,0,0" />
                 <TextBox Name="Txb_Correo" Width="558" Height="35" FontSize="25" 
-   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,158,0,0" 
-    />
+                         HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,158,0,0" 
+                         MaxLength="150"/>
 
 
                 <Button Content="Aceptar" Width="150" Height="65" Background="#36D25B" Foreground="White" 

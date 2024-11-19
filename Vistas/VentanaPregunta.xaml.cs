@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,92 +25,188 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaPregunta : Page
     {
-        private DispatcherTimer _timer;
-        private int _tiempoRestante = 30;
+        private DispatcherTimer _temporizadorDespachador;
+        private int _tiempoRestante = 10;
         private int _numeroPreguntaActual = 1;
-        private int _totalPreguntas = 15;
-
-        public string NumeroPregunta => $"{_numeroPreguntaActual}/{_totalPreguntas}";
-        public string TiempoRestante => _tiempoRestante.ToString();
-        public string PreguntaActual { get; set; }
-        public string Respuesta1 { get; set; }
-        public string Respuesta2 { get; set; }
-        public string Respuesta3 { get; set; }
-        public string Respuesta4 { get; set; }
+        private int _totalPreguntas = 2;
+        private List<PreguntaContrato> _preguntas;
+        private List<PreguntaContrato> _preguntasSinModificar;
+        private List<RespuestaContrato> _respuestas;
+        
+        public string TiempoRestante => _tiempoRestante.ToString();        
 
         public VentanaPregunta()
         {
             InitializeComponent();
             DataContext = this;
+            ConfigurarPartida();
             IniciarPregunta();
-            ConfigurarTimer();
+            ConfigurarTemporizador();
+            Txbl_NumeroPreguntaTotal.Text = _totalPreguntas.ToString();
+            Txbl_NumeroPreguntaActual.Text = _numeroPreguntaActual.ToString();            
         }
 
-        private void ConfigurarTimer()
+        private void ConfigurarPartida() 
         {
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1);
-            _timer.Tick += Timer_Tick;
-            _timer.Start();
+            PartidaAuxiliar partidaAuxiliar = new PartidaAuxiliar();
+            partidaAuxiliar.RecuperarPreguntas(2);
+            _preguntas = partidaAuxiliar.Preguntas;
+            _preguntasSinModificar = _preguntas;
+            _respuestas =partidaAuxiliar.Respuestas;
+        }
+        private void ConfigurarTemporizador()
+        {
+            _temporizadorDespachador = new DispatcherTimer();
+            _temporizadorDespachador.Interval = TimeSpan.FromSeconds(1);
+            _temporizadorDespachador.Tick += DisminuirTiempo;
+            _temporizadorDespachador.Start();
+            Txbl_Cronometro.Text=_tiempoRestante.ToString();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void DisminuirTiempo(object sender, EventArgs e)
         {
-            if (_tiempoRestante > 0)
+            _tiempoRestante--;
+            Txbl_Cronometro.Text = _tiempoRestante.ToString();            
+            if (_tiempoRestante == 0)
             {
-                _tiempoRestante--;
-                OnPropertyChanged(nameof(TiempoRestante));
-            }
-            else
-            {
-                _timer.Stop();
+                _temporizadorDespachador.Stop();
                 CambiarPregunta();
+                ActivarBotones();
             }
         }
 
         private void IniciarPregunta()
-        {            
-            PreguntaActual = "¿Qué es la IEEE?";
-            Respuesta1 = "Instituto de Ingenieros Eléctricos y Electrónicos";
-            Respuesta2 = "Instituto Nacional Estadounidense de Estándares";
-            Respuesta3 = "Sociedad Estadounidense para Pruebas y Materiales";
-            Respuesta4 = "Asociación de Maquinaria Computacional";
-            _tiempoRestante = 30;
+        {
+            int numeroPregunta = _numeroPreguntaActual - 1;
+            PreguntaContrato pregunta = _preguntas[numeroPregunta];            
+            Txbl_Pregunta.Text = pregunta.Pregunta;
+            List<string> respuestasActuales = ObtenerRespuestasDePreguntaActual(pregunta.IdPregunta);
+            respuestasActuales.Add(pregunta.RespuestaCorrecta);
+            List<string> respuestasAlAzar = ObtenerRespuestasAlAzar(respuestasActuales);
+            Txbl_Respuesta1.Text = respuestasAlAzar[0];
+            Txbl_Respuesta2.Text = respuestasAlAzar[1];
+            Txbl_Respuesta3.Text = respuestasAlAzar[2];
+            Txbl_Respuesta4.Text = respuestasAlAzar[3];
+            _tiempoRestante = 10;            
+        }
 
-            OnPropertyChanged(nameof(PreguntaActual));
-            OnPropertyChanged(nameof(Respuesta1));
-            OnPropertyChanged(nameof(Respuesta2));
-            OnPropertyChanged(nameof(Respuesta3));
-            OnPropertyChanged(nameof(Respuesta4));
-            OnPropertyChanged(nameof(TiempoRestante));
+        private List<string> ObtenerRespuestasDePreguntaActual(int idPregunta) 
+        {
+            List<string> respuestas=new List<string>();
+            foreach (var respuesta in _respuestas) 
+            {
+                if (respuesta.FKIdPregunta == idPregunta) 
+                {
+                    respuestas.Add(respuesta.Respuesta);
+                }
+            }
+            return respuestas;
+        }
+
+        private List<string> ObtenerRespuestasAlAzar(List<string> respuestasActuales) 
+        {
+            Random aleatorio=new Random();
+            return respuestasActuales.OrderBy(x=>aleatorio.Next()).ToList();
         }
 
         private void CambiarPregunta()
         {
             if (_numeroPreguntaActual < _totalPreguntas)
             {
-                _numeroPreguntaActual++;
-                OnPropertyChanged(nameof(NumeroPregunta));
+                _numeroPreguntaActual++;                
                 IniciarPregunta();
-                _timer.Start();
+                _temporizadorDespachador.Start();
+                ActivarBotones();
+                Txbl_NumeroPreguntaActual.Text = _numeroPreguntaActual.ToString();
             }
             else
             {
-
+                MessageBox.Show("¡Partida terminada!");
             }
         }
-
-        private void RevisarRespuesta(object remitentes, EventArgs argumento)
-        {
-
-        }
-
-        protected void OnPropertyChanged(string name)
+        
+        protected void OnPropertyChanged(string nombre)
         {
             var handler = PropertyChanged;
-            handler?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(name));
+            handler?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(nombre));
         }
 
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+        private void RevisarRespuesta1(object sender, RoutedEventArgs e)
+        {
+            int numeroPregunta = _numeroPreguntaActual - 1;
+            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
+            if (Txbl_Respuesta1.Text == respuestaCorrecta)
+            {
+                MessageBox.Show("Correcto");
+            }
+            else 
+            {
+                MessageBox.Show("Incorrecto");
+            }
+            DesactivarBotones();
+        }        
+
+        private void RevisarRespuesta2(object sender, RoutedEventArgs e)
+        {
+            int numeroPregunta = _numeroPreguntaActual - 1;
+            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
+            if (Txbl_Respuesta2.Text == respuestaCorrecta)
+            {
+                MessageBox.Show("Correcto");
+            }
+            else
+            {
+                MessageBox.Show("Incorrecto");
+            }
+            DesactivarBotones();
+        }
+
+        private void RevisarRespuesta3(object sender, RoutedEventArgs e)
+        {
+            int numeroPregunta = _numeroPreguntaActual - 1;
+            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
+            if (Txbl_Respuesta3.Text == respuestaCorrecta)
+            {
+                MessageBox.Show("Correcto");
+            }
+            else
+            {
+                MessageBox.Show("Incorrecto");
+            }
+            DesactivarBotones();
+        }
+
+        private void RevisarRespuesta4(object sender, RoutedEventArgs e)
+        {
+            int numeroPregunta = _numeroPreguntaActual - 1;
+            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
+            if (Txbl_Respuesta4.Text == respuestaCorrecta)
+            {
+                MessageBox.Show("Correcto");
+            }
+            else
+            {
+                MessageBox.Show("Incorrecto");
+            }
+            DesactivarBotones();
+        }
+
+        private void DesactivarBotones()
+        {
+            Btn_Respuesta1.IsHitTestVisible = false;
+            Btn_Respuesta2.IsHitTestVisible = false;
+            Btn_Respuesta3.IsHitTestVisible = false;
+            Btn_Respuesta4.IsHitTestVisible = false;
+        }
+
+        private void ActivarBotones()
+        {
+            Btn_Respuesta1.IsHitTestVisible = true;
+            Btn_Respuesta2.IsHitTestVisible = true;
+            Btn_Respuesta3.IsHitTestVisible = true;
+            Btn_Respuesta4.IsHitTestVisible = true;
+        }
     }
 }

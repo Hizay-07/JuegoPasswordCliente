@@ -35,7 +35,8 @@
                        Margin="0,3,911,0" Width="147" />
                 <TextBox Name="Txb_Correo" Foreground="Black" 
                          FontSize="25"
-                         Margin="231,3,16,348" />
+                         Margin="231,3,16,348" 
+                         MaxLength="150"/>
 
                 <Label Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
                        Background="#3b92c4"

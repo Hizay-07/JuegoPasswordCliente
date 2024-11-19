@@ -91,7 +91,7 @@
                         Height="46"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="100,200,815,200">
+                <StackPanel Name="Stpl_Amigos" Orientation="Vertical" Margin="100,200,815,200">
                     <ScrollViewer Width="361">
                         <ListBox Name="Ltv_Amigos" 
                                  Height="317" 
@@ -154,7 +154,8 @@
                             
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
                                 <Image Name="Img_Jugador2" Width="82" Height="58" />
-                                <TextBlock Name="Txbl_NombreJugador2" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                                <TextBlock Name="Txbl_NombreJugador2" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"
+                                           Text="{Binding NombreUsuario}"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">

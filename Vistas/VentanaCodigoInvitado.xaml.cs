@@ -25,9 +25,14 @@ namespace Cliente.Vistas
             InitializeComponent();
         }
 
-        private void UnirseAPartida(object sender, RoutedEventArgs e)
+        private void UnirseAPartida(object remitente, RoutedEventArgs argumento)
         {
 
+        }
+
+        private void RegresarInicio(object remitente, RoutedEventArgs argumento)
+        {
+            NavigationService.GoBack();
         }
     }
 }

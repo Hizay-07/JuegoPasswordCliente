@@ -3,6 +3,7 @@
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos" />
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares" />
   <xs:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" />
   <xs:element name="Chatear">
     <xs:complexType>
       <xs:sequence>
@@ -377,7 +378,7 @@
   <xs:element name="ObtenerPreguntasResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ObtenerPreguntasResult" nillable="true" type="q14:ArrayOfPregunta" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="ObtenerPreguntasResult" nillable="true" type="q14:ArrayOfPreguntaContrato" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -392,6 +393,78 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ObtenerRespuestaPorIdPreguntaResult" nillable="true" type="q15:ArrayOfRespuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarPartidaPorCodigo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarPartidaPorCodigoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="RecuperarPartidaPorCodigoResult" nillable="true" type="q16:PartidaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarRespuestasPorIdPreguntas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idRespuestas" nillable="true" type="q17:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarRespuestasPorIdPreguntasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="RecuperarRespuestasPorIdPreguntasResult" nillable="true" type="q18:ArrayOfRespuestaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConectarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rutaImagen" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConectarJugadorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesconectarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesconectarJugadorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerJugadoresConectados">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerJugadoresConectadosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="ObtenerJugadoresConectadosResult" nillable="true" type="q19:ArrayOfJugadorContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarListaJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugadores" nillable="true" type="q20:ArrayOfJugadorContrato" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

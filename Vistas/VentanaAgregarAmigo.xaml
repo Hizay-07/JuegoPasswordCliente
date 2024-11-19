@@ -24,7 +24,7 @@
 
                 <TextBox Name="Txb_Correo" Width="400" Height="35" FontSize="18" 
                          HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,140,0,0" 
-                          />
+                          MaxLength="150"/>
 
                 <Button Content="Agregar amigo" Width="150" Height="40" Background="#00d2ff" Foreground="White" 
                         FontWeight="Bold" FontSize="18" BorderThickness="0" HorizontalAlignment="Left" 

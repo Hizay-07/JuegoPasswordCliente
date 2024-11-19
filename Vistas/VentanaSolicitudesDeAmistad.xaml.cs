@@ -1,5 +1,6 @@
 ﻿using Cliente.Auxiliares;
 using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.IO.Packaging;
@@ -24,6 +25,8 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaSolicitudesDeAmistad : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public VentanaSolicitudesDeAmistad()
         {
             InitializeComponent();
@@ -53,9 +56,10 @@ namespace Cliente.Vistas
                     MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeSinSolicitudes);
                 }                
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
         }
 
@@ -67,9 +71,10 @@ namespace Cliente.Vistas
                 List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
                 AsignarNombresUsuario(nombresUsuario,amistades);
             }
-            catch (EndpointNotFoundException)
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
         }
 
@@ -101,9 +106,10 @@ namespace Cliente.Vistas
                 ServidorPassword.ServicioGestionAmistadClient proxy=new ServidorPassword.ServicioGestionAmistadClient();
                 idAmistad=proxy.RecuperarIdAmistadPorIdJugadores(idJugadorDestinatario, JugadorSingleton.IdJugador);
             }
-            catch (EndpointNotFoundException) 
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
             return idAmistad;
         }
@@ -132,9 +138,10 @@ namespace Cliente.Vistas
                             MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                         }
                     }
-                    catch (EndpointNotFoundException)
+                    catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                        _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                     }
                 }
                 else 
@@ -168,9 +175,10 @@ namespace Cliente.Vistas
                             MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                         }
                     }
-                    catch (EndpointNotFoundException)
+                    catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                        _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                     }
                 }
                 else

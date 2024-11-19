@@ -1,5 +1,6 @@
 ﻿using Cliente.Auxiliares;
 using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaMenuPrincipal : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
@@ -64,40 +67,16 @@ namespace Cliente.Vistas
             this.NavigationService.Navigate(paginaSolicitudesDeAmistad);
         }
 
-        private void AbrirSalaEspera(object remitente, RoutedEventArgs argumento)
+        private void ElegirDificultadPartida(object remitente, RoutedEventArgs argumento)
         {
-            VentanaLobby paginaSalaEspera=new VentanaLobby();
-            string codigoPartida=ObtenerCodigoPartida();
-            paginaSalaEspera.Txbl_CodigoPartida.Text=codigoPartida;
-            this.NavigationService.Navigate(paginaSalaEspera);
+            VentanaDificultadPartida paginaDificultadPartida = new VentanaDificultadPartida();
+            this.NavigationService.Navigate(paginaDificultadPartida);
         }
 
-        private string ObtenerCodigoPartida() { 
-            GeneradorCodigo generadorCodigo=new GeneradorCodigo();
-            string codigoPartida = generadorCodigo.GenerarCodigoPartida();
-            try
-            {
-                ServicioGestionPartidaClient servicioGestionPartida=new ServicioGestionPartidaClient();                
-                int resultadoValidacion=servicioGestionPartida.ValidarCodigoPartida(codigoPartida);
-                switch (resultadoValidacion) 
-                {
-                    case -1:
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        break;
-                    case 1:
-                        while (resultadoValidacion == 1)
-                        {
-                            codigoPartida = generadorCodigo.GenerarCodigoPartida();
-                            resultadoValidacion = servicioGestionPartida.ValidarCodigoPartida(codigoPartida);
-                        }
-                    break;
-                }                
-            }
-            catch (EndpointNotFoundException) 
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-            }
-            return codigoPartida;
+        private void AbrirCodigoPartida(object remitente, RoutedEventArgs argumento)
+        {
+            VentanaUnionPartida paginaUnionPartida=new VentanaUnionPartida();
+            this.NavigationService.Navigate(paginaUnionPartida);
         }
     }
 }

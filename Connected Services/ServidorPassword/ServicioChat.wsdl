@@ -145,6 +145,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioSalaDeEspera_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -152,6 +181,7 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServicioChat_Chatear_InputMessage">
@@ -319,6 +349,39 @@
   <wsdl:message name="IServicioGestionPartida_ObtenerRespuestaPorIdPregunta_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerRespuestaPorIdPreguntaResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_RecuperarPartidaPorCodigo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarPartidaPorCodigo" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_RecuperarPartidaPorCodigo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarPartidaPorCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_RecuperarRespuestasPorIdPreguntas_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarRespuestasPorIdPreguntas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionPartida_RecuperarRespuestasPorIdPreguntas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecuperarRespuestasPorIdPreguntasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_ConectarJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_ConectarJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConectarJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_DesconectarJugador_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarJugador" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_DesconectarJugador_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesconectarJugadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_ObtenerJugadoresConectados_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConectados" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_ObtenerJugadoresConectados_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConectadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_ActualizarListaJugadores_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarListaJugadores" />
+  </wsdl:message>
   <wsdl:portType name="IServicioChat">
     <wsdl:operation name="Chatear">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioChat/Chatear" message="tns:IServicioChat_Chatear_InputMessage" />
@@ -438,6 +501,31 @@
     <wsdl:operation name="ObtenerRespuestaPorIdPregunta">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/ObtenerRespuestaPorIdPregunta" message="tns:IServicioGestionPartida_ObtenerRespuestaPorIdPregunta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/ObtenerRespuestaPorIdPreguntaResponse" message="tns:IServicioGestionPartida_ObtenerRespuestaPorIdPregunta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarPartidaPorCodigo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/RecuperarPartidaPorCodigo" message="tns:IServicioGestionPartida_RecuperarPartidaPorCodigo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/RecuperarPartidaPorCodigoResponse" message="tns:IServicioGestionPartida_RecuperarPartidaPorCodigo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarRespuestasPorIdPreguntas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionPartida/RecuperarRespuestasPorIdPreguntas" message="tns:IServicioGestionPartida_RecuperarRespuestasPorIdPreguntas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionPartida/RecuperarRespuestasPorIdPreguntasResponse" message="tns:IServicioGestionPartida_RecuperarRespuestasPorIdPreguntas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioSalaDeEspera">
+    <wsdl:operation name="ConectarJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugador" message="tns:IServicioSalaDeEspera_ConectarJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugadorResponse" message="tns:IServicioSalaDeEspera_ConectarJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarJugador">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador" message="tns:IServicioSalaDeEspera_DesconectarJugador_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugadorResponse" message="tns:IServicioSalaDeEspera_DesconectarJugador_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJugadoresConectados">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectados" message="tns:IServicioSalaDeEspera_ObtenerJugadoresConectados_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectadosResponse" message="tns:IServicioSalaDeEspera_ObtenerJugadoresConectados_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarListaJugadores">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadores" message="tns:IServicioSalaDeEspera_ActualizarListaJugadores_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioChat" type="tns:IServicioChat">
@@ -708,6 +796,61 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RecuperarPartidaPorCodigo">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionPartida/RecuperarPartidaPorCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecuperarRespuestasPorIdPreguntas">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionPartida/RecuperarRespuestasPorIdPreguntas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioSalaDeEspera" type="tns:IServicioSalaDeEspera">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioSalaDeEspera_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ConectarJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/ConectarJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesconectarJugador">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerJugadoresConectados">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarListaJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadores" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ServicioPassword">
     <wsdl:port name="NetTcpBinding_IServicioChat" binding="tns:NetTcpBinding_IServicioChat">
@@ -747,6 +890,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioGestionPartida" binding="tns:NetTcpBinding_IServicioGestionPartida">
+      <soap12:address location="net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioSalaDeEspera" binding="tns:NetTcpBinding_IServicioSalaDeEspera">
       <soap12:address location="net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
