@@ -37,7 +37,8 @@
                 <TextBox Name="Txb_Nombre"
                          Foreground="Black" 
                          FontSize="25"
-                         Margin="231,3,16,348" />
+                         Margin="231,3,16,348" 
+                         MaxLength="100" />
 
                 <Label Content="{x:Static p:Resources.Lbl_Apellidos}"
                        Background="#3b92c4"
@@ -51,7 +52,8 @@
                 <TextBox Name="Txb_Correo"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="231,143,16,211" />
+                         Margin="231,143,16,211" 
+                         MaxLength="150"/>
 
                 <Label Content="{x:Static p:Resources.Lbl_NombreUsuarioRegistro}"
                        Background="#3b92c4"
@@ -64,7 +66,8 @@
                 <TextBox Name="Txb_Apellidos"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="231,69,16,281" />
+                         Margin="231,69,16,281" 
+                         MaxLength="100" />
 
                 <Label Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
                        Background="#3b92c4"
@@ -77,7 +80,8 @@
                 <TextBox Name="Txb_NombreUsuario"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="231,210,14,143" />
+                         Margin="231,210,14,143" 
+                         MaxLength="50" />
 
                 <Label Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
                        Background="#3b92c4"

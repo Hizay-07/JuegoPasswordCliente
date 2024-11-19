@@ -1,5 +1,6 @@
 ﻿using Cliente.Auxiliares;
 using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.IO.Packaging;
@@ -21,6 +22,8 @@ namespace Cliente.Vistas
 {
     public partial class VentanaPersonalizarPerfil : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public VentanaPersonalizarPerfil()
         {
             InitializeComponent();
@@ -91,9 +94,10 @@ namespace Cliente.Vistas
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }                    
                 }
-                catch (EndpointNotFoundException)
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                 }
             }
             else
@@ -149,9 +153,10 @@ namespace Cliente.Vistas
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
                 }
-                catch (EndpointNotFoundException)
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                 }
             }
             else
@@ -193,9 +198,10 @@ namespace Cliente.Vistas
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }                    
                 }
-                catch (EndpointNotFoundException)
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
                 }
             }
             else
@@ -206,19 +212,19 @@ namespace Cliente.Vistas
             }
         }
 
-        private void CancelarPersonalizacion(object sender, RoutedEventArgs e)
+        private void CancelarPersonalizacion(object remitente, RoutedEventArgs argumento)
         {
             VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
             this.NavigationService.Navigate(paginaMenuPrincipal);
         }
 
-        private void CambiarContrasenia(object sender, RoutedEventArgs e)
+        private void CambiarContrasenia(object remitente, RoutedEventArgs argumento)
         {
             VentanaCambioContrasenia paginaCambioContrasenia = new VentanaCambioContrasenia();
             this.NavigationService.Navigate(paginaCambioContrasenia);
         }
 
-        private void CambiarImagen(object sender, RoutedEventArgs e)
+        private void CambiarImagen(object remitente, RoutedEventArgs argumento)
         {
             VentanaImagenDeJugador paginaImagenDeJugador = new VentanaImagenDeJugador();
             this.NavigationService.Navigate(paginaImagenDeJugador);

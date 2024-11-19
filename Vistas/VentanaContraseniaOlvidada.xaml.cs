@@ -1,4 +1,5 @@
 ﻿using Cliente.Auxiliares;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaContraseniaOlvidada : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public VentanaContraseniaOlvidada()
         {
             InitializeComponent();
@@ -69,9 +72,10 @@ namespace Cliente.Vistas
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
             }
-            catch (EndpointNotFoundException) 
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
 
         }

@@ -34,15 +34,7 @@ namespace Cliente.Vistas
                 MessageBox.Show($"Invitación enviada a {amigo.NombreAmigo}", "Invitación", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
-
-        private void Hecho_Click(object sender, RoutedEventArgs e)
-        {
-            // Iniciar partida
-            //MessageBox.Show("Iniciando partida...", "Partida", MessageBoxButton.OK, MessageBoxImage.Information);
-            VentanaSalaDeEspera SalaDeEsperaPage = new VentanaSalaDeEspera();
-            this.NavigationService.Navigate(SalaDeEsperaPage);
-        }
-
+        
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();

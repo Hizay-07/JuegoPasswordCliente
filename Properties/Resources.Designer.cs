@@ -286,6 +286,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El código proporcionado no pertenece a ninguna partida, asegurese de colocar el código correcto.
+        /// </summary>
+        public static string MensajeCodigoPartidaInexistente {
+            get {
+                return ResourceManager.GetString("MensajeCodigoPartidaInexistente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El correo ha sido enviado.
         /// </summary>
         public static string MensajeCorreoEnviado {
@@ -345,6 +354,15 @@ namespace Cliente.Properties {
         public static string MensajeInformacionInvalida {
             get {
                 return ResourceManager.GetString("MensajeInformacionInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La partida ya no se encuentra disponible.
+        /// </summary>
+        public static string MensajePartidaNoDisponible {
+            get {
+                return ResourceManager.GetString("MensajePartidaNoDisponible", resourceCulture);
             }
         }
         

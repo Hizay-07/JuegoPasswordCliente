@@ -14,12 +14,12 @@
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
                 </Border.Background>
 
-                <Button x:Name="UnirseALaPartida" Content="Aceptar" Height="65" Width="150"
+                <Button Name="UnirseALaPartida" Content="Aceptar" Height="65" Width="150"
                         Background="#36D25B"
                         Foreground="White"
                         FontWeight="Bold"
                         FontSize="25"
-                        Margin="508,505,508,0"
+                        Margin="390,526,740,0"
                         VerticalAlignment="Top"
                         Click="UnirseAPartida" RenderTransformOrigin="0.766,0.547">
                     <Button.Template>
@@ -35,8 +35,11 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
+
+                
             </Border>
 
+            
             <Label Content="Código de sala:"
                    Background="#3b92c4"
                    Foreground="Beige"
@@ -48,7 +51,8 @@
 
             <TextBox Name="Txb_Correo" Foreground="Black" 
                      FontSize="25"
-                     Margin="472,308,180,360" />
+                     Margin="472,308,180,360" 
+                     MaxLength="8"/>
 
 
 
@@ -60,6 +64,30 @@
                    Margin="476,-20,0,0"
                    RenderTransformOrigin="0.5,0.5"
                    Panel.ZIndex="1"/>
+
+
+            <Button Name="Btn_Cancelar" Content="Cancelar" Height="65" Width="150"
+                    Background="Red"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    FontSize="25"
+                    Margin="737,526,393,0"
+                    VerticalAlignment="Top"
+                    RenderTransformOrigin="0.766,0.547"
+                    Click="RegresarInicio">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10" 
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Effect>
+                    <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                </Button.Effect>
+            </Button>
 
             <Grid/>
         </Grid>
