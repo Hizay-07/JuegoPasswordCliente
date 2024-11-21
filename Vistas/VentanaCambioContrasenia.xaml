@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Cliente.Vistas"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:p="clr-namespace:Cliente.Properties"
       Title="VentanaCambioContrasenia">
 
     <DockPanel>
@@ -16,10 +17,10 @@
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
 
-                <Label Content="Contraseña actual" Foreground="White" FontSize="25" 
+                <Label x:Name="ContrasenaActual" Content="{x:Static p:Resources.Lbl_ContraseñaActual}" Foreground="White" FontSize="25" 
                      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="46,62,0,0" />
 
-                <Label Content="Nueva contraseña" Foreground="White" FontSize="25" 
+                <Label x:Name="ContrasenaNueva" Content="{x:Static p:Resources.Lbl_NuevaContrasenia}" Foreground="White" FontSize="25" 
      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,157,0,0" />
 
                 <TextBox Name="Txb_ContraseniaActual" Width="518" Height="35" FontSize="25" 
@@ -30,7 +31,7 @@
         />
 
 
-                <Button Content="Aceptar" Width="150" Height="65" Background="#36D25B" Foreground="White" 
+                <Button x:Name="Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}" Width="150" Height="65" Background="#36D25B" Foreground="White" 
                       FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Left" 
                       VerticalAlignment="Top" Margin="353,286,0,0" Click="AceptarCambioContrasena">
                     <Button.Template>
@@ -45,7 +46,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Cancelar" Width="150" Height="65" Background="Red" Foreground="White" 
+                <Button x:Name="Cancelar" Content="{x:Static p:Resources.Btn_CancelarGlobal}" Width="150" Height="65" Background="Red" Foreground="White" 
                       FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Left" 
                       VerticalAlignment="Top" Margin="103,286,0,0" Click="Regresar" RenderTransformOrigin="0.507,0.526">
                     <Button.Template>

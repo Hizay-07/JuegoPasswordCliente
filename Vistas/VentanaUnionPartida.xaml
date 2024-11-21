@@ -14,7 +14,7 @@
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
                 </Border.Background>
 
-                <Button Name="Btn_Aceptar" Content="Aceptar" Height="65" Width="150"
+                <Button x:Name="Btn_Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}" Height="65" Width="150"
                         Background="#36D25B"
                         Foreground="White"
                         FontWeight="Bold"
@@ -38,7 +38,7 @@
             </Border>
 
 
-            <Label Content="Código de sala:"
+            <Label x:Name="Lbl_CodigoSala" Content="{x:Static p:Resources.Lbl_CodigoDeSala}"
                    Background="#3b92c4"
                    Foreground="Beige"
                    FontWeight="Bold"
@@ -64,7 +64,7 @@
                    Panel.ZIndex="1"/>
 
 
-            <Button Name="Btn_Cancelar" Content="Cancelar" Height="65" Width="150"
+            <Button x:Name="Btn_Cancelar" Content="{x:Static p:Resources.Btn_CancelarGlobal}" Height="65" Width="150"
                     Background="Red"
                     Foreground="White"
                     FontWeight="Bold"

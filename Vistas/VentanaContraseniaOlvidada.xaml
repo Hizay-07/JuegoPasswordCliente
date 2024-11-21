@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Cliente.Vistas"
+      xmlns:p="clr-namespace:Cliente.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="VentanaContraseniaOlvidada">
@@ -16,17 +16,17 @@
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
 
-                <Label Content="Se le enviará una nueva contraseña si el correo esta registrado" Foreground="White" FontSize="20" 
+                <Label x:Name="Llb_NuevaContrasena" Content="{x:Static p:Resources.Lbl_MensajeEnvioContrasena}" Foreground="White" FontSize="20" 
                  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,68,0,0" />
 
-                <Label Content="Correo" Foreground="White" FontSize="25" 
+                <Label x:Name="Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}" Foreground="White" FontSize="25" 
  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,110,0,0" />
                 <TextBox Name="Txb_Correo" Width="558" Height="35" FontSize="25" 
                          HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,158,0,0" 
                          MaxLength="150"/>
 
 
-                <Button Content="Aceptar" Width="150" Height="65" Background="#36D25B" Foreground="White" 
+                <Button Name="Btn_Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}" Width="150" Height="65" Background="#36D25B" Foreground="White" 
                   FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Left" 
                   VerticalAlignment="Top" Margin="353,286,0,0" Click="EnviarContrasenia">
                     <Button.Template>
@@ -41,7 +41,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Cancelar" Width="150" Height="65" Background="Red" Foreground="White" 
+                <Button Name="Btn_Cancelar" Content="{x:Static p:Resources.Btn_CancelarGlobal}" Width="150" Height="65" Background="Red" Foreground="White" 
                   FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Left" 
                   VerticalAlignment="Top" Margin="103,286,0,0" Click="Regresar" RenderTransformOrigin="0.507,0.526">
                     <Button.Template>
