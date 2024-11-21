@@ -144,14 +144,12 @@ namespace Cliente.Vistas
 
         private void AbrirSalaDeEspera(Cuenta cuenta) 
         {
-            VentanaLobby paginaSalaEspera=new VentanaLobby();
-            paginaSalaEspera.Img_Anfitrion.Source = new BitmapImage(new Uri(cuenta.RutaImagen));
-            paginaSalaEspera.Txbl_NombreAnfitrion.Text = cuenta.NombreUsuario;
-            paginaSalaEspera.Img_Jugador2.Source = new BitmapImage(new Uri(JugadorSingleton.RutaImagen));
-            paginaSalaEspera.Txbl_NombreJugador2.Text = JugadorSingleton.NombreUsuario;
+            VentanaLobby paginaSalaEspera=new VentanaLobby();            
             paginaSalaEspera.Txbl_CodigoPartida.Text = Txb_CodigoPartida.Text;
             paginaSalaEspera.Stpl_Amigos.Visibility = Visibility.Hidden;
+            paginaSalaEspera.ConfigurarJugadores();
             paginaSalaEspera.ConfigurarChat();
+            paginaSalaEspera.RecuperarPartidaActual();
             this.NavigationService.Navigate(paginaSalaEspera);
         }        
     }

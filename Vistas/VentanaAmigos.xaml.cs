@@ -44,13 +44,13 @@ namespace Cliente.Vistas
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
                 List<int> idAmistades = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
                 int idAmistad = idAmistades.FirstOrDefault();
-                if (idAmistad == -1)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                }
-                else
+                if (idAmistad > 0)
                 {
                     RecuperarJugadores(idAmistades);
+                }
+                else if(idAmistad == -1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);                    
                 }
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)

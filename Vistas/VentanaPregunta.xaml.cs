@@ -25,10 +25,10 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaPregunta : Page
     {
+        private int _numeroPreguntaActual = 1;        
+        private int _tiempoRestante;        
+        private int _totalPreguntas;
         private DispatcherTimer _temporizadorDespachador;
-        private int _tiempoRestante = 10;
-        private int _numeroPreguntaActual = 1;
-        private int _totalPreguntas = 2;
         private List<PreguntaContrato> _preguntas;
         private List<PreguntaContrato> _preguntasSinModificar;
         private List<RespuestaContrato> _respuestas;
@@ -37,24 +37,22 @@ namespace Cliente.Vistas
 
         public VentanaPregunta()
         {
-            InitializeComponent();
-            DataContext = this;
-            ConfigurarPartida();
-            IniciarPregunta();
-            ConfigurarTemporizador();
-            Txbl_NumeroPreguntaTotal.Text = _totalPreguntas.ToString();
-            Txbl_NumeroPreguntaActual.Text = _numeroPreguntaActual.ToString();            
+            InitializeComponent();                                    
         }
 
-        private void ConfigurarPartida() 
+        public void ConfigurarPartida(int tiempoRestante,int totalPreguntas) 
         {
             PartidaAuxiliar partidaAuxiliar = new PartidaAuxiliar();
-            partidaAuxiliar.RecuperarPreguntas(2);
+            _tiempoRestante = tiempoRestante;
+            _totalPreguntas = totalPreguntas;
+            partidaAuxiliar.RecuperarPreguntas(totalPreguntas);
             _preguntas = partidaAuxiliar.Preguntas;
             _preguntasSinModificar = _preguntas;
             _respuestas =partidaAuxiliar.Respuestas;
+            Txbl_NumeroPreguntaTotal.Text = _totalPreguntas.ToString();
+            Txbl_NumeroPreguntaActual.Text = _numeroPreguntaActual.ToString();
         }
-        private void ConfigurarTemporizador()
+        public void ConfigurarTemporizador()
         {
             _temporizadorDespachador = new DispatcherTimer();
             _temporizadorDespachador.Interval = TimeSpan.FromSeconds(1);
@@ -75,7 +73,7 @@ namespace Cliente.Vistas
             }
         }
 
-        private void IniciarPregunta()
+        public void IniciarPregunta()
         {
             int numeroPregunta = _numeroPreguntaActual - 1;
             PreguntaContrato pregunta = _preguntas[numeroPregunta];            
