@@ -364,23 +364,23 @@
   <wsdl:message name="IServicioSalaDeEspera_ConectarJugador_InputMessage">
     <wsdl:part name="parameters" element="tns:ConectarJugador" />
   </wsdl:message>
-  <wsdl:message name="IServicioSalaDeEspera_ConectarJugador_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ConectarJugadorResponse" />
-  </wsdl:message>
   <wsdl:message name="IServicioSalaDeEspera_DesconectarJugador_InputMessage">
     <wsdl:part name="parameters" element="tns:DesconectarJugador" />
   </wsdl:message>
-  <wsdl:message name="IServicioSalaDeEspera_DesconectarJugador_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DesconectarJugadorResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServicioSalaDeEspera_ObtenerJugadoresConectados_InputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConectados" />
-  </wsdl:message>
-  <wsdl:message name="IServicioSalaDeEspera_ObtenerJugadoresConectados_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ObtenerJugadoresConectadosResponse" />
+  <wsdl:message name="IServicioSalaDeEspera_IniciarPartida_InputMessage">
+    <wsdl:part name="parameters" element="tns:IniciarPartida" />
   </wsdl:message>
   <wsdl:message name="IServicioSalaDeEspera_ActualizarListaJugadores_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:ActualizarListaJugadores" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_ActualizarListaJugadores_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ActualizarListaJugadoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_AbrirVentanaPartida_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AbrirVentanaPartida" />
+  </wsdl:message>
+  <wsdl:message name="IServicioSalaDeEspera_AbrirVentanaPartida_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AbrirVentanaPartidaResponse" />
   </wsdl:message>
   <wsdl:portType name="IServicioChat">
     <wsdl:operation name="Chatear">
@@ -514,18 +514,20 @@
   <wsdl:portType name="IServicioSalaDeEspera">
     <wsdl:operation name="ConectarJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugador" message="tns:IServicioSalaDeEspera_ConectarJugador_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugadorResponse" message="tns:IServicioSalaDeEspera_ConectarJugador_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DesconectarJugador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador" message="tns:IServicioSalaDeEspera_DesconectarJugador_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugadorResponse" message="tns:IServicioSalaDeEspera_DesconectarJugador_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ObtenerJugadoresConectados">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectados" message="tns:IServicioSalaDeEspera_ObtenerJugadoresConectados_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectadosResponse" message="tns:IServicioSalaDeEspera_ObtenerJugadoresConectados_OutputMessage" />
+    <wsdl:operation name="IniciarPartida">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/IniciarPartida" message="tns:IServicioSalaDeEspera_IniciarPartida_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ActualizarListaJugadores">
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadores" message="tns:IServicioSalaDeEspera_ActualizarListaJugadores_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadoresResponse" message="tns:IServicioSalaDeEspera_ActualizarListaJugadores_InputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AbrirVentanaPartida">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/AbrirVentanaPartida" message="tns:IServicioSalaDeEspera_AbrirVentanaPartida_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioSalaDeEspera/AbrirVentanaPartidaResponse" message="tns:IServicioSalaDeEspera_AbrirVentanaPartida_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioChat" type="tns:IServicioChat">
@@ -823,21 +825,21 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DesconectarJugador">
       <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerJugadoresConectados">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectados" style="document" />
+    <wsdl:operation name="IniciarPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/IniciarPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarListaJugadores">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadores" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -845,8 +847,11 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ActualizarListaJugadores">
-      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadores" style="document" />
+    <wsdl:operation name="AbrirVentanaPartida">
+      <soap12:operation soapAction="http://tempuri.org/IServicioSalaDeEspera/AbrirVentanaPartida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

@@ -51,15 +51,17 @@ namespace Cliente.Vistas
         {
             VentanaLobby paginaSalaEspera = new VentanaLobby();
             string codigoPartida = ObtenerCodigoPartida();
-            Partida partida = ObtenerPartida(codigoPartida,tipoPartida);
+            Partida partida = ObtenerPartida(codigoPartida,tipoPartida);            
             try
             {
                 ServicioGestionPartidaClient servicioGestionPatida = new ServicioGestionPartidaClient();
                 int resultadoRegistro = servicioGestionPatida.RegistrarPartidaPorIdJugador(JugadorSingleton.IdJugador, partida);
                 if (resultadoRegistro != -1)
                 {
-                    paginaSalaEspera.Txbl_CodigoPartida.Text = codigoPartida;
+                    paginaSalaEspera.Txbl_CodigoPartida.Text = codigoPartida;                    
+                    paginaSalaEspera.ConfigurarJugadores();
                     paginaSalaEspera.ConfigurarChat();
+                    paginaSalaEspera.RecuperarPartidaActual();
                     this.NavigationService.Navigate(paginaSalaEspera);
                 }
                 else
@@ -72,9 +74,8 @@ namespace Cliente.Vistas
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
+        }        
 
-        }
-        
         private Partida ObtenerPartida(string codigoPartida,string tipoPartida)
         {            
             Partida partida = new Partida
