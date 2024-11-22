@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:Cliente.Properties"
       mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="VentanaJugadores">
@@ -14,7 +15,7 @@
             </Border.Background>
 
             <Grid>
-                <Label Content="Jugadores"
+                <Label x:Name="Lbl_Jugadores" Content="{x:Static p:Resources.Lbl_Jugadores}"
                        FontSize="65"
                        FontWeight="Bold"
                        Foreground="White"
@@ -38,7 +39,7 @@
                                            Width="200" 
                                            VerticalAlignment="Center"/>
 
-                                <Button Content="Invitar" 
+                                <Button x:Name="Btn_Invitar" Content="{x:Static p:Resources.Btn_Invitar}" 
                                         Width="80" 
                                         Height="30" 
                                         Background="#00A5CF" 
@@ -65,7 +66,7 @@
                             HorizontalAlignment="Center" 
                             VerticalAlignment="Bottom" 
                             Margin="0,0,0,40">
-                    <Button Content="Aceptar" 
+                    <Button Name="Btn_Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
                             Width="150" 
                             Height="65" 
                             Background="#36D25B" 
@@ -84,7 +85,7 @@
                         </Button.Template>
                     </Button>
 
-                    <Button Content="Cancelar" 
+                    <Button Name="Btn_Cancelar" Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
                             Width="138" 
                             Height="64" 
                             Background="Red" 

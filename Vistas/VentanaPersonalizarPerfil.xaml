@@ -15,7 +15,7 @@
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="397" Width="1058">
-                <Label Content="Personalizar Perfil"
+                <Label x:Name="PersonalizarPerfil" Content="{x:Static p:Resources.Lbl_PersonalizarPerfil}"
                        Background="#6c6c6c"
                        Foreground="White"
                        FontWeight="Bold"
@@ -25,7 +25,7 @@
                        Padding="10"
                        BorderBrush="Transparent" Width="448" />
 
-                <Label Content="Correo"
+                <Label x:Name="Lbl_Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -38,7 +38,7 @@
                          Margin="231,3,16,348" 
                          MaxLength="150" />
 
-                <Label Content="Descripcion"
+                <Label x:Name="Descripcion" Content="{x:Static p:Resources.Lbl_DescripcionPerfil}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -52,7 +52,7 @@
                          Margin="231,97,16,182" 
                          MaxLength="280"/>
 
-                <Label Content="Nombre de &#xD;&#xA;usuario"
+                <Label x:Name="Lbl_NombreUsuario" Content="{x:Static p:Resources.Lbl_NombreUsuarioPerfil}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -67,7 +67,7 @@
                          MaxLength="50" />
 
 
-                <Button Content="Cambiar contraseña" 
+                <Button x:Name="Btn_CambiarContraseña" Content="{x:Static p:Resources.Btn_CambiarContrasenia}"
                         Width="293"
                         Background="#00E0FF"
                         Foreground="White"
@@ -91,7 +91,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Elegir imagen de jugador" 
+                <Button x:Name="Btn_ElegirImagen" Content="{x:Static p:Resources.Btn_ElegirImagen}"
                         Width="318"
                         Background="#6c6c6c"
                         Foreground="White"
@@ -117,7 +117,7 @@
 
 
 
-                <Button Content="Aceptar"
+                <Button x:Name="Btn_Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}"
                         Width="150"
                         Height="65"
                         Background="#36D25B"
@@ -143,7 +143,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Cancelar" 
+                <Button x:Name="Btn_Cancelar" Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
                         Width="150"
                         Height="65"
                         Background="Red"

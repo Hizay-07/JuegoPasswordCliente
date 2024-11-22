@@ -67,7 +67,7 @@
 
 
 
-                <Button Content="Jugar" 
+                <Button x:Name="Btn_Jugar" Content="{x:Static p:Resources.Btn_Jugar}" 
                         Width="164"
                         Background="#00E0FF"
                         Foreground="White"
@@ -93,7 +93,7 @@
 
 
 
-                <Button Content="Solicitudes"
+                <Button x:Name="Btn_Solicitudes" Content="{x:Static p:Resources.Btn_Solicitudes}"
                         Width="226"
                         Background="Gray"
                         Foreground="White"
@@ -117,7 +117,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Lista de &#xD;&#xA;Amigos" 
+                <Button x:Name="Btn_ListaAmigos" Content="{x:Static p:Resources.Btn_ListaDeAmigos}" 
                         Width="164"
                         Background="#00E0FF"
                         Foreground="White"
@@ -144,7 +144,7 @@
 
                 <UniformGrid Rows="1" Columns="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,0,60"/>
 
-                <Button Content="Salir"
+                <Button x:Name="Btn_Salir" Content="{x:Static p:Resources.Btn_SalirGlobal}"
                     Width="226"
                     Background="Red"
                     Foreground="White"

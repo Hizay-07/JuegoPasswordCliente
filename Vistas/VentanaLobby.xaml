@@ -13,7 +13,7 @@
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
                 </Border.Background>
-                <Button Content="Salir" Margin="111,0,1014,111" Height="65" VerticalAlignment="Bottom" FontSize="25" Background="Red" Foreground="White" FontWeight="Bold" Click="SalirMenuPrincipal" RenderTransformOrigin="0.362,0.457"/>
+                <Button x:Name="Btn_Salir" Content="{x:Static p:Resources.Btn_SalirGlobal}" Margin="111,0,1014,111" Height="65" VerticalAlignment="Bottom" FontSize="25" Background="Red" Foreground="White" FontWeight="Bold" Click="SalirMenuPrincipal" RenderTransformOrigin="0.362,0.457"/>
             </Border>
 
             <Grid>
@@ -44,7 +44,7 @@
                         </TextBox.Effect>
                     </TextBox>
 
-                    <Button x:Name="Enviar" Content="{x:Static p:Resources.Btn_Enviar}"
+                    <Button x:Name="Btn_Enviar" Content="{x:Static p:Resources.Btn_Enviar}"
                         Width="116" Height="40"
                         Background="#33c1ff"
                         Foreground="White"
@@ -70,9 +70,10 @@
                 <StackPanel Orientation="Horizontal" Margin="640,46,160,629">
 
                     <TextBlock 
+                        x:Name="Txbl_CodigoDePartida"
                         FontWeight="Bold"
                         TextWrapping="Wrap" 
-                        Text="Código de partida" 
+                        Text="{x:Static p:Resources.Lbl_CodigoDeSala}" 
                         Width="238"
                         FontSize="25"
                         Background="Black"
@@ -110,8 +111,8 @@
                                                    VerticalAlignment="Center" 
                                                    FontSize="20"/>
 
-                                        <Button Name="Btn_Enviar" 
-                                                Content="Invitar" 
+                                        <Button x:Name="Btn_Enviar" 
+                                                Content="{x:Static p:Resources.Btn_Enviar}" 
                                                 Click="InvitarAPartida" 
                                                 Width="120" 
                                                 Height="40" 

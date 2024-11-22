@@ -3,13 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:Cliente.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="VentanaDificultadPartida">
 
     <DockPanel>
         <Grid>
-            <!-- Fondo -->
             <Border>
                 <Border.Background>
                     <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
@@ -38,7 +38,7 @@
                 </Grid.ColumnDefinitions>
 
 
-                <TextBlock Text="Dificultad" Grid.Row="0" Grid.ColumnSpan="3" 
+                <TextBlock x:Name="Dificultad" Text="{x:Static p:Resources.Tittle_Dificultad}" Grid.Row="0" Grid.ColumnSpan="3" 
                            FontSize="25" TextAlignment="Center" 
                            Background="#00b0ff" Foreground="White" 
                            FontWeight="Bold" Padding="10"
@@ -49,28 +49,28 @@
 
                     <Button Width="145" Height="70" Background="#81C784" Foreground="White" Click="RegistrarPartidaFacil" Margin="10,0">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Licenciatura" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
-                            <TextBlock Text="Fácil" FontSize="15" TextAlignment="Center" />
+                            <TextBlock x:Name="Licenciatura" Text="{x:Static p:Resources.Txbl_Licenciatura}" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock x:Name="Facil" Text="{x:Static p:Resources.Txbl_Facil}" FontSize="15" TextAlignment="Center" />
                         </StackPanel>
                     </Button>
 
                     <Button Width="145" Height="70" Background="#FFEB3B" Foreground="Black" Click="RegistrarPartidaMedia" Margin="10,0">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Maestría" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
-                            <TextBlock Text="Medio" FontSize="15" TextAlignment="Center" />
+                            <TextBlock x:Name="Maestria" Text="{x:Static p:Resources.Txbl_Maestria}" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock x:Name="Medio" Text="{x:Static p:Resources.Txbl_Medio}" FontSize="15" TextAlignment="Center" />
                         </StackPanel>
                     </Button>
 
                     <Button Width="145" Height="70" Background="#E53935" Foreground="White" Click="RegistrarPartidaDificil" Margin="10,0">
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="Doctorado" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
-                            <TextBlock Text="Difícil" FontSize="15" TextAlignment="Center" />
+                            <TextBlock x:Name="Doctorado" Text="{x:Static p:Resources.Txbl_Doctorado}" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
+                            <TextBlock x:Name="Dificil" Text="{x:Static p:Resources.Txbl_Dificil}" FontSize="15" TextAlignment="Center" />
                         </StackPanel>
                     </Button>
                 </StackPanel>
 
 
-                <Button Content="Salir" Grid.Row="2" 
+                <Button x:Name="Salir" Content="{x:Static p:Resources.Btn_SalirGlobal}" Grid.Row="2" 
                         Height="38" FontSize="20" Background="Red" 
                         Foreground="White" FontWeight="Bold" 
                         HorizontalAlignment="Left" VerticalAlignment="Center" Width="112" Margin="43,0,0,0"
