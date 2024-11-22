@@ -15,7 +15,7 @@
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="397" Width="1058">
-                <Label Content="{x:Static p:Resources.Title_InicioSesion}"
+                <Label x:Name="InicioSesion" Content="{x:Static p:Resources.Title_InicioSesion}"
                        Background="#6c6c6c"
                        Foreground="White"
                        FontWeight="Bold"
@@ -25,7 +25,7 @@
                        Padding="10"
                        BorderBrush="Transparent" Width="302" />
 
-                <Label Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
+                <Label x:Name="Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -38,7 +38,7 @@
                          Margin="231,3,16,348" 
                          MaxLength="150"/>
 
-                <Label Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
+                <Label x:Name="Contrasena" Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -51,7 +51,7 @@
                          FontSize="25"
                          Margin="231,156,16,199" />
 
-                <Button Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
+                <Button x:Name="Btn_Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
                         Width="150" Height="65"
                         Background="#36D25B"
                         Foreground="White"
@@ -101,7 +101,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
+                <Button x:Name="Btn_Cancelar" Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
                         Width="150" Height="65"
                         Background="Red"
                         Foreground="White"

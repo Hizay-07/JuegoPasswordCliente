@@ -178,7 +178,8 @@
     <value>Descripción</value>
   </data>
   <data name="Lbl_NombreUsuarioPerfil" xml:space="preserve">
-    <value>Nombre de usuario</value>
+    <value>Nombre de 
+usuario</value>
   </data>
   <data name="Btn_CambiarContrasenia" xml:space="preserve">
     <value>Cambiar contraseña</value>
@@ -228,7 +229,7 @@
   <data name="MensajeErrorConexion" xml:space="preserve">
     <value>No hay conexión a la red. Por favor, inténtelo más tarde. </value>
   </data>
-  <data name="MensajeEnvioContrasena" xml:space="preserve">
+  <data name="Lbl_MensajeEnvioContrasena" xml:space="preserve">
     <value>Se le enviará una nueva contraseña al correo que registre. </value>
   </data>
   <data name="VentanaEmergenteExpulsion" xml:space="preserve">
@@ -257,5 +258,87 @@
   </data>
   <data name="MensajePartidaNoDisponible" xml:space="preserve">
     <value>La partida ya no se encuentra disponible</value>
+  </data>
+  <data name="Btn_AgregarAmigo" xml:space="preserve">
+    <value>Agregar amigo</value>
+  </data>
+  <data name="Btn_RegresarGlobal" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="Lbl_BuscarPorCorreo" xml:space="preserve">
+    <value>Buscar por correo</value>
+  </data>
+  <data name="Tittle_AgregarAmigo" xml:space="preserve">
+    <value>Agregar Amigo</value>
+  </data>
+  <data name="Tittle_Amigos" xml:space="preserve">
+    <value>Amigos</value>
+  </data>
+  <data name="Btn_VerPerfil" xml:space="preserve">
+    <value>Ver perfil</value>
+  </data>
+  <data name="Lbl_ContraseñaActual" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
+  <data name="Lbl_NuevaContrasenia" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="Lbl_CodigoDeSala" xml:space="preserve">
+    <value>Código de sala</value>
+  </data>
+  <data name="Tittle_Dificultad" xml:space="preserve">
+    <value>Dificultad</value>
+  </data>
+  <data name="Txbl_Licenciatura" xml:space="preserve">
+    <value>Licenciatura</value>
+  </data>
+  <data name="Txbl_Maestria" xml:space="preserve">
+    <value>Maestria</value>
+  </data>
+  <data name="Txbl_Doctorado" xml:space="preserve">
+    <value>Doctorado</value>
+  </data>
+  <data name="Txbl_Facil" xml:space="preserve">
+    <value>Fácil</value>
+  </data>
+  <data name="Txbl_Medio" xml:space="preserve">
+    <value>Medio</value>
+  </data>
+  <data name="Txbl_Dificil" xml:space="preserve">
+    <value>Dificil</value>
+  </data>
+  <data name="Btn_SalirGlobal" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="Lbl_SeleccionarImagen" xml:space="preserve">
+    <value>Seleccionar Imagen De Jugador</value>
+  </data>
+  <data name="Lbl_Jugadores" xml:space="preserve">
+    <value>Jugadores</value>
+  </data>
+  <data name="Btn_Invitar" xml:space="preserve">
+    <value>Invitar</value>
+  </data>
+  <data name="Btn_ListaDeAmigos" xml:space="preserve">
+    <value>Lista de 
+Amigos</value>
+  </data>
+  <data name="Btn_Unirse" xml:space="preserve">
+    <value>Unirse</value>
+  </data>
+  <data name="Btn_Jugar" xml:space="preserve">
+    <value>Jugar</value>
+  </data>
+  <data name="Btn_Solicitudes" xml:space="preserve">
+    <value>Solicitudes</value>
+  </data>
+  <data name="Btn_ElegirImagen" xml:space="preserve">
+    <value>Elegir imagen de jugador</value>
+  </data>
+  <data name="Btn_Rechazar" xml:space="preserve">
+    <value>Rechazar</value>
+  </data>
+  <data name="Lbl_SolicitudesDeAmistad" xml:space="preserve">
+    <value>Solicitudes de amistad </value>
   </data>
 </root>

@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:p="clr-namespace:Cliente.Properties"
       Title="VentanaAgregarAmigo">
 
     <DockPanel>
@@ -15,18 +16,18 @@
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
 
-                <Label Content="Agregar Amigo" Background="#6c6c6c" Foreground="White" 
+                <Label x:Name="TituloAgregarAmigo" Content="{x:Static p:Resources.Tittle_AgregarAmigo}" Background="#6c6c6c" Foreground="White" 
                        FontWeight="Bold" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" 
                        Margin="0,20,0,0" Padding="10" Width="400" />
 
-                <Label Content="Buscar por correo" Foreground="White" FontSize="18" 
+                <Label x:Name="BuscarCorreo" Content="{x:Static p:Resources.Lbl_BuscarPorCorreo}" Foreground="White" FontSize="18" 
                        HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" />
 
                 <TextBox Name="Txb_Correo" Width="400" Height="35" FontSize="18" 
                          HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,140,0,0" 
                           MaxLength="150"/>
 
-                <Button Content="Agregar amigo" Width="150" Height="40" Background="#00d2ff" Foreground="White" 
+                <Button x:Name="Agregaramigo" Content="{x:Static p:Resources.Btn_AgregarAmigo}" Width="150" Height="40" Background="#00d2ff" Foreground="White" 
                         FontWeight="Bold" FontSize="18" BorderThickness="0" HorizontalAlignment="Left" 
                         VerticalAlignment="Top" Margin="350,223,0,0" Click="AgregarAmigo">
                     <Button.Template>
@@ -41,7 +42,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Regresar" Width="150" Height="65" Background="#00f0ff" Foreground="White" 
+                <Button x:Name="Regresar" Content="{x:Static p:Resources.Btn_RegresarGlobal}" Width="150" Height="65" Background="#00f0ff" Foreground="White" 
                         FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Center" 
                         VerticalAlignment="Top" Margin="0,335,0,0" Click="RegresarClick">
                     <Button.Template>

@@ -16,7 +16,7 @@
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="397" Width="1058">
-                <Label Content="{x:Static p:Resources.Title_Registro}"
+                <Label x:Name="Lbl_Registro" Content="{x:Static p:Resources.Title_Registro}"
                        Background="#6c6c6c"
                        Foreground="White"
                        FontWeight="Bold"
@@ -26,7 +26,7 @@
                        Padding="10"
                        BorderBrush="Transparent" Width="228" />
 
-                <Label Content="{x:Static p:Resources.Lbl_Nombre}"
+                <Label x:Name="Lbl_Nombre" Content="{x:Static p:Resources.Lbl_Nombre}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -40,7 +40,7 @@
                          Margin="231,3,16,348" 
                          MaxLength="100" />
 
-                <Label Content="{x:Static p:Resources.Lbl_Apellidos}"
+                <Label x:Name="Lbl_Apellido" Content="{x:Static p:Resources.Lbl_Apellidos}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -55,7 +55,7 @@
                          Margin="231,143,16,211" 
                          MaxLength="150"/>
 
-                <Label Content="{x:Static p:Resources.Lbl_NombreUsuarioRegistro}"
+                <Label x:Name="Lbl_NombreUsuario" Content="{x:Static p:Resources.Lbl_NombreUsuarioRegistro}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -69,7 +69,7 @@
                          Margin="231,69,16,281" 
                          MaxLength="100" />
 
-                <Label Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
+                <Label x:Name="Lbl_Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -83,7 +83,7 @@
                          Margin="231,210,14,143" 
                          MaxLength="50" />
 
-                <Label Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
+                <Label x:Name="Lbl_Contrasenia" Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
                        Background="#3b92c4"
                        Foreground="Beige"
                        FontWeight="Bold"
@@ -96,13 +96,13 @@
                          FontSize="25"
                          Margin="229,272,16,82" />
 
-                <Label Content="{x:Static p:Resources.Lbl_PoliticaContraseña}" 
+                <Label x:Name="Lbl_Politica" Content="{x:Static p:Resources.Lbl_PoliticaContraseña}" 
                        Foreground="White" 
                        FontSize="20"
                        HorizontalAlignment="Left"
                        Margin="10,339,0,10" Width="952" />
 
-                <Button Name="Btn_Aceptar"
+                <Button x:Name="Btn_Aceptar"
                         Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
                         Width="150"
                         Height="65"
@@ -129,7 +129,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Name="Txb_Cancelar"
+                <Button x:Name="Txb_Cancelar"
                         Content="{x:Static p:Resources.Btn_CancelarGlobal}" 
                         Width="150"
                         Height="65"
