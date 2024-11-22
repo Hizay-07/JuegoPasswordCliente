@@ -2528,30 +2528,33 @@ namespace Cliente.ServidorPassword {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServidorPassword.IServicioSalaDeEspera", CallbackContract=typeof(Cliente.ServidorPassword.IServicioSalaDeEsperaCallback))]
     public interface IServicioSalaDeEspera {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugador", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/ConectarJugadorResponse")]
-        void ConectarJugador(string nombreUsuario, string rutaImagen);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugador")]
+        void ConectarJugador(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugador", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/ConectarJugadorResponse")]
-        System.Threading.Tasks.Task ConectarJugadorAsync(string nombreUsuario, string rutaImagen);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/ConectarJugador")]
+        System.Threading.Tasks.Task ConectarJugadorAsync(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugadorResponse")]
-        void DesconectarJugador(string nombreUsuario);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador")]
+        void DesconectarJugador(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugadorResponse")]
-        System.Threading.Tasks.Task DesconectarJugadorAsync(string nombreUsuario);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/DesconectarJugador")]
+        System.Threading.Tasks.Task DesconectarJugadorAsync(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectados", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectadosResponse")]
-        Cliente.ServidorPassword.JugadorContrato[] ObtenerJugadoresConectados();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/IniciarPartida")]
+        void IniciarPartida(string codigoPartida);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectados", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/ObtenerJugadoresConectadosResponse")]
-        System.Threading.Tasks.Task<Cliente.ServidorPassword.JugadorContrato[]> ObtenerJugadoresConectadosAsync();
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/IniciarPartida")]
+        System.Threading.Tasks.Task IniciarPartidaAsync(string codigoPartida);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServicioSalaDeEsperaCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadores")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadores", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/ActualizarListaJugadoresResponse")]
         void ActualizarListaJugadores(Cliente.ServidorPassword.JugadorContrato[] jugadores);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/AbrirVentanaPartida", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/AbrirVentanaPartidaResponse")]
+        void AbrirVentanaPartida();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2582,28 +2585,28 @@ namespace Cliente.ServidorPassword {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void ConectarJugador(string nombreUsuario, string rutaImagen) {
-            base.Channel.ConectarJugador(nombreUsuario, rutaImagen);
+        public void ConectarJugador(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador) {
+            base.Channel.ConectarJugador(codigoPartida, jugador);
         }
         
-        public System.Threading.Tasks.Task ConectarJugadorAsync(string nombreUsuario, string rutaImagen) {
-            return base.Channel.ConectarJugadorAsync(nombreUsuario, rutaImagen);
+        public System.Threading.Tasks.Task ConectarJugadorAsync(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador) {
+            return base.Channel.ConectarJugadorAsync(codigoPartida, jugador);
         }
         
-        public void DesconectarJugador(string nombreUsuario) {
-            base.Channel.DesconectarJugador(nombreUsuario);
+        public void DesconectarJugador(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador) {
+            base.Channel.DesconectarJugador(codigoPartida, jugador);
         }
         
-        public System.Threading.Tasks.Task DesconectarJugadorAsync(string nombreUsuario) {
-            return base.Channel.DesconectarJugadorAsync(nombreUsuario);
+        public System.Threading.Tasks.Task DesconectarJugadorAsync(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador) {
+            return base.Channel.DesconectarJugadorAsync(codigoPartida, jugador);
         }
         
-        public Cliente.ServidorPassword.JugadorContrato[] ObtenerJugadoresConectados() {
-            return base.Channel.ObtenerJugadoresConectados();
+        public void IniciarPartida(string codigoPartida) {
+            base.Channel.IniciarPartida(codigoPartida);
         }
         
-        public System.Threading.Tasks.Task<Cliente.ServidorPassword.JugadorContrato[]> ObtenerJugadoresConectadosAsync() {
-            return base.Channel.ObtenerJugadoresConectadosAsync();
+        public System.Threading.Tasks.Task IniciarPartidaAsync(string codigoPartida) {
+            return base.Channel.IniciarPartidaAsync(codigoPartida);
         }
     }
 }

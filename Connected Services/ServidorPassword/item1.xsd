@@ -427,45 +427,46 @@
   <xs:element name="ConectarJugador">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="rutaImagen" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugador" nillable="true" type="q19:JugadorContrato" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConectarJugadorResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="DesconectarJugador">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugador" nillable="true" type="q20:JugadorContrato" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DesconectarJugadorResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerJugadoresConectados">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ObtenerJugadoresConectadosResponse">
+  <xs:element name="IniciarPartida">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="ObtenerJugadoresConectadosResult" nillable="true" type="q19:ArrayOfJugadorContrato" />
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ActualizarListaJugadores">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugadores" nillable="true" type="q20:ArrayOfJugadorContrato" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugadores" nillable="true" type="q21:ArrayOfJugadorContrato" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarListaJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbrirVentanaPartida">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbrirVentanaPartidaResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

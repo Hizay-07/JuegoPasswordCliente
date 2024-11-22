@@ -104,7 +104,8 @@
                                     <StackPanel Orientation="Horizontal" 
                                                 HorizontalAlignment="Stretch">
 
-                                        <TextBlock Text="{Binding NombreUsuario}" 
+                                        <TextBlock Name="Txbl_NombreUsuario"
+                                                   Text="{Binding NombreUsuario}" 
                                                    Foreground="Black" 
                                                    Width="200" 
                                                    VerticalAlignment="Center" 
@@ -146,22 +147,26 @@
                 <StackPanel Margin="100,46,678,548">
                     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="125">
                         <StackPanel Orientation="Horizontal">
-                            
+
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
                                 <Image Name="Img_Anfitrion" Width="82" Height="58" />
                                 <TextBlock Name="Txbl_NombreAnfitrion" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
-                            
+
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
                                 <Image Name="Img_Jugador2" Width="82" Height="58" />
-                                <TextBlock Name="Txbl_NombreJugador2" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"
-                                           Text="{Binding NombreUsuario}"/>
+                                <TextBlock Name="Txbl_NombreJugador2" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
                                 <Image Name="Img_Jugador3" Width="82" Height="58" />
                                 <TextBlock Name="Txbl_NombreJugador3" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Vertical" Margin="10" Width="134">
+                                <Image Name="Img_Jugador4" Width="82" Height="58" />
+                                <TextBlock Name="Txbl_NombreJugador4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
@@ -198,6 +203,12 @@
                         </StackPanel>
                     </ScrollViewer>
                 </StackPanel>
+                
+                <StackPanel Margin="436,540,678,96" >
+                    <Button Name="Btn_Jugar" Content="Jugar" Height="87" FontSize="25" Background="#33c1ff"  Foreground="White" FontWeight="Bold" Visibility="Hidden" Click="IniciarPartida"/>
+                </StackPanel>
+
+
             </Grid>
         </Grid>
     </DockPanel>
