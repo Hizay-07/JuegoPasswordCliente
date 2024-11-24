@@ -1026,9 +1026,6 @@ namespace Cliente.ServidorPassword {
         private Cliente.ServidorPassword.DetallePartida[] DetallePartidaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Cliente.ServidorPassword.Pregunta[] PreguntaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string codigoPartidaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1062,19 +1059,6 @@ namespace Cliente.ServidorPassword {
                 if ((object.ReferenceEquals(this.DetallePartidaField, value) != true)) {
                     this.DetallePartidaField = value;
                     this.RaisePropertyChanged("DetallePartida");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Cliente.ServidorPassword.Pregunta[] Pregunta {
-            get {
-                return this.PreguntaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PreguntaField, value) != true)) {
-                    this.PreguntaField = value;
-                    this.RaisePropertyChanged("Pregunta");
                 }
             }
         }
@@ -1140,224 +1124,6 @@ namespace Cliente.ServidorPassword {
                 if ((object.ReferenceEquals(this.modoJuegoField, value) != true)) {
                     this.modoJuegoField = value;
                     this.RaisePropertyChanged("modoJuego");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Pregunta", Namespace="http://schemas.datacontract.org/2004/07/AccesoADatos")]
-    [System.SerializableAttribute()]
-    public partial class Pregunta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FKidPartidaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Cliente.ServidorPassword.Partida PartidaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Cliente.ServidorPassword.Respuesta[] RespuestaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idPreguntaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string pregunta1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string respuestaCorrectaField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FKidPartida {
-            get {
-                return this.FKidPartidaField;
-            }
-            set {
-                if ((this.FKidPartidaField.Equals(value) != true)) {
-                    this.FKidPartidaField = value;
-                    this.RaisePropertyChanged("FKidPartida");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Cliente.ServidorPassword.Partida Partida {
-            get {
-                return this.PartidaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PartidaField, value) != true)) {
-                    this.PartidaField = value;
-                    this.RaisePropertyChanged("Partida");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Cliente.ServidorPassword.Respuesta[] Respuesta {
-            get {
-                return this.RespuestaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RespuestaField, value) != true)) {
-                    this.RespuestaField = value;
-                    this.RaisePropertyChanged("Respuesta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idPregunta {
-            get {
-                return this.idPreguntaField;
-            }
-            set {
-                if ((this.idPreguntaField.Equals(value) != true)) {
-                    this.idPreguntaField = value;
-                    this.RaisePropertyChanged("idPregunta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string pregunta1 {
-            get {
-                return this.pregunta1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.pregunta1Field, value) != true)) {
-                    this.pregunta1Field = value;
-                    this.RaisePropertyChanged("pregunta1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string respuestaCorrecta {
-            get {
-                return this.respuestaCorrectaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.respuestaCorrectaField, value) != true)) {
-                    this.respuestaCorrectaField = value;
-                    this.RaisePropertyChanged("respuestaCorrecta");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Respuesta", Namespace="http://schemas.datacontract.org/2004/07/AccesoADatos")]
-    [System.SerializableAttribute()]
-    public partial class Respuesta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FKidPreguntaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Cliente.ServidorPassword.Pregunta PreguntaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idRespuestaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string respuesta1Field;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FKidPregunta {
-            get {
-                return this.FKidPreguntaField;
-            }
-            set {
-                if ((this.FKidPreguntaField.Equals(value) != true)) {
-                    this.FKidPreguntaField = value;
-                    this.RaisePropertyChanged("FKidPregunta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Cliente.ServidorPassword.Pregunta Pregunta {
-            get {
-                return this.PreguntaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PreguntaField, value) != true)) {
-                    this.PreguntaField = value;
-                    this.RaisePropertyChanged("Pregunta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idRespuesta {
-            get {
-                return this.idRespuestaField;
-            }
-            set {
-                if ((this.idRespuestaField.Equals(value) != true)) {
-                    this.idRespuestaField = value;
-                    this.RaisePropertyChanged("idRespuesta");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string respuesta1 {
-            get {
-                return this.respuesta1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.respuesta1Field, value) != true)) {
-                    this.respuesta1Field = value;
-                    this.RaisePropertyChanged("respuesta1");
                 }
             }
         }
@@ -1571,9 +1337,6 @@ namespace Cliente.ServidorPassword {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int FKIdPartidaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdPreguntaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1589,19 +1352,6 @@ namespace Cliente.ServidorPassword {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int FKIdPartida {
-            get {
-                return this.FKIdPartidaField;
-            }
-            set {
-                if ((this.FKIdPartidaField.Equals(value) != true)) {
-                    this.FKIdPartidaField = value;
-                    this.RaisePropertyChanged("FKIdPartida");
-                }
             }
         }
         
@@ -1640,6 +1390,192 @@ namespace Cliente.ServidorPassword {
                 if ((object.ReferenceEquals(this.RespuestaCorrectaField, value) != true)) {
                     this.RespuestaCorrectaField = value;
                     this.RaisePropertyChanged("RespuestaCorrecta");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Respuesta", Namespace="http://schemas.datacontract.org/2004/07/AccesoADatos")]
+    [System.SerializableAttribute()]
+    public partial class Respuesta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int FKidPreguntaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Cliente.ServidorPassword.Pregunta PreguntaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idRespuestaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string respuesta1Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int FKidPregunta {
+            get {
+                return this.FKidPreguntaField;
+            }
+            set {
+                if ((this.FKidPreguntaField.Equals(value) != true)) {
+                    this.FKidPreguntaField = value;
+                    this.RaisePropertyChanged("FKidPregunta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Cliente.ServidorPassword.Pregunta Pregunta {
+            get {
+                return this.PreguntaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PreguntaField, value) != true)) {
+                    this.PreguntaField = value;
+                    this.RaisePropertyChanged("Pregunta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idRespuesta {
+            get {
+                return this.idRespuestaField;
+            }
+            set {
+                if ((this.idRespuestaField.Equals(value) != true)) {
+                    this.idRespuestaField = value;
+                    this.RaisePropertyChanged("idRespuesta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string respuesta1 {
+            get {
+                return this.respuesta1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.respuesta1Field, value) != true)) {
+                    this.respuesta1Field = value;
+                    this.RaisePropertyChanged("respuesta1");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pregunta", Namespace="http://schemas.datacontract.org/2004/07/AccesoADatos")]
+    [System.SerializableAttribute()]
+    public partial class Pregunta : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Cliente.ServidorPassword.Respuesta[] RespuestaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idPreguntaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string pregunta1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string respuestaCorrectaField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Cliente.ServidorPassword.Respuesta[] Respuesta {
+            get {
+                return this.RespuestaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RespuestaField, value) != true)) {
+                    this.RespuestaField = value;
+                    this.RaisePropertyChanged("Respuesta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int idPregunta {
+            get {
+                return this.idPreguntaField;
+            }
+            set {
+                if ((this.idPreguntaField.Equals(value) != true)) {
+                    this.idPreguntaField = value;
+                    this.RaisePropertyChanged("idPregunta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string pregunta1 {
+            get {
+                return this.pregunta1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.pregunta1Field, value) != true)) {
+                    this.pregunta1Field = value;
+                    this.RaisePropertyChanged("pregunta1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string respuestaCorrecta {
+            get {
+                return this.respuestaCorrectaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.respuestaCorrectaField, value) != true)) {
+                    this.respuestaCorrectaField = value;
+                    this.RaisePropertyChanged("respuestaCorrecta");
                 }
             }
         }
