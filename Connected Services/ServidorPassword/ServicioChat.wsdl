@@ -863,7 +863,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+          <Upn>HIZAY-PC\hizza</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -872,7 +872,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+          <Upn>HIZAY-PC\hizza</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -881,7 +881,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+          <Upn>HIZAY-PC\hizza</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -890,7 +890,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+          <Upn>HIZAY-PC\hizza</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -899,7 +899,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+          <Upn>HIZAY-PC\hizza</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -908,7 +908,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+          <Upn>HIZAY-PC\hizza</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
