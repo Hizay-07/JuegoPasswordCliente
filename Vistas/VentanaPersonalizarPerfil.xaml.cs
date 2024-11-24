@@ -147,6 +147,8 @@ namespace Cliente.Vistas
                     {
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
                         JugadorSingleton.Descripcion = nuevaDescripcion;
+                        VentanaMenuPrincipal paginaMenuPrincipal= new VentanaMenuPrincipal();
+                        this.NavigationService.Navigate(paginaMenuPrincipal);
                     }
                     else 
                     {

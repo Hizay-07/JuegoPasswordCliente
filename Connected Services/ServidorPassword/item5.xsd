@@ -8,7 +8,6 @@
   <xs:element name="ArrayOfPreguntaContrato" nillable="true" type="tns:ArrayOfPreguntaContrato" />
   <xs:complexType name="PreguntaContrato">
     <xs:sequence>
-      <xs:element minOccurs="0" name="FKIdPartida" type="xs:int" />
       <xs:element minOccurs="0" name="IdPregunta" type="xs:int" />
       <xs:element minOccurs="0" name="Pregunta" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RespuestaCorrecta" nillable="true" type="xs:string" />

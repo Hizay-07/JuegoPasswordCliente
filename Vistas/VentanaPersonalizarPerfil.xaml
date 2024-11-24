@@ -50,7 +50,10 @@
                 <TextBox Name="Txb_Descripcion" Foreground="Black"
                          FontSize="25"
                          Margin="231,97,16,182" 
-                         MaxLength="280"/>
+                         MaxLength="280"
+                         TextWrapping="Wrap"
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
 
                 <Label x:Name="Lbl_NombreUsuario" Content="{x:Static p:Resources.Lbl_NombreUsuarioPerfil}"
                        Background="#3b92c4"

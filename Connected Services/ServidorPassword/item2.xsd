@@ -95,7 +95,6 @@
   <xs:complexType name="Partida">
     <xs:sequence>
       <xs:element minOccurs="0" name="DetallePartida" nillable="true" type="tns:ArrayOfDetallePartida" />
-      <xs:element minOccurs="0" name="Pregunta" nillable="true" type="tns:ArrayOfPregunta" />
       <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="estadoPartida" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="idAnfitrion" type="xs:int" />
@@ -104,38 +103,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Partida" nillable="true" type="tns:Partida" />
-  <xs:complexType name="ArrayOfPregunta">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pregunta" nillable="true" type="tns:Pregunta" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfPregunta" nillable="true" type="tns:ArrayOfPregunta" />
-  <xs:complexType name="Pregunta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FKidPartida" type="xs:int" />
-      <xs:element minOccurs="0" name="Partida" nillable="true" type="tns:Partida" />
-      <xs:element minOccurs="0" name="Respuesta" nillable="true" type="tns:ArrayOfRespuesta" />
-      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
-      <xs:element minOccurs="0" name="pregunta1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="respuestaCorrecta" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Pregunta" nillable="true" type="tns:Pregunta" />
-  <xs:complexType name="ArrayOfRespuesta">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Respuesta" nillable="true" type="tns:Respuesta" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRespuesta" nillable="true" type="tns:ArrayOfRespuesta" />
-  <xs:complexType name="Respuesta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FKidPregunta" type="xs:int" />
-      <xs:element minOccurs="0" name="Pregunta" nillable="true" type="tns:Pregunta" />
-      <xs:element minOccurs="0" name="idRespuesta" type="xs:int" />
-      <xs:element minOccurs="0" name="respuesta1" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Respuesta" nillable="true" type="tns:Respuesta" />
   <xs:complexType name="Estadistica">
     <xs:sequence>
       <xs:element minOccurs="0" name="Jugador" nillable="true" type="tns:ArrayOfJugador" />
@@ -156,4 +123,28 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Perfil" nillable="true" type="tns:Perfil" />
+  <xs:complexType name="ArrayOfRespuesta">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Respuesta" nillable="true" type="tns:Respuesta" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRespuesta" nillable="true" type="tns:ArrayOfRespuesta" />
+  <xs:complexType name="Respuesta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FKidPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="Pregunta" nillable="true" type="tns:Pregunta" />
+      <xs:element minOccurs="0" name="idRespuesta" type="xs:int" />
+      <xs:element minOccurs="0" name="respuesta1" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Respuesta" nillable="true" type="tns:Respuesta" />
+  <xs:complexType name="Pregunta">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Respuesta" nillable="true" type="tns:ArrayOfRespuesta" />
+      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      <xs:element minOccurs="0" name="pregunta1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="respuestaCorrecta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pregunta" nillable="true" type="tns:Pregunta" />
 </xs:schema>
