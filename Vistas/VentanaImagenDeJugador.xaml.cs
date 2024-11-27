@@ -38,7 +38,7 @@ namespace Cliente.Vistas
                 try
                 {
                     ServicioPersonalizacionPerfilClient proxy = new ServicioPersonalizacionPerfilClient();
-                    int resultadoActualizacionImagen = proxy.EditarRutaImagenPorIdPerfil(JugadorSingleton.IdPerfil, _imagenSeleccionada.Source.ToString());
+                    int resultadoActualizacionImagen = proxy.EditarRutaImagenPorIdJugador(JugadorSingleton.IdJugador, _imagenSeleccionada.Source.ToString());
                     if (resultadoActualizacionImagen == 1)
                     {
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);

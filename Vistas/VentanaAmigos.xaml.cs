@@ -29,7 +29,7 @@ namespace Cliente.Vistas
         public VentanaAmigos()
         {
             InitializeComponent();
-            RecuperarAmigos();
+            RecuperarAmigos();            
         }
 
         private void Aceptar_Click(object sender, RoutedEventArgs e)
@@ -60,6 +60,22 @@ namespace Cliente.Vistas
             }
         }
 
+        private List<string> ObtenerJugadoresConectados() 
+        {
+            List<string> jugadoresActivos = new List<string>();
+            try 
+            {
+                ServicioJugadoresClient servicioJugadores = new ServicioJugadoresClient();
+                jugadoresActivos=servicioJugadores.ObtenerJugadores().ToList();
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+            return jugadoresActivos;
+        }
+
         private void RecuperarJugadores(List<int> amistades)
         {
             try
@@ -82,10 +98,28 @@ namespace Cliente.Vistas
             {
                 List<JugadorAmistad> amistades = CombinarListas(idAmistades, nombresUsuario);
                 ListaAmigos.ItemsSource = amistades;
+                //MostrarAmigosConectados();
             }
             else
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+            }
+        }
+
+        private void MostrarAmigosConectados() 
+        {
+            List<string> jugadoresConectados=ObtenerJugadoresConectados();
+            for (int i = 0; i < ListaAmigos.Items.Count; i++) 
+            {
+                for (int j = 0; i < jugadoresConectados.Count; j++)
+                {
+                    var jugador = ListaAmigos.Items[i] as JugadorAmistad;
+                    if (jugador.NombreUsuario == jugadoresConectados[j]) 
+                    {
+
+                    }
+                    
+                }
             }
         }
 
@@ -113,6 +147,7 @@ namespace Cliente.Vistas
                         paginaPerfilDeJugador.Txb_Correo.Text = cuenta.Correo;
                         paginaPerfilDeJugador.Txb_Descripcion.Text = cuenta.Descripcion;
                         paginaPerfilDeJugador.Lbl_NombreJugador.Content = cuenta.NombreUsuario;
+                        paginaPerfilDeJugador.Img_Perfil.Source = new BitmapImage(new Uri(cuenta.RutaImagen));
                         this.NavigationService.Navigate(paginaPerfilDeJugador);
                     }
                     else 

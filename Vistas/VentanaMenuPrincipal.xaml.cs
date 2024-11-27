@@ -51,8 +51,23 @@ namespace Cliente.Vistas
 
         private void SalirDelJuego(object sender, RoutedEventArgs e)
         {
+            DesconectarJugador();
             VentanaInicio paginaInicio= new VentanaInicio();
             this.NavigationService.Navigate(paginaInicio);
+        }
+
+        private void DesconectarJugador() 
+        {
+            try
+            {
+                ServicioJugadoresClient servicioJugadores=new ServicioJugadoresClient();
+                servicioJugadores.DesconectarJugadorJuego(JugadorSingleton.NombreUsuario);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
         }
 
         private void ConsultarAmigos(object remitente, RoutedEventArgs argumento)

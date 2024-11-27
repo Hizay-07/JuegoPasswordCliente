@@ -1,8 +1,10 @@
 ﻿using Cliente.Auxiliares;
 using Cliente.ServidorPassword;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +27,7 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaPregunta : Page
     {
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private int _numeroPreguntaActual = 1;        
         private int _tiempoRestante;        
         private int _totalPreguntas;
@@ -32,6 +35,7 @@ namespace Cliente.Vistas
         private List<PreguntaContrato> _preguntas;
         private List<PreguntaContrato> _preguntasSinModificar;
         private List<RespuestaContrato> _respuestas;
+        private string _codigoPartida;
         
         public string TiempoRestante => _tiempoRestante.ToString();        
 
@@ -40,17 +44,19 @@ namespace Cliente.Vistas
             InitializeComponent();                                    
         }
 
-        public void ConfigurarPartida(int tiempoRestante,int totalPreguntas) 
+        public void ConfigurarPreguntas(List<PreguntaContrato> preguntas, List<RespuestaContrato> respuestas) 
         {
-            PartidaAuxiliar partidaAuxiliar = new PartidaAuxiliar();
-            _tiempoRestante = tiempoRestante;
-            _totalPreguntas = totalPreguntas;
-            partidaAuxiliar.RecuperarPreguntas(totalPreguntas);
-            _preguntas = partidaAuxiliar.Preguntas;
+            _preguntas = preguntas;
+            _respuestas = respuestas;
             _preguntasSinModificar = _preguntas;
-            _respuestas =partidaAuxiliar.Respuestas;
+        }
+        public void ConfigurarPartida(int tiempoRestante,int totalPreguntas,string codigoPartida) 
+        {           
+            _tiempoRestante = tiempoRestante;
+            _totalPreguntas = totalPreguntas;                                                
             Txbl_NumeroPreguntaTotal.Text = _totalPreguntas.ToString();
             Txbl_NumeroPreguntaActual.Text = _numeroPreguntaActual.ToString();
+            _codigoPartida= codigoPartida;
         }
         public void ConfigurarTemporizador()
         {
@@ -119,8 +125,32 @@ namespace Cliente.Vistas
             }
             else
             {
-                MessageBox.Show("¡Partida terminada!");
+                if (DeterminarGanador())
+                {
+                    MessageBox.Show("Partida terminada ¡Has ganado :)!");
+                }
+                else 
+                {
+                    MessageBox.Show("Partida terminada ¡Has perdido! :(");
+                }
+                
             }
+        }
+
+        private bool DeterminarGanador() 
+        {
+            bool ganador=false;
+            try 
+            {
+                ServicioPartidaClient servicioPartida=new ServicioPartidaClient();
+                ganador=servicioPartida.ObtenerGanador(_codigoPartida,JugadorSingleton.NombreUsuario);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+            return ganador;
         }
         
         protected void OnPropertyChanged(string nombre)
@@ -133,64 +163,139 @@ namespace Cliente.Vistas
 
         private void RevisarRespuesta1(object sender, RoutedEventArgs e)
         {
-            int numeroPregunta = _numeroPreguntaActual - 1;
+            DesactivarBotones();
+            int puntaje = ObtenerCantidadPuntaje();
+            int numeroPregunta = _numeroPreguntaActual - 1;            
             string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
             if (Txbl_Respuesta1.Text == respuestaCorrecta)
             {
-                MessageBox.Show("Correcto");
+                DeterminarPuntaje();                
+                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
             }
             else 
             {
-                MessageBox.Show("Incorrecto");
-            }
-            DesactivarBotones();
+                if (puntaje >= 10) 
+                {
+                    RestarPuntaje();
+                    puntaje -= 10;
+                }
+                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
+            }            
         }        
 
         private void RevisarRespuesta2(object sender, RoutedEventArgs e)
         {
+            DesactivarBotones();
+            int puntaje = ObtenerCantidadPuntaje();
             int numeroPregunta = _numeroPreguntaActual - 1;
             string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
             if (Txbl_Respuesta2.Text == respuestaCorrecta)
             {
-                MessageBox.Show("Correcto");
+                DeterminarPuntaje();
+                puntaje = ObtenerCantidadPuntaje();
+                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
             }
             else
             {
-                MessageBox.Show("Incorrecto");
-            }
-            DesactivarBotones();
+                if (puntaje >= 10)
+                {
+                    RestarPuntaje();
+                    puntaje -= 10;
+                }
+                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
+            }            
         }
 
         private void RevisarRespuesta3(object sender, RoutedEventArgs e)
         {
+            DesactivarBotones();
+            int puntaje = ObtenerCantidadPuntaje();
             int numeroPregunta = _numeroPreguntaActual - 1;
             string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
             if (Txbl_Respuesta3.Text == respuestaCorrecta)
             {
-                MessageBox.Show("Correcto");
+                DeterminarPuntaje();
+                puntaje = ObtenerCantidadPuntaje();
+                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
             }
             else
             {
-                MessageBox.Show("Incorrecto");
-            }
-            DesactivarBotones();
+                if (puntaje >= 10)
+                {
+                    RestarPuntaje();
+                    puntaje -= 10;
+                }
+                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
+            }            
         }
 
         private void RevisarRespuesta4(object sender, RoutedEventArgs e)
         {
+            DesactivarBotones();
+            int puntaje = ObtenerCantidadPuntaje();
             int numeroPregunta = _numeroPreguntaActual - 1;
             string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
             if (Txbl_Respuesta4.Text == respuestaCorrecta)
             {
-                MessageBox.Show("Correcto");
+                DeterminarPuntaje();
+                puntaje = ObtenerCantidadPuntaje();
+                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
             }
             else
             {
-                MessageBox.Show("Incorrecto");
-            }
-            DesactivarBotones();
+                if (puntaje >= 10)
+                {
+                    RestarPuntaje();
+                    puntaje -= 10;
+                }
+                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
+            }            
         }
 
+
+        private void DeterminarPuntaje() 
+        {
+            try 
+            {
+                ServicioPartidaClient servicioPartida=new ServicioPartidaClient();
+                servicioPartida.EvaluarPregunta(_codigoPartida,JugadorSingleton.NombreUsuario, _numeroPreguntaActual);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+        }
+
+        private void RestarPuntaje() 
+        {
+            try
+            {
+                ServicioPartidaClient servicioPartida = new ServicioPartidaClient();
+                servicioPartida.RestarPuntaje(_codigoPartida,JugadorSingleton.NombreUsuario);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+        }
+
+        private int ObtenerCantidadPuntaje() 
+        {
+            int puntaje = 0;
+            try
+            {
+                ServicioPartidaClient servicioPartida = new ServicioPartidaClient();
+                puntaje=servicioPartida.ObtenerPuntaje(_codigoPartida,JugadorSingleton.NombreUsuario);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+            return puntaje;
+        }
         private void DesactivarBotones()
         {
             Btn_Respuesta1.IsHitTestVisible = false;

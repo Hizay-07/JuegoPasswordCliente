@@ -26,33 +26,10 @@
                        Padding="10"
                        BorderBrush="Transparent" Width="228" />
 
-                <Label x:Name="Lbl_Nombre" Content="{x:Static p:Resources.Lbl_Nombre}"
-                       Background="#3b92c4"
-                       Foreground="Beige"
-                       FontWeight="Bold"
-                       FontSize="25"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Top"
-                       Margin="0,3,911,0" Width="147" />
-                <TextBox Name="Txb_Nombre"
-                         Foreground="Black" 
-                         FontSize="25"
-                         Margin="231,3,16,348" 
-                         MaxLength="100" />
-
-                <Label x:Name="Lbl_Apellido" Content="{x:Static p:Resources.Lbl_Apellidos}"
-                       Background="#3b92c4"
-                       Foreground="Beige"
-                       FontWeight="Bold"
-                       FontSize="25"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Top"
-                       Margin="0,67,911,0" RenderTransformOrigin="-0.436,0.898" Width="147" />
-
                 <TextBox Name="Txb_Correo"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="231,143,16,211" 
+                         Margin="231,2,16,351" 
                          MaxLength="150"/>
 
                 <Label x:Name="Lbl_NombreUsuario" Content="{x:Static p:Resources.Lbl_NombreUsuarioRegistro}"
@@ -62,12 +39,7 @@
                        FontSize="23"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="0,210,0,0" />
-                <TextBox Name="Txb_Apellidos"
-                         Foreground="Black"
-                         FontSize="25"
-                         Margin="231,69,16,281" 
-                         MaxLength="100" />
+                       Margin="0,70,0,0" />
 
                 <Label x:Name="Lbl_Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
                        Background="#3b92c4"
@@ -76,11 +48,11 @@
                        FontSize="25"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
-                       Margin="0,143,921,0" RenderTransformOrigin="-0.78,0.462" Width="137" />
+                       Margin="0,2,921,0" RenderTransformOrigin="-0.78,0.462" Width="137" />
                 <TextBox Name="Txb_NombreUsuario"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="231,210,14,143" 
+                         Margin="231,70,14,283" 
                          MaxLength="50" />
 
                 <Label x:Name="Lbl_Contrasenia" Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
@@ -90,17 +62,17 @@
                        FontSize="25"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
-                       Margin="0,276,911,0" Width="147" />
+                       Margin="0,136,911,0" Width="147" />
                 <TextBox Name="Txb_Contrasenia"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="229,272,16,82" />
+                         Margin="229,132,16,223" />
 
                 <Label x:Name="Lbl_Politica" Content="{x:Static p:Resources.Lbl_PoliticaContraseña}" 
                        Foreground="White" 
                        FontSize="20"
                        HorizontalAlignment="Left"
-                       Margin="10,339,0,10" Width="952" />
+                       Margin="10,198,0,151" Width="952" />
 
                 <Button x:Name="Btn_Aceptar"
                         Content="{x:Static p:Resources.Btn_AceptarGlobal}" 

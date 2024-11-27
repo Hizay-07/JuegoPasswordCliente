@@ -33,7 +33,8 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="10,5,10,5">
-                                <Image Source="/Imagenes/Iconos/jugador.png" 
+                                <TextBlock 
+                                       Name="Txbl_Estado"
                                        Width="50" 
                                        Height="50" 
                                        Margin="5" />
