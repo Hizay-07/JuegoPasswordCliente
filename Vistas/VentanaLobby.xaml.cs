@@ -259,8 +259,16 @@ namespace Cliente.Vistas
             {
                 CerrarPartida();
             }
-            VentanaMenuPrincipal paginaMenuPrincipal=new VentanaMenuPrincipal();
-            this.NavigationService.Navigate(paginaMenuPrincipal);
+            if (JugadorSingleton.IdJugador > 0)
+            {
+                VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+                this.NavigationService.Navigate(paginaMenuPrincipal);
+            }
+            else
+            {
+                VentanaInicio paginaInicio = new VentanaInicio();
+                this.NavigationService.Navigate(paginaInicio);
+            }            
         }
 
         private void DesconectarJugadorDePartida() 

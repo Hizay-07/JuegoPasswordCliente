@@ -333,7 +333,7 @@ namespace Cliente.ServidorPassword {
         private int partidasPerdidasField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string puntajeField;
+        private int puntajeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -398,12 +398,12 @@ namespace Cliente.ServidorPassword {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string puntaje {
+        public int puntaje {
             get {
                 return this.puntajeField;
             }
             set {
-                if ((object.ReferenceEquals(this.puntajeField, value) != true)) {
+                if ((this.puntajeField.Equals(value) != true)) {
                     this.puntajeField = value;
                     this.RaisePropertyChanged("puntaje");
                 }
@@ -2408,6 +2408,12 @@ namespace Cliente.ServidorPassword {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/ObtenerJugadores", ReplyAction="http://tempuri.org/IServicioJugadores/ObtenerJugadoresResponse")]
         System.Threading.Tasks.Task<string[]> ObtenerJugadoresAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/VerificarConexionUsuario", ReplyAction="http://tempuri.org/IServicioJugadores/VerificarConexionUsuarioResponse")]
+        bool VerificarConexionUsuario(string jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/VerificarConexionUsuario", ReplyAction="http://tempuri.org/IServicioJugadores/VerificarConexionUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> VerificarConexionUsuarioAsync(string jugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2459,6 +2465,14 @@ namespace Cliente.ServidorPassword {
         
         public System.Threading.Tasks.Task<string[]> ObtenerJugadoresAsync() {
             return base.Channel.ObtenerJugadoresAsync();
+        }
+        
+        public bool VerificarConexionUsuario(string jugador) {
+            return base.Channel.VerificarConexionUsuario(jugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> VerificarConexionUsuarioAsync(string jugador) {
+            return base.Channel.VerificarConexionUsuarioAsync(jugador);
         }
     }
     
