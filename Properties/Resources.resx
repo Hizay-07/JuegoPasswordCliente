@@ -341,4 +341,22 @@ Amigos</value>
   <data name="Lbl_SolicitudesDeAmistad" xml:space="preserve">
     <value>Soliciudes de amistad</value>
   </data>
+  <data name="Lbl_Estadisticas" xml:space="preserve">
+    <value>Estadisticas</value>
+  </data>
+  <data name="Lbl_PartidasJugadas" xml:space="preserve">
+    <value>Partidas Jugadas</value>
+  </data>
+  <data name="Lbl_PartidasGanadas" xml:space="preserve">
+    <value>Partidas Ganadas</value>
+  </data>
+  <data name="Lbl_PartidasPerdidas" xml:space="preserve">
+    <value>Partidas Perdidas</value>
+  </data>
+  <data name="Lbl_PartidaFinalizada" xml:space="preserve">
+    <value>Partida Finalizada</value>
+  </data>
+  <data name="Lbl_Ganador" xml:space="preserve">
+    <value>Ganador</value>
+  </data>
 </root>
