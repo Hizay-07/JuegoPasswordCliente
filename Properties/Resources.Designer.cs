@@ -314,6 +314,24 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Estadisticas.
+        /// </summary>
+        public static string Lbl_Estadisticas {
+            get {
+                return ResourceManager.GetString("Lbl_Estadisticas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ganador.
+        /// </summary>
+        public static string Lbl_Ganador {
+            get {
+                return ResourceManager.GetString("Lbl_Ganador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Jugadores.
         /// </summary>
         public static string Lbl_Jugadores {
@@ -374,6 +392,42 @@ namespace Cliente.Properties {
         public static string Lbl_NuevaContrasenia {
             get {
                 return ResourceManager.GetString("Lbl_NuevaContrasenia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partida Finalizada.
+        /// </summary>
+        public static string Lbl_PartidaFinalizada {
+            get {
+                return ResourceManager.GetString("Lbl_PartidaFinalizada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas Ganadas.
+        /// </summary>
+        public static string Lbl_PartidasGanadas {
+            get {
+                return ResourceManager.GetString("Lbl_PartidasGanadas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas Jugadas.
+        /// </summary>
+        public static string Lbl_PartidasJugadas {
+            get {
+                return ResourceManager.GetString("Lbl_PartidasJugadas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Partidas Perdidas.
+        /// </summary>
+        public static string Lbl_PartidasPerdidas {
+            get {
+                return ResourceManager.GetString("Lbl_PartidasPerdidas", resourceCulture);
             }
         }
         

@@ -25,9 +25,9 @@
 
                 <TextBlock Name="Txbl_Pregunta" Text="{Binding PreguntaActual}" FontSize="28" FontWeight="Bold" Foreground="White" 
                            Background="#00b0ff" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="10" 
-                           TextWrapping="Wrap" Margin="0,67,0,0"/>
+                           TextWrapping="Wrap" Margin="0,37,0,0"/>
 
-                <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,143,0,0" Width="580" Height="232">
+                <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,167,0,0" Width="580" Height="232">
                     <Button Name="Btn_Respuesta1" Background="#6c6c6c" Foreground="White" Padding="10" Margin="5" Click="RevisarRespuesta1">
                         <TextBlock Name="Txbl_Respuesta1" Text="{Binding Respuesta1}" TextWrapping="Wrap" TextAlignment="Center" FontSize="16" />
                     </Button>

@@ -1,0 +1,81 @@
+﻿<Page x:Class="Cliente.Vistas.VentanaPartidaFinalizada"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:Cliente.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280">
+
+    <DockPanel>
+        <Border CornerRadius="20">
+            <Border.Background>
+                <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+            </Border.Background>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="400" Width="800">
+                <Label x:Name="Lbl_PartidaFinalizada" Content="{x:Static p:Resources.Lbl_PartidaFinalizada}"
+                       Background="#6c6c6c"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       FontSize="45"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Margin="0,10,0,0"
+                       Padding="10"
+                       BorderBrush="Transparent" />
+
+                <Label x:Name="Llb_Ganador"
+                       Content="{x:Static p:Resources.Lbl_Ganador}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="40,0,0,0"
+                       Width="150"
+                       Height="50"
+                       BorderThickness="0"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center" />
+
+                <Label Content="{Binding NombreJugador}"
+                       Background="#00E0FF"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Width="297"
+                       Height="60"
+                       BorderThickness="0"
+                       HorizontalContentAlignment="Center"
+                       VerticalContentAlignment="Center" />
+
+                <Image Source="{Binding ImagenJugador}"
+                       Width="150"
+                       Height="150"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="0,60,0,0"
+                       Stretch="Uniform" />
+
+                <Button x:Name="Btn_Regresar" Content="{x:Static p:Resources.Btn_RegresarGlobal}" Width="150" Height="65" Background="#36D25B" Foreground="White" 
+                        FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Center" 
+                        VerticalAlignment="Top" Margin="0,335,0,0" Click="RegresarVentana">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Page>
