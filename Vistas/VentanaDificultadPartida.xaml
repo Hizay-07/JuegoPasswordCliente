@@ -12,29 +12,23 @@
         <Grid>
             <Border>
                 <Border.Background>
-                    <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" Opacity="0.8" />
                 </Border.Background>
             </Border>
 
             
-            <Grid Margin="30">
+            <Grid Margin="10">
             
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-            
-                    <RowDefinition Height="*"/>
-            
-                    <RowDefinition Height="Auto"/>
-            
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-            
                     <ColumnDefinition Width="*"/>
-            
                     <ColumnDefinition Width="*"/>
-            
                 </Grid.ColumnDefinitions>
 
 
@@ -42,38 +36,42 @@
                            FontSize="25" TextAlignment="Center" 
                            Background="#00b0ff" Foreground="White" 
                            FontWeight="Bold" Padding="10"
-                           Width="300"/>
+                           Width="300"
+                           Height="50"/>
 
 
                 <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
 
-                    <Button Width="145" Height="70" Background="#81C784" Foreground="White" Click="RegistrarPartidaFacil" Margin="10,0">
-                        <StackPanel Orientation="Vertical">
+                    <Button Width="300" Height="250" Background="#81C784" Foreground="White" Click="RegistrarPartidaFacil" Margin="10,0">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="200">
                             <TextBlock x:Name="Licenciatura" Text="{x:Static p:Resources.Txbl_Licenciatura}" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
-                            <TextBlock x:Name="Facil" Text="{x:Static p:Resources.Txbl_Facil}" FontSize="15" TextAlignment="Center" />
+                            <TextBlock x:Name="Facil" Text="{x:Static p:Resources.Txbl_Facil}" FontSize="15" TextAlignment="Center" Height="20" />
+                            <Image x:Name="Img_Licenciatura" Source="/Imagenes/Niveles/licenciatura.jpg" Height="200" Width="200"/>
                         </StackPanel>
                     </Button>
 
-                    <Button Width="145" Height="70" Background="#FFEB3B" Foreground="Black" Click="RegistrarPartidaMedia" Margin="10,0">
-                        <StackPanel Orientation="Vertical">
+                    <Button Width="300" Height="250" Background="#FFEB3B" Foreground="Black" Click="RegistrarPartidaMedia" Margin="10,0">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="200">
                             <TextBlock x:Name="Maestria" Text="{x:Static p:Resources.Txbl_Maestria}" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
                             <TextBlock x:Name="Medio" Text="{x:Static p:Resources.Txbl_Medio}" FontSize="15" TextAlignment="Center" />
+                            <Image x:Name="Img_Maestria" Source="/Imagenes/Niveles/maestria.jpg" Height="200" Width="200"/>
                         </StackPanel>
                     </Button>
 
-                    <Button Width="145" Height="70" Background="#E53935" Foreground="White" Click="RegistrarPartidaDificil" Margin="10,0">
-                        <StackPanel Orientation="Vertical">
+                    <Button Width="300" Height="250" Background="#E53935" Foreground="White" Click="RegistrarPartidaDificil" Margin="10,0">
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Height="200">
                             <TextBlock x:Name="Doctorado" Text="{x:Static p:Resources.Txbl_Doctorado}" FontSize="20" FontWeight="Bold" TextAlignment="Center" />
                             <TextBlock x:Name="Dificil" Text="{x:Static p:Resources.Txbl_Dificil}" FontSize="15" TextAlignment="Center" />
+                            <Image x:Name="Img_Doctorado" Source="/Imagenes/Niveles/doctorado.jpg" Height="200" Width="200"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
 
 
                 <Button x:Name="Salir" Content="{x:Static p:Resources.Btn_SalirGlobal}" Grid.Row="2" 
-                        Height="38" FontSize="20" Background="Red" 
+                        Height="46" FontSize="20" Background="Red" 
                         Foreground="White" FontWeight="Bold" 
-                        HorizontalAlignment="Left" VerticalAlignment="Center" Width="112" Margin="43,0,0,0"
+                        HorizontalAlignment="Left" VerticalAlignment="Center" Width="135" Margin="43,0,0,0"
                         Click="RegresarMenuPrincipal"/>
             </Grid>
         </Grid>

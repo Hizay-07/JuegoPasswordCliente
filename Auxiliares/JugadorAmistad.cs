@@ -10,5 +10,6 @@ namespace Cliente.Auxiliares
     {
         public int IdJugador { get; set; }
         public string NombreUsuario { get; set; }
+        public bool Estado { get; set; }
     }
 }

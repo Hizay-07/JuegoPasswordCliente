@@ -50,7 +50,7 @@
                    VerticalAlignment="Top"
                    Margin="0,317,877,0" RenderTransformOrigin="-0.436,0.898" Width="208" />
 
-            <TextBox Name="Txb_Correo" Foreground="Black" 
+            <TextBox Name="Txb_CodigoPartida" Foreground="Black" 
                      FontSize="25"
                      Margin="472,308,180,360" 
                      MaxLength="8"/>

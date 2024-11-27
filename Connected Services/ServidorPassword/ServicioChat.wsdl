@@ -470,6 +470,12 @@
   <wsdl:message name="IServicioJugadores_ObtenerJugadores_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerJugadoresResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioJugadores_VerificarConexionUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarConexionUsuario" />
+  </wsdl:message>
+  <wsdl:message name="IServicioJugadores_VerificarConexionUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarConexionUsuarioResponse" />
+  </wsdl:message>
   <wsdl:message name="IServicioPartida_InicializarPartida_InputMessage">
     <wsdl:part name="parameters" element="tns:InicializarPartida" />
   </wsdl:message>
@@ -674,6 +680,10 @@
     <wsdl:operation name="ObtenerJugadores">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugadores/ObtenerJugadores" message="tns:IServicioJugadores_ObtenerJugadores_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugadores/ObtenerJugadoresResponse" message="tns:IServicioJugadores_ObtenerJugadores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarConexionUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioJugadores/VerificarConexionUsuario" message="tns:IServicioJugadores_VerificarConexionUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioJugadores/VerificarConexionUsuarioResponse" message="tns:IServicioJugadores_VerificarConexionUsuario_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IServicioPartida">
@@ -1070,6 +1080,15 @@
     </wsdl:operation>
     <wsdl:operation name="ObtenerJugadores">
       <soap12:operation soapAction="http://tempuri.org/IServicioJugadores/ObtenerJugadores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarConexionUsuario">
+      <soap12:operation soapAction="http://tempuri.org/IServicioJugadores/VerificarConexionUsuario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

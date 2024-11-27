@@ -97,40 +97,40 @@ namespace Cliente.Vistas
             if (primerNombreUsuario != "excepcion")
             {
                 List<JugadorAmistad> amistades = CombinarListas(idAmistades, nombresUsuario);
-                ListaAmigos.ItemsSource = amistades;
-                //MostrarAmigosConectados();
+                ListaAmigos.ItemsSource = amistades;              
             }
             else
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
             }
         }
-
-        private void MostrarAmigosConectados() 
-        {
-            List<string> jugadoresConectados=ObtenerJugadoresConectados();
-            for (int i = 0; i < ListaAmigos.Items.Count; i++) 
-            {
-                for (int j = 0; i < jugadoresConectados.Count; j++)
-                {
-                    var jugador = ListaAmigos.Items[i] as JugadorAmistad;
-                    if (jugador.NombreUsuario == jugadoresConectados[j]) 
-                    {
-
-                    }
-                    
-                }
-            }
-        }
+         
 
         private List<JugadorAmistad> CombinarListas(List<int> idJugadores, List<string> nombresUsuario)
         {
             List<JugadorAmistad> jugadores = idJugadores.Zip(nombresUsuario, (id, nombre) => new JugadorAmistad
             {
                 IdJugador = id,
-                NombreUsuario = nombre
+                NombreUsuario = nombre,
+                Estado = VerificarConexionAmigo(nombre),
             }).ToList();
             return jugadores;
+        }
+
+        private bool VerificarConexionAmigo(string nombreUsuario) 
+        {
+            bool resultadoVerificaion = false;
+            try 
+            {
+                ServicioJugadoresClient servicioJugadores=new ServicioJugadoresClient();
+                resultadoVerificaion = servicioJugadores.VerificarConexionUsuario(nombreUsuario);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+            return resultadoVerificaion;
         }
 
         private void VerPerfil(object remitente, RoutedEventArgs argumento)
