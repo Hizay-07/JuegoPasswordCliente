@@ -22,14 +22,12 @@
       <xs:element minOccurs="0" name="DetalleLogro" nillable="true" type="tns:ArrayOfDetalleLogro" />
       <xs:element minOccurs="0" name="DetallePartida" nillable="true" type="tns:ArrayOfDetallePartida" />
       <xs:element minOccurs="0" name="Estadistica" nillable="true" type="tns:Estadistica" />
-      <xs:element minOccurs="0" name="FKIdPerfil" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="FKidAcceso" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="FKidEstadistica" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Perfil" nillable="true" type="tns:Perfil" />
-      <xs:element minOccurs="0" name="apellidos" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="estadoJugador" type="xs:boolean" />
+      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="idJugador" type="xs:int" />
-      <xs:element minOccurs="0" name="nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="rutaImagen" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Jugador" nillable="true" type="tns:Jugador" />
@@ -113,16 +111,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Estadistica" nillable="true" type="tns:Estadistica" />
-  <xs:complexType name="Perfil">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Jugador" nillable="true" type="tns:ArrayOfJugador" />
-      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="idPerfil" type="xs:int" />
-      <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="rutaImagen" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Perfil" nillable="true" type="tns:Perfil" />
   <xs:complexType name="ArrayOfRespuesta">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Respuesta" nillable="true" type="tns:Respuesta" />

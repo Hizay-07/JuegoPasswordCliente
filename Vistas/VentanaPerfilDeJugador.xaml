@@ -14,28 +14,28 @@
                 <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
             </Border.Background>
 
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="592" Width="918">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="628" Width="1148">
                 <Label Name="Lbl_NombreJugador" Content="Nombre del Jugador" Background="#6c6c6c" Foreground="White" 
-                       FontWeight="Bold" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Top" 
-                       Margin="0,20,0,0" Padding="10" BorderBrush="Transparent" Width="483" />
+                       FontWeight="Bold" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="10" BorderBrush="Transparent" Width="482" 
+                       HorizontalContentAlignment="Center"/>
 
-                <Image Source="{Binding ImagenDeAmigo}" Width="192" Height="168" Margin="0,105,363,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                <Image Name="Img_Perfil" Source="{Binding ImagenDeAmigo}" Width="130" Height="130" Margin="517,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
                 <Label x:Name="Lbl_Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}" Background="#3b92c4" Foreground="Beige" 
                        FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                       Margin="80,300,0,0" Width="150" />
+                       Margin="80,264,0,0" Width="150" />
                 <TextBlock x:Name="Txb_Correo" Foreground="White" FontSize="25" 
-                         Margin="256,300,123,0" VerticalAlignment="Top" Height="40" Background="#35446b" Text=""/>
+                         Margin="256,264,123,0" VerticalAlignment="Top" Height="40" Background="#35446b" Text=""/>
 
                 <Label x:Name="Lbl_Descripcion" Content="{x:Static p:Resources.Lbl_DescripcionPerfil}" Background="#3b92c4" Foreground="Beige" 
                        FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                       Margin="80,380,0,0" Width="150" />
+                       Margin="80,346,0,0" Width="150" />
                 <TextBlock x:Name="Txb_Descripcion" Foreground="White" FontSize="25" 
-                         Margin="256,380,123,0" VerticalAlignment="Top" Height="80" TextWrapping="Wrap" Background="#35446b" Text="" />
+                         Margin="256,346,123,0" VerticalAlignment="Top" Height="166" TextWrapping="Wrap" Background="#35446b" Text="" />
 
                 <Button Name="Btn_Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}" Width="150" Height="65" Background="#36D25B" Foreground="White" 
                         FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Center" 
-                        Margin="0,480,0,0" VerticalAlignment="Top" Click="AceptarClick">
+                        Margin="0,527,0,0" VerticalAlignment="Top" Click="AceptarClick">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderThickness="0">

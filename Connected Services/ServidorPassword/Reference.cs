@@ -131,28 +131,22 @@ namespace Cliente.ServidorPassword {
         private Cliente.ServidorPassword.Estadistica EstadisticaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> FKIdPerfilField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> FKidAccesoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> FKidEstadisticaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Cliente.ServidorPassword.Perfil PerfilField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string apellidosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool estadoJugadorField;
+        private string descripcionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idJugadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nombreField;
+        private string nombreUsuarioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string rutaImagenField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -230,19 +224,6 @@ namespace Cliente.ServidorPassword {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> FKIdPerfil {
-            get {
-                return this.FKIdPerfilField;
-            }
-            set {
-                if ((this.FKIdPerfilField.Equals(value) != true)) {
-                    this.FKIdPerfilField = value;
-                    this.RaisePropertyChanged("FKIdPerfil");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> FKidAcceso {
             get {
                 return this.FKidAccesoField;
@@ -269,40 +250,14 @@ namespace Cliente.ServidorPassword {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Cliente.ServidorPassword.Perfil Perfil {
+        public string descripcion {
             get {
-                return this.PerfilField;
+                return this.descripcionField;
             }
             set {
-                if ((object.ReferenceEquals(this.PerfilField, value) != true)) {
-                    this.PerfilField = value;
-                    this.RaisePropertyChanged("Perfil");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string apellidos {
-            get {
-                return this.apellidosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.apellidosField, value) != true)) {
-                    this.apellidosField = value;
-                    this.RaisePropertyChanged("apellidos");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool estadoJugador {
-            get {
-                return this.estadoJugadorField;
-            }
-            set {
-                if ((this.estadoJugadorField.Equals(value) != true)) {
-                    this.estadoJugadorField = value;
-                    this.RaisePropertyChanged("estadoJugador");
+                if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
+                    this.descripcionField = value;
+                    this.RaisePropertyChanged("descripcion");
                 }
             }
         }
@@ -321,14 +276,27 @@ namespace Cliente.ServidorPassword {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string nombre {
+        public string nombreUsuario {
             get {
-                return this.nombreField;
+                return this.nombreUsuarioField;
             }
             set {
-                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
-                    this.nombreField = value;
-                    this.RaisePropertyChanged("nombre");
+                if ((object.ReferenceEquals(this.nombreUsuarioField, value) != true)) {
+                    this.nombreUsuarioField = value;
+                    this.RaisePropertyChanged("nombreUsuario");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string rutaImagen {
+            get {
+                return this.rutaImagenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.rutaImagenField, value) != true)) {
+                    this.rutaImagenField = value;
+                    this.RaisePropertyChanged("rutaImagen");
                 }
             }
         }
@@ -438,115 +406,6 @@ namespace Cliente.ServidorPassword {
                 if ((object.ReferenceEquals(this.puntajeField, value) != true)) {
                     this.puntajeField = value;
                     this.RaisePropertyChanged("puntaje");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Perfil", Namespace="http://schemas.datacontract.org/2004/07/AccesoADatos")]
-    [System.SerializableAttribute()]
-    public partial class Perfil : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Cliente.ServidorPassword.Jugador[] JugadorField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string descripcionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idPerfilField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nombreUsuarioField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string rutaImagenField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Cliente.ServidorPassword.Jugador[] Jugador {
-            get {
-                return this.JugadorField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.JugadorField, value) != true)) {
-                    this.JugadorField = value;
-                    this.RaisePropertyChanged("Jugador");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string descripcion {
-            get {
-                return this.descripcionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.descripcionField, value) != true)) {
-                    this.descripcionField = value;
-                    this.RaisePropertyChanged("descripcion");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int idPerfil {
-            get {
-                return this.idPerfilField;
-            }
-            set {
-                if ((this.idPerfilField.Equals(value) != true)) {
-                    this.idPerfilField = value;
-                    this.RaisePropertyChanged("idPerfil");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string nombreUsuario {
-            get {
-                return this.nombreUsuarioField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nombreUsuarioField, value) != true)) {
-                    this.nombreUsuarioField = value;
-                    this.RaisePropertyChanged("nombreUsuario");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string rutaImagen {
-            get {
-                return this.rutaImagenField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.rutaImagenField, value) != true)) {
-                    this.rutaImagenField = value;
-                    this.RaisePropertyChanged("rutaImagen");
                 }
             }
         }
@@ -1148,9 +1007,6 @@ namespace Cliente.ServidorPassword {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ApellidosField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ContraseniaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1166,12 +1022,6 @@ namespace Cliente.ServidorPassword {
         private int IdJugadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdPerfilField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NombreUsuarioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1184,19 +1034,6 @@ namespace Cliente.ServidorPassword {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Apellidos {
-            get {
-                return this.ApellidosField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ApellidosField, value) != true)) {
-                    this.ApellidosField = value;
-                    this.RaisePropertyChanged("Apellidos");
-                }
             }
         }
         
@@ -1261,32 +1098,6 @@ namespace Cliente.ServidorPassword {
                 if ((this.IdJugadorField.Equals(value) != true)) {
                     this.IdJugadorField = value;
                     this.RaisePropertyChanged("IdJugador");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdPerfil {
-            get {
-                return this.IdPerfilField;
-            }
-            set {
-                if ((this.IdPerfilField.Equals(value) != true)) {
-                    this.IdPerfilField = value;
-                    this.RaisePropertyChanged("IdPerfil");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nombre {
-            get {
-                return this.NombreField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NombreField, value) != true)) {
-                    this.NombreField = value;
-                    this.RaisePropertyChanged("Nombre");
                 }
             }
         }
@@ -1913,10 +1724,10 @@ namespace Cliente.ServidorPassword {
     public interface IServicioGestionAcceso {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugador", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugadorResponse")]
-        int RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador);
+        int RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Jugador jugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugador", ReplyAction="http://tempuri.org/IServicioGestionAcceso/RegistrarNuevoJugadorResponse")]
-        System.Threading.Tasks.Task<int> RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador);
+        System.Threading.Tasks.Task<int> RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Jugador jugador);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionAcceso/ValidarInicioDeSesion", ReplyAction="http://tempuri.org/IServicioGestionAcceso/ValidarInicioDeSesionResponse")]
         int ValidarInicioDeSesion(Cliente.ServidorPassword.Acceso acceso);
@@ -1982,12 +1793,12 @@ namespace Cliente.ServidorPassword {
                 base(binding, remoteAddress) {
         }
         
-        public int RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador) {
-            return base.Channel.RegistrarNuevoJugador(acceso, perfil, jugador);
+        public int RegistrarNuevoJugador(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Jugador jugador) {
+            return base.Channel.RegistrarNuevoJugador(acceso, jugador);
         }
         
-        public System.Threading.Tasks.Task<int> RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Perfil perfil, Cliente.ServidorPassword.Jugador jugador) {
-            return base.Channel.RegistrarNuevoJugadorAsync(acceso, perfil, jugador);
+        public System.Threading.Tasks.Task<int> RegistrarNuevoJugadorAsync(Cliente.ServidorPassword.Acceso acceso, Cliente.ServidorPassword.Jugador jugador) {
+            return base.Channel.RegistrarNuevoJugadorAsync(acceso, jugador);
         }
         
         public int ValidarInicioDeSesion(Cliente.ServidorPassword.Acceso acceso) {
@@ -2051,29 +1862,31 @@ namespace Cliente.ServidorPassword {
             "")]
         System.Threading.Tasks.Task<int> EditarCorreoPorIdAccesoAsync(int idAcceso, string correo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfilRes" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdJugador", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdJugadorRe" +
+            "sponse")]
+        int EditarDescripcionPorIdJugador(int idJugador, string descripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdJugador", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdJugadorRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<int> EditarDescripcionPorIdJugadorAsync(int idJugador, string descripcion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdJugador" +
+            "", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdJugador" +
+            "Response")]
+        int EditarNombreUsuarioPorIdJugador(int idJugador, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdJugador" +
+            "", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdJugador" +
+            "Response")]
+        System.Threading.Tasks.Task<int> EditarNombreUsuarioPorIdJugadorAsync(int idJugador, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdJugador", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdJugadorRes" +
             "ponse")]
-        int EditarDescripcionPorIdPerfil(int idPerfil, string descripcion);
+        int EditarRutaImagenPorIdJugador(int idJugador, string rutaImagen);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarDescripcionPorIdPerfilRes" +
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdJugador", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdJugadorRes" +
             "ponse")]
-        System.Threading.Tasks.Task<int> EditarDescripcionPorIdPerfilAsync(int idPerfil, string descripcion);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfilR" +
-            "esponse")]
-        int EditarNombreUsuarioPorIdPerfil(int idPerfil, string nombreUsuario);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarNombreUsuarioPorIdPerfilR" +
-            "esponse")]
-        System.Threading.Tasks.Task<int> EditarNombreUsuarioPorIdPerfilAsync(int idPerfil, string nombreUsuario);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfilResp" +
-            "onse")]
-        int EditarRutaImagenPorIdPerfil(int idPerfil, string rutaImagen);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfil", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarRutaImagenPorIdPerfilResp" +
-            "onse")]
-        System.Threading.Tasks.Task<int> EditarRutaImagenPorIdPerfilAsync(int idPerfil, string rutaImagen);
+        System.Threading.Tasks.Task<int> EditarRutaImagenPorIdJugadorAsync(int idJugador, string rutaImagen);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAcceso", ReplyAction="http://tempuri.org/IServicioPersonalizacionPerfil/EditarContraseniaPorIdAccesoRes" +
             "ponse")]
@@ -2127,28 +1940,28 @@ namespace Cliente.ServidorPassword {
             return base.Channel.EditarCorreoPorIdAccesoAsync(idAcceso, correo);
         }
         
-        public int EditarDescripcionPorIdPerfil(int idPerfil, string descripcion) {
-            return base.Channel.EditarDescripcionPorIdPerfil(idPerfil, descripcion);
+        public int EditarDescripcionPorIdJugador(int idJugador, string descripcion) {
+            return base.Channel.EditarDescripcionPorIdJugador(idJugador, descripcion);
         }
         
-        public System.Threading.Tasks.Task<int> EditarDescripcionPorIdPerfilAsync(int idPerfil, string descripcion) {
-            return base.Channel.EditarDescripcionPorIdPerfilAsync(idPerfil, descripcion);
+        public System.Threading.Tasks.Task<int> EditarDescripcionPorIdJugadorAsync(int idJugador, string descripcion) {
+            return base.Channel.EditarDescripcionPorIdJugadorAsync(idJugador, descripcion);
         }
         
-        public int EditarNombreUsuarioPorIdPerfil(int idPerfil, string nombreUsuario) {
-            return base.Channel.EditarNombreUsuarioPorIdPerfil(idPerfil, nombreUsuario);
+        public int EditarNombreUsuarioPorIdJugador(int idJugador, string nombreUsuario) {
+            return base.Channel.EditarNombreUsuarioPorIdJugador(idJugador, nombreUsuario);
         }
         
-        public System.Threading.Tasks.Task<int> EditarNombreUsuarioPorIdPerfilAsync(int idPerfil, string nombreUsuario) {
-            return base.Channel.EditarNombreUsuarioPorIdPerfilAsync(idPerfil, nombreUsuario);
+        public System.Threading.Tasks.Task<int> EditarNombreUsuarioPorIdJugadorAsync(int idJugador, string nombreUsuario) {
+            return base.Channel.EditarNombreUsuarioPorIdJugadorAsync(idJugador, nombreUsuario);
         }
         
-        public int EditarRutaImagenPorIdPerfil(int idPerfil, string rutaImagen) {
-            return base.Channel.EditarRutaImagenPorIdPerfil(idPerfil, rutaImagen);
+        public int EditarRutaImagenPorIdJugador(int idJugador, string rutaImagen) {
+            return base.Channel.EditarRutaImagenPorIdJugador(idJugador, rutaImagen);
         }
         
-        public System.Threading.Tasks.Task<int> EditarRutaImagenPorIdPerfilAsync(int idPerfil, string rutaImagen) {
-            return base.Channel.EditarRutaImagenPorIdPerfilAsync(idPerfil, rutaImagen);
+        public System.Threading.Tasks.Task<int> EditarRutaImagenPorIdJugadorAsync(int idJugador, string rutaImagen) {
+            return base.Channel.EditarRutaImagenPorIdJugadorAsync(idJugador, rutaImagen);
         }
         
         public int EditarContraseniaPorIdAcceso(int idAcceso, string contrasenia) {
@@ -2374,6 +2187,18 @@ namespace Cliente.ServidorPassword {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionPartida/RecuperarRespuestasPorIdPreguntas", ReplyAction="http://tempuri.org/IServicioGestionPartida/RecuperarRespuestasPorIdPreguntasRespo" +
             "nse")]
         System.Threading.Tasks.Task<Cliente.ServidorPassword.RespuestaContrato[]> RecuperarRespuestasPorIdPreguntasAsync(int[] idRespuestas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionPartida/SeleccionarPreguntasAlAzar", ReplyAction="http://tempuri.org/IServicioGestionPartida/SeleccionarPreguntasAlAzarResponse")]
+        Cliente.ServidorPassword.PreguntaContrato[] SeleccionarPreguntasAlAzar(int cantidadPreguntas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionPartida/SeleccionarPreguntasAlAzar", ReplyAction="http://tempuri.org/IServicioGestionPartida/SeleccionarPreguntasAlAzarResponse")]
+        System.Threading.Tasks.Task<Cliente.ServidorPassword.PreguntaContrato[]> SeleccionarPreguntasAlAzarAsync(int cantidadPreguntas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionPartida/ObtenerIdPreguntas", ReplyAction="http://tempuri.org/IServicioGestionPartida/ObtenerIdPreguntasResponse")]
+        int[] ObtenerIdPreguntas(Cliente.ServidorPassword.PreguntaContrato[] preguntasSeleccionadas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionPartida/ObtenerIdPreguntas", ReplyAction="http://tempuri.org/IServicioGestionPartida/ObtenerIdPreguntasResponse")]
+        System.Threading.Tasks.Task<int[]> ObtenerIdPreguntasAsync(Cliente.ServidorPassword.PreguntaContrato[] preguntasSeleccionadas);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2458,6 +2283,22 @@ namespace Cliente.ServidorPassword {
         public System.Threading.Tasks.Task<Cliente.ServidorPassword.RespuestaContrato[]> RecuperarRespuestasPorIdPreguntasAsync(int[] idRespuestas) {
             return base.Channel.RecuperarRespuestasPorIdPreguntasAsync(idRespuestas);
         }
+        
+        public Cliente.ServidorPassword.PreguntaContrato[] SeleccionarPreguntasAlAzar(int cantidadPreguntas) {
+            return base.Channel.SeleccionarPreguntasAlAzar(cantidadPreguntas);
+        }
+        
+        public System.Threading.Tasks.Task<Cliente.ServidorPassword.PreguntaContrato[]> SeleccionarPreguntasAlAzarAsync(int cantidadPreguntas) {
+            return base.Channel.SeleccionarPreguntasAlAzarAsync(cantidadPreguntas);
+        }
+        
+        public int[] ObtenerIdPreguntas(Cliente.ServidorPassword.PreguntaContrato[] preguntasSeleccionadas) {
+            return base.Channel.ObtenerIdPreguntas(preguntasSeleccionadas);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> ObtenerIdPreguntasAsync(Cliente.ServidorPassword.PreguntaContrato[] preguntasSeleccionadas) {
+            return base.Channel.ObtenerIdPreguntasAsync(preguntasSeleccionadas);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2477,10 +2318,10 @@ namespace Cliente.ServidorPassword {
         System.Threading.Tasks.Task DesconectarJugadorAsync(string codigoPartida, Cliente.ServidorPassword.JugadorContrato jugador);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/IniciarPartida")]
-        void IniciarPartida(string codigoPartida);
+        void IniciarPartida(string codigoPartida, int cantidadPreguntas);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServicioSalaDeEspera/IniciarPartida")]
-        System.Threading.Tasks.Task IniciarPartidaAsync(string codigoPartida);
+        System.Threading.Tasks.Task IniciarPartidaAsync(string codigoPartida, int cantidadPreguntas);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2490,7 +2331,7 @@ namespace Cliente.ServidorPassword {
         void ActualizarListaJugadores(Cliente.ServidorPassword.JugadorContrato[] jugadores);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioSalaDeEspera/AbrirVentanaPartida", ReplyAction="http://tempuri.org/IServicioSalaDeEspera/AbrirVentanaPartidaResponse")]
-        void AbrirVentanaPartida();
+        void AbrirVentanaPartida(Cliente.ServidorPassword.PreguntaContrato[] preguntasSeleccionadas, Cliente.ServidorPassword.RespuestaContrato[] respuestasSeleccionadas);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2537,12 +2378,204 @@ namespace Cliente.ServidorPassword {
             return base.Channel.DesconectarJugadorAsync(codigoPartida, jugador);
         }
         
-        public void IniciarPartida(string codigoPartida) {
-            base.Channel.IniciarPartida(codigoPartida);
+        public void IniciarPartida(string codigoPartida, int cantidadPreguntas) {
+            base.Channel.IniciarPartida(codigoPartida, cantidadPreguntas);
         }
         
-        public System.Threading.Tasks.Task IniciarPartidaAsync(string codigoPartida) {
-            return base.Channel.IniciarPartidaAsync(codigoPartida);
+        public System.Threading.Tasks.Task IniciarPartidaAsync(string codigoPartida, int cantidadPreguntas) {
+            return base.Channel.IniciarPartidaAsync(codigoPartida, cantidadPreguntas);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServidorPassword.IServicioJugadores")]
+    public interface IServicioJugadores {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/ConectarJugadorJuego", ReplyAction="http://tempuri.org/IServicioJugadores/ConectarJugadorJuegoResponse")]
+        int ConectarJugadorJuego(string jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/ConectarJugadorJuego", ReplyAction="http://tempuri.org/IServicioJugadores/ConectarJugadorJuegoResponse")]
+        System.Threading.Tasks.Task<int> ConectarJugadorJuegoAsync(string jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/DesconectarJugadorJuego", ReplyAction="http://tempuri.org/IServicioJugadores/DesconectarJugadorJuegoResponse")]
+        void DesconectarJugadorJuego(string jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/DesconectarJugadorJuego", ReplyAction="http://tempuri.org/IServicioJugadores/DesconectarJugadorJuegoResponse")]
+        System.Threading.Tasks.Task DesconectarJugadorJuegoAsync(string jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/ObtenerJugadores", ReplyAction="http://tempuri.org/IServicioJugadores/ObtenerJugadoresResponse")]
+        string[] ObtenerJugadores();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/ObtenerJugadores", ReplyAction="http://tempuri.org/IServicioJugadores/ObtenerJugadoresResponse")]
+        System.Threading.Tasks.Task<string[]> ObtenerJugadoresAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioJugadoresChannel : Cliente.ServidorPassword.IServicioJugadores, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioJugadoresClient : System.ServiceModel.ClientBase<Cliente.ServidorPassword.IServicioJugadores>, Cliente.ServidorPassword.IServicioJugadores {
+        
+        public ServicioJugadoresClient() {
+        }
+        
+        public ServicioJugadoresClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioJugadoresClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioJugadoresClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioJugadoresClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public int ConectarJugadorJuego(string jugador) {
+            return base.Channel.ConectarJugadorJuego(jugador);
+        }
+        
+        public System.Threading.Tasks.Task<int> ConectarJugadorJuegoAsync(string jugador) {
+            return base.Channel.ConectarJugadorJuegoAsync(jugador);
+        }
+        
+        public void DesconectarJugadorJuego(string jugador) {
+            base.Channel.DesconectarJugadorJuego(jugador);
+        }
+        
+        public System.Threading.Tasks.Task DesconectarJugadorJuegoAsync(string jugador) {
+            return base.Channel.DesconectarJugadorJuegoAsync(jugador);
+        }
+        
+        public string[] ObtenerJugadores() {
+            return base.Channel.ObtenerJugadores();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> ObtenerJugadoresAsync() {
+            return base.Channel.ObtenerJugadoresAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServidorPassword.IServicioPartida")]
+    public interface IServicioPartida {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/InicializarPartida", ReplyAction="http://tempuri.org/IServicioPartida/InicializarPartidaResponse")]
+        void InicializarPartida(string codigoPartida, int numeroPreguntas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/InicializarPartida", ReplyAction="http://tempuri.org/IServicioPartida/InicializarPartidaResponse")]
+        System.Threading.Tasks.Task InicializarPartidaAsync(string codigoPartida, int numeroPreguntas);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ConfigurarJugadores", ReplyAction="http://tempuri.org/IServicioPartida/ConfigurarJugadoresResponse")]
+        void ConfigurarJugadores(string codigoPartida, string[] jugadores);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ConfigurarJugadores", ReplyAction="http://tempuri.org/IServicioPartida/ConfigurarJugadoresResponse")]
+        System.Threading.Tasks.Task ConfigurarJugadoresAsync(string codigoPartida, string[] jugadores);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/EvaluarPregunta", ReplyAction="http://tempuri.org/IServicioPartida/EvaluarPreguntaResponse")]
+        void EvaluarPregunta(string codigoPartida, string nombreUsuario, int numeroPregunta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/EvaluarPregunta", ReplyAction="http://tempuri.org/IServicioPartida/EvaluarPreguntaResponse")]
+        System.Threading.Tasks.Task EvaluarPreguntaAsync(string codigoPartida, string nombreUsuario, int numeroPregunta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/RestarPuntaje", ReplyAction="http://tempuri.org/IServicioPartida/RestarPuntajeResponse")]
+        void RestarPuntaje(string codigoPartida, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/RestarPuntaje", ReplyAction="http://tempuri.org/IServicioPartida/RestarPuntajeResponse")]
+        System.Threading.Tasks.Task RestarPuntajeAsync(string codigoPartida, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerPuntaje", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerPuntajeResponse")]
+        int ObtenerPuntaje(string codigoPartida, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerPuntaje", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerPuntajeResponse")]
+        System.Threading.Tasks.Task<int> ObtenerPuntajeAsync(string codigoPartida, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerGanador", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerGanadorResponse")]
+        bool ObtenerGanador(string codigoPartida, string nombreUsuario);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerGanador", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerGanadorResponse")]
+        System.Threading.Tasks.Task<bool> ObtenerGanadorAsync(string codigoPartida, string nombreUsuario);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioPartidaChannel : Cliente.ServidorPassword.IServicioPartida, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioPartidaClient : System.ServiceModel.ClientBase<Cliente.ServidorPassword.IServicioPartida>, Cliente.ServidorPassword.IServicioPartida {
+        
+        public ServicioPartidaClient() {
+        }
+        
+        public ServicioPartidaClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioPartidaClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioPartidaClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioPartidaClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public void InicializarPartida(string codigoPartida, int numeroPreguntas) {
+            base.Channel.InicializarPartida(codigoPartida, numeroPreguntas);
+        }
+        
+        public System.Threading.Tasks.Task InicializarPartidaAsync(string codigoPartida, int numeroPreguntas) {
+            return base.Channel.InicializarPartidaAsync(codigoPartida, numeroPreguntas);
+        }
+        
+        public void ConfigurarJugadores(string codigoPartida, string[] jugadores) {
+            base.Channel.ConfigurarJugadores(codigoPartida, jugadores);
+        }
+        
+        public System.Threading.Tasks.Task ConfigurarJugadoresAsync(string codigoPartida, string[] jugadores) {
+            return base.Channel.ConfigurarJugadoresAsync(codigoPartida, jugadores);
+        }
+        
+        public void EvaluarPregunta(string codigoPartida, string nombreUsuario, int numeroPregunta) {
+            base.Channel.EvaluarPregunta(codigoPartida, nombreUsuario, numeroPregunta);
+        }
+        
+        public System.Threading.Tasks.Task EvaluarPreguntaAsync(string codigoPartida, string nombreUsuario, int numeroPregunta) {
+            return base.Channel.EvaluarPreguntaAsync(codigoPartida, nombreUsuario, numeroPregunta);
+        }
+        
+        public void RestarPuntaje(string codigoPartida, string nombreUsuario) {
+            base.Channel.RestarPuntaje(codigoPartida, nombreUsuario);
+        }
+        
+        public System.Threading.Tasks.Task RestarPuntajeAsync(string codigoPartida, string nombreUsuario) {
+            return base.Channel.RestarPuntajeAsync(codigoPartida, nombreUsuario);
+        }
+        
+        public int ObtenerPuntaje(string codigoPartida, string nombreUsuario) {
+            return base.Channel.ObtenerPuntaje(codigoPartida, nombreUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<int> ObtenerPuntajeAsync(string codigoPartida, string nombreUsuario) {
+            return base.Channel.ObtenerPuntajeAsync(codigoPartida, nombreUsuario);
+        }
+        
+        public bool ObtenerGanador(string codigoPartida, string nombreUsuario) {
+            return base.Channel.ObtenerGanador(codigoPartida, nombreUsuario);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ObtenerGanadorAsync(string codigoPartida, string nombreUsuario) {
+            return base.Channel.ObtenerGanadorAsync(codigoPartida, nombreUsuario);
         }
     }
 }
