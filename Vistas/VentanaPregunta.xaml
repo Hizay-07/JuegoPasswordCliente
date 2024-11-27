@@ -13,7 +13,7 @@
                 <ImageBrush ImageSource="pack://application:,,,/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
             </Border.Background>
 
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="430">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0">
                     <TextBlock Name="Txbl_NumeroPreguntaActual" Text=" " Width="25" FontSize="25" Foreground="White"/>
                     <TextBlock Name="Txbl_Barra" Text="/" Width="12" FontSize="25" Foreground="White"/>

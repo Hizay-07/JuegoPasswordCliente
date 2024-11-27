@@ -24,7 +24,8 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaInicioSesion : Page
     {
-        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);        
+
         public VentanaInicioSesion()
         {
             InitializeComponent();
@@ -113,8 +114,7 @@ namespace Cliente.Vistas
                     if (resultado == 1)
                     {
                         ObtenerJugadorSingleton(acceso.correo);
-                        VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
-                        this.NavigationService.Navigate(paginaMenuPrincipal);
+                        ConectarJugador();                        
                     }
                     else if (resultado == 0)
                     {
@@ -140,5 +140,30 @@ namespace Cliente.Vistas
             ServidorPassword.Cuenta cuenta = proxy.RecuperarCuentaPorCorreo(correo);
             JugadorSingleton.jugadorSingleton.CrearJugadorSingleton(cuenta);
         }
+
+        private void ConectarJugador() 
+        {                        
+            try 
+            {   
+                ServicioJugadoresClient servicioJugadores=new ServicioJugadoresClient();
+                int resultadoConexion=servicioJugadores.ConectarJugadorJuego(JugadorSingleton.NombreUsuario);
+                if (resultadoConexion == 1)
+                {
+                    VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+                    this.NavigationService.Navigate(paginaMenuPrincipal);
+                }
+                else 
+                {
+                    MessageBox.Show("Ya estas jugando");
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+            
+        }                   
+       
     }
 }

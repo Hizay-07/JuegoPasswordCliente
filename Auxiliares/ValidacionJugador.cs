@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Media.Animation;
 
 namespace Cliente.Auxiliares
 {
@@ -14,21 +13,19 @@ namespace Cliente.Auxiliares
     {
         public ValidacionJugador()
         {
-            RuleFor(jugador => jugador.nombre).NotEmpty().MaximumLength(100).Matches(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$");
-            RuleFor(jugador => jugador.apellidos).NotEmpty().MaximumLength(100).Matches(@"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$");
+            RuleFor(jugador => jugador.nombreUsuario).NotEmpty().MaximumLength(50).Matches(@"^[^\s]+$");
+            RuleFor(jugador => jugador.descripcion).MaximumLength(280);
         }
 
-        public bool ValidarNombre(string nombre) 
+        public bool ValidarDescripcion(string descripcion) 
         {
-            string patronNombre= @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$";
-            return Regex.IsMatch(nombre, patronNombre);
+            return descripcion.Length <= 280;            
         }
 
-        public bool ValidarApellidos(string apellidos) 
+        public bool ValidarNombreUsuario(string nombreUsuario) 
         {
-            string patronApellido = @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$";
-            return Regex.IsMatch(apellidos, patronApellido);
+            string patronNombreUsuario = @"^[^\s]+$";            
+            return !string.IsNullOrEmpty(nombreUsuario) && nombreUsuario.Length <= 50&& Regex.IsMatch(nombreUsuario, patronNombreUsuario);
         }
-
     }
 }

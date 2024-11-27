@@ -45,7 +45,7 @@ namespace Cliente.Vistas
         private void CompararCampos()
         {
             ReiniciarCampos();
-            int idPerfil = JugadorSingleton.IdPerfil;
+            int idJugador = JugadorSingleton.IdJugador;
             int idAcceso = JugadorSingleton.IdAcceso;            
             if (Txb_Correo.Text != JugadorSingleton.Correo)
             {
@@ -54,12 +54,12 @@ namespace Cliente.Vistas
 
             if (Txb_Descripcion.Text != JugadorSingleton.Descripcion)
             {
-                EditarDescripcionPorIdPerfil(idPerfil, Txb_Descripcion.Text);
+                EditarDescripcionPorIdJugador(idJugador, Txb_Descripcion.Text);
             }
 
             if (Txb_NombreDeUsuario.Text != JugadorSingleton.NombreUsuario)
             {
-                EditarNombreUsuarioPorIdPerfil(idPerfil, Txb_NombreDeUsuario.Text);
+                EditarNombreUsuarioPorIdJugador(idJugador, Txb_NombreDeUsuario.Text);
             }
         }
 
@@ -125,24 +125,24 @@ namespace Cliente.Vistas
 
         private bool ValidarNuevaDescripcion(string descripcion) 
         {
-            ValidacionPerfil validacionPerfil = new ValidacionPerfil();
+            ValidacionJugador validacionPerfil = new ValidacionJugador();
             return validacionPerfil.ValidarDescripcion(descripcion);
         }
 
         private bool ValidarNuevoNombreUsuario(string nombreUsuario) 
         {
-            ValidacionPerfil validacionPerfil = new ValidacionPerfil();
+            ValidacionJugador validacionPerfil = new ValidacionJugador();
             return validacionPerfil.ValidarNombreUsuario(nombreUsuario);
         }
 
-        public void EditarDescripcionPorIdPerfil(int idPerfil, string nuevaDescripcion)
+        public void EditarDescripcionPorIdJugador(int idJugador, string nuevaDescripcion)
         {            
             if (ValidarNuevaDescripcion(nuevaDescripcion))
             {
                 try
                 {
                     ServidorPassword.ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
-                    int resultadoEdicionDescripcion = proxy.EditarDescripcionPorIdPerfil(idPerfil, nuevaDescripcion);
+                    int resultadoEdicionDescripcion = proxy.EditarDescripcionPorIdJugador(idJugador, nuevaDescripcion);
                     if (resultadoEdicionDescripcion == 1)
                     {
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
@@ -169,7 +169,7 @@ namespace Cliente.Vistas
             }
         }
 
-        public void EditarNombreUsuarioPorIdPerfil(int idPerfil, string nuevoNombreUsuario)
+        public void EditarNombreUsuarioPorIdJugador(int idJugador, string nuevoNombreUsuario)
         {            
             if (ValidarNuevoNombreUsuario(nuevoNombreUsuario))
             {
@@ -180,7 +180,7 @@ namespace Cliente.Vistas
                     int validacionNombreUsuario = proxyAcceso.ValidarNombreUsuario(nuevoNombreUsuario);
                     if (validacionNombreUsuario == 0)
                     {
-                        int resultadoEdicionNombreUsuario = proxy.EditarNombreUsuarioPorIdPerfil(idPerfil, nuevoNombreUsuario);
+                        int resultadoEdicionNombreUsuario = proxy.EditarNombreUsuarioPorIdJugador(idJugador, nuevoNombreUsuario);
                         if (resultadoEdicionNombreUsuario == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);

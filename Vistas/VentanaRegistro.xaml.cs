@@ -30,8 +30,7 @@ namespace Cliente.Vistas
         {
             if (ValidarRegistro())
             {
-                Acceso acceso = ObtenerAcceso();
-                Perfil perfil = ObtenerPerfil();
+                Acceso acceso = ObtenerAcceso();                
                 Jugador jugador = ObtenerJugador();
                 try
                 {
@@ -39,10 +38,10 @@ namespace Cliente.Vistas
                     int validacionCorreo = proxy.ValidarPresenciaDeCorreo(acceso.correo);
                     if (validacionCorreo == 0)
                     {
-                        int validacionNombreUsuario = proxy.ValidarNombreUsuario(perfil.nombreUsuario);
+                        int validacionNombreUsuario = proxy.ValidarNombreUsuario(jugador.nombreUsuario);
                         if (validacionNombreUsuario == 0)
                         {
-                            int resultadoRegistro = proxy.RegistrarNuevoJugador(acceso, perfil, jugador);
+                            int resultadoRegistro = proxy.RegistrarNuevoJugador(acceso,jugador);
                             if (resultadoRegistro == 1)
                             {
                                 MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
@@ -84,8 +83,8 @@ namespace Cliente.Vistas
         {
             Jugador jugador = new Jugador
             {
-                nombre = Txb_Nombre.Text,
-                apellidos = Txb_Apellidos.Text,
+                nombreUsuario = Txb_NombreUsuario.Text,
+                rutaImagen = "pack://application:,,,/Imagenes/Fondos/perfil1.png",
             };
             return jugador;
         }
@@ -99,40 +98,27 @@ namespace Cliente.Vistas
             };            
             return acceso;
         }
-
-        private Perfil ObtenerPerfil()
-        {
-            Perfil perfil = new Perfil
-            {
-                nombreUsuario = Txb_NombreUsuario.Text,
-                rutaImagen= "pack://application:,,,/Imagenes/Fondos/perfil1.png",
-            };            
-            return perfil;
-        }
+        
       
         private bool ValidarRegistro()
         {
             ReiniciarCampos();
             bool validacion = false;
             Jugador jugador = ObtenerJugador();
-            Acceso acceso = ObtenerAcceso();
-            Perfil perfil = ObtenerPerfil();            
+            Acceso acceso = ObtenerAcceso();              
             ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            ValidacionJugador validacionJugador = new ValidacionJugador();
-            ValidacionPerfil validacionPerfil = new ValidacionPerfil();
+            ValidacionJugador validacionJugador = new ValidacionJugador();            
             FluentValidation.Results.ValidationResult resultadoAcceso = validacionAcceso.Validate(acceso);
-            FluentValidation.Results.ValidationResult resultadoJugador = validacionJugador.Validate(jugador);
-            FluentValidation.Results.ValidationResult resultadoPerfil = validacionPerfil.Validate(perfil);
-            if (resultadoAcceso.IsValid && resultadoJugador.IsValid && resultadoPerfil.IsValid)
+            FluentValidation.Results.ValidationResult resultadoJugador = validacionJugador.Validate(jugador);            
+            if (resultadoAcceso.IsValid && resultadoJugador.IsValid)
             {
                 validacion = true;
             }
             else
             {
                 MarcarErrores();
-                if (string.IsNullOrWhiteSpace(jugador.nombre) || string.IsNullOrWhiteSpace(jugador.apellidos) ||
-               string.IsNullOrWhiteSpace(acceso.correo) || string.IsNullOrWhiteSpace(acceso.contrasenia) ||
-               string.IsNullOrWhiteSpace(perfil.nombreUsuario))
+                if (string.IsNullOrWhiteSpace(acceso.correo) || string.IsNullOrWhiteSpace(acceso.contrasenia) ||
+               string.IsNullOrWhiteSpace(jugador.nombreUsuario))
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCamposRequeridos);
                 }
@@ -163,19 +149,8 @@ namespace Cliente.Vistas
                 Txb_Contrasenia.BorderBrush = Brushes.Red;
                 Txb_Contrasenia.BorderThickness = new Thickness(2);
             }
-            ValidacionJugador validacionJugador= new ValidacionJugador();
-            if (!validacionJugador.ValidarNombre(Txb_Nombre.Text)) 
-            {
-                Txb_Nombre.BorderBrush = Brushes.Red;
-                Txb_Nombre.BorderThickness = new Thickness(2);
-            }
-            if (!validacionJugador.ValidarApellidos(Txb_Apellidos.Text)) 
-            {
-                Txb_Apellidos.BorderBrush = Brushes.Red;
-                Txb_Apellidos.BorderThickness = new Thickness(2);
-            }
-            ValidacionPerfil validacionPerfil= new ValidacionPerfil();
-            if (!validacionPerfil.ValidarNombreUsuario(Txb_NombreUsuario.Text)) 
+            ValidacionJugador validacionJugador= new ValidacionJugador();            
+            if (!validacionJugador.ValidarNombreUsuario(Txb_NombreUsuario.Text)) 
             {
                 Txb_NombreUsuario.BorderBrush = Brushes.Red;
                 Txb_NombreUsuario.BorderThickness = new Thickness(2);
@@ -187,11 +162,7 @@ namespace Cliente.Vistas
             Txb_Correo.BorderBrush = Brushes.Transparent;
             Txb_Correo.BorderThickness = new Thickness(1);
             Txb_Contrasenia.BorderBrush = Brushes.Transparent;
-            Txb_Contrasenia.BorderThickness = new Thickness(1);
-            Txb_Nombre.BorderBrush = Brushes.Transparent;
-            Txb_Nombre.BorderThickness = new Thickness(1);
-            Txb_Apellidos.BorderBrush = Brushes.Transparent;
-            Txb_Apellidos.BorderThickness = new Thickness(1);
+            Txb_Contrasenia.BorderThickness = new Thickness(1);            
             Txb_NombreUsuario.BorderBrush = Brushes.Transparent;
             Txb_NombreUsuario.BorderThickness = new Thickness(1);
         }

@@ -62,8 +62,7 @@ namespace Cliente.Vistas
             try 
             {
                 InstanceContext contexto = new InstanceContext(this);
-                _servicioSalaDeEspera = new ServicioSalaDeEsperaClient(contexto);
-                _servicioSalaDeEspera.Endpoint.Binding.SendTimeout = TimeSpan.FromMinutes(2);
+                _servicioSalaDeEspera = new ServicioSalaDeEsperaClient(contexto);                
                 _servicioSalaDeEspera.ConectarJugador(Txbl_CodigoPartida.Text, jugador);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
@@ -256,6 +255,10 @@ namespace Cliente.Vistas
         private void SalirMenuPrincipal(object remitente, RoutedEventArgs argumento)
         {
             DesconectarJugadorDePartida();
+            if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion) 
+            {
+                CerrarPartida();
+            }
             VentanaMenuPrincipal paginaMenuPrincipal=new VentanaMenuPrincipal();
             this.NavigationService.Navigate(paginaMenuPrincipal);
         }
@@ -469,8 +472,68 @@ namespace Cliente.Vistas
         }
 
         private void IniciarPartida(object remitente, RoutedEventArgs argumento) 
-        {            
-            _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text);                
+        {
+            var modoJuegoPartida = _partidaActual.ModoJuego.ToString();
+            CambiarEstadoPartidaEnProceso();            
+            if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
+            {
+                ConfigurarPartida(10);
+                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text,10);                
+            }
+            else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
+            {
+                ConfigurarPartida(10);
+                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, 10);                
+            }
+            else
+            {
+                ConfigurarPartida(10);
+                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, 10);                
+            }            
+        }
+
+        private void ConfigurarPartida(int numeroPreguntas)
+        {
+            List<string> nombresUsuario=ObtenerNombresUsuarioDeJugadores();
+            try 
+            {
+                ServicioPartidaClient servicioPartida=new ServicioPartidaClient();
+                servicioPartida.InicializarPartida(Txbl_CodigoDePartida.Text, numeroPreguntas);
+                servicioPartida.ConfigurarJugadores(Txbl_CodigoDePartida.Text, nombresUsuario.ToArray());
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+        }
+
+        private List<string> ObtenerNombresUsuarioDeJugadores()
+        {
+            List<string> nombresUsuario= new List<string>();
+            for (int i = 0; i < _jugadores.Count; i++) 
+            {
+                nombresUsuario.Add(_jugadores[i].NombreUsuario);
+            }
+            return nombresUsuario;
+        }
+          
+        private void CambiarEstadoPartidaEnProceso() 
+        {
+            try
+            {
+                ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
+                int resultadoActualizacion = servicioGestionPartida.ActualizarEstadoPorIdPartida(_partidaActual.IdPartida, Enumeracion.EnumEstadoPartida.Proceso.ToString());
+                if (resultadoActualizacion == -1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
         }
 
 
@@ -496,23 +559,45 @@ namespace Cliente.Vistas
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
         }
+        
 
-        public void AbrirVentanaPartida()
+        private void CerrarPartida()
+        {
+            try
+            {
+                ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
+                int resultadoActualizacion = servicioGestionPartida.ActualizarEstadoPorIdPartida(_partidaActual.IdPartida, Enumeracion.EnumEstadoPartida.Cancelada.ToString());
+                if (resultadoActualizacion == -1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+        }
+
+        public void AbrirVentanaPartida(PreguntaContrato[] preguntasSeleccionadas, RespuestaContrato[] respuestasSeleccionadas)
         {
             VentanaPregunta paginaPregunta = new VentanaPregunta();
             var modoJuegoPartida = _partidaActual.ModoJuego.ToString();
             if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
             {
-                paginaPregunta.ConfigurarPartida(30,10);
+                paginaPregunta.ConfigurarPartida(30, 10, Txbl_CodigoDePartida.Text);
+                paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
             }
             else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
             {
-                paginaPregunta.ConfigurarPartida(20,10);
+                paginaPregunta.ConfigurarPartida(20, 10, Txbl_CodigoDePartida.Text);
+                paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
             }
-            else 
+            else
             {
-                paginaPregunta.ConfigurarPartida(10,10);
-            }                     
+                paginaPregunta.ConfigurarPartida(10, 10, Txbl_CodigoDePartida.Text);
+                paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
+            }
             paginaPregunta.IniciarPregunta();
             paginaPregunta.ConfigurarTemporizador();
             this.NavigationService.Navigate(paginaPregunta);
