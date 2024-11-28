@@ -43,7 +43,8 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
                        Margin="30,52,0,0" Width="246" Height="76" />
-                <TextBlock Text="{Binding PartidasJugadas}" 
+                <TextBlock Text="{Binding PartidasJugadas}"
+                           Name="Txbl_PartidasJugadas"
                            HorizontalAlignment="Right" 
                            VerticalAlignment="Top" 
                            FontSize="46" 
@@ -72,6 +73,7 @@
                        Margin="0,179,77,56" RenderTransformOrigin="-0.436,0.898" Width="246" />
 
                 <TextBlock Text="{Binding PartidasGanadas}" 
+                           Name="Txbl_PartidasGanadas"
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Top" 
                            FontSize="46" 
@@ -101,6 +103,7 @@
                        Margin="0,0,77,0" RenderTransformOrigin="-0.436,0.898" Width="245" Height="70" Grid.Row="1" />
 
                 <TextBlock Text="{Binding PartidasPerdidas}" 
+                           Name="Txbl_PartidasPerdidas"
                            HorizontalAlignment="Right" 
                            VerticalAlignment="Top" 
                            FontSize="46" 
@@ -145,6 +148,17 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
+                <Label Grid.Column="3" Content="Puntaje" HorizontalAlignment="Left" Margin="181,70,0,0" VerticalAlignment="Top" Width="134"
+                        Background="#3b92c4"
+                        Foreground="Beige"
+                        FontWeight="Bold"
+                        FontSize="25"
+                        HorizontalContentAlignment="Center"/>
+                <TextBlock Grid.Column="3" HorizontalAlignment="Left" Margin="181,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="63" Width="134"
+                           FontSize="46" 
+                           FontWeight="Bold"
+                           Foreground="LightCyan" 
+                           Name="Txbl_Puntaje"/>
             </Grid>
         </Border>
     </DockPanel>

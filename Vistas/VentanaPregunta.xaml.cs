@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -125,25 +126,20 @@ namespace Cliente.Vistas
             }
             else
             {
-                if (DeterminarGanador())
-                {
-                    MessageBox.Show("Partida terminada ¡Has ganado :)!");
-                }
-                else 
-                {
-                    MessageBox.Show("Partida terminada ¡Has perdido! :(");
-                }
-                
+                string ganador=DeterminarGanador();               
+                VentanaPartidaFinalizada paginaPartidaFinalizada=new VentanaPartidaFinalizada();
+                paginaPartidaFinalizada.Lbl_NombreUsuario.Content = ganador;
+                this.NavigationService.Navigate(paginaPartidaFinalizada);                
             }
         }
 
-        private bool DeterminarGanador() 
+        private string DeterminarGanador() 
         {
-            bool ganador=false;
+            string ganador ="";
             try 
             {
                 ServicioPartidaClient servicioPartida=new ServicioPartidaClient();
-                ganador=servicioPartida.ObtenerGanador(_codigoPartida,JugadorSingleton.NombreUsuario);
+                ganador=servicioPartida.ObtenerGanador(_codigoPartida);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {

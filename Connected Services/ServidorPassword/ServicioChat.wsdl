@@ -232,6 +232,35 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IServicioGestionEstadisticas_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -512,6 +541,30 @@
   <wsdl:message name="IServicioPartida_ObtenerGanador_OutputMessage">
     <wsdl:part name="parameters" element="tns:ObtenerGanadorResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_SumarPuntajePorIdEstadistica_InputMessage">
+    <wsdl:part name="parameters" element="tns:SumarPuntajePorIdEstadistica" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_SumarPuntajePorIdEstadistica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SumarPuntajePorIdEstadisticaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_AumentarPartidasGanadasPorIdEstadistica_InputMessage">
+    <wsdl:part name="parameters" element="tns:AumentarPartidasGanadasPorIdEstadistica" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_AumentarPartidasGanadasPorIdEstadistica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AumentarPartidasGanadasPorIdEstadisticaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_AumentarPartidasPerdidasPorIdEstadistica_InputMessage">
+    <wsdl:part name="parameters" element="tns:AumentarPartidasPerdidasPorIdEstadistica" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_AumentarPartidasPerdidasPorIdEstadistica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AumentarPartidasPerdidasPorIdEstadisticaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_ObtenerEstadisticaPorIdEstadistica_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerEstadisticaPorIdEstadistica" />
+  </wsdl:message>
+  <wsdl:message name="IServicioGestionEstadisticas_ObtenerEstadisticaPorIdEstadistica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerEstadisticaPorIdEstadisticaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioChat">
     <wsdl:operation name="Chatear">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioChat/Chatear" message="tns:IServicioChat_Chatear_InputMessage" />
@@ -710,6 +763,24 @@
     <wsdl:operation name="ObtenerGanador">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerGanador" message="tns:IServicioPartida_ObtenerGanador_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioPartida/ObtenerGanadorResponse" message="tns:IServicioPartida_ObtenerGanador_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IServicioGestionEstadisticas">
+    <wsdl:operation name="SumarPuntajePorIdEstadistica">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/SumarPuntajePorIdEstadistica" message="tns:IServicioGestionEstadisticas_SumarPuntajePorIdEstadistica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/SumarPuntajePorIdEstadisticaResponse" message="tns:IServicioGestionEstadisticas_SumarPuntajePorIdEstadistica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AumentarPartidasGanadasPorIdEstadistica">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasGanadasPorIdEstadistica" message="tns:IServicioGestionEstadisticas_AumentarPartidasGanadasPorIdEstadistica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasGanadasPorIdEstadisticaResponse" message="tns:IServicioGestionEstadisticas_AumentarPartidasGanadasPorIdEstadistica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AumentarPartidasPerdidasPorIdEstadistica">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasPerdidasPorIdEstadistica" message="tns:IServicioGestionEstadisticas_AumentarPartidasPerdidasPorIdEstadistica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasPerdidasPorIdEstadisticaResponse" message="tns:IServicioGestionEstadisticas_AumentarPartidasPerdidasPorIdEstadistica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEstadisticaPorIdEstadistica">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/ObtenerEstadisticaPorIdEstadistica" message="tns:IServicioGestionEstadisticas_ObtenerEstadisticaPorIdEstadistica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioGestionEstadisticas/ObtenerEstadisticaPorIdEstadisticaResponse" message="tns:IServicioGestionEstadisticas_ObtenerEstadisticaPorIdEstadistica_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IServicioChat" type="tns:IServicioChat">
@@ -1155,6 +1226,46 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IServicioGestionEstadisticas" type="tns:IServicioGestionEstadisticas">
+    <wsp:PolicyReference URI="#NetTcpBinding_IServicioGestionEstadisticas_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="SumarPuntajePorIdEstadistica">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionEstadisticas/SumarPuntajePorIdEstadistica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AumentarPartidasGanadasPorIdEstadistica">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasGanadasPorIdEstadistica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AumentarPartidasPerdidasPorIdEstadistica">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasPerdidasPorIdEstadistica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEstadisticaPorIdEstadistica">
+      <soap12:operation soapAction="http://tempuri.org/IServicioGestionEstadisticas/ObtenerEstadisticaPorIdEstadistica" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="ServicioPassword">
     <wsdl:port name="NetTcpBinding_IServicioChat" binding="tns:NetTcpBinding_IServicioChat">
       <soap12:address location="net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces" />
@@ -1220,6 +1331,15 @@
       </wsa10:EndpointReference>
     </wsdl:port>
     <wsdl:port name="NetTcpBinding_IServicioPartida" binding="tns:NetTcpBinding_IServicioPartida">
+      <soap12:address location="net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>LAPTOP-JLEQRMT1\mario</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IServicioGestionEstadisticas" binding="tns:NetTcpBinding_IServicioGestionEstadisticas">
       <soap12:address location="net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces" />
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost:8090/ServicioJuegoPassword.Interfaces</wsa10:Address>
