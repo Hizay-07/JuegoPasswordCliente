@@ -18,7 +18,9 @@ namespace Cliente.Auxiliares
         public static string NombreUsuario { get; set; }
         public static string RutaImagen { get; set; }
         public static string Descripcion { get; set; }
-        public static int IdJugador { get; set; }        
+        public static int IdJugador { get; set; } 
+        
+        public static int IdEstadistica { get; set; }
 
         private JugadorSingleton() { }
 
@@ -32,7 +34,8 @@ namespace Cliente.Auxiliares
             NombreUsuario = cuenta.NombreUsuario;
             RutaImagen = cuenta.RutaImagen;
             Descripcion = cuenta.Descripcion;
-            IdJugador = cuenta.IdJugador;            
+            IdJugador = cuenta.IdJugador;   
+            IdEstadistica=cuenta.IdEstadistica;
         }
     }
 }

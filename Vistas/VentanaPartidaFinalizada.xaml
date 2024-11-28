@@ -41,6 +41,7 @@
                        VerticalContentAlignment="Center" />
 
                 <Label Content="{Binding NombreJugador}"
+                       Name="Lbl_NombreUsuario"
                        Background="#00E0FF"
                        Foreground="White"
                        FontWeight="Bold"
