@@ -538,6 +538,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="VerificarConexionUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarConexionUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarConexionUsuarioResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="InicializarPartida">
     <xs:complexType>
       <xs:sequence>
@@ -610,14 +624,70 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="ObtenerGanadorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ObtenerGanadorResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="ObtenerGanadorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SumarPuntajePorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+        <xs:element minOccurs="0" name="puntaje" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SumarPuntajePorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SumarPuntajePorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasGanadasPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasGanadasPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AumentarPartidasGanadasPorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasPerdidasPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasPerdidasPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AumentarPartidasPerdidasPorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerEstadisticaPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerEstadisticaPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="ObtenerEstadisticaPorIdEstadisticaResult" nillable="true" type="q28:EstadisticaContrato" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

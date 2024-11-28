@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cliente.Auxiliares;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -14,7 +15,16 @@ namespace Cliente.Vistas
 
         private void RegresarVentana(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            if (JugadorSingleton.IdJugador > 0)
+            {
+                VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+                this.NavigationService.Navigate(paginaMenuPrincipal);
+            }
+            else 
+            {
+                VentanaInicio paginaInicio=new VentanaInicio();
+                this.NavigationService.Navigate(paginaInicio);
+            }
         }
     }
 }

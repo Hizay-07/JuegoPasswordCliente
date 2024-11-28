@@ -107,7 +107,7 @@
       <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
       <xs:element minOccurs="0" name="partidasGanadas" type="xs:int" />
       <xs:element minOccurs="0" name="partidasPerdidas" type="xs:int" />
-      <xs:element minOccurs="0" name="puntaje" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="puntaje" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Estadistica" nillable="true" type="tns:Estadistica" />

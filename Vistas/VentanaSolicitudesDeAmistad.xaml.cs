@@ -53,7 +53,7 @@ namespace Cliente.Vistas
                 }
                 else 
                 {
-                    MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeSinSolicitudes);
+                    MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeSinSolicitudes);                    
                 }                
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
@@ -131,7 +131,8 @@ namespace Cliente.Vistas
                         if (resultadoRegistro == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
-                            RecuperarAmistadesPendientes();
+                            ListaSolicitudes.ItemsSource = new List<JugadorAmistad>();
+                            RecuperarAmistadesPendientes();                            
                         }
                         else
                         {
@@ -168,6 +169,7 @@ namespace Cliente.Vistas
                         if (resultadoRegistro == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                            ListaSolicitudes.ItemsSource=new List<JugadorAmistad>();
                             RecuperarAmistadesPendientes();
                         }
                         else

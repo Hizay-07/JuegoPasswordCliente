@@ -167,7 +167,7 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
-                <Image Name="Img_Perfil" Cursor="Hand" Margin="384,134,454,61"/>
+                <Image Name="Img_Perfil" Cursor="Hand" Margin="384,134,454,61" MouseLeftButtonDown="VerEstadisticas"/>
                 <Button Content="Unirse" 
                     Width="164"
                     Background="#00E0FF"

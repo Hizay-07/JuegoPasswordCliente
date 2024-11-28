@@ -49,6 +49,11 @@ namespace Cliente.Vistas
             this.NavigationService.Navigate(paginaAgregarAmigo);
         }
 
+        private void VerEstadisticas(object remitente, RoutedEventArgs argumento) 
+        {
+            VentanaEstadisticas paginaEstadisticas=new VentanaEstadisticas();
+            this.NavigationService.Navigate(paginaEstadisticas);
+        }
         private void SalirDelJuego(object sender, RoutedEventArgs e)
         {
             DesconectarJugador();

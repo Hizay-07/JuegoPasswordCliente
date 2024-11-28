@@ -333,7 +333,7 @@ namespace Cliente.ServidorPassword {
         private int partidasPerdidasField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string puntajeField;
+        private int puntajeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -398,12 +398,12 @@ namespace Cliente.ServidorPassword {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string puntaje {
+        public int puntaje {
             get {
                 return this.puntajeField;
             }
             set {
-                if ((object.ReferenceEquals(this.puntajeField, value) != true)) {
+                if ((this.puntajeField.Equals(value) != true)) {
                     this.puntajeField = value;
                     this.RaisePropertyChanged("puntaje");
                 }
@@ -1019,6 +1019,9 @@ namespace Cliente.ServidorPassword {
         private int IdAccesoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdEstadisticaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdJugadorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1085,6 +1088,19 @@ namespace Cliente.ServidorPassword {
                 if ((this.IdAccesoField.Equals(value) != true)) {
                     this.IdAccesoField = value;
                     this.RaisePropertyChanged("IdAcceso");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdEstadistica {
+            get {
+                return this.IdEstadisticaField;
+            }
+            set {
+                if ((this.IdEstadisticaField.Equals(value) != true)) {
+                    this.IdEstadisticaField = value;
+                    this.RaisePropertyChanged("IdEstadistica");
                 }
             }
         }
@@ -1650,6 +1666,99 @@ namespace Cliente.ServidorPassword {
                 if ((object.ReferenceEquals(this.RutaImagenField, value) != true)) {
                     this.RutaImagenField = value;
                     this.RaisePropertyChanged("RutaImagen");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EstadisticaContrato", Namespace="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces")]
+    [System.SerializableAttribute()]
+    public partial class EstadisticaContrato : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdEstadisticaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PartidasGanadasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PartidasPerdidasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PuntajeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdEstadistica {
+            get {
+                return this.IdEstadisticaField;
+            }
+            set {
+                if ((this.IdEstadisticaField.Equals(value) != true)) {
+                    this.IdEstadisticaField = value;
+                    this.RaisePropertyChanged("IdEstadistica");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PartidasGanadas {
+            get {
+                return this.PartidasGanadasField;
+            }
+            set {
+                if ((this.PartidasGanadasField.Equals(value) != true)) {
+                    this.PartidasGanadasField = value;
+                    this.RaisePropertyChanged("PartidasGanadas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PartidasPerdidas {
+            get {
+                return this.PartidasPerdidasField;
+            }
+            set {
+                if ((this.PartidasPerdidasField.Equals(value) != true)) {
+                    this.PartidasPerdidasField = value;
+                    this.RaisePropertyChanged("PartidasPerdidas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Puntaje {
+            get {
+                return this.PuntajeField;
+            }
+            set {
+                if ((this.PuntajeField.Equals(value) != true)) {
+                    this.PuntajeField = value;
+                    this.RaisePropertyChanged("Puntaje");
                 }
             }
         }
@@ -2408,6 +2517,12 @@ namespace Cliente.ServidorPassword {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/ObtenerJugadores", ReplyAction="http://tempuri.org/IServicioJugadores/ObtenerJugadoresResponse")]
         System.Threading.Tasks.Task<string[]> ObtenerJugadoresAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/VerificarConexionUsuario", ReplyAction="http://tempuri.org/IServicioJugadores/VerificarConexionUsuarioResponse")]
+        bool VerificarConexionUsuario(string jugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioJugadores/VerificarConexionUsuario", ReplyAction="http://tempuri.org/IServicioJugadores/VerificarConexionUsuarioResponse")]
+        System.Threading.Tasks.Task<bool> VerificarConexionUsuarioAsync(string jugador);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2460,6 +2575,14 @@ namespace Cliente.ServidorPassword {
         public System.Threading.Tasks.Task<string[]> ObtenerJugadoresAsync() {
             return base.Channel.ObtenerJugadoresAsync();
         }
+        
+        public bool VerificarConexionUsuario(string jugador) {
+            return base.Channel.VerificarConexionUsuario(jugador);
+        }
+        
+        public System.Threading.Tasks.Task<bool> VerificarConexionUsuarioAsync(string jugador) {
+            return base.Channel.VerificarConexionUsuarioAsync(jugador);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2497,10 +2620,10 @@ namespace Cliente.ServidorPassword {
         System.Threading.Tasks.Task<int> ObtenerPuntajeAsync(string codigoPartida, string nombreUsuario);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerGanador", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerGanadorResponse")]
-        bool ObtenerGanador(string codigoPartida, string nombreUsuario);
+        string ObtenerGanador(string codigoPartida);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioPartida/ObtenerGanador", ReplyAction="http://tempuri.org/IServicioPartida/ObtenerGanadorResponse")]
-        System.Threading.Tasks.Task<bool> ObtenerGanadorAsync(string codigoPartida, string nombreUsuario);
+        System.Threading.Tasks.Task<string> ObtenerGanadorAsync(string codigoPartida);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2570,12 +2693,115 @@ namespace Cliente.ServidorPassword {
             return base.Channel.ObtenerPuntajeAsync(codigoPartida, nombreUsuario);
         }
         
-        public bool ObtenerGanador(string codigoPartida, string nombreUsuario) {
-            return base.Channel.ObtenerGanador(codigoPartida, nombreUsuario);
+        public string ObtenerGanador(string codigoPartida) {
+            return base.Channel.ObtenerGanador(codigoPartida);
         }
         
-        public System.Threading.Tasks.Task<bool> ObtenerGanadorAsync(string codigoPartida, string nombreUsuario) {
-            return base.Channel.ObtenerGanadorAsync(codigoPartida, nombreUsuario);
+        public System.Threading.Tasks.Task<string> ObtenerGanadorAsync(string codigoPartida) {
+            return base.Channel.ObtenerGanadorAsync(codigoPartida);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServidorPassword.IServicioGestionEstadisticas")]
+    public interface IServicioGestionEstadisticas {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/SumarPuntajePorIdEstadistica", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/SumarPuntajePorIdEstadisticaRespo" +
+            "nse")]
+        int SumarPuntajePorIdEstadistica(int idEstadistica, int puntaje);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/SumarPuntajePorIdEstadistica", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/SumarPuntajePorIdEstadisticaRespo" +
+            "nse")]
+        System.Threading.Tasks.Task<int> SumarPuntajePorIdEstadisticaAsync(int idEstadistica, int puntaje);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasGanadasPorIdEstad" +
+            "istica", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasGanadasPorIdEstad" +
+            "isticaResponse")]
+        int AumentarPartidasGanadasPorIdEstadistica(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasGanadasPorIdEstad" +
+            "istica", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasGanadasPorIdEstad" +
+            "isticaResponse")]
+        System.Threading.Tasks.Task<int> AumentarPartidasGanadasPorIdEstadisticaAsync(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasPerdidasPorIdEsta" +
+            "distica", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasPerdidasPorIdEsta" +
+            "disticaResponse")]
+        int AumentarPartidasPerdidasPorIdEstadistica(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasPerdidasPorIdEsta" +
+            "distica", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/AumentarPartidasPerdidasPorIdEsta" +
+            "disticaResponse")]
+        System.Threading.Tasks.Task<int> AumentarPartidasPerdidasPorIdEstadisticaAsync(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/ObtenerEstadisticaPorIdEstadistic" +
+            "a", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/ObtenerEstadisticaPorIdEstadistic" +
+            "aResponse")]
+        Cliente.ServidorPassword.EstadisticaContrato ObtenerEstadisticaPorIdEstadistica(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionEstadisticas/ObtenerEstadisticaPorIdEstadistic" +
+            "a", ReplyAction="http://tempuri.org/IServicioGestionEstadisticas/ObtenerEstadisticaPorIdEstadistic" +
+            "aResponse")]
+        System.Threading.Tasks.Task<Cliente.ServidorPassword.EstadisticaContrato> ObtenerEstadisticaPorIdEstadisticaAsync(int idEstadistica);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioGestionEstadisticasChannel : Cliente.ServidorPassword.IServicioGestionEstadisticas, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioGestionEstadisticasClient : System.ServiceModel.ClientBase<Cliente.ServidorPassword.IServicioGestionEstadisticas>, Cliente.ServidorPassword.IServicioGestionEstadisticas {
+        
+        public ServicioGestionEstadisticasClient() {
+        }
+        
+        public ServicioGestionEstadisticasClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioGestionEstadisticasClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioGestionEstadisticasClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioGestionEstadisticasClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public int SumarPuntajePorIdEstadistica(int idEstadistica, int puntaje) {
+            return base.Channel.SumarPuntajePorIdEstadistica(idEstadistica, puntaje);
+        }
+        
+        public System.Threading.Tasks.Task<int> SumarPuntajePorIdEstadisticaAsync(int idEstadistica, int puntaje) {
+            return base.Channel.SumarPuntajePorIdEstadisticaAsync(idEstadistica, puntaje);
+        }
+        
+        public int AumentarPartidasGanadasPorIdEstadistica(int idEstadistica) {
+            return base.Channel.AumentarPartidasGanadasPorIdEstadistica(idEstadistica);
+        }
+        
+        public System.Threading.Tasks.Task<int> AumentarPartidasGanadasPorIdEstadisticaAsync(int idEstadistica) {
+            return base.Channel.AumentarPartidasGanadasPorIdEstadisticaAsync(idEstadistica);
+        }
+        
+        public int AumentarPartidasPerdidasPorIdEstadistica(int idEstadistica) {
+            return base.Channel.AumentarPartidasPerdidasPorIdEstadistica(idEstadistica);
+        }
+        
+        public System.Threading.Tasks.Task<int> AumentarPartidasPerdidasPorIdEstadisticaAsync(int idEstadistica) {
+            return base.Channel.AumentarPartidasPerdidasPorIdEstadisticaAsync(idEstadistica);
+        }
+        
+        public Cliente.ServidorPassword.EstadisticaContrato ObtenerEstadisticaPorIdEstadistica(int idEstadistica) {
+            return base.Channel.ObtenerEstadisticaPorIdEstadistica(idEstadistica);
+        }
+        
+        public System.Threading.Tasks.Task<Cliente.ServidorPassword.EstadisticaContrato> ObtenerEstadisticaPorIdEstadisticaAsync(int idEstadistica) {
+            return base.Channel.ObtenerEstadisticaPorIdEstadisticaAsync(idEstadistica);
         }
     }
 }

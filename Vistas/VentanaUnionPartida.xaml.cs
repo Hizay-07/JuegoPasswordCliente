@@ -112,11 +112,7 @@ namespace Cliente.Vistas
                 var partida = servicioGestionPartida.RecuperarPartidaPorCodigo(Txb_CodigoPartida.Text);
                 if (partida.IdPartida > 0)
                 {
-                    Cuenta cuenta=ObtenerInformacionAnfitrion(partida.IdAnfitrion);
-                    if (cuenta.IdAcceso > 0) 
-                    {
-                        AbrirSalaDeEspera(cuenta);
-                    }
+                    AbrirSalaDeEspera();                    
                 }
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
@@ -124,25 +120,9 @@ namespace Cliente.Vistas
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
-        }
+        }        
 
-        private Cuenta ObtenerInformacionAnfitrion(int idAnfitrion) 
-        {
-            Cuenta cuentaAnfitrion = new Cuenta();
-            try
-            {
-                ServicioGestionAccesoClient servicioGestionAcceso=new ServicioGestionAccesoClient();
-                cuentaAnfitrion = servicioGestionAcceso.RecuperarCuentaPorIdJugador(idAnfitrion);                
-            }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }
-            return cuentaAnfitrion;
-        }
-
-        private void AbrirSalaDeEspera(Cuenta cuenta) 
+        private void AbrirSalaDeEspera() 
         {
             VentanaLobby paginaSalaEspera=new VentanaLobby();            
             paginaSalaEspera.Txbl_CodigoPartida.Text = Txb_CodigoPartida.Text;

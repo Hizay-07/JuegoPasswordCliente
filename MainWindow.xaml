@@ -8,7 +8,7 @@
         >
     <Viewbox>
         <Grid Height="720" Width="1280">
-                <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" Source="Vistas/VentanaInicio.xaml"
+            <Frame x:Name="NavigationFrame" NavigationUIVisibility="Hidden" Source="Vistas/VentanaInicio.xaml"
                 />
         </Grid>
     </Viewbox>

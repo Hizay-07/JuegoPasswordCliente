@@ -85,6 +85,7 @@ namespace Cliente.Vistas
             {
                 nombreUsuario = Txb_NombreUsuario.Text,
                 rutaImagen = "pack://application:,,,/Imagenes/Fondos/perfil1.png",
+                descripcion = "",
             };
             return jugador;
         }

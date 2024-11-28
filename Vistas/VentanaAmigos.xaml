@@ -33,11 +33,22 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="10,5,10,5">
-                                <TextBlock 
-                                       Name="Txbl_Estado"
-                                       Width="50" 
-                                       Height="50" 
-                                       Margin="5" />
+                                <TextBlock Name="Txbl_Estado" Width="200" Height="50" Margin="5" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Text" Value="Desconocido" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Estado}" Value="True">
+                                                    <Setter Property="Text" Value="Conectado" />
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Estado}" Value="False">
+                                                    <Setter Property="Text" Value="Desconectado" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+
 
                                 <TextBlock Text="{Binding NombreUsuario}" 
                                        FontSize="25" 
