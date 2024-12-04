@@ -47,9 +47,17 @@
                        VerticalAlignment="Top"
                        Margin="0,154,901,0" RenderTransformOrigin="-0.436,0.898" Width="147" />
 
-                <PasswordBox Name="Pwd_Contrasenia" Foreground="Black"
-                         FontSize="25"
-                         Margin="231,156,16,199" />
+                <PasswordBox x:Name="Pwd_Contrasenia" Visibility="Visible" Margin="231,148,67,199" FontSize="25"
+                             PasswordChanged="Pwd_Contrasenia_PasswordChanged" />
+
+                <TextBox x:Name="Txt_ContraseniaVisible" Visibility="Collapsed" Margin="231,148,67,199" FontSize="25"
+                         TextChanged="Txt_ContraseniaVisible_TextChanged" />
+
+
+                <Button Width="51" Height="49" Margin="991,148,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="MostrarOcultarContrasena">
+                    <Image Source="/Imagenes/Iconos/ojo.png" Stretch="Uniform" RenderTransformOrigin="6.377,4.665" Height="34" Width="36" />
+                </Button>
+
 
                 <Button x:Name="Btn_Aceptar" Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
                         Width="150" Height="65"
@@ -76,7 +84,7 @@
                     </Button.Effect>
                 </Button>
 
-                <Button Content="Olvide mi contraseña" 
+                <Button x:Name="Btn_OlvideMiContrasena" Content="{x:Static p:Resources.Btn_OlvideMiContrasena}" 
                         Width="282"
                         Background="Gray"
                         Foreground="White"
@@ -84,7 +92,7 @@
                         FontSize="25"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="719,253,0,78"
+                        Margin="760,257,0,74"
                         Click="ObtenerNuevaContrasenia" RenderTransformOrigin="2.091,0.357">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
@@ -120,12 +128,10 @@
                             </Border>
                         </ControlTemplate>
                     </Button.Template>
-
                     <Button.Effect>
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
-
             </Grid>
         </Border>
     </DockPanel>

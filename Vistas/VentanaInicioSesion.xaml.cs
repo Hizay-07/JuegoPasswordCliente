@@ -24,7 +24,9 @@ namespace Cliente.Vistas
     /// </summary>
     public partial class VentanaInicioSesion : Page
     {
-        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);        
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private bool _sincronizando = false;
+        private bool _mostrarContrasena = false;
 
         public VentanaInicioSesion()
         {
@@ -163,7 +165,47 @@ namespace Cliente.Vistas
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
             
-        }                   
-       
+        }
+
+        private void MostrarOcultarContrasena(object sender, RoutedEventArgs e)
+        {
+            _mostrarContrasena = !_mostrarContrasena;
+
+            if (_mostrarContrasena)
+            {
+                Txt_ContraseniaVisible.Text = Pwd_Contrasenia.Password; 
+                Txt_ContraseniaVisible.Visibility = Visibility.Visible;
+                Pwd_Contrasenia.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                Pwd_Contrasenia.Password = Txt_ContraseniaVisible.Text; 
+                Pwd_Contrasenia.Visibility = Visibility.Visible;
+                Txt_ContraseniaVisible.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void Pwd_Contrasenia_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (_sincronizando) return;
+
+            _sincronizando = true;
+            Txt_ContraseniaVisible.Text = Pwd_Contrasenia.Password;
+            _sincronizando = false;
+        }
+
+        private void Txt_ContraseniaVisible_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (_sincronizando) return;
+
+            _sincronizando = true;
+            Pwd_Contrasenia.Password = Txt_ContraseniaVisible.Text;
+            _sincronizando = false;
+        }
+
+
+
+
+
     }
 }

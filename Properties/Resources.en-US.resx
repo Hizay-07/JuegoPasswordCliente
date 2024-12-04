@@ -162,9 +162,6 @@
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="Lbl_PoliticaContraseña" xml:space="preserve">
-    <value>The password must be at least 8 characters, one capital letter, one number and one special character.</value>
-  </data>
   <data name="Btn_Registrarme" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -357,5 +354,57 @@ Friends</value>
   </data>
   <data name="Lbl_Ganador" xml:space="preserve">
     <value>Winner</value>
+  </data>
+  <data name="Lbl_PoliticaNombreUsuario" xml:space="preserve">
+    <value>The username may contain only numbers and letters.</value>
+  </data>
+  <data name="Lbl_PoliticaContraseña" xml:space="preserve">
+    <value>The password must be at least 8 characters, one capital letter, one number and one special character.</value>
+  </data>
+  <data name="Btn_Español" xml:space="preserve">
+    <value>Switch to spanish</value>
+  </data>
+  <data name="Btn_Inglés" xml:space="preserve">
+    <value>Switch to english</value>
+  </data>
+  <data name="Lbl_Puntaje" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="Lbl_Logro1" xml:space="preserve">
+    <value>Win a game</value>
+  </data>
+  <data name="Lbl_Logro2" xml:space="preserve">
+    <value>Win 10 games</value>
+  </data>
+  <data name="Lbl_Logro3" xml:space="preserve">
+    <value>Get 200 points in a match</value>
+  </data>
+  <data name="Lbl_Logro4" xml:space="preserve">
+    <value>Win a game on the highest difficulty</value>
+  </data>
+  <data name="Lbl_Logro5" xml:space="preserve">
+    <value>Get 600 points in a game</value>
+  </data>
+  <data name="Lbl_Logros" xml:space="preserve">
+    <value>Achievements</value>
+  </data>
+  <data name="Btn_Logros" xml:space="preserve">
+    <value>Archievements</value>
+  </data>
+  <data name="VentanaEmergenteCambioIdioma" xml:space="preserve">
+    <value>The language will change to Spanish
+The changes will be applied when the game is restarted</value>
+  </data>
+  <data name="Lbl_CambioIdioma" xml:space="preserve">
+    <value>Language change</value>
+  </data>
+  <data name="Estado_Conectado" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Estado_Desconectado" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Estado_Conexion" xml:space="preserve">
+    <value>Has been connected</value>
   </data>
 </root>

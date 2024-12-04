@@ -14,7 +14,7 @@
                 <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
             </Border.Background>
 
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="1058">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="1058" Cursor="">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="153*"/>
                     <RowDefinition Height="97*"/>
@@ -104,15 +104,14 @@
 
                 <TextBlock Text="{Binding PartidasPerdidas}" 
                            Name="Txbl_PartidasPerdidas"
-                           HorizontalAlignment="Right" 
+                           HorizontalAlignment="Center" 
                            VerticalAlignment="Top" 
                            FontSize="46" 
                            FontWeight="Bold"
                            Foreground="LightCyan" 
-                           Margin="0,0,111,0" 
+                           Margin="0,304,0,0" 
                            RenderTransformOrigin="4.443,-0.116" 
-                           Grid.Column="1" 
-                           Grid.Row="1" />
+                           Grid.Column="1" Width="76" Height="66" Grid.RowSpan="2" />
 
                 <Image x:Name="derrota"  
                        Source="/Imagenes/Iconos/derrota.png"
@@ -128,7 +127,7 @@
                         Content="{x:Static p:Resources.Btn_RegresarGlobal}" 
                         Width="150" 
                         Height="65" 
-                        Background="#36D25B" 
+                        Background="Red" 
                         Foreground="White" 
                         FontWeight="Bold" 
                         FontSize="25" 
@@ -148,7 +147,7 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
-                <Label Grid.Column="3" Content="Puntaje" HorizontalAlignment="Left" Margin="181,70,0,0" VerticalAlignment="Top" Width="134"
+                <Label  Grid.Column="3" x:Name="Lbl_Puntaje" Content="{x:Static p:Resources.Lbl_Puntaje}" HorizontalAlignment="Left" Margin="181,70,0,0" VerticalAlignment="Top" Width="134"
                         Background="#3b92c4"
                         Foreground="Beige"
                         FontWeight="Bold"
@@ -159,6 +158,31 @@
                            FontWeight="Bold"
                            Foreground="LightCyan" 
                            Name="Txbl_Puntaje"/>
+
+                <Button x:Name="Btn_Logros" 
+                        Content="{x:Static p:Resources.Btn_Logros}" 
+                        Width="150" 
+                        Height="65" 
+                        Background="#36D25B" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        FontSize="25" 
+                        BorderThickness="0" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Margin="165,119,0,0" 
+                        Click="LogrosClick" Grid.Column="3" Grid.Row="1">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
             </Grid>
         </Border>
     </DockPanel>

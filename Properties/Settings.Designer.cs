@@ -22,5 +22,17 @@ namespace Cliente.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("es-MX")]
+        public string Lenguaje {
+            get {
+                return ((string)(this["Lenguaje"]));
+            }
+            set {
+                this["Lenguaje"] = value;
+            }
+        }
     }
 }

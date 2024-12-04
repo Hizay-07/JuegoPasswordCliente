@@ -36,18 +36,18 @@
                                 <TextBlock Name="Txbl_Estado" Width="200" Height="50" Margin="5" FontSize="25" VerticalAlignment="Center" TextAlignment="Left">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
-                                            <Setter Property="Text" Value="Desconocido" />
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding Estado}" Value="True">
-                                                    <Setter Property="Text" Value="Conectado" />
+                                                    <Setter Property="Text" Value="{x:Static p:Resources.Estado_Conectado}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding Estado}" Value="False">
-                                                    <Setter Property="Text" Value="Desconectado" />
+                                                    <Setter Property="Text" Value="{x:Static p:Resources.Estado_Desconectado}" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
+
 
 
                                 <TextBlock Text="{Binding NombreUsuario}" 
@@ -57,7 +57,7 @@
                                        Margin="20,0,20,0"/>
 
                                 <Button x:Name="VerPerfil" Content="{x:Static p:Resources.Btn_VerPerfil}" 
-                                        Width="100" 
+                                        Width="120" 
                                         Height="40" 
                                         Background="#00BCD4" 
                                         Foreground="White" 

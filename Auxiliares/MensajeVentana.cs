@@ -39,5 +39,11 @@ namespace Cliente.Auxiliares
         {
             MessageBox.Show(successMessage, Properties.Resources.VentanaEmergenteExpulsado, MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        public static bool MostrarVentanaEmergenteCambioIdioma(string ConfirmMessage)
+        {
+            MessageBoxResult result = MessageBox.Show(ConfirmMessage, Properties.Resources.VentanaEmergenteCambioIdioma, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            return result == MessageBoxResult.OK;
+        }
     }
 }

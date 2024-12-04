@@ -36,7 +36,7 @@ namespace Cliente.Vistas
         public VentanaLobby()
         {
             InitializeComponent();            
-            RecuperarAmigos();            
+            RecuperarAmigos();
         }
 
         public void ConfigurarChat() 
@@ -47,7 +47,7 @@ namespace Cliente.Vistas
                 _servicioChat = new ServidorPassword.ServicioChatClient(contexto);
                 string nombreUsuario = JugadorSingleton.NombreUsuario;
                 string codigoPartida = Txbl_CodigoPartida.Text;
-                string mensajeInicial = $"{nombreUsuario}:{codigoPartida}: " + "se ha conectado.";                
+                string mensajeInicial = $"{nombreUsuario}:{codigoPartida}: " + $"{Properties.Resources.Estado_Conexion}";
                 _servicioChat.Chatear(mensajeInicial);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 

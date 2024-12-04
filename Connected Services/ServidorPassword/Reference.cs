@@ -1337,6 +1337,9 @@ namespace Cliente.ServidorPassword {
         private Cliente.ServidorPassword.Respuesta[] RespuestaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int duracionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idPreguntaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1364,6 +1367,19 @@ namespace Cliente.ServidorPassword {
                 if ((object.ReferenceEquals(this.RespuestaField, value) != true)) {
                     this.RespuestaField = value;
                     this.RaisePropertyChanged("Respuesta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int duracion {
+            get {
+                return this.duracionField;
+            }
+            set {
+                if ((this.duracionField.Equals(value) != true)) {
+                    this.duracionField = value;
+                    this.RaisePropertyChanged("duracion");
                 }
             }
         }

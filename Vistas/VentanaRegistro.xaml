@@ -39,7 +39,7 @@
                        FontSize="23"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="0,70,0,0" />
+                       Margin="0,125,0,0" />
 
                 <Label x:Name="Lbl_Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}"
                        Background="#3b92c4"
@@ -52,8 +52,14 @@
                 <TextBox Name="Txb_NombreUsuario"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="231,70,14,283" 
+                         Margin="231,122,14,231" 
                          MaxLength="50" />
+
+                <Label x:Name="Lbl_PoliticaNombreUsuario" Content="{x:Static p:Resources.Lbl_PoliticaNombreUsuario}" 
+                       Foreground="White" 
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       Margin="10,69,0,280" Width="952" />
 
                 <Label x:Name="Lbl_Contrasenia" Content="{x:Static p:Resources.Lbl_ContraseñaGlobal}"
                        Background="#3b92c4"
@@ -62,17 +68,20 @@
                        FontSize="25"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
-                       Margin="0,136,911,0" Width="147" />
+                       Margin="0,275,911,0" Width="147" RenderTransformOrigin="0.495,2.734" />
                 <TextBox Name="Txb_Contrasenia"
                          Foreground="Black"
                          FontSize="25"
-                         Margin="229,132,16,223" />
+                         Margin="229,286,16,69" />
 
-                <Label x:Name="Lbl_Politica" Content="{x:Static p:Resources.Lbl_PoliticaContraseña}" 
-                       Foreground="White" 
-                       FontSize="20"
-                       HorizontalAlignment="Left"
-                       Margin="10,198,0,151" Width="952" />
+                <TextBlock x:Name="Txbl_Politica" 
+                           Text="{x:Static p:Resources.Txbl_PoliticaContraseña}" 
+                           Foreground="White" 
+                           FontSize="25" 
+                           TextWrapping="Wrap" 
+                           Width="1090" 
+                           Margin="0,193,0,122"/>
+
 
                 <Button x:Name="Btn_Aceptar"
                         Content="{x:Static p:Resources.Btn_AceptarGlobal}" 
