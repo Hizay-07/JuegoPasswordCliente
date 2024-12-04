@@ -129,6 +129,7 @@
   <xs:complexType name="Pregunta">
     <xs:sequence>
       <xs:element minOccurs="0" name="Respuesta" nillable="true" type="tns:ArrayOfRespuesta" />
+      <xs:element minOccurs="0" name="duracion" type="xs:int" />
       <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
       <xs:element minOccurs="0" name="pregunta1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="respuestaCorrecta" nillable="true" type="xs:string" />

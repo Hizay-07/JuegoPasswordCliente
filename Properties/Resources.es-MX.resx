@@ -162,9 +162,6 @@
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Nombre de usuario</value>
   </data>
-  <data name="Lbl_PoliticaContraseña" xml:space="preserve">
-    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
-  </data>
   <data name="Btn_Registrarme" xml:space="preserve">
     <value>Registrarme</value>
   </data>
@@ -358,5 +355,57 @@ Amigos</value>
   </data>
   <data name="Lbl_Ganador" xml:space="preserve">
     <value>Ganador</value>
+  </data>
+  <data name="Lbl_PoliticaNombreUsuario" xml:space="preserve">
+    <value>El nombre de usuario podrá contener solo números y letras</value>
+  </data>
+  <data name="Lbl_PoliticaContraseña" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
+  </data>
+  <data name="Btn_Español" xml:space="preserve">
+    <value>Cambiar a español</value>
+  </data>
+  <data name="Btn_Inglés" xml:space="preserve">
+    <value>Cambiar a inglés</value>
+  </data>
+  <data name="Lbl_Puntaje" xml:space="preserve">
+    <value>Puntaje</value>
+  </data>
+  <data name="Lbl_Logro1" xml:space="preserve">
+    <value>Gana una partida</value>
+  </data>
+  <data name="Lbl_Logro2" xml:space="preserve">
+    <value>Gana 10 partidas</value>
+  </data>
+  <data name="Lbl_Logro3" xml:space="preserve">
+    <value>Obtén 200 de puntaje en una partida</value>
+  </data>
+  <data name="Lbl_Logro4" xml:space="preserve">
+    <value>Gana una partida en la dificultad más alta</value>
+  </data>
+  <data name="Lbl_Logro5" xml:space="preserve">
+    <value>Obtén 600 de puntaje en una partida</value>
+  </data>
+  <data name="Lbl_Logros" xml:space="preserve">
+    <value>Logros</value>
+  </data>
+  <data name="Btn_Logros" xml:space="preserve">
+    <value>Logros</value>
+  </data>
+  <data name="VentanaEmergenteCambioIdioma" xml:space="preserve">
+    <value>El idioma cambiará a inglés
+Los cambios se aplicarán al reiniciar el juago</value>
+  </data>
+  <data name="Lbl_CambioIdioma" xml:space="preserve">
+    <value>Cambio de idioma</value>
+  </data>
+  <data name="Estado_Conectado" xml:space="preserve">
+    <value>Conectado</value>
+  </data>
+  <data name="Estado_Desconectado" xml:space="preserve">
+    <value>Desconectado</value>
+  </data>
+  <data name="Estado_Conexion" xml:space="preserve">
+    <value>Se ha conectado</value>
   </data>
 </root>

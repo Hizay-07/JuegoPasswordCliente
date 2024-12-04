@@ -115,11 +115,29 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cambiar a español.
+        /// </summary>
+        public static string Btn_Español {
+            get {
+                return ResourceManager.GetString("Btn_Español", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Guardar cambios.
         /// </summary>
         public static string Btn_GuardarCambios {
             get {
                 return ResourceManager.GetString("Btn_GuardarCambios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cambiar a inglés.
+        /// </summary>
+        public static string Btn_Inglés {
+            get {
+                return ResourceManager.GetString("Btn_Inglés", resourceCulture);
             }
         }
         
@@ -166,6 +184,15 @@ namespace Cliente.Properties {
         public static string Btn_ListaDeAmigos {
             get {
                 return ResourceManager.GetString("Btn_ListaDeAmigos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Logros.
+        /// </summary>
+        public static string Btn_Logros {
+            get {
+                return ResourceManager.GetString("Btn_Logros", resourceCulture);
             }
         }
         
@@ -251,6 +278,33 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Conectado.
+        /// </summary>
+        public static string Estado_Conectado {
+            get {
+                return ResourceManager.GetString("Estado_Conectado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha conectado.
+        /// </summary>
+        public static string Estado_Conexion {
+            get {
+                return ResourceManager.GetString("Estado_Conexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desconectado.
+        /// </summary>
+        public static string Estado_Desconectado {
+            get {
+                return ResourceManager.GetString("Estado_Desconectado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Apellido(s).
         /// </summary>
         public static string Lbl_Apellidos {
@@ -265,6 +319,15 @@ namespace Cliente.Properties {
         public static string Lbl_BuscarPorCorreo {
             get {
                 return ResourceManager.GetString("Lbl_BuscarPorCorreo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cambio de idioma.
+        /// </summary>
+        public static string Lbl_CambioIdioma {
+            get {
+                return ResourceManager.GetString("Lbl_CambioIdioma", resourceCulture);
             }
         }
         
@@ -337,6 +400,60 @@ namespace Cliente.Properties {
         public static string Lbl_Jugadores {
             get {
                 return ResourceManager.GetString("Lbl_Jugadores", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gana una partida.
+        /// </summary>
+        public static string Lbl_Logro1 {
+            get {
+                return ResourceManager.GetString("Lbl_Logro1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gana 10 partidas.
+        /// </summary>
+        public static string Lbl_Logro2 {
+            get {
+                return ResourceManager.GetString("Lbl_Logro2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Obtén 200 de puntaje en una partida.
+        /// </summary>
+        public static string Lbl_Logro3 {
+            get {
+                return ResourceManager.GetString("Lbl_Logro3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gana una partida en la dificultad más alta.
+        /// </summary>
+        public static string Lbl_Logro4 {
+            get {
+                return ResourceManager.GetString("Lbl_Logro4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Obtén 600 de puntaje en una partida.
+        /// </summary>
+        public static string Lbl_Logro5 {
+            get {
+                return ResourceManager.GetString("Lbl_Logro5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Logros.
+        /// </summary>
+        public static string Lbl_Logros {
+            get {
+                return ResourceManager.GetString("Lbl_Logros", resourceCulture);
             }
         }
         
@@ -446,6 +563,24 @@ namespace Cliente.Properties {
         public static string Lbl_PoliticaContraseña {
             get {
                 return ResourceManager.GetString("Lbl_PoliticaContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre de usuario podrá contener solo números y letras.
+        /// </summary>
+        public static string Lbl_PoliticaNombreUsuario {
+            get {
+                return ResourceManager.GetString("Lbl_PoliticaNombreUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Puntaje.
+        /// </summary>
+        public static string Lbl_Puntaje {
+            get {
+                return ResourceManager.GetString("Lbl_Puntaje", resourceCulture);
             }
         }
         
@@ -729,11 +864,30 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial..
+        /// </summary>
+        public static string Txbl_PoliticaContraseña {
+            get {
+                return ResourceManager.GetString("Txbl_PoliticaContraseña", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Advertencia.
         /// </summary>
         public static string VentanaEmergenteAdvertencia {
             get {
                 return ResourceManager.GetString("VentanaEmergenteAdvertencia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El idioma cambiará a inglés
+        ///Los cambios se aplicarán al reiniciar el juago.
+        /// </summary>
+        public static string VentanaEmergenteCambioIdioma {
+            get {
+                return ResourceManager.GetString("VentanaEmergenteCambioIdioma", resourceCulture);
             }
         }
         

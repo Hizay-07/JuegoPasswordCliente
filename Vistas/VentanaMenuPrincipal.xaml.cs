@@ -30,6 +30,8 @@ namespace Cliente.Vistas
         {
             InitializeComponent();
             ConfigurarImagenPerfil();
+            AsignarBotonesIdioma();
+
         }
 
         private void ConfigurarImagenPerfil() 
@@ -97,6 +99,52 @@ namespace Cliente.Vistas
         {
             VentanaUnionPartida paginaUnionPartida=new VentanaUnionPartida();
             this.NavigationService.Navigate(paginaUnionPartida);
+        }
+
+
+        private void AsignarBotonesIdioma()
+        {
+
+            string currentLanguage = Properties.Settings.Default.Lenguaje;
+
+            if (currentLanguage == "es-MX")
+            {
+                Btn_Espanol.IsEnabled = false;
+                Btn_Espanol.Visibility = Visibility.Collapsed;
+                Btn_Ingles.IsEnabled = true;
+                Btn_Ingles.Visibility=Visibility.Visible;
+            }
+            else
+            {
+                Btn_Espanol.IsEnabled = true;
+                Btn_Ingles.IsEnabled = false;
+                Btn_Ingles.Visibility = Visibility.Collapsed;
+                Btn_Espanol.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void CambioIdiomaClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button boton)
+            {
+                string nuevoLenguaje = boton.Name == "Btn_Espanol" ? "es-MX" : "en-US";
+
+                MessageBoxResult result = MessageBox.Show(
+                   Properties.Resources.VentanaEmergenteCambioIdioma,
+                   Properties.Resources.Lbl_CambioIdioma,
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    App.CambioIdioma(nuevoLenguaje);
+
+
+                    System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                    Application.Current.Shutdown();
+                }
+            }
         }
     }
 }

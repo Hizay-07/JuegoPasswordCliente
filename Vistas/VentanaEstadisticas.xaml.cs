@@ -67,5 +67,12 @@ namespace Cliente.Vistas
             Txbl_PartidasJugadas.Text=totalPartidas.ToString();
             Txbl_Puntaje.Text = estadistica.Puntaje.ToString();
         }
+
+        private void LogrosClick(object sender, RoutedEventArgs e)
+        {
+            VentanaLogros paginaLogros = new VentanaLogros();
+            this.NavigationService.Navigate(paginaLogros);
+
+        }
     }
 }
