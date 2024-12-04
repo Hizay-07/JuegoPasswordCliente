@@ -8,16 +8,30 @@ namespace Cliente.Auxiliares
 {
     public class ValoresConstantes
     {
-        public const int Cantidad_Preguntas_Facil = 10;
+        public const int CantidadPreguntasFacil = 10;
 
-        public const int Cantidad_Preguntas_Medio = 20;
+        public const int CantidadPreguntasMedio = 20;
 
-        public const int Cantidad_Preguntas_Dificil = 30;
+        public const int CantidadPreguntasDificil = 30;
 
-        public const int Tiempo_Facil = 30;
+        public const int TiempoFacil = 30;
 
-        public const int Tiempo_Medio = 20;
+        public const int TiempoMedio = 20;
 
-        public const int Tiempo_Dificil = 10;
+        public const int TiempoDificil = 10;
+
+        public const int IdPrimerLogro = 1;
+
+        public const int IdSegundoLogro = 2;
+
+        public const int IdTercerLogro = 3;
+
+        public const int IdCuartoLogro = 4;
+
+        public const int IdQuintoLogro = 5;
+
+        public const int PuntajeTecerLogro = 200;
+
+        public const int PuntajeQuintoLogro = 600;
     }
 }

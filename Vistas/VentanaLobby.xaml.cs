@@ -506,8 +506,8 @@ namespace Cliente.Vistas
             try 
             {
                 ServicioPartidaClient servicioPartida=new ServicioPartidaClient();
-                servicioPartida.InicializarPartida(Txbl_CodigoDePartida.Text, numeroPreguntas);
-                servicioPartida.ConfigurarJugadores(Txbl_CodigoDePartida.Text, nombresUsuario.ToArray());
+                servicioPartida.InicializarPartida(Txbl_CodigoPartida.Text, numeroPreguntas);
+                servicioPartida.ConfigurarJugadores(Txbl_CodigoPartida.Text, nombresUsuario.ToArray());
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
@@ -593,17 +593,17 @@ namespace Cliente.Vistas
             var modoJuegoPartida = _partidaActual.ModoJuego.ToString();
             if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
             {
-                paginaPregunta.ConfigurarPartida(30, 10, Txbl_CodigoDePartida.Text);
+                paginaPregunta.ConfigurarPartida(30, 10, Txbl_CodigoPartida.Text);
                 paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
             }
             else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
             {
-                paginaPregunta.ConfigurarPartida(20, 10, Txbl_CodigoDePartida.Text);
+                paginaPregunta.ConfigurarPartida(20, 10, Txbl_CodigoPartida.Text);
                 paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
             }
             else
             {
-                paginaPregunta.ConfigurarPartida(10, 10, Txbl_CodigoDePartida.Text);
+                paginaPregunta.ConfigurarPartida(10, 10, Txbl_CodigoPartida.Text);
                 paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
             }
             paginaPregunta.IniciarPregunta();

@@ -1,4 +1,5 @@
 ﻿using Cliente.Auxiliares;
+using Cliente.Enums;
 using Cliente.ServidorPassword;
 using log4net;
 using System;
@@ -126,7 +127,9 @@ namespace Cliente.Vistas
             }
             else
             {
-                string ganador=DeterminarGanador();               
+                string ganador=DeterminarGanador();
+                AsignarEstadisticas();
+                AsignarLogros();                
                 VentanaPartidaFinalizada paginaPartidaFinalizada=new VentanaPartidaFinalizada();
                 paginaPartidaFinalizada.Lbl_NombreUsuario.Content = ganador;
                 this.NavigationService.Navigate(paginaPartidaFinalizada);                
@@ -306,6 +309,219 @@ namespace Cliente.Vistas
             Btn_Respuesta2.IsHitTestVisible = true;
             Btn_Respuesta3.IsHitTestVisible = true;
             Btn_Respuesta4.IsHitTestVisible = true;
+        }
+
+        private bool ValidarJugadorRegistrado() 
+        {
+            return JugadorSingleton.IdJugador > 0;
+        }
+
+        private void AsignarEstadisticas() 
+        {
+            if (ValidarJugadorRegistrado()) 
+            {
+                SumarPuntaje();
+                AumentarNumeroPartidas();
+            }
+        }
+
+        private void SumarPuntaje() 
+        {
+            int puntaje = ObtenerCantidadPuntaje();
+            if (puntaje > 0) 
+            {
+                try
+                {
+                    ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
+                    servicioGestionEstadisticas.SumarPuntajePorIdEstadistica(JugadorSingleton.IdEstadistica, puntaje);
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                }
+            }            
+        }
+
+        private void AumentarNumeroPartidas() 
+        {
+            if (DeterminarGanador() == JugadorSingleton.NombreUsuario)
+            {
+                try
+                {
+                    ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
+                    servicioGestionEstadisticas.AumentarPartidasGanadasPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                }
+            }
+            else 
+            {
+                try
+                {
+                    ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
+                    servicioGestionEstadisticas.AumentarPartidasPerdidasPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                }
+            }
+
+        }
+
+        private void AsignarLogros() 
+        {
+            if (ValidarJugadorRegistrado())
+            {
+                AsignarPrimerLogro();
+                AsignarSegundoLogro();
+                AsignarTercerLogro();
+                AsignarCuartoLogro();
+                AsignarQuintoLogro();
+            }            
+        }
+
+        private void AsignarPrimerLogro() 
+        {
+            try 
+            {
+                ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                int verificacionPrimerLogro=servicioGestionLogros.VerificarPrimerLogroPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                if (verificacionPrimerLogro == 1)
+                {
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdPrimerLogro);
+                    if (verificacionRegistro == 0) 
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdPrimerLogro);
+                    }                    
+                }
+                else if (verificacionPrimerLogro == -1) 
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+        }
+
+        private void AsignarSegundoLogro() 
+        {
+            try
+            {
+                ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                int verificacionSegundoLogro = servicioGestionLogros.VerificarSegundoLogroPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                if (verificacionSegundoLogro == 1)
+                {
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdSegundoLogro);
+                    if (verificacionRegistro == 0)
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdSegundoLogro);
+                    }
+                }
+                else if (verificacionSegundoLogro == -1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+        }
+
+        private void AsignarTercerLogro() 
+        {            
+            if (ObtenerCantidadPuntaje() >= ValoresConstantes.PuntajeTecerLogro) 
+            {
+                try
+                {
+                    ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdTercerLogro);
+                    if (verificacionRegistro == 0)
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdTercerLogro);
+                    }                    
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                }
+            }
+        }
+
+        private void AsignarCuartoLogro() 
+        {            
+            if (DeterminarGanador() == JugadorSingleton.NombreUsuario)
+            {
+                PartidaContrato partida = ObtenerPartida();
+                if (partida.ModoJuego == Enumeracion.EnumModoJuegoPartida.Dificil.ToString())
+                {
+                    try
+                    {
+                        ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                        int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdCuartoLogro);
+                        if (verificacionRegistro == 0)
+                        {
+                            servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdCuartoLogro);
+                        }
+                    }
+                    catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                        _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                    }
+
+                }
+            }
+            
+        }
+
+        private PartidaContrato ObtenerPartida() 
+        {
+            PartidaContrato partidaRecuperada=new PartidaContrato();
+            try 
+            {
+                ServicioGestionPartidaClient servicioGestionPartida=new ServicioGestionPartidaClient();
+                partidaRecuperada=servicioGestionPartida.RecuperarPartidaPorCodigo(_codigoPartida);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+            return partidaRecuperada;
+        }
+
+        private void AsignarQuintoLogro() 
+        {
+            if (ObtenerCantidadPuntaje() >= ValoresConstantes.PuntajeQuintoLogro)
+            {
+                try
+                {
+                    ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdQuintoLogro);
+                    if (verificacionRegistro == 0)
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdQuintoLogro);
+                    }
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                }
+            }
+
         }
     }
 }
