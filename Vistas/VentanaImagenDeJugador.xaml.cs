@@ -43,16 +43,16 @@ namespace Cliente.Vistas
                     {
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
                         JugadorSingleton.RutaImagen = _imagenSeleccionada.Source.ToString();
-                        NavigationService.GoBack();
+                        NavegarAMenuPrincipal();
                     }
                     else if (resultadoActualizacionImagen == 0)
                     {
-                        NavigationService.GoBack();
+                        NavegarAMenuPrincipal();
                     }
                     else 
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        NavigationService.GoBack();
+                        NavegarAMenuPrincipal();
                     }
                 }
                 catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
@@ -63,6 +63,13 @@ namespace Cliente.Vistas
             }
 
         }
+
+        private void NavegarAMenuPrincipal()
+        {
+            VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+            this.NavigationService.Navigate(paginaMenuPrincipal);
+        }
+
 
         private bool ValidarImagenSeleccionada() 
         {

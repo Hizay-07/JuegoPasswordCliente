@@ -21,7 +21,7 @@
                        Width="101" Height="90"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="50,238,0,0"
+                       Margin="40,182,0,0"
                        RenderTransformOrigin="0.5,0.5"
                        Panel.ZIndex="1"
                        MouseLeftButtonDown="AgregarAmigo">
@@ -40,7 +40,7 @@
                        Width="126" Height="76"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
-                       Margin="51,70,0,0"
+                       Margin="43,70,0,0"
                        RenderTransformOrigin="0.283,0.329"
                        Panel.ZIndex="1"
                        MouseLeftButtonDown="PersonalizarPerfil">
@@ -75,7 +75,7 @@
                         FontSize="35"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="793,346,0,-69" Click="ElegirDificultadPartida">
+                        Margin="793,311,0,-34" Click="ElegirDificultadPartida">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -124,7 +124,7 @@
                         FontWeight="Bold"
                         FontSize="30"
                         HorizontalAlignment="Left"
-                        Margin="793,74,0,231"
+                        Margin="793,60,0,245"
                         BorderThickness="0"
                         RenderTransformOrigin="0.515,0.26" Click="ConsultarAmigos">
                     <Button.Template>
@@ -168,7 +168,7 @@
                     </Button.Effect>
                 </Button>
                 <Image Name="Img_Perfil" Cursor="Hand" Margin="384,134,454,61" MouseLeftButtonDown="VerEstadisticas"/>
-                <Button Content="Unirse" 
+                <Button x:Name="Btn_Unirse" Content="{x:Static p:Resources.Btn_Unirse}" 
                     Width="164"
                     Background="#00E0FF"
                     Foreground="White"
@@ -176,7 +176,7 @@
                     FontSize="35"
                     BorderThickness="0"
                     HorizontalAlignment="Left"
-                    Margin="793,235,0,81" Click="AbrirCodigoPartida">
+                    Margin="793,194,0,0" Click="AbrirCodigoPartida" Height="82" VerticalAlignment="Top">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}" 
@@ -187,6 +187,54 @@
                         </ControlTemplate>
                     </Button.Template>
 
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+
+
+                <Button x:Name="Btn_Espanol" Content="{x:Static p:Resources.Btn_Español}"
+                        Width="288"
+                        Background="Gray"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="30"
+                        BorderThickness="0"
+                        HorizontalAlignment="Left"
+                        Margin="13,311,0,22" Click="CambioIdiomaClick" Visibility="Visible">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="10" 
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+
+
+                <Button x:Name="Btn_Ingles" Content="{x:Static p:Resources.Btn_Inglés}"
+                        Width="289"
+                        Background="Gray"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        FontSize="30"
+                        BorderThickness="0"
+                        HorizontalAlignment="Left"
+                        Margin="10,311,0,22" Click="CambioIdiomaClick" Visibility="Visible">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" 
+                                    CornerRadius="10" 
+                                    BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
                     <Button.Effect>
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>

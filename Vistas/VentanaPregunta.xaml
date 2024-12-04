@@ -21,11 +21,11 @@
                 </StackPanel>
 
                 <TextBlock Name="Txbl_Cronometro" Text="{Binding TiempoRestante}" FontSize="25" FontWeight="Bold" Foreground="White" Background="#00d2ff"
-                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,20,0" Padding="10" />
+                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,24,0" Padding="10" />
 
                 <TextBlock Name="Txbl_Pregunta" Text="{Binding PreguntaActual}" FontSize="28" FontWeight="Bold" Foreground="White" 
                            Background="#00b0ff" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="10" 
-                           TextWrapping="Wrap" Margin="0,37,0,0"/>
+                           TextWrapping="Wrap" Margin="0,27,0,0"/>
 
                 <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,167,0,0" Width="580" Height="232">
                     <Button Name="Btn_Respuesta1" Background="#6c6c6c" Foreground="White" Padding="10" Margin="5" Click="RevisarRespuesta1">
