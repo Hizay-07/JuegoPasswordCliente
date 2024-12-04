@@ -10,11 +10,11 @@
     <DockPanel>
         <Border CornerRadius="10" BorderThickness="2" BorderBrush="DarkSlateGray">
             <Border.Background>
-                <ImageBrush ImageSource="pack://application:,,,/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="pack://application:,,,/Imagenes/Fondos/partida.jpg" Stretch="UniformToFill" />
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="430">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Background="#00b0ff" >
                     <TextBlock Name="Txbl_NumeroPreguntaActual" Text=" " Width="25" FontSize="25" Foreground="White"/>
                     <TextBlock Name="Txbl_Barra" Text="/" Width="12" FontSize="25" Foreground="White"/>
                     <TextBlock Name="Txbl_NumeroPreguntaTotal" Text="{Binding NumeroPregunta}" FontSize="25" Foreground="White" VerticalAlignment="Center" Width="25"/>

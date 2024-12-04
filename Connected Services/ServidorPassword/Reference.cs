@@ -795,10 +795,7 @@ namespace Cliente.ServidorPassword {
         private int idLogroField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nombreField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string reglasField;
+        private string reglaField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -837,27 +834,14 @@ namespace Cliente.ServidorPassword {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string nombre {
+        public string regla {
             get {
-                return this.nombreField;
+                return this.reglaField;
             }
             set {
-                if ((object.ReferenceEquals(this.nombreField, value) != true)) {
-                    this.nombreField = value;
-                    this.RaisePropertyChanged("nombre");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string reglas {
-            get {
-                return this.reglasField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.reglasField, value) != true)) {
-                    this.reglasField = value;
-                    this.RaisePropertyChanged("reglas");
+                if ((object.ReferenceEquals(this.reglaField, value) != true)) {
+                    this.reglaField = value;
+                    this.RaisePropertyChanged("regla");
                 }
             }
         }
@@ -2802,6 +2786,133 @@ namespace Cliente.ServidorPassword {
         
         public System.Threading.Tasks.Task<Cliente.ServidorPassword.EstadisticaContrato> ObtenerEstadisticaPorIdEstadisticaAsync(int idEstadistica) {
             return base.Channel.ObtenerEstadisticaPorIdEstadisticaAsync(idEstadistica);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServidorPassword.IServicioGestionLogros")]
+    public interface IServicioGestionLogros {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/RegistrarNuevoLogroPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionLogros/RegistrarNuevoLogroPorIdJugadorResponse" +
+            "")]
+        int RegistrarNuevoLogroPorIdJugador(int idJugador, int idLogro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/RegistrarNuevoLogroPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionLogros/RegistrarNuevoLogroPorIdJugadorResponse" +
+            "")]
+        System.Threading.Tasks.Task<int> RegistrarNuevoLogroPorIdJugadorAsync(int idJugador, int idLogro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarRegistroEspecificoLogroPorIdJu" +
+            "gador", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarRegistroEspecificoLogroPorIdJu" +
+            "gadorResponse")]
+        int VerificarRegistroEspecificoLogroPorIdJugador(int idJugador, int idLogro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarRegistroEspecificoLogroPorIdJu" +
+            "gador", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarRegistroEspecificoLogroPorIdJu" +
+            "gadorResponse")]
+        System.Threading.Tasks.Task<int> VerificarRegistroEspecificoLogroPorIdJugadorAsync(int idJugador, int idLogro);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/ObtenerIdLogrosPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionLogros/ObtenerIdLogrosPorIdJugadorResponse")]
+        int[] ObtenerIdLogrosPorIdJugador(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/ObtenerIdLogrosPorIdJugador", ReplyAction="http://tempuri.org/IServicioGestionLogros/ObtenerIdLogrosPorIdJugadorResponse")]
+        System.Threading.Tasks.Task<int[]> ObtenerIdLogrosPorIdJugadorAsync(int idJugador);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarCatalogoDeLogros", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarCatalogoDeLogrosResponse")]
+        int VerificarCatalogoDeLogros();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarCatalogoDeLogros", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarCatalogoDeLogrosResponse")]
+        System.Threading.Tasks.Task<int> VerificarCatalogoDeLogrosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarPrimerLogroPorIdEstadistica", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarPrimerLogroPorIdEstadisticaRes" +
+            "ponse")]
+        int VerificarPrimerLogroPorIdEstadistica(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarPrimerLogroPorIdEstadistica", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarPrimerLogroPorIdEstadisticaRes" +
+            "ponse")]
+        System.Threading.Tasks.Task<int> VerificarPrimerLogroPorIdEstadisticaAsync(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarSegundoLogroPorIdEstadistica", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarSegundoLogroPorIdEstadisticaRe" +
+            "sponse")]
+        int VerificarSegundoLogroPorIdEstadistica(int idEstadistica);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioGestionLogros/VerificarSegundoLogroPorIdEstadistica", ReplyAction="http://tempuri.org/IServicioGestionLogros/VerificarSegundoLogroPorIdEstadisticaRe" +
+            "sponse")]
+        System.Threading.Tasks.Task<int> VerificarSegundoLogroPorIdEstadisticaAsync(int idEstadistica);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServicioGestionLogrosChannel : Cliente.ServidorPassword.IServicioGestionLogros, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServicioGestionLogrosClient : System.ServiceModel.ClientBase<Cliente.ServidorPassword.IServicioGestionLogros>, Cliente.ServidorPassword.IServicioGestionLogros {
+        
+        public ServicioGestionLogrosClient() {
+        }
+        
+        public ServicioGestionLogrosClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public ServicioGestionLogrosClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioGestionLogrosClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServicioGestionLogrosClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public int RegistrarNuevoLogroPorIdJugador(int idJugador, int idLogro) {
+            return base.Channel.RegistrarNuevoLogroPorIdJugador(idJugador, idLogro);
+        }
+        
+        public System.Threading.Tasks.Task<int> RegistrarNuevoLogroPorIdJugadorAsync(int idJugador, int idLogro) {
+            return base.Channel.RegistrarNuevoLogroPorIdJugadorAsync(idJugador, idLogro);
+        }
+        
+        public int VerificarRegistroEspecificoLogroPorIdJugador(int idJugador, int idLogro) {
+            return base.Channel.VerificarRegistroEspecificoLogroPorIdJugador(idJugador, idLogro);
+        }
+        
+        public System.Threading.Tasks.Task<int> VerificarRegistroEspecificoLogroPorIdJugadorAsync(int idJugador, int idLogro) {
+            return base.Channel.VerificarRegistroEspecificoLogroPorIdJugadorAsync(idJugador, idLogro);
+        }
+        
+        public int[] ObtenerIdLogrosPorIdJugador(int idJugador) {
+            return base.Channel.ObtenerIdLogrosPorIdJugador(idJugador);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> ObtenerIdLogrosPorIdJugadorAsync(int idJugador) {
+            return base.Channel.ObtenerIdLogrosPorIdJugadorAsync(idJugador);
+        }
+        
+        public int VerificarCatalogoDeLogros() {
+            return base.Channel.VerificarCatalogoDeLogros();
+        }
+        
+        public System.Threading.Tasks.Task<int> VerificarCatalogoDeLogrosAsync() {
+            return base.Channel.VerificarCatalogoDeLogrosAsync();
+        }
+        
+        public int VerificarPrimerLogroPorIdEstadistica(int idEstadistica) {
+            return base.Channel.VerificarPrimerLogroPorIdEstadistica(idEstadistica);
+        }
+        
+        public System.Threading.Tasks.Task<int> VerificarPrimerLogroPorIdEstadisticaAsync(int idEstadistica) {
+            return base.Channel.VerificarPrimerLogroPorIdEstadisticaAsync(idEstadistica);
+        }
+        
+        public int VerificarSegundoLogroPorIdEstadistica(int idEstadistica) {
+            return base.Channel.VerificarSegundoLogroPorIdEstadistica(idEstadistica);
+        }
+        
+        public System.Threading.Tasks.Task<int> VerificarSegundoLogroPorIdEstadisticaAsync(int idEstadistica) {
+            return base.Channel.VerificarSegundoLogroPorIdEstadisticaAsync(idEstadistica);
         }
     }
 }
