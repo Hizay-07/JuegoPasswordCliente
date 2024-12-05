@@ -153,12 +153,6 @@
   <data name="Title_Registro" xml:space="preserve">
     <value>Sing in</value>
   </data>
-  <data name="Lbl_Nombre" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="Lbl_Apellidos" xml:space="preserve">
-    <value>Lastnames</value>
-  </data>
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Username</value>
   </data>
@@ -176,9 +170,6 @@
   </data>
   <data name="Lbl_NombreUsuarioPerfil" xml:space="preserve">
     <value>Username</value>
-  </data>
-  <data name="Btn_CambiarContrasenia" xml:space="preserve">
-    <value>Change password</value>
   </data>
   <data name="Btn_GuardarCambios" xml:space="preserve">
     <value>Save changes</value>
@@ -406,5 +397,8 @@ The changes will be applied when the game is restarted</value>
   </data>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Has been connected</value>
+  </data>
+  <data name="Btn_CambiarContrasenia" xml:space="preserve">
+    <value>Change password</value>
   </data>
 </root>

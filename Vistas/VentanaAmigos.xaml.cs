@@ -29,14 +29,14 @@ namespace Cliente.Vistas
         public VentanaAmigos()
         {
             InitializeComponent();
-            RecuperarAmigos();            
+            //RecuperarAmigos();            
         }
 
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
-
+/*
         private void RecuperarAmigos()
         {
             try
@@ -59,7 +59,7 @@ namespace Cliente.Vistas
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
         }
-
+*/
         private List<string> ObtenerJugadoresConectados() 
         {
             List<string> jugadoresActivos = new List<string>();

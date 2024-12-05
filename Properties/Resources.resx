@@ -153,12 +153,6 @@
   <data name="Title_Registro" xml:space="preserve">
     <value>Registro</value>
   </data>
-  <data name="Lbl_Nombre" xml:space="preserve">
-    <value>Nombre(s)</value>
-  </data>
-  <data name="Lbl_Apellidos" xml:space="preserve">
-    <value>Apellido(s)</value>
-  </data>
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Nombre de usuario</value>
   </data>
@@ -180,9 +174,6 @@
   <data name="Lbl_NombreUsuarioPerfil" xml:space="preserve">
     <value>Nombre de 
 usuario</value>
-  </data>
-  <data name="Btn_CambiarContrasenia" xml:space="preserve">
-    <value>Cambiar contraseña</value>
   </data>
   <data name="Btn_GuardarCambios" xml:space="preserve">
     <value>Guardar cambios</value>
@@ -242,7 +233,7 @@ usuario</value>
     <value>Ya ha enviado o le han enviado una solicitud de amistad el jugador</value>
   </data>
   <data name="MensajeErrorEnvioCorreo" xml:space="preserve">
-    <value>El correo no pudo ser enviado, intentálo más tarde</value>
+    <value>El correo no pudo ser enviado, inténtalo más tarde</value>
   </data>
   <data name="MensajeSinSolicitudes" xml:space="preserve">
     <value>Actualmente no tienes solicitudes de amistad</value>
@@ -260,7 +251,7 @@ usuario</value>
     <value>La partida ya no se encuentra disponible</value>
   </data>
   <data name="Btn_AgregarAmigo" xml:space="preserve">
-    <value>AgregarAmigo</value>
+    <value>Agregar Amigo</value>
   </data>
   <data name="Btn_RegresarGlobal" xml:space="preserve">
     <value>Regresar</value>
@@ -339,7 +330,7 @@ Amigos</value>
     <value>Rechazar</value>
   </data>
   <data name="Lbl_SolicitudesDeAmistad" xml:space="preserve">
-    <value>Soliciudes de amistad</value>
+    <value>Solicitudes de amistad</value>
   </data>
   <data name="Lbl_Estadisticas" xml:space="preserve">
     <value>Estadisticas</value>
@@ -410,5 +401,8 @@ Los cambios se aplicarán al reiniciar el juago</value>
   </data>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Se ha conectado</value>
+  </data>
+  <data name="Btn_CambiarContrasenia" xml:space="preserve">
+    <value>Cambiar contraseña</value>
   </data>
 </root>

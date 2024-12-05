@@ -36,7 +36,7 @@ namespace Cliente.Vistas
         public VentanaLobby()
         {
             InitializeComponent();            
-            RecuperarAmigos();
+            //RecuperarAmigos();
         }
 
         public void ConfigurarChat() 
@@ -277,7 +277,7 @@ namespace Cliente.Vistas
             _servicioSalaDeEspera.DesconectarJugador(Txbl_CodigoPartida.Text,jugador);
         }
 
-        private void RecuperarAmigos()
+        /*private void RecuperarAmigos()
         {
             try
             {
@@ -298,7 +298,7 @@ namespace Cliente.Vistas
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
-        }
+        }*/
 
         private void RecuperarJugadores(List<int> amistades)
         {

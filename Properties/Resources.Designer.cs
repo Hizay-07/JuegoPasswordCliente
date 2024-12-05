@@ -70,7 +70,7 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a AgregarAmigo.
+        ///   Busca una cadena traducida similar a Agregar Amigo.
         /// </summary>
         public static string Btn_AgregarAmigo {
             get {
@@ -305,15 +305,6 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Apellido(s).
-        /// </summary>
-        public static string Lbl_Apellidos {
-            get {
-                return ResourceManager.GetString("Lbl_Apellidos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Buscar por correo.
         /// </summary>
         public static string Lbl_BuscarPorCorreo {
@@ -476,15 +467,6 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nombre(s).
-        /// </summary>
-        public static string Lbl_Nombre {
-            get {
-                return ResourceManager.GetString("Lbl_Nombre", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Nombre de 
         ///usuario.
         /// </summary>
@@ -594,7 +576,7 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Soliciudes de amistad.
+        ///   Busca una cadena traducida similar a Solicitudes de amistad.
         /// </summary>
         public static string Lbl_SolicitudesDeAmistad {
             get {
@@ -693,7 +675,7 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El correo no pudo ser enviado, intentálo más tarde.
+        ///   Busca una cadena traducida similar a El correo no pudo ser enviado, inténtalo más tarde.
         /// </summary>
         public static string MensajeErrorEnvioCorreo {
             get {

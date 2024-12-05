@@ -24,7 +24,7 @@ namespace Cliente.Auxiliares
 
         public bool ValidarNombreUsuario(string nombreUsuario) 
         {
-            string patronNombreUsuario = @"^[^\s]+$";            
+            string patronNombreUsuario = @"^[^\s]+$";           
             return !string.IsNullOrEmpty(nombreUsuario) && nombreUsuario.Length <= 50&& Regex.IsMatch(nombreUsuario, patronNombreUsuario);
         }
     }
