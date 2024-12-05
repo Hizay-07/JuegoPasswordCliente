@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cliente.Auxiliares
 {
-    public class ValoresConstantes
+    public static class ValoresConstantes
     {
         public const int CantidadPreguntasFacil = 10;
 
@@ -33,5 +34,11 @@ namespace Cliente.Auxiliares
         public const int PuntajeTecerLogro = 200;
 
         public const int PuntajeQuintoLogro = 600;
+
+        public const string RutaImagenLogro = "pack://application:,,,/Imagenes/Iconos/victoria.png";
+
+        public const string RutaImagenJugadorPorDefecto = "pack://application:,,,/Imagenes/Fondos/perfil1.png";
+
+        public const string DescripcionPorDefecto = "";
     }
 }

@@ -49,7 +49,7 @@ namespace Cliente.Vistas
 
         private void AbrirSalaEspera(string tipoPartida) 
         {
-            VentanaLobby paginaSalaEspera = new VentanaLobby();
+            VentanaSalaEspera paginaSalaEspera = new VentanaSalaEspera();
             string codigoPartida = ObtenerCodigoPartida();
             Partida partida = ObtenerPartida(codigoPartida,tipoPartida);            
             try
@@ -89,9 +89,8 @@ namespace Cliente.Vistas
         }
 
         private string ObtenerCodigoPartida()       
-        {
-            GeneradorCodigo generadorCodigo = new GeneradorCodigo();
-            string codigoPartida = generadorCodigo.GenerarCodigoPartida();
+        {            
+            string codigoPartida = GeneradorCodigo.GenerarCodigoPartida();
             try
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
@@ -104,7 +103,7 @@ namespace Cliente.Vistas
                     case 1:
                         while (resultadoValidacion == 1)
                         {
-                            codigoPartida = generadorCodigo.GenerarCodigoPartida();
+                            codigoPartida = GeneradorCodigo.GenerarCodigoPartida();
                             resultadoValidacion = servicioGestionPartida.ValidarCodigoPartida(codigoPartida);
                         }
                         break;

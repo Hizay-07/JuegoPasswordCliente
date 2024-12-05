@@ -72,7 +72,7 @@ namespace Cliente.Vistas
         private void DisminuirTiempo(object sender, EventArgs e)
         {
             _tiempoRestante--;
-            Txbl_Cronometro.Text = _tiempoRestante.ToString();            
+            Txbl_Cronometro.Text = _tiempoRestante.ToString();
             if (_tiempoRestante == 0)
             {
                 _temporizadorDespachador.Stop();
@@ -93,7 +93,8 @@ namespace Cliente.Vistas
             Txbl_Respuesta2.Text = respuestasAlAzar[1];
             Txbl_Respuesta3.Text = respuestasAlAzar[2];
             Txbl_Respuesta4.Text = respuestasAlAzar[3];
-            _tiempoRestante = 10;            
+            _tiempoRestante = 10;
+            Txbl_Cronometro.Text = _tiempoRestante.ToString();
         }
 
         private List<string> ObtenerRespuestasDePreguntaActual(int idPregunta) 
@@ -109,7 +110,7 @@ namespace Cliente.Vistas
             return respuestas;
         }
 
-        private List<string> ObtenerRespuestasAlAzar(List<string> respuestasActuales) 
+        private static List<string> ObtenerRespuestasAlAzar(List<string> respuestasActuales) 
         {
             Random aleatorio=new Random();
             return respuestasActuales.OrderBy(x=>aleatorio.Next()).ToList();
@@ -162,79 +163,31 @@ namespace Cliente.Vistas
 
         private void RevisarRespuesta1(object sender, RoutedEventArgs e)
         {
-            DesactivarBotones();
-            int puntaje = ObtenerCantidadPuntaje();
-            int numeroPregunta = _numeroPreguntaActual - 1;            
-            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta1.Text == respuestaCorrecta)
-            {
-                DeterminarPuntaje();                
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
-            }
-            else 
-            {
-                if (puntaje >= 10) 
-                {
-                    RestarPuntaje();
-                    puntaje -= 10;
-                }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+            RevisarRespuesta(Txbl_Respuesta1.Text);
         }        
 
         private void RevisarRespuesta2(object sender, RoutedEventArgs e)
         {
-            DesactivarBotones();
-            int puntaje = ObtenerCantidadPuntaje();
-            int numeroPregunta = _numeroPreguntaActual - 1;
-            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta2.Text == respuestaCorrecta)
-            {
-                DeterminarPuntaje();
-                puntaje = ObtenerCantidadPuntaje();
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
-            }
-            else
-            {
-                if (puntaje >= 10)
-                {
-                    RestarPuntaje();
-                    puntaje -= 10;
-                }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+            RevisarRespuesta(Txbl_Respuesta2.Text);
         }
 
         private void RevisarRespuesta3(object sender, RoutedEventArgs e)
         {
-            DesactivarBotones();
-            int puntaje = ObtenerCantidadPuntaje();
-            int numeroPregunta = _numeroPreguntaActual - 1;
-            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta3.Text == respuestaCorrecta)
-            {
-                DeterminarPuntaje();
-                puntaje = ObtenerCantidadPuntaje();
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
-            }
-            else
-            {
-                if (puntaje >= 10)
-                {
-                    RestarPuntaje();
-                    puntaje -= 10;
-                }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+            RevisarRespuesta(Txbl_Respuesta3.Text);
         }
 
         private void RevisarRespuesta4(object sender, RoutedEventArgs e)
+        {
+            RevisarRespuesta(Txbl_Respuesta4.Text);            
+        }
+
+        private void RevisarRespuesta(string respuestaSeleccionada) 
         {
             DesactivarBotones();
             int puntaje = ObtenerCantidadPuntaje();
             int numeroPregunta = _numeroPreguntaActual - 1;
             string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta4.Text == respuestaCorrecta)
+            if (respuestaSeleccionada == respuestaCorrecta)
             {
                 DeterminarPuntaje();
                 puntaje = ObtenerCantidadPuntaje();
@@ -248,9 +201,8 @@ namespace Cliente.Vistas
                     puntaje -= 10;
                 }
                 MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+            }                       
         }
-
 
         private void DeterminarPuntaje() 
         {

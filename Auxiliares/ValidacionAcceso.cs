@@ -17,13 +17,13 @@ namespace Cliente.Auxiliares
             RuleFor(acceso => acceso.correo).EmailAddress();
         }
 
-        public bool ValidarCorreo(string correo) 
+        public static bool ValidarCorreo(string correo) 
         {
             string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(correo, patronCorreo);                         
         }
 
-        public bool ValidarContrasenia(string contrasenia)
+        public static bool ValidarContrasenia(string contrasenia)
         {            
             string patronContrasenia = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$";
             return Regex.IsMatch(contrasenia, patronContrasenia);

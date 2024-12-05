@@ -48,7 +48,7 @@ namespace Cliente.Vistas
                     int idAcceso=proxyPersonalizacion.RecuperarIdAccesoPorCorreo(Txb_Correo.Text);
                     if (idAcceso > 0) 
                     {
-                        string nuevaContrasenia = GenerarContrasenia();
+                        string nuevaContrasenia = GeneradorContrasenia.GenerarContraseña();
                         int resultadoEdicion=proxyPersonalizacion.EditarContraseniaPorIdAcceso(idAcceso, nuevaContrasenia);
                         if (resultadoEdicion == 1)
                         {
@@ -80,15 +80,9 @@ namespace Cliente.Vistas
 
         }
         private void EnviarCorreo(String nuevaContrasenia) 
-        {            
-            EnvioCorreo envioCorreo = new EnvioCorreo();
-            envioCorreo.EnviarCorreo(Txb_Correo.Text, "Nueva contraseña", $"Contraseña: {nuevaContrasenia}");
+        {                        
+            EnvioCorreo.EnviarCorreo(Txb_Correo.Text, "Nueva contraseña", $"Contraseña: {nuevaContrasenia}");
         }
-
-        private string GenerarContrasenia() 
-        {
-            GeneradorContrasenia generadorContrasenia = new GeneradorContrasenia();
-            return generadorContrasenia.GenerarContraseña();
-        }
+        
     }
 }

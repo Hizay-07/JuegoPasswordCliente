@@ -17,12 +17,12 @@ namespace Cliente.Auxiliares
             RuleFor(jugador => jugador.descripcion).MaximumLength(280);
         }
 
-        public bool ValidarDescripcion(string descripcion) 
+        public static bool ValidarDescripcion(string descripcion) 
         {
             return descripcion.Length <= 280;            
         }
 
-        public bool ValidarNombreUsuario(string nombreUsuario) 
+        public static bool ValidarNombreUsuario(string nombreUsuario) 
         {
             string patronNombreUsuario = @"^[^\s]+$";            
             return !string.IsNullOrEmpty(nombreUsuario) && nombreUsuario.Length <= 50&& Regex.IsMatch(nombreUsuario, patronNombreUsuario);

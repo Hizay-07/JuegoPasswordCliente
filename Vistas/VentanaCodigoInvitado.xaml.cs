@@ -88,12 +88,9 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
                 var partida = servicioGestionPartida.RecuperarPartidaPorCodigo(Txb_CodigoPartida.Text);
-                if (partida.IdPartida > 0)
+                if (partida.IdPartida > 0 && partida.EstadoPartida == Enumeracion.EnumEstadoPartida.Iniciada.ToString())
                 {
-                    if (partida.EstadoPartida == Enumeracion.EnumEstadoPartida.Iniciada.ToString())
-                    {
-                        validacionEstadoPartida = true;
-                    }
+                    validacionEstadoPartida = true;                    
                 }
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
@@ -125,7 +122,7 @@ namespace Cliente.Vistas
         private void AbrirSalaDeEspera()
         {
             InicializarJugador();
-            VentanaLobby paginaSalaEspera = new VentanaLobby();
+            VentanaSalaEspera paginaSalaEspera = new VentanaSalaEspera();
             paginaSalaEspera.Txbl_CodigoPartida.Text = Txb_CodigoPartida.Text;
             paginaSalaEspera.Stpl_Amigos.Visibility = Visibility.Hidden;
             paginaSalaEspera.ConfigurarJugadores();

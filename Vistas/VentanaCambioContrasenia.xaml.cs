@@ -55,7 +55,7 @@ namespace Cliente.Vistas
                         if (resultadoActualizacion >=0)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
-                            JugadorSingleton.Contrasenia = EncriptarContrasenia(Txb_NuevaContrasenia.Text);
+                            JugadorSingleton.Contrasenia = EncriptadorContrasenia.EncriptarContrasenia(Txb_NuevaContrasenia.Text);
                             VentanaPersonalizarPerfil paginaPersonalizarPerfil = new VentanaPersonalizarPerfil();
                             this.NavigationService.Navigate(paginaPersonalizarPerfil);
                         }
@@ -93,22 +93,20 @@ namespace Cliente.Vistas
         }
 
         private bool ValidarCampos() 
-        {
-            ValidacionAcceso validacionAcceso=new ValidacionAcceso();
-            bool validacionContraseniaActual=validacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text);
-            bool validacionContraseniaNueva=validacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text);
+        {            
+            bool validacionContraseniaActual=ValidacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text);
+            bool validacionContraseniaNueva=ValidacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text);
             return validacionContraseniaActual && validacionContraseniaNueva;
         }
 
         private void MostrarErrores() 
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            if (!validacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text)) 
+        {            
+            if (!ValidacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text)) 
             {
                 Txb_ContraseniaActual.BorderBrush = Brushes.Red;
                 Txb_ContraseniaActual.BorderThickness = new Thickness(2);
             }
-            if (!validacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text)) 
+            if (!ValidacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text)) 
             {
                 Txb_NuevaContrasenia.BorderBrush = Brushes.Red;
                 Txb_NuevaContrasenia.BorderThickness = new Thickness(2);
@@ -122,17 +120,6 @@ namespace Cliente.Vistas
             Txb_NuevaContrasenia.BorderBrush = Brushes.Transparent;
             Txb_NuevaContrasenia.BorderThickness = new Thickness(1);
         }
-
-        private string EncriptarContrasenia(string contrasenia)
-        {
-            var sha256 = SHA256.Create();
-            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(contrasenia));
-            var constructorCadena = new StringBuilder();
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                constructorCadena.Append(bytes[i].ToString("x2"));
-            }
-            return constructorCadena.ToString();
-        }
+        
     }
 }

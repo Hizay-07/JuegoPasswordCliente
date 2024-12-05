@@ -69,12 +69,12 @@ namespace Cliente.Vistas
             {
                 try
                 {
-                    ServidorPassword.ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
-                    ServidorPassword.ServicioGestionAccesoClient proxyAcceso = new ServicioGestionAccesoClient();
-                    int validacionCorreo = proxyAcceso.ValidarPresenciaDeCorreo(nuevoCorreo);
+                    ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
+                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                    int validacionCorreo = servicioGestionAcceso.ValidarPresenciaDeCorreo(nuevoCorreo);
                     if (validacionCorreo == 0)
                     {
-                        int resultadoEdicionCorreo = proxy.EditarCorreoPorIdAcceso(idAcceso, nuevoCorreo);
+                        int resultadoEdicionCorreo = servicioPersonalizacionPerfil.EditarCorreoPorIdAcceso(idAcceso, nuevoCorreo);
                         if (resultadoEdicionCorreo == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
@@ -118,21 +118,18 @@ namespace Cliente.Vistas
             Txb_NombreDeUsuario.BorderThickness = new Thickness(1);
         }
         private bool ValidarNuevoCorreo(string correo) 
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            return validacionAcceso.ValidarCorreo(correo);
+        {            
+            return ValidacionAcceso.ValidarCorreo(correo);
         }
 
         private bool ValidarNuevaDescripcion(string descripcion) 
-        {
-            ValidacionJugador validacionPerfil = new ValidacionJugador();
-            return validacionPerfil.ValidarDescripcion(descripcion);
+        {            
+            return ValidacionJugador.ValidarDescripcion(descripcion);
         }
 
         private bool ValidarNuevoNombreUsuario(string nombreUsuario) 
-        {
-            ValidacionJugador validacionPerfil = new ValidacionJugador();
-            return validacionPerfil.ValidarNombreUsuario(nombreUsuario);
+        {            
+            return ValidacionJugador.ValidarNombreUsuario(nombreUsuario);
         }
 
         public void EditarDescripcionPorIdJugador(int idJugador, string nuevaDescripcion)
@@ -141,7 +138,7 @@ namespace Cliente.Vistas
             {
                 try
                 {
-                    ServidorPassword.ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
+                    ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
                     int resultadoEdicionDescripcion = proxy.EditarDescripcionPorIdJugador(idJugador, nuevaDescripcion);
                     if (resultadoEdicionDescripcion == 1)
                     {
@@ -175,12 +172,12 @@ namespace Cliente.Vistas
             {
                 try
                 {
-                    ServidorPassword.ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
-                    ServidorPassword.ServicioGestionAccesoClient proxyAcceso = new ServicioGestionAccesoClient();
-                    int validacionNombreUsuario = proxyAcceso.ValidarNombreUsuario(nuevoNombreUsuario);
+                    ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
+                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                    int validacionNombreUsuario = servicioGestionAcceso.ValidarNombreUsuario(nuevoNombreUsuario);
                     if (validacionNombreUsuario == 0)
                     {
-                        int resultadoEdicionNombreUsuario = proxy.EditarNombreUsuarioPorIdJugador(idJugador, nuevoNombreUsuario);
+                        int resultadoEdicionNombreUsuario = servicioPersonalizacionPerfil.EditarNombreUsuarioPorIdJugador(idJugador, nuevoNombreUsuario);
                         if (resultadoEdicionNombreUsuario == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
