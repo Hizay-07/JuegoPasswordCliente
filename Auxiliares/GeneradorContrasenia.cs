@@ -6,30 +6,31 @@ using System.Threading.Tasks;
 
 namespace Cliente.Auxiliares
 {
-    public class GeneradorContrasenia
+    public static class GeneradorContrasenia
     {
         private static readonly Random _aleatorio = new Random();
-        public string GenerarContraseña()
+
+        public static string GenerarContraseña()
         {
-            const int longitud = 8;
-            const string letrasMayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            const string letrasMinusculas = "abcdefghijklmnopqrstuvwxyz";
-            const string numeros = "0123456789";
-            const string caracteresEspeciales = "!@#$%^&*()-_=+<>?";            
-            string contraseña =
-                $"{letrasMayusculas[_aleatorio.Next(letrasMayusculas.Length)]}" +
-                $"{letrasMinusculas[_aleatorio.Next(letrasMinusculas.Length)]}" +
-                $"{numeros[_aleatorio.Next(numeros.Length)]}" +
-                $"{caracteresEspeciales[_aleatorio.Next(caracteresEspeciales.Length)]}";
-            
-            string todosLosCaracteres = letrasMayusculas + letrasMinusculas + numeros + caracteresEspeciales;
-            int caracteresRestantes = longitud - contraseña.Length;
+            const int Longitud = 8;
+            const string LetrasMayusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string LetrasMinusculas = "abcdefghijklmnopqrstuvwxyz";
+            const string Numeros = "0123456789";
+            const string CaracteresEspeciales = "!@#$%^&*()-_=+<>?";
+            StringBuilder contrasenia = new StringBuilder();
+            contrasenia.Append(LetrasMayusculas[_aleatorio.Next(LetrasMayusculas.Length)]);
+            contrasenia.Append(LetrasMinusculas[_aleatorio.Next(LetrasMinusculas.Length)]);
+            contrasenia.Append(Numeros[_aleatorio.Next(Numeros.Length)]);
+            contrasenia.Append(CaracteresEspeciales[_aleatorio.Next(CaracteresEspeciales.Length)]);                        
+            string todosLosCaracteres = LetrasMayusculas + LetrasMinusculas + Numeros + CaracteresEspeciales;
+            int caracteresRestantes = Longitud - contrasenia.Length;
             for (int i = 0; i < caracteresRestantes; i++)
             {
-                contraseña += todosLosCaracteres[_aleatorio.Next(todosLosCaracteres.Length)];
-            }            
-            contraseña = new string(contraseña.ToCharArray().OrderBy(s => _aleatorio.Next()).ToArray());
-            return contraseña;
+                contrasenia.Append(todosLosCaracteres[_aleatorio.Next(todosLosCaracteres.Length)]);
+            }
+            char[] contraseniaCadena = contrasenia.ToString().ToCharArray();
+            contraseniaCadena = contraseniaCadena.OrderBy(s => _aleatorio.Next()).ToArray();
+            return new string(contraseniaCadena);
         }
     }
 }

@@ -34,24 +34,14 @@ namespace Cliente.Vistas
                 Jugador jugador = ObtenerJugador();
                 try
                 {
-                    ServidorPassword.ServicioGestionAccesoClient proxy = new ServicioGestionAccesoClient();
-                    int validacionCorreo = proxy.ValidarPresenciaDeCorreo(acceso.correo);
+                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                    int validacionCorreo = servicioGestionAcceso.ValidarPresenciaDeCorreo(acceso.correo);
                     if (validacionCorreo == 0)
                     {
-                        int validacionNombreUsuario = proxy.ValidarNombreUsuario(jugador.nombreUsuario);
+                        int validacionNombreUsuario = servicioGestionAcceso.ValidarNombreUsuario(jugador.nombreUsuario);
                         if (validacionNombreUsuario == 0)
                         {
-                            int resultadoRegistro = proxy.RegistrarNuevoJugador(acceso,jugador);
-                            if (resultadoRegistro == 1)
-                            {
-                                MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
-                                VentanaInicio inicioPage = new VentanaInicio();
-                                this.NavigationService.Navigate(inicioPage);
-                            }
-                            else
-                            {
-                                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                            }
+                            RegistrarNuevoJugador(acceso, jugador);
                         }
                         else if (validacionNombreUsuario == 1)
                         {
@@ -79,13 +69,37 @@ namespace Cliente.Vistas
             }            
         }
 
+        private void RegistrarNuevoJugador(Acceso acceso, Jugador jugador) 
+        {
+            try 
+            {
+                ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                int resultadoRegistro = servicioGestionAcceso.RegistrarNuevoJugador(acceso, jugador);
+                if (resultadoRegistro == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
+                    VentanaInicio inicioPage = new VentanaInicio();
+                    this.NavigationService.Navigate(inicioPage);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }          
+        }
+
         private Jugador ObtenerJugador()
         {
             Jugador jugador = new Jugador
             {
                 nombreUsuario = Txb_NombreUsuario.Text,
-                rutaImagen = "pack://application:,,,/Imagenes/Fondos/perfil1.png",
-                descripcion = "",
+                rutaImagen = ValoresConstantes.RutaImagenJugadorPorDefecto,
+                descripcion = ValoresConstantes.DescripcionPorDefecto,
             };
             return jugador;
         }
@@ -138,20 +152,18 @@ namespace Cliente.Vistas
         }
 
         private void MarcarErrores() 
-        {
-            ValidacionAcceso validacionAcceso= new ValidacionAcceso();
-            if (!validacionAcceso.ValidarCorreo(Txb_Correo.Text)) 
+        {            
+            if (!ValidacionAcceso.ValidarCorreo(Txb_Correo.Text)) 
             {
                 Txb_Correo.BorderBrush = Brushes.Red;
                 Txb_Correo.BorderThickness = new Thickness(2);
             }
-            if (!validacionAcceso.ValidarContrasenia(Txb_Contrasenia.Text)) 
+            if (!ValidacionAcceso.ValidarContrasenia(Txb_Contrasenia.Text)) 
             {
                 Txb_Contrasenia.BorderBrush = Brushes.Red;
                 Txb_Contrasenia.BorderThickness = new Thickness(2);
-            }
-            ValidacionJugador validacionJugador= new ValidacionJugador();            
-            if (!validacionJugador.ValidarNombreUsuario(Txb_NombreUsuario.Text)) 
+            }            
+            if (!ValidacionJugador.ValidarNombreUsuario(Txb_NombreUsuario.Text)) 
             {
                 Txb_NombreUsuario.BorderBrush = Brushes.Red;
                 Txb_NombreUsuario.BorderThickness = new Thickness(2);

@@ -42,13 +42,14 @@ namespace Cliente.Vistas
             try
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
-                List<int> idAmistades = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
-                int idAmistad = idAmistades.FirstOrDefault();
-                if (idAmistad > 0)
+                List<JugadorContrato> amigos = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
+                int idJugador = amigos[0].IdJugador;
+                if (idJugador > 0)
                 {
-                    RecuperarJugadores(idAmistades);
+                    List<JugadorAmistad> amigosConectados=ObtenerConexionAmigos(amigos);
+                    ListaAmigos.ItemsSource = amigosConectados;
                 }
-                else if(idAmistad == -1)
+                else if(idJugador == -1)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);                    
                 }
@@ -59,62 +60,21 @@ namespace Cliente.Vistas
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
         }
-
-        private List<string> ObtenerJugadoresConectados() 
+        
+        private List<JugadorAmistad> ObtenerConexionAmigos(List<JugadorContrato> jugadores) 
         {
-            List<string> jugadoresActivos = new List<string>();
-            try 
+            List<JugadorAmistad> amigos=new List<JugadorAmistad>();
+            foreach (var jugador in jugadores) 
             {
-                ServicioJugadoresClient servicioJugadores = new ServicioJugadoresClient();
-                jugadoresActivos=servicioJugadores.ObtenerJugadores().ToList();
+                JugadorAmistad jugadorAmistad = new JugadorAmistad 
+                {
+                    NombreUsuario=jugador.NombreUsuario,
+                    IdJugador=jugador.IdJugador,
+                    Estado=VerificarConexionAmigo(jugador.NombreUsuario),
+                };
+                amigos.Add(jugadorAmistad);
             }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }
-            return jugadoresActivos;
-        }
-
-        private void RecuperarJugadores(List<int> amistades)
-        {
-            try
-            {
-                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
-                AsignarNombresUsuario(nombresUsuario,amistades);
-            }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }
-        }
-
-        private void AsignarNombresUsuario(List<string> nombresUsuario,List<int> idAmistades)
-        {
-            string primerNombreUsuario = nombresUsuario.First();
-            if (primerNombreUsuario != "excepcion")
-            {
-                List<JugadorAmistad> amistades = CombinarListas(idAmistades, nombresUsuario);
-                ListaAmigos.ItemsSource = amistades;              
-            }
-            else
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-            }
-        }
-         
-
-        private List<JugadorAmistad> CombinarListas(List<int> idJugadores, List<string> nombresUsuario)
-        {
-            List<JugadorAmistad> jugadores = idJugadores.Zip(nombresUsuario, (id, nombre) => new JugadorAmistad
-            {
-                IdJugador = id,
-                NombreUsuario = nombre,
-                Estado = VerificarConexionAmigo(nombre),
-            }).ToList();
-            return jugadores;
+            return amigos;
         }
 
         private bool VerificarConexionAmigo(string nombreUsuario) 

@@ -1,4 +1,4 @@
-﻿<Page x:Class="Cliente.Vistas.VentanaLobby"
+﻿<Page x:Class="Cliente.Vistas.VentanaSalaEspera"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -203,7 +203,7 @@
                         </StackPanel>
                     </ScrollViewer>
                 </StackPanel>
-                
+
                 <StackPanel Margin="436,540,678,96" >
                     <Button Name="Btn_Jugar" Content="Jugar" Height="87" FontSize="25" Background="#33c1ff"  Foreground="White" FontWeight="Bold" Visibility="Hidden" Click="IniciarPartida"/>
                 </StackPanel>

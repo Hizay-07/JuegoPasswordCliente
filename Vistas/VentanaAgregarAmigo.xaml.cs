@@ -42,23 +42,14 @@ namespace Cliente.Vistas
             {
                 try
                 {
-                    ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                    int idJugador = proxy.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
+                    ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                    int idJugador = servicioGestionAmistad.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
                     if (idJugador > 0)
                     {
-                        int validacionExistenciaAmistad = proxy.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
+                        int validacionExistenciaAmistad = servicioGestionAmistad.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
                         if (validacionExistenciaAmistad == 0)
                         {
-                            Amistad amistad = ObtenerAmistad(idJugador);
-                            int resultadoRegistroAmistad = proxy.RegistrarAmistad(amistad);
-                            if (resultadoRegistroAmistad == 1)
-                            {
-                                MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
-                            }
-                            else
-                            {
-                                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                            }
+                            RegistrarAmistad(idJugador);   
                         }
                         else if (validacionExistenciaAmistad == 1) 
                         {
@@ -91,6 +82,29 @@ namespace Cliente.Vistas
             }
         }
 
+        private void RegistrarAmistad(int idJugador) 
+        {
+            Amistad amistad = ObtenerAmistad(idJugador);
+            try 
+            {
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                int resultadoRegistroAmistad = servicioGestionAmistad.RegistrarAmistad(amistad);
+                if (resultadoRegistroAmistad == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }            
+        }
+
         private Amistad ObtenerAmistad(int idAmigo) 
         {
             Amistad amistad = new Amistad 
@@ -103,9 +117,8 @@ namespace Cliente.Vistas
         }
 
         private bool ValidarCorreo() 
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            return validacionAcceso.ValidarCorreo(Txb_Correo.Text);
+        {            
+            return ValidacionAcceso.ValidarCorreo(Txb_Correo.Text);
         }
     }
 }

@@ -34,7 +34,8 @@ namespace Cliente.Vistas
 
         private void RegresarClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            VentanaMenuPrincipal paginaMenuPrincipal= new VentanaMenuPrincipal();
+            this.NavigationService.Navigate(paginaMenuPrincipal);
         }
 
         private void ObtenerEstadisticas() 

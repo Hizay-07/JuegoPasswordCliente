@@ -37,11 +37,11 @@ namespace Cliente.Vistas
         {
             try
             {
-                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
+                ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
                 List<int> amistades = proxy.ConsultarSolicitudesAmistadPorIdJugador(JugadorSingleton.IdJugador).ToList();
                 if (amistades.Count > 0)
                 {
-                    int amistad = amistades.First();
+                    int amistad = amistades[0];
                     if (amistad != -1)
                     {
                         RecuperarJugadores(amistades);
@@ -67,8 +67,8 @@ namespace Cliente.Vistas
         {
             try
             {
-                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                List<string> nombresUsuario = servicioGestionAmistad.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
                 AsignarNombresUsuario(nombresUsuario,amistades);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
@@ -80,7 +80,7 @@ namespace Cliente.Vistas
 
         private void AsignarNombresUsuario(List<string> nombresUsuario,List<int> idJugadores)
         {
-            string primerNombreUsuario = nombresUsuario.First();
+            string primerNombreUsuario = nombresUsuario[0];
             if (primerNombreUsuario != "excepcion")
             {
                 List<JugadorAmistad> amistades=CombinarListas(idJugadores, nombresUsuario);
@@ -98,13 +98,13 @@ namespace Cliente.Vistas
             this.NavigationService.Navigate(paginaMenuPrincipal);
         }
 
-        private int ObtenerIdAmidstadPorIdJugadores(int idJugadorDestinatario)
+        private static int ObtenerIdAmidstadPorIdJugadores(int idJugadorDestinatario)
         {
             int idAmistad = 0;
             try
             {
-                ServidorPassword.ServicioGestionAmistadClient proxy=new ServidorPassword.ServicioGestionAmistadClient();
-                idAmistad=proxy.RecuperarIdAmistadPorIdJugadores(idJugadorDestinatario, JugadorSingleton.IdJugador);
+                ServicioGestionAmistadClient servicioGestionAmistad=new ServicioGestionAmistadClient();
+                idAmistad= servicioGestionAmistad.RecuperarIdAmistadPorIdJugadores(idJugadorDestinatario, JugadorSingleton.IdJugador);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
             {
@@ -126,8 +126,8 @@ namespace Cliente.Vistas
                     amistad.idAmistad=idAmistad;
                     try
                     {
-                        ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                        int resultadoRegistro = proxy.ResponderSolicitudAmistad(amistad);
+                        ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                        int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
                         if (resultadoRegistro == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
@@ -164,8 +164,8 @@ namespace Cliente.Vistas
                     amistad.idAmistad = idAmistad;
                     try
                     {
-                        ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                        int resultadoRegistro = proxy.ResponderSolicitudAmistad(amistad);
+                        ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                        int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
                         if (resultadoRegistro == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);

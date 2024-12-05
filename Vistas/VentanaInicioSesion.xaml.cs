@@ -81,14 +81,13 @@ namespace Cliente.Vistas
         }
 
         private void MarcarErrores() 
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            if (!validacionAcceso.ValidarCorreo(Txb_Correo.Text))
+        {            
+            if (!ValidacionAcceso.ValidarCorreo(Txb_Correo.Text))
             {
                 Txb_Correo.BorderBrush = Brushes.Red;
                 Txb_Correo.BorderThickness = new Thickness(2);
             }
-            if (!validacionAcceso.ValidarContrasenia(Pwd_Contrasenia.Password))
+            if (!ValidacionAcceso.ValidarContrasenia(Pwd_Contrasenia.Password))
             {
                 Pwd_Contrasenia.BorderBrush = Brushes.Red;
                 Pwd_Contrasenia.BorderThickness = new Thickness(2);

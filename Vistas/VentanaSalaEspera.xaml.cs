@@ -21,11 +21,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para Lobby.xaml
-    /// </summary>    
-    public partial class VentanaLobby : Page, IServicioChatCallback, IServicioSalaDeEsperaCallback
+{    
+    public partial class VentanaSalaEspera : Page, IServicioChatCallback, IServicioSalaDeEsperaCallback
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private ServicioChatClient _servicioChat;
@@ -33,36 +30,36 @@ namespace Cliente.Vistas
         private List<JugadorContrato> _jugadores;
         private PartidaContrato _partidaActual;
 
-        public VentanaLobby()
+        public VentanaSalaEspera()
         {
-            InitializeComponent();            
+            InitializeComponent();
             RecuperarAmigos();
         }
 
-        public void ConfigurarChat() 
+        public void ConfigurarChat()
         {
             try
             {
                 InstanceContext contexto = new InstanceContext(this);
-                _servicioChat = new ServidorPassword.ServicioChatClient(contexto);
+                _servicioChat = new ServicioChatClient(contexto);
                 string nombreUsuario = JugadorSingleton.NombreUsuario;
                 string codigoPartida = Txbl_CodigoPartida.Text;
                 string mensajeInicial = $"{nombreUsuario}:{codigoPartida}: " + $"{Properties.Resources.Estado_Conexion}";
                 _servicioChat.Chatear(mensajeInicial);
             }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }            
+            }
         }
 
-        public void ConfigurarJugadores() 
+        public void ConfigurarJugadores()
         {
-            JugadorContrato jugador=ObtenerJugador();
-            try 
+            JugadorContrato jugador = ObtenerJugador();
+            try
             {
                 InstanceContext contexto = new InstanceContext(this);
-                _servicioSalaDeEspera = new ServicioSalaDeEsperaClient(contexto);                
+                _servicioSalaDeEspera = new ServicioSalaDeEsperaClient(contexto);
                 _servicioSalaDeEspera.ConectarJugador(Txbl_CodigoPartida.Text, jugador);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
@@ -81,7 +78,7 @@ namespace Cliente.Vistas
             };
             return jugador;
         }
-        public void ConfigurarAnfitrion() 
+        public void ConfigurarAnfitrion()
         {
             Img_Anfitrion.Source = new BitmapImage(new Uri(_jugadores[0].RutaImagen));
             Txbl_NombreAnfitrion.Text = _jugadores[0].NombreUsuario;
@@ -105,7 +102,7 @@ namespace Cliente.Vistas
             Txbl_NombreJugador10.Text = "";
         }
 
-        public void ConfigurarJugador2() 
+        public void ConfigurarJugador2()
         {
             Img_Jugador2.Source = new BitmapImage(new Uri(_jugadores[1].RutaImagen));
             Txbl_NombreJugador2.Text = _jugadores[1].NombreUsuario;
@@ -127,10 +124,10 @@ namespace Cliente.Vistas
             Txbl_NombreJugador10.Text = "";
         }
 
-        public void ConfigurarJugador3() 
+        public void ConfigurarJugador3()
         {
             Img_Jugador3.Source = new BitmapImage(new Uri(_jugadores[2].RutaImagen));
-            Txbl_NombreJugador3.Text=_jugadores[2].NombreUsuario;
+            Txbl_NombreJugador3.Text = _jugadores[2].NombreUsuario;
             Img_Jugador4.Source = null;
             Txbl_NombreJugador4.Text = "";
             Img_Jugador5.Source = null;
@@ -246,7 +243,7 @@ namespace Cliente.Vistas
         private void EnviarMensaje(object remitente, RoutedEventArgs argumento)
         {
             string nombreUsuario = JugadorSingleton.NombreUsuario;
-            string codigoPartida=Txbl_CodigoPartida.Text;
+            string codigoPartida = Txbl_CodigoPartida.Text;
             string mensaje = $"{nombreUsuario}:{codigoPartida}: " + Txb_Mensaje.Text;
             Txb_Mensaje.Text = string.Empty;
             _servicioChat.Chatear(mensaje);
@@ -255,7 +252,7 @@ namespace Cliente.Vistas
         private void SalirMenuPrincipal(object remitente, RoutedEventArgs argumento)
         {
             DesconectarJugadorDePartida();
-            if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion) 
+            if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion)
             {
                 CerrarPartida();
             }
@@ -268,13 +265,13 @@ namespace Cliente.Vistas
             {
                 VentanaInicio paginaInicio = new VentanaInicio();
                 this.NavigationService.Navigate(paginaInicio);
-            }            
+            }
         }
 
-        private void DesconectarJugadorDePartida() 
+        private void DesconectarJugadorDePartida()
         {
-            JugadorContrato jugador=ObtenerJugador();
-            _servicioSalaDeEspera.DesconectarJugador(Txbl_CodigoPartida.Text,jugador);
+            JugadorContrato jugador = ObtenerJugador();
+            _servicioSalaDeEspera.DesconectarJugador(Txbl_CodigoPartida.Text, jugador);
         }
 
         private void RecuperarAmigos()
@@ -282,13 +279,13 @@ namespace Cliente.Vistas
             try
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
-                List<int> idAmistades = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
-                int idAmistad = idAmistades.FirstOrDefault();
-                if (idAmistad > 0)
-                {
-                    RecuperarJugadores(idAmistades);                    
+                List<JugadorContrato> amigos = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
+                int idJugador = amigos[0].IdJugador;
+                if (idJugador > 0)
+                {                    
+                    Ltv_Amigos.ItemsSource = amigos;
                 }
-                else if (idAmistad==-1)
+                else if (idJugador == -1)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -298,51 +295,12 @@ namespace Cliente.Vistas
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
-        }
+        }                    
 
-        private void RecuperarJugadores(List<int> amistades)
+        private void InvitarAPartida(object remitente, RoutedEventArgs argumento)
         {
-            try
-            {
-                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
-                AsignarNombresUsuario(nombresUsuario, amistades);
-            }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }
-        }
-
-        private void AsignarNombresUsuario(List<string> nombresUsuario, List<int> idAmistades)
-        {
-            string primerNombreUsuario = nombresUsuario.First();
-            if (primerNombreUsuario != "excepcion")
-            {
-                List<JugadorAmistad> amistades = CombinarListas(idAmistades, nombresUsuario);                                
-                Ltv_Amigos.ItemsSource = amistades;
-            }
-            else
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-            }
-        }
-
-        private List<JugadorAmistad> CombinarListas(List<int> idJugadores, List<string> nombresUsuario)
-        {
-            List<JugadorAmistad> jugadores = idJugadores.Zip(nombresUsuario, (id, nombre) => new JugadorAmistad
-            {
-                IdJugador = id,
-                NombreUsuario = nombre
-            }).ToList();
-            return jugadores;
-        }
-
-        private void InvitarAPartida(object remitente, RoutedEventArgs argumento) 
-        {            
-            Button Btn_EnviarCorreo = remitente as Button;            
-            JugadorAmistad amigo = Btn_EnviarCorreo?.DataContext as JugadorAmistad;
+            Button Btn_EnviarCorreo = remitente as Button;
+            JugadorContrato amigo = Btn_EnviarCorreo?.DataContext as JugadorContrato;
             if (amigo != null)
             {
                 try
@@ -367,23 +325,22 @@ namespace Cliente.Vistas
             }
         }
 
-        private void EnviarCorreoPartida(string correoAmigo) 
-        {
-            EnvioCorreo envioCorreo = new EnvioCorreo();
-            envioCorreo.EnviarCorreo(correoAmigo,Properties.Resources.CorreoInvitacionPartida, Txbl_CodigoPartida.Text);
+        private void EnviarCorreoPartida(string correoAmigo)
+        {            
+            EnvioCorreo.EnviarCorreo(correoAmigo, Properties.Resources.CorreoInvitacionPartida, Txbl_CodigoPartida.Text);
         }
 
         public void ActualizarListaJugadores(JugadorContrato[] jugadores)
         {
             _jugadores = jugadores.ToList();
             int numeroJugadores = _jugadores.Count;
-            switch (numeroJugadores) 
+            switch (numeroJugadores)
             {
                 case 1:
                     ConfigurarAnfitrion();
                     DesactivarBotonJugar();
                     break;
-                case 2:                    
+                case 2:
                     ConfigurarAnfitrion();
                     ConfigurarJugador2();
                     ActivarBotonJugar();
@@ -428,7 +385,7 @@ namespace Cliente.Vistas
                     ConfigurarJugador7();
                     ActivarBotonJugar();
                     break;
-                    case 8:
+                case 8:
                     ConfigurarAnfitrion();
                     ConfigurarJugador2();
                     ConfigurarJugador3();
@@ -439,7 +396,7 @@ namespace Cliente.Vistas
                     ConfigurarJugador8();
                     ActivarBotonJugar();
                     break;
-                    case 9:
+                case 9:
                     ConfigurarAnfitrion();
                     ConfigurarJugador2();
                     ConfigurarJugador3();
@@ -464,48 +421,48 @@ namespace Cliente.Vistas
                     ConfigurarJugador10();
                     ActivarBotonJugar();
                     break;
-            }                                    
+            }
         }
-        private void DesactivarBotonJugar() 
+        private void DesactivarBotonJugar()
         {
             Btn_Jugar.Visibility = Visibility.Hidden;
         }
 
-        private void ActivarBotonJugar() 
+        private void ActivarBotonJugar()
         {
-            if (JugadorSingleton.NombreUsuario == _jugadores[0].NombreUsuario) 
+            if (JugadorSingleton.NombreUsuario == _jugadores[0].NombreUsuario)
             {
                 Btn_Jugar.Visibility = Visibility.Visible;
             }
         }
 
-        private void IniciarPartida(object remitente, RoutedEventArgs argumento) 
+        private void IniciarPartida(object remitente, RoutedEventArgs argumento)
         {
             var modoJuegoPartida = _partidaActual.ModoJuego.ToString();
-            CambiarEstadoPartidaEnProceso();            
+            CambiarEstadoPartidaEnProceso();
             if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
             {
-                ConfigurarPartida(10);
-                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text,10);                
+                ConfigurarPartida(ValoresConstantes.CantidadPreguntasFacil);
+                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasFacil);
             }
             else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
             {
-                ConfigurarPartida(10);
-                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, 10);                
+                ConfigurarPartida(ValoresConstantes.CantidadPreguntasMedio);
+                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasMedio);
             }
             else
             {
-                ConfigurarPartida(10);
-                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, 10);                
-            }            
+                ConfigurarPartida(ValoresConstantes.CantidadPreguntasDificil);
+                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasDificil);
+            }
         }
 
         private void ConfigurarPartida(int numeroPreguntas)
         {
-            List<string> nombresUsuario=ObtenerNombresUsuarioDeJugadores();
-            try 
+            List<string> nombresUsuario = ObtenerNombresUsuarioDeJugadores();
+            try
             {
-                ServicioPartidaClient servicioPartida=new ServicioPartidaClient();
+                ServicioPartidaClient servicioPartida = new ServicioPartidaClient();
                 servicioPartida.InicializarPartida(Txbl_CodigoPartida.Text, numeroPreguntas);
                 servicioPartida.ConfigurarJugadores(Txbl_CodigoPartida.Text, nombresUsuario.ToArray());
             }
@@ -518,15 +475,15 @@ namespace Cliente.Vistas
 
         private List<string> ObtenerNombresUsuarioDeJugadores()
         {
-            List<string> nombresUsuario= new List<string>();
-            for (int i = 0; i < _jugadores.Count; i++) 
+            List<string> nombresUsuario = new List<string>();
+            for (int i = 0; i < _jugadores.Count; i++)
             {
                 nombresUsuario.Add(_jugadores[i].NombreUsuario);
             }
             return nombresUsuario;
         }
-          
-        private void CambiarEstadoPartidaEnProceso() 
+
+        private void CambiarEstadoPartidaEnProceso()
         {
             try
             {
@@ -545,18 +502,18 @@ namespace Cliente.Vistas
         }
 
 
-        public void RecuperarPartidaActual() 
+        public void RecuperarPartidaActual()
         {
-            string codigoPartida=Txbl_CodigoPartida.Text;
-            try 
+            string codigoPartida = Txbl_CodigoPartida.Text;
+            try
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
-                PartidaContrato partidaContrato=servicioGestionPartida.RecuperarPartidaPorCodigo(codigoPartida);
+                PartidaContrato partidaContrato = servicioGestionPartida.RecuperarPartidaPorCodigo(codigoPartida);
                 if (partidaContrato.IdPartida > 0)
                 {
-                    _partidaActual= partidaContrato;
+                    _partidaActual = partidaContrato;
                 }
-                else 
+                else
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -567,7 +524,7 @@ namespace Cliente.Vistas
                 _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
             }
         }
-        
+
 
         private void CerrarPartida()
         {
@@ -593,19 +550,17 @@ namespace Cliente.Vistas
             var modoJuegoPartida = _partidaActual.ModoJuego.ToString();
             if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
             {
-                paginaPregunta.ConfigurarPartida(30, 10, Txbl_CodigoPartida.Text);
-                paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
+                paginaPregunta.ConfigurarPartida(ValoresConstantes.TiempoFacil, ValoresConstantes.CantidadPreguntasFacil, Txbl_CodigoPartida.Text);                
             }
             else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
             {
-                paginaPregunta.ConfigurarPartida(20, 10, Txbl_CodigoPartida.Text);
-                paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
+                paginaPregunta.ConfigurarPartida(ValoresConstantes.TiempoMedio, ValoresConstantes.CantidadPreguntasMedio, Txbl_CodigoPartida.Text);                
             }
             else
             {
-                paginaPregunta.ConfigurarPartida(10, 10, Txbl_CodigoPartida.Text);
-                paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
+                paginaPregunta.ConfigurarPartida(ValoresConstantes.TiempoDificil, ValoresConstantes.CantidadPreguntasDificil, Txbl_CodigoPartida.Text);                
             }
+            paginaPregunta.ConfigurarPreguntas(preguntasSeleccionadas.ToList(), respuestasSeleccionadas.ToList());
             paginaPregunta.IniciarPregunta();
             paginaPregunta.ConfigurarTemporizador();
             this.NavigationService.Navigate(paginaPregunta);
