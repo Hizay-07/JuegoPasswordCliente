@@ -155,47 +155,47 @@
 
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador2" Width="82" Height="58" />
+                                <Image Name="Img_Jugador2" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador2"/>
                                 <TextBlock Name="Txbl_NombreJugador2" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador3" Width="82" Height="58" />
+                                <Image Name="Img_Jugador3" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador3"/>
                                 <TextBlock Name="Txbl_NombreJugador3" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador4" Width="82" Height="58" />
+                                <Image Name="Img_Jugador4" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador4"/>
                                 <TextBlock Name="Txbl_NombreJugador4" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador5" Width="82" Height="58" />
+                                <Image Name="Img_Jugador5" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador5"/>
                                 <TextBlock Name="Txbl_NombreJugador5" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador6" Width="82" Height="58" />
+                                <Image Name="Img_Jugador6" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador6"/>
                                 <TextBlock Name="Txbl_NombreJugador6" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador7" Width="82" Height="58" />
+                                <Image Name="Img_Jugador7" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador7"/>
                                 <TextBlock Name="Txbl_NombreJugador7" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador8" Width="82" Height="58" />
+                                <Image Name="Img_Jugador8" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador8"/>
                                 <TextBlock Name="Txbl_NombreJugador8" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador9" Width="82" Height="58" />
+                                <Image Name="Img_Jugador9" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador9"/>
                                 <TextBlock Name="Txbl_NombreJugador9" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10" Width="134">
-                                <Image Name="Img_Jugador10" Width="82" Height="58" />
+                                <Image Name="Img_Jugador10" Width="82" Height="58" MouseLeftButtonDown="ExpulsarJugador10"/>
                                 <TextBlock Name="Txbl_NombreJugador10" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14" Foreground="White" Margin="0,5,0,0"/>
                             </StackPanel>
 

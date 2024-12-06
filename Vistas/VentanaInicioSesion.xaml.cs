@@ -155,7 +155,7 @@ namespace Cliente.Vistas
                 }
                 else 
                 {
-                    MessageBox.Show("Ya estas jugando");
+                    MessageBox.Show(Properties.Resources.MensajeCuentaEnUso);
                 }
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
@@ -187,7 +187,6 @@ namespace Cliente.Vistas
         private void Pwd_Contrasenia_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (_sincronizando) return;
-
             _sincronizando = true;
             Txt_ContraseniaVisible.Text = Pwd_Contrasenia.Password;
             _sincronizando = false;
@@ -196,7 +195,6 @@ namespace Cliente.Vistas
         private void Txt_ContraseniaVisible_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (_sincronizando) return;
-
             _sincronizando = true;
             Pwd_Contrasenia.Password = Txt_ContraseniaVisible.Text;
             _sincronizando = false;

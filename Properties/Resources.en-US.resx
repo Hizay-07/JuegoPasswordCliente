@@ -162,6 +162,9 @@
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="Txbl_PoliticaContraseña" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
+  </data>
   <data name="Btn_Registrarme" xml:space="preserve">
     <value>Register</value>
   </data>
@@ -406,5 +409,23 @@ The changes will be applied when the game is restarted</value>
   </data>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Has been connected</value>
+  </data>
+  <data name="MensajeNoEresAnfitrion" xml:space="preserve">
+    <value>You cannot start the game because you are not the host.</value>
+  </data>
+  <data name="AsuntoNuevaContrasenia" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="CuerpoContrasenia" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="MensajeCuentaEnUso" xml:space="preserve">
+    <value>The account you are trying to access is in use.</value>
+  </data>
+  <data name="MensajeCatalogosFaltantes" xml:space="preserve">
+    <value>The catalogs required to complete this operation were not found, please try again later.</value>
+  </data>
+  <data name="MensajePartidaConLimiteJugadores" xml:space="preserve">
+    <value>The game has reached the player limit, please play another game.</value>
   </data>
 </root>

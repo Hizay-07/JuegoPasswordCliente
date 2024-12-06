@@ -61,6 +61,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nueva contraseña.
+        /// </summary>
+        public static string AsuntoNuevaContrasenia {
+            get {
+                return ResourceManager.GetString("AsuntoNuevaContrasenia", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Aceptar.
         /// </summary>
         public static string Btn_AceptarGlobal {
@@ -274,6 +283,15 @@ namespace Cliente.Properties {
         public static string CorreoInvitacionPartida {
             get {
                 return ResourceManager.GetString("CorreoInvitacionPartida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña:.
+        /// </summary>
+        public static string CuerpoContrasenia {
+            get {
+                return ResourceManager.GetString("CuerpoContrasenia", resourceCulture);
             }
         }
         
@@ -648,6 +666,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No se han encontrado los catálogos necesarios para completar esta operación, inténtelo más tarde..
+        /// </summary>
+        public static string MensajeCatalogosFaltantes {
+            get {
+                return ResourceManager.GetString("MensajeCatalogosFaltantes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El código proporcionado no pertenece a ninguna partida, asegurese de colocar el código correcto.
         /// </summary>
         public static string MensajeCodigoPartidaInexistente {
@@ -671,6 +698,15 @@ namespace Cliente.Properties {
         public static string MensajeCorreoRegistrado {
             get {
                 return ResourceManager.GetString("MensajeCorreoRegistrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La cuenta con la que intentas acceder esta en uso..
+        /// </summary>
+        public static string MensajeCuentaEnUso {
+            get {
+                return ResourceManager.GetString("MensajeCuentaEnUso", resourceCulture);
             }
         }
         
@@ -707,6 +743,24 @@ namespace Cliente.Properties {
         public static string MensajeInformacionInvalida {
             get {
                 return ResourceManager.GetString("MensajeInformacionInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No puedes iniciar la partida, ya que no eres su anfitrión.
+        /// </summary>
+        public static string MensajeNoEresAnfitrion {
+            get {
+                return ResourceManager.GetString("MensajeNoEresAnfitrion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La partida ha llegado al límite de jugadores, juega otra partida..
+        /// </summary>
+        public static string MensajePartidaConLimiteJugadores {
+            get {
+                return ResourceManager.GetString("MensajePartidaConLimiteJugadores", resourceCulture);
             }
         }
         

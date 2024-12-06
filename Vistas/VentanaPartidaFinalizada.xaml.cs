@@ -29,7 +29,7 @@ namespace Cliente.Vistas
 
         private bool ValidarJugadorRegistrado()
         {
-            return JugadorSingleton.IdJugador > 0;
+            return JugadorSingleton.IdJugador > ValoresConstantes.IdJugadorInvitado;
         }
     }
 }

@@ -80,8 +80,9 @@ namespace Cliente.Vistas
 
         }
         private void EnviarCorreo(String nuevaContrasenia) 
-        {                        
-            EnvioCorreo.EnviarCorreo(Txb_Correo.Text, "Nueva contraseña", $"Contraseña: {nuevaContrasenia}");
+        {
+            string cuerpo = $"{Properties.Resources.CuerpoContrasenia}\n {nuevaContrasenia}";
+            EnvioCorreo.EnviarCorreo(Txb_Correo.Text, Properties.Resources.AsuntoNuevaContrasenia, cuerpo);
         }
         
     }

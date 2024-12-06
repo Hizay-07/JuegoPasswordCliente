@@ -91,8 +91,43 @@ namespace Cliente.Vistas
 
         private void ElegirDificultadPartida(object remitente, RoutedEventArgs argumento)
         {
-            VentanaDificultadPartida paginaDificultadPartida = new VentanaDificultadPartida();
-            this.NavigationService.Navigate(paginaDificultadPartida);
+            try 
+            {
+                ServicioGestionPartidaClient servicioGestionPartida=new ServicioGestionPartidaClient();
+                int verificacionCatalogoPreguntas=servicioGestionPartida.VerificarCatalogoCompletoPreguntas();
+                switch (verificacionCatalogoPreguntas) 
+                {
+                    case 0:
+                        MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCatalogosFaltantes);
+                        break;
+                    case 1:
+                        int verificacionCatalogoRespuestas=servicioGestionPartida.VerificarCatalogoCompletoRespuestas();
+                        switch (verificacionCatalogoRespuestas) 
+                        {
+                            case 0:
+                                MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCatalogosFaltantes);
+                                break;
+                            case 1:
+                                VentanaDificultadPartida paginaDificultadPartida = new VentanaDificultadPartida();
+                                this.NavigationService.Navigate(paginaDificultadPartida);
+                                break;
+                            default:
+                                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                                break;
+                        }
+                        break;
+                    default:
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    break;
+                }
+
+                
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }            
         }
 
         private void AbrirCodigoPartida(object remitente, RoutedEventArgs argumento)
