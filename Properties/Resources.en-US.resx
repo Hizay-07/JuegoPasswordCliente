@@ -428,4 +428,7 @@ The changes will be applied when the game is restarted</value>
   <data name="MensajePartidaConLimiteJugadores" xml:space="preserve">
     <value>The game has reached the player limit, please play another game.</value>
   </data>
+  <data name="MensajeExpulsionJugador" xml:space="preserve">
+    <value>Do you want to kick the player from the game?</value>
+  </data>
 </root>

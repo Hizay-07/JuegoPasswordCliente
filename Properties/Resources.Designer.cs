@@ -738,6 +738,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¿Desesas expulsar al jugador de la partida?.
+        /// </summary>
+        public static string MensajeExpulsionJugador {
+            get {
+                return ResourceManager.GetString("MensajeExpulsionJugador", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Revise que la información de los campos sea correcta. .
         /// </summary>
         public static string MensajeInformacionInvalida {
