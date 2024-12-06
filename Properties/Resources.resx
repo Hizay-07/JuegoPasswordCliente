@@ -411,4 +411,22 @@ Los cambios se aplicarán al reiniciar el juago</value>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Se ha conectado</value>
   </data>
+  <data name="MensajeNoEresAnfitrion" xml:space="preserve">
+    <value>No puedes iniciar la partida, ya que no eres su anfitrión</value>
+  </data>
+  <data name="AsuntoNuevaContrasenia" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="CuerpoContrasenia" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="MensajeCuentaEnUso" xml:space="preserve">
+    <value>La cuenta con la que intentas acceder esta en uso.</value>
+  </data>
+  <data name="MensajeCatalogosFaltantes" xml:space="preserve">
+    <value>No se han encontrado los catálogos necesarios para completar esta operación, inténtelo más tarde.</value>
+  </data>
+  <data name="MensajePartidaConLimiteJugadores" xml:space="preserve">
+    <value>La partida ha llegado al límite de jugadores, juega otra partida.</value>
+  </data>
 </root>

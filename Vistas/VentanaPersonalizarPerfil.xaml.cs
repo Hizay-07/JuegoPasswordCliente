@@ -30,7 +30,7 @@ namespace Cliente.Vistas
             LlenarCampos();
         }
 
-        private void AceptarInicioDeSesion(object sender, RoutedEventArgs e)
+        private void AceptarInicioDeSesion(object remitente, RoutedEventArgs argumento)
         {
             CompararCampos();
         }

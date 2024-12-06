@@ -40,5 +40,7 @@ namespace Cliente.Auxiliares
         public const string RutaImagenJugadorPorDefecto = "pack://application:,,,/Imagenes/Fondos/perfil1.png";
 
         public const string DescripcionPorDefecto = "";
+
+        public const int IdJugadorInvitado = 0;
     }
 }

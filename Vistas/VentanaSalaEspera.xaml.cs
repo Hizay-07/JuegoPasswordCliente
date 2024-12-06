@@ -78,156 +78,7 @@ namespace Cliente.Vistas
             };
             return jugador;
         }
-        public void ConfigurarAnfitrion()
-        {
-            Img_Anfitrion.Source = new BitmapImage(new Uri(_jugadores[0].RutaImagen));
-            Txbl_NombreAnfitrion.Text = _jugadores[0].NombreUsuario;
-            Img_Jugador2.Source = null;
-            Txbl_NombreJugador2.Text = "";
-            Img_Jugador3.Source = null;
-            Txbl_NombreJugador3.Text = "";
-            Img_Jugador4.Source = null;
-            Txbl_NombreJugador4.Text = "";
-            Img_Jugador5.Source = null;
-            Txbl_NombreJugador5.Text = "";
-            Img_Jugador6.Source = null;
-            Txbl_NombreJugador6.Text = "";
-            Img_Jugador7.Source = null;
-            Txbl_NombreJugador7.Text = "";
-            Img_Jugador8.Source = null;
-            Txbl_NombreJugador8.Text = "";
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador2()
-        {
-            Img_Jugador2.Source = new BitmapImage(new Uri(_jugadores[1].RutaImagen));
-            Txbl_NombreJugador2.Text = _jugadores[1].NombreUsuario;
-            Img_Jugador3.Source = null;
-            Txbl_NombreJugador3.Text = "";
-            Img_Jugador4.Source = null;
-            Txbl_NombreJugador4.Text = "";
-            Img_Jugador5.Source = null;
-            Txbl_NombreJugador5.Text = "";
-            Img_Jugador6.Source = null;
-            Txbl_NombreJugador6.Text = "";
-            Img_Jugador7.Source = null;
-            Txbl_NombreJugador7.Text = "";
-            Img_Jugador8.Source = null;
-            Txbl_NombreJugador8.Text = "";
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador3()
-        {
-            Img_Jugador3.Source = new BitmapImage(new Uri(_jugadores[2].RutaImagen));
-            Txbl_NombreJugador3.Text = _jugadores[2].NombreUsuario;
-            Img_Jugador4.Source = null;
-            Txbl_NombreJugador4.Text = "";
-            Img_Jugador5.Source = null;
-            Txbl_NombreJugador5.Text = "";
-            Img_Jugador6.Source = null;
-            Txbl_NombreJugador6.Text = "";
-            Img_Jugador7.Source = null;
-            Txbl_NombreJugador7.Text = "";
-            Img_Jugador8.Source = null;
-            Txbl_NombreJugador8.Text = "";
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador4()
-        {
-            Img_Jugador4.Source = new BitmapImage(new Uri(_jugadores[3].RutaImagen));
-            Txbl_NombreJugador4.Text = _jugadores[3].NombreUsuario;
-            Img_Jugador5.Source = null;
-            Txbl_NombreJugador5.Text = "";
-            Img_Jugador6.Source = null;
-            Txbl_NombreJugador6.Text = "";
-            Img_Jugador7.Source = null;
-            Txbl_NombreJugador7.Text = "";
-            Img_Jugador8.Source = null;
-            Txbl_NombreJugador8.Text = "";
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador5()
-        {
-            Img_Jugador5.Source = new BitmapImage(new Uri(_jugadores[4].RutaImagen));
-            Txbl_NombreJugador5.Text = _jugadores[4].NombreUsuario;
-            Img_Jugador6.Source = null;
-            Txbl_NombreJugador6.Text = "";
-            Img_Jugador7.Source = null;
-            Txbl_NombreJugador7.Text = "";
-            Img_Jugador8.Source = null;
-            Txbl_NombreJugador8.Text = "";
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador6()
-        {
-            Img_Jugador6.Source = new BitmapImage(new Uri(_jugadores[5].RutaImagen));
-            Txbl_NombreJugador6.Text = _jugadores[5].NombreUsuario;
-            Img_Jugador7.Source = null;
-            Txbl_NombreJugador7.Text = "";
-            Img_Jugador8.Source = null;
-            Txbl_NombreJugador8.Text = "";
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador7()
-        {
-            Img_Jugador7.Source = new BitmapImage(new Uri(_jugadores[6].RutaImagen));
-            Txbl_NombreJugador7.Text = _jugadores[6].NombreUsuario;
-            Img_Jugador8.Source = null;
-            Txbl_NombreJugador8.Text = "";
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador8()
-        {
-            Img_Jugador8.Source = new BitmapImage(new Uri(_jugadores[7].RutaImagen));
-            Txbl_NombreJugador8.Text = _jugadores[7].NombreUsuario;
-            Img_Jugador9.Source = null;
-            Txbl_NombreJugador9.Text = "";
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador9()
-        {
-            Img_Jugador9.Source = new BitmapImage(new Uri(_jugadores[8].RutaImagen));
-            Txbl_NombreJugador9.Text = _jugadores[8].NombreUsuario;
-            Img_Jugador10.Source = null;
-            Txbl_NombreJugador10.Text = "";
-        }
-
-        public void ConfigurarJugador10()
-        {
-            Img_Jugador10.Source = new BitmapImage(new Uri(_jugadores[9].RutaImagen));
-            Txbl_NombreJugador10.Text = _jugadores[9].NombreUsuario;
-        }
-
+        
         public void Responder(string respuesta)
         {
             string codigoPartidaCliente = Txbl_CodigoPartida.Text;
@@ -251,21 +102,15 @@ namespace Cliente.Vistas
 
         private void SalirMenuPrincipal(object remitente, RoutedEventArgs argumento)
         {
-            DesconectarJugadorDePartida();
             if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion)
             {
                 CerrarPartida();
+                _servicioSalaDeEspera.ExpulsarTodosJugadores(Txbl_CodigoPartida.Text);
             }
-            if (JugadorSingleton.IdJugador > 0)
+            else 
             {
-                VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
-                this.NavigationService.Navigate(paginaMenuPrincipal);
-            }
-            else
-            {
-                VentanaInicio paginaInicio = new VentanaInicio();
-                this.NavigationService.Navigate(paginaInicio);
-            }
+                SalirSalaDeEspera();
+            }            
         }
 
         private void DesconectarJugadorDePartida()
@@ -312,7 +157,7 @@ namespace Cliente.Vistas
                     Cuenta cuenta = servicioGestionAcceso.RecuperarCuentaPorIdJugador(amigo.IdJugador);
                     if (cuenta.IdAcceso != -1)
                     {
-                        EnviarCorreoPartida(cuenta.Correo);
+                        EnvioCorreo.EnviarCorreo(cuenta.Correo, Properties.Resources.CorreoInvitacionPartida, Txbl_CodigoPartida.Text);
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCorreoEnviado);
                     }
                     else
@@ -327,105 +172,49 @@ namespace Cliente.Vistas
                 }
             }
         }
-
-        private void EnviarCorreoPartida(string correoAmigo)
-        {            
-            EnvioCorreo.EnviarCorreo(correoAmigo, Properties.Resources.CorreoInvitacionPartida, Txbl_CodigoPartida.Text);
-        }
-
+       
         public void ActualizarListaJugadores(JugadorContrato[] jugadores)
         {
             _jugadores = jugadores.ToList();
-            int numeroJugadores = _jugadores.Count;
-            switch (numeroJugadores)
+            ConfigurarJugadoresActivos();
+            if (_jugadores.Count > 1)
             {
-                case 1:
-                    ConfigurarAnfitrion();
-                    DesactivarBotonJugar();
-                    break;
-                case 2:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ActivarBotonJugar();
-                    break;
-                case 3:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ActivarBotonJugar();
-                    break;
-                case 4:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ConfigurarJugador4();
-                    ActivarBotonJugar();
-                    break;
-                case 5:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ConfigurarJugador4();
-                    ConfigurarJugador5();
-                    ActivarBotonJugar();
-                    break;
-                case 6:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ConfigurarJugador4();
-                    ConfigurarJugador5();
-                    ConfigurarJugador6();
-                    ActivarBotonJugar();
-                    break;
-                case 7:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ConfigurarJugador4();
-                    ConfigurarJugador5();
-                    ConfigurarJugador6();
-                    ConfigurarJugador7();
-                    ActivarBotonJugar();
-                    break;
-                case 8:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ConfigurarJugador4();
-                    ConfigurarJugador5();
-                    ConfigurarJugador6();
-                    ConfigurarJugador7();
-                    ConfigurarJugador8();
-                    ActivarBotonJugar();
-                    break;
-                case 9:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ConfigurarJugador4();
-                    ConfigurarJugador5();
-                    ConfigurarJugador6();
-                    ConfigurarJugador7();
-                    ConfigurarJugador8();
-                    ConfigurarJugador9();
-                    ActivarBotonJugar();
-                    break;
-                case 10:
-                    ConfigurarAnfitrion();
-                    ConfigurarJugador2();
-                    ConfigurarJugador3();
-                    ConfigurarJugador4();
-                    ConfigurarJugador5();
-                    ConfigurarJugador6();
-                    ConfigurarJugador7();
-                    ConfigurarJugador8();
-                    ConfigurarJugador9();
-                    ConfigurarJugador10();
-                    ActivarBotonJugar();
-                    break;
+                ActivarBotonJugar();
+            }
+            else 
+            {
+                DesactivarBotonJugar();
+            }                
+        }
+
+        private void ConfigurarJugadoresActivos()
+        {            
+            var imagenes = new[]
+            {
+                Img_Anfitrion, Img_Jugador2, Img_Jugador3, Img_Jugador4, Img_Jugador5,
+                Img_Jugador6, Img_Jugador7, Img_Jugador8, Img_Jugador9, Img_Jugador10
+            };
+            var nombres = new[]
+            {
+                Txbl_NombreAnfitrion, Txbl_NombreJugador2, Txbl_NombreJugador3, Txbl_NombreJugador4,
+                Txbl_NombreJugador5, Txbl_NombreJugador6, Txbl_NombreJugador7, Txbl_NombreJugador8,
+                Txbl_NombreJugador9, Txbl_NombreJugador10
+            };            
+            for (int i = 0; i < imagenes.Length; i++)
+            {
+                if (i < _jugadores.Count)
+                {
+                    imagenes[i].Source = new BitmapImage(new Uri(_jugadores[i].RutaImagen));
+                    nombres[i].Text = _jugadores[i].NombreUsuario;
+                }
+                else
+                {
+                    imagenes[i].Source = null;
+                    nombres[i].Text = string.Empty;
+                }
             }
         }
+
         private void DesactivarBotonJugar()
         {
             Btn_Jugar.Visibility = Visibility.Hidden;
@@ -441,22 +230,29 @@ namespace Cliente.Vistas
 
         private void IniciarPartida(object remitente, RoutedEventArgs argumento)
         {
-            var modoJuegoPartida = _partidaActual.ModoJuego.ToString();
-            CambiarEstadoPartidaEnProceso();
-            if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
+            if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion)
             {
-                ConfigurarPartida(ValoresConstantes.CantidadPreguntasFacil);
-                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasFacil);
-            }
-            else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
-            {
-                ConfigurarPartida(ValoresConstantes.CantidadPreguntasMedio);
-                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasMedio);
+                var modoJuegoPartida = _partidaActual.ModoJuego.ToString();
+                CambiarEstadoPartidaEnProceso();
+                if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
+                {
+                    ConfigurarPartida(ValoresConstantes.CantidadPreguntasFacil);
+                    _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasFacil);
+                }
+                else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
+                {
+                    ConfigurarPartida(ValoresConstantes.CantidadPreguntasMedio);
+                    _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasMedio);
+                }
+                else
+                {
+                    ConfigurarPartida(ValoresConstantes.CantidadPreguntasDificil);
+                    _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasDificil);
+                }
             }
             else
             {
-                ConfigurarPartida(ValoresConstantes.CantidadPreguntasDificil);
-                _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasDificil);
+                MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeNoEresAnfitrion);
             }
         }
 
@@ -567,6 +363,85 @@ namespace Cliente.Vistas
             paginaPregunta.IniciarPregunta();
             paginaPregunta.ConfigurarTemporizador();
             this.NavigationService.Navigate(paginaPregunta);
+        }
+
+
+        private void ExpulsarJugador2(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador2.Text,Img_Jugador2.Source?.ToString());
+        }
+
+        private void ExpulsarJugador3(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador3.Text, Img_Jugador3.Source?.ToString());
+        }
+
+        private void ExpulsarJugador4(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador4.Text, Img_Jugador4.Source?.ToString());
+        }
+
+        private void ExpulsarJugador5(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador5.Text, Img_Jugador5.Source?.ToString());
+        }
+
+        private void ExpulsarJugador6(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador6.Text, Img_Jugador6.Source?.ToString());
+        }
+
+        private void ExpulsarJugador7(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador7.Text, Img_Jugador7.Source?.ToString());
+        }
+
+        private void ExpulsarJugador8(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador8.Text, Img_Jugador8.Source?.ToString());
+        }
+
+        private void ExpulsarJugador9(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador9.Text, Img_Jugador9.Source?.ToString());
+        }
+
+        private void ExpulsarJugador10(object remitente, RoutedEventArgs argumento)
+        {
+            ExpulsarJugador(Txbl_NombreJugador10.Text, Img_Jugador10.Source?.ToString());
+        }
+
+        private void ExpulsarJugador(string nombreUsuario,string rutaImagen) 
+        {
+            if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion) 
+            {
+                JugadorContrato jugador = new JugadorContrato() 
+                {
+                    NombreUsuario = nombreUsuario,
+                    RutaImagen = rutaImagen,
+                };
+                _servicioSalaDeEspera.ExpulsarJugador(Txbl_CodigoPartida.Text, jugador);
+            }
+        }
+
+        public void NotificarExpulsion()
+        {
+            SalirSalaDeEspera();
+        }
+
+        private void SalirSalaDeEspera() 
+        {
+            DesconectarJugadorDePartida();            
+            if (JugadorSingleton.IdJugador > ValoresConstantes.IdJugadorInvitado)
+            {
+                VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
+                this.NavigationService.Navigate(paginaMenuPrincipal);
+            }
+            else
+            {
+                VentanaInicio paginaInicio = new VentanaInicio();
+                this.NavigationService.Navigate(paginaInicio);
+            }
         }
     }
 }

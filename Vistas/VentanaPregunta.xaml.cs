@@ -31,7 +31,8 @@ namespace Cliente.Vistas
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private int _numeroPreguntaActual = 1;        
-        private int _tiempoRestante;        
+        private int _tiempoRestante;
+        private int _tiempoSinModificar;
         private int _totalPreguntas;
         private DispatcherTimer _temporizadorDespachador;
         private List<PreguntaContrato> _preguntas;
@@ -55,6 +56,7 @@ namespace Cliente.Vistas
         public void ConfigurarPartida(int tiempoRestante,int totalPreguntas,string codigoPartida) 
         {           
             _tiempoRestante = tiempoRestante;
+            _tiempoSinModificar = _tiempoRestante;
             _totalPreguntas = totalPreguntas;                                                
             Txbl_NumeroPreguntaTotal.Text = _totalPreguntas.ToString();
             Txbl_NumeroPreguntaActual.Text = _numeroPreguntaActual.ToString();
@@ -93,7 +95,7 @@ namespace Cliente.Vistas
             Txbl_Respuesta2.Text = respuestasAlAzar[1];
             Txbl_Respuesta3.Text = respuestasAlAzar[2];
             Txbl_Respuesta4.Text = respuestasAlAzar[3];
-            _tiempoRestante = 10;
+            _tiempoRestante = _tiempoSinModificar;
             Txbl_Cronometro.Text = _tiempoRestante.ToString();
         }
 
@@ -190,8 +192,8 @@ namespace Cliente.Vistas
             if (respuestaSeleccionada == respuestaCorrecta)
             {
                 DeterminarPuntaje();
-                puntaje = ObtenerCantidadPuntaje();
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
+                puntaje = ObtenerCantidadPuntaje();                
+                Txbl_Puntaje.Text=($"Correcto. Puntaje: {puntaje}");
             }
             else
             {
@@ -200,7 +202,7 @@ namespace Cliente.Vistas
                     RestarPuntaje();
                     puntaje -= 10;
                 }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
+                Txbl_Puntaje.Text = ($"Incorrecto. Puntaje: {puntaje}");
             }                       
         }
 
@@ -265,7 +267,7 @@ namespace Cliente.Vistas
 
         private bool ValidarJugadorRegistrado() 
         {
-            return JugadorSingleton.IdJugador > 0;
+            return JugadorSingleton.IdJugador > ValoresConstantes.IdJugadorInvitado;
         }
 
         private void AsignarEstadisticas() 

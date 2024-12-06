@@ -32,7 +32,7 @@ namespace Cliente.Vistas
             ObtenerEstadisticas();
         }
 
-        private void RegresarClick(object sender, RoutedEventArgs e)
+        private void RegresarClick(object remitente, RoutedEventArgs argumentos)
         {
             VentanaMenuPrincipal paginaMenuPrincipal= new VentanaMenuPrincipal();
             this.NavigationService.Navigate(paginaMenuPrincipal);
@@ -69,11 +69,32 @@ namespace Cliente.Vistas
             Txbl_Puntaje.Text = estadistica.Puntaje.ToString();
         }
 
-        private void LogrosClick(object sender, RoutedEventArgs e)
+        private void LogrosClick(object remitente, RoutedEventArgs argumentos)
         {
-            VentanaLogros paginaLogros = new VentanaLogros();
-            this.NavigationService.Navigate(paginaLogros);
+            try 
+            {
+                ServicioGestionLogrosClient servicioGestionLogros=new ServicioGestionLogrosClient();
+                int resultadoVerificacion=servicioGestionLogros.VerificarCatalogoDeLogros();
+                switch (resultadoVerificacion) 
+                {
+                    case 0:
+                        MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCatalogosFaltantes);
+                        break;
+                    case 1:
+                        VentanaLogros paginaLogros = new VentanaLogros();
+                        this.NavigationService.Navigate(paginaLogros);
+                        break;
+                    default:
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    break;
+                }
 
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }            
         }
     }
 }

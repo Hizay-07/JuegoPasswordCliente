@@ -38,7 +38,14 @@ namespace Cliente.Vistas
             {
                 if (ValidarEstadoPartida())
                 {
-                    CargarDatosPartida();
+                    if (ValidarNumeroJugadores())
+                    {
+                        CargarDatosPartida();
+                    }
+                    else 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajePartidaConLimiteJugadores);
+                    }
                 }
                 else
                 {
@@ -51,6 +58,22 @@ namespace Cliente.Vistas
         private void RegresarInicio(object remitente, RoutedEventArgs argumento)
         {
             NavigationService.GoBack();
+        }
+
+        private bool ValidarNumeroJugadores() 
+        {
+            bool validacionJugadores = false;
+            try 
+            {
+                ServicioJugadoresClient servicioJugadores = new ServicioJugadoresClient();
+                validacionJugadores = servicioJugadores.ValidarNumeroJugadoresEnPartida(Txb_CodigoPartida.Text);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+            }
+            return validacionJugadores;
         }
 
         private bool ValidarCodigoPartida()
@@ -133,9 +156,9 @@ namespace Cliente.Vistas
 
         private void InicializarJugador() 
         {
-            JugadorSingleton.IdJugador = 0;
+            JugadorSingleton.IdJugador = ValoresConstantes.IdJugadorInvitado;
             JugadorSingleton.NombreUsuario=GenerarNombreUsuarioAleatorio();
-            JugadorSingleton.RutaImagen = "pack://application:,,,/Imagenes/Fondos/perfil1.png";
+            JugadorSingleton.RutaImagen = ValoresConstantes.RutaImagenJugadorPorDefecto;
         }
 
         private string GenerarNombreUsuarioAleatorio() 

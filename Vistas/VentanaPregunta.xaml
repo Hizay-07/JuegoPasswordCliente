@@ -14,18 +14,23 @@
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="430">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-70,-10,0,0" Background="#00b0ff" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-70,-20,0,0" Background="#00b0ff" >
                     <TextBlock Name="Txbl_NumeroPreguntaActual" Text=" " Width="28" FontSize="25" Foreground="White"/>
                     <TextBlock Name="Txbl_Barra" Text="/" Width="12" FontSize="25" Foreground="White"/>
                     <TextBlock Name="Txbl_NumeroPreguntaTotal" Text="{Binding NumeroPregunta}" FontSize="25" Foreground="White" VerticalAlignment="Center" Width="28"/>
                 </StackPanel>
 
                 <TextBlock Name="Txbl_Cronometro" Text="{Binding TiempoRestante}" FontSize="25" FontWeight="Bold" Foreground="White" Background="#00d2ff"
-                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-10,-95,0" Padding="10" />
+                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-20,-95,0" Padding="10" />
 
+                <TextBlock Name="Txbl_Puntaje" FontSize="25" FontWeight="Bold" Foreground="White" Background="#00d2ff"
+                            HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,-60,200,0" Padding="10" TextAlignment="Center"/>
+                
+                
+                
                 <TextBlock Name="Txbl_Pregunta" Text="{Binding PreguntaActual}" FontSize="28" FontWeight="Bold" Foreground="White" 
                            Background="#00b0ff" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="10" 
-                           TextWrapping="Wrap" Margin="0,27,0,0"/>
+                           TextWrapping="Wrap" Margin="0,0,0,0"/>
 
                 <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,134,0,0" Width="580" Height="296">
                     <Button Name="Btn_Respuesta1" Background="#6c6c6c" Foreground="White" Padding="10" Margin="5" Click="RevisarRespuesta1">
