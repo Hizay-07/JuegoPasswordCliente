@@ -415,12 +415,15 @@ namespace Cliente.Vistas
         {
             if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion) 
             {
-                JugadorContrato jugador = new JugadorContrato() 
+                if (MensajeVentana.MostrarVentanaEmergenteConfirmacion(Properties.Resources.MensajeExpulsionJugador)) 
                 {
-                    NombreUsuario = nombreUsuario,
-                    RutaImagen = rutaImagen,
-                };
-                _servicioSalaDeEspera.ExpulsarJugador(Txbl_CodigoPartida.Text, jugador);
+                    JugadorContrato jugador = new JugadorContrato()
+                    {
+                        NombreUsuario = nombreUsuario,
+                        RutaImagen = rutaImagen,
+                    };
+                    _servicioSalaDeEspera.ExpulsarJugador(Txbl_CodigoPartida.Text, jugador);
+                }                
             }
         }
 

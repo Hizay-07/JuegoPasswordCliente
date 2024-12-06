@@ -429,4 +429,7 @@ Los cambios se aplicarán al reiniciar el juago</value>
   <data name="MensajePartidaConLimiteJugadores" xml:space="preserve">
     <value>La partida ha llegado al límite de jugadores, juega otra partida.</value>
   </data>
+  <data name="MensajeExpulsionJugador" xml:space="preserve">
+    <value>¿Desesas expulsar al jugador de la partida?</value>
+  </data>
 </root>
