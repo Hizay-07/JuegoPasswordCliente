@@ -28,13 +28,13 @@ namespace Cliente.Vistas
         private ServicioChatClient _servicioChat;
         private ServicioSalaDeEsperaClient _servicioSalaDeEspera;
         private List<JugadorContrato> _jugadores;
-        private PartidaContrato _partidaActual;
+        private PartidaContrato _partidaActual;        
 
         public VentanaSalaEspera()
         {
             InitializeComponent();
-            RecuperarAmigos();
-        }
+            RecuperarAmigos();            
+        }        
 
         public void ConfigurarChat()
         {
@@ -280,15 +280,18 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
                 List<JugadorContrato> amigos = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
-                int idJugador = amigos[0].IdJugador;
-                if (idJugador > 0)
-                {                    
-                    Ltv_Amigos.ItemsSource = amigos;
-                }
-                else if (idJugador == -1)
+                if (amigos.Any()) 
                 {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                }
+                    int idJugador = amigos[0].IdJugador;
+                    if (idJugador > 0)
+                    {
+                        Ltv_Amigos.ItemsSource = amigos;
+                    }
+                    else if (idJugador == -1)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }
+                }                
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
