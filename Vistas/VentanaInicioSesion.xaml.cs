@@ -110,8 +110,8 @@ namespace Cliente.Vistas
                 Acceso acceso = ObtenerAcceso();
                 try
                 {
-                    ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
-                    int resultado = proxy.ValidarInicioDeSesion(acceso);
+                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                    int resultado = servicioGestionAcceso.ValidarInicioDeSesion(acceso);
                     if (resultado == 1)
                     {
                         ObtenerJugadorSingleton(acceso.correo);
@@ -137,8 +137,8 @@ namespace Cliente.Vistas
 
         private void ObtenerJugadorSingleton(string correo)
         {
-            ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
-            ServidorPassword.Cuenta cuenta = proxy.RecuperarCuentaPorCorreo(correo);
+            ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+            Cuenta cuenta = servicioGestionAcceso.RecuperarCuentaPorCorreo(correo);
             JugadorSingleton.jugadorSingleton.CrearJugadorSingleton(cuenta);
         }
 
@@ -201,10 +201,5 @@ namespace Cliente.Vistas
             Pwd_Contrasenia.Password = Txt_ContraseniaVisible.Text;
             _sincronizando = false;
         }
-
-
-
-
-
     }
 }

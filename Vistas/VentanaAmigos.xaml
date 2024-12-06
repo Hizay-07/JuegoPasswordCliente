@@ -15,6 +15,14 @@
             </Border.Background>
 
             <Grid>
+
+                <Image Source="/Imagenes/Iconos/amigos.jpg" 
+                       HorizontalAlignment="Left" 
+                       VerticalAlignment="Top" 
+                       Height="170" 
+                       Margin="1070,20,0,0" Width="170" />
+
+
                 <Label x:Name="Amigos" Content="{x:Static p:Resources.Tittle_Amigos}"
                        FontSize="55"
                        FontWeight="Bold"
@@ -26,7 +34,7 @@
                 <ListBox x:Name="ListaAmigos"
                          HorizontalAlignment="Center" 
                          VerticalAlignment="Center" 
-                         Width="908" 
+                         Width="811" 
                          Background="#3b92c4" 
                          BorderBrush="Transparent"
                          ScrollViewer.VerticalScrollBarVisibility="Auto" Height="408">
