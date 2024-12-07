@@ -15,10 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaPerfilDeJugador.xaml
-    /// </summary>
+{    
     public partial class VentanaPerfilDeJugador : Page
     {
         public VentanaPerfilDeJugador()

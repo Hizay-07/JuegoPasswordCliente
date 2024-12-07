@@ -227,7 +227,7 @@ usuario</value>
     <value>Revise que la información de los campos sea correcta.</value>
   </data>
   <data name="MensajeErrorConexion" xml:space="preserve">
-    <value>No hay conexión a la red. Por favor, inténtelo más tarde. </value>
+    <value>La conexión al servidor no se pudo hacer. Verifique la conexión al servidor y vuelva intentarlo.</value>
   </data>
   <data name="Lbl_MensajeEnvioContrasena" xml:space="preserve">
     <value>Se le enviará una nueva contraseña al correo que registre.</value>
@@ -431,5 +431,11 @@ Los cambios se aplicarán al reiniciar el juago</value>
   </data>
   <data name="MensajeExpulsionJugador" xml:space="preserve">
     <value>¿Desesas expulsar al jugador de la partida?</value>
+  </data>
+  <data name="MensajeErrorTiempoTerminado" xml:space="preserve">
+    <value>El tiempo de espera ha terminado. Verifique la conexión con el servidor.</value>
+  </data>
+  <data name="MensajeErrorComunicacion" xml:space="preserve">
+    <value>Ha ocurrido un error de comunicación con el servidor. Verifique la conexión con el servidor.</value>
   </data>
 </root>

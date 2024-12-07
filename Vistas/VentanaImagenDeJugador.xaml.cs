@@ -18,10 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaImagenDeJugador.xaml
-    /// </summary>
+{    
     public partial class VentanaImagenDeJugador : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -55,10 +52,20 @@ namespace Cliente.Vistas
                         NavegarAMenuPrincipal();
                     }
                 }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
                 }
             }
 
@@ -90,7 +97,6 @@ namespace Cliente.Vistas
             _imagenSeleccionada = sender as Image;
             _imagenSeleccionada.Tag = "Selected";
         }
-
 
         private void CancelarClick(object sender, RoutedEventArgs e)
         {

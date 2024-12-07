@@ -1,4 +1,5 @@
 ﻿using Cliente.Auxiliares;
+using Cliente.ServidorPassword;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaContraseniaOlvidada.xaml
-    /// </summary>
+{    
     public partial class VentanaContraseniaOlvidada : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -40,16 +38,16 @@ namespace Cliente.Vistas
         {            
             try
             {
-                ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
-                int validacionCorreo=proxy.ValidarPresenciaDeCorreo(Txb_Correo.Text);
+                ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                int validacionCorreo= servicioGestionAcceso.ValidarPresenciaDeCorreo(Txb_Correo.Text);
                 if (validacionCorreo == 1)
                 {
-                    ServidorPassword.ServicioPersonalizacionPerfilClient proxyPersonalizacion=new ServidorPassword.ServicioPersonalizacionPerfilClient();
+                    ServicioPersonalizacionPerfilClient proxyPersonalizacion = new ServicioPersonalizacionPerfilClient();
                     int idAcceso=proxyPersonalizacion.RecuperarIdAccesoPorCorreo(Txb_Correo.Text);
                     if (idAcceso > 0) 
                     {
                         string nuevaContrasenia = GeneradorContrasenia.GenerarContraseña();
-                        int resultadoEdicion=proxyPersonalizacion.EditarContraseniaPorIdAcceso(idAcceso, nuevaContrasenia);
+                        int resultadoEdicion=proxyPersonalizacion.EditarContraseniaPorIdAcceso(idAcceso,EncriptadorContrasenia.EncriptarContrasenia(nuevaContrasenia));
                         if (resultadoEdicion == 1)
                         {
                             EnviarCorreo(nuevaContrasenia);
@@ -72,13 +70,23 @@ namespace Cliente.Vistas
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
             }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
             }
-
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
         }
+
         private void EnviarCorreo(String nuevaContrasenia) 
         {
             string cuerpo = $"{Properties.Resources.CuerpoContrasenia}\n {nuevaContrasenia}";

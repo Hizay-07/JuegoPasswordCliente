@@ -15,11 +15,11 @@ namespace Cliente.Auxiliares
 
         public const int CantidadPreguntasDificil = 30;
 
-        public const int TiempoFacil = 30;
+        public const int TiempoFacil = 15;
 
-        public const int TiempoMedio = 20;
+        public const int TiempoMedio = 10;
 
-        public const int TiempoDificil = 10;
+        public const int TiempoDificil = 5;
 
         public const int IdPrimerLogro = 1;
 
@@ -42,5 +42,7 @@ namespace Cliente.Auxiliares
         public const string DescripcionPorDefecto = "";
 
         public const int IdJugadorInvitado = 0;
+
+        public const string ValorExcepcion = "excepcion";
     }
 }
