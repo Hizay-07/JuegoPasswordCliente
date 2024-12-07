@@ -1,137 +1,137 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\",
+  "WorkspaceRootPath": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|c:\\users\\hizza\\desktop\\clientemario\\juegopasswordcliente\\vistas\\ventanaunionpartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|c:\\users\\hizza\\desktop\\clientenuevodef\\juegopasswordcliente\\vistas\\ventanaunionpartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaunionpartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanasolicitudesdeamistad.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanasolicitudesdeamistad.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanasolicitudesdeamistad.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanasalaespera.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanasalaespera.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanasalaespera.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanasalaespera.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanasalaespera.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanasalaespera.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaregistro.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaregistro.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaregistro.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanapregunta.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanapregunta.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanapregunta.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanapersonalizarperfil.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanapersonalizarperfil.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanapersonalizarperfil.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaperfildejugador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaperfildejugador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaperfildejugador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaperfildejugador.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaperfildejugador.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaperfildejugador.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanapartidafinalizada.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanapartidafinalizada.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanapartidafinalizada.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanamenuprincipal.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanamenuprincipal.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanamenuprincipal.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanamenuprincipal.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanamenuprincipal.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanamenuprincipal.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanalogros.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanalogros.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanalogros.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanainiciosesion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanainiciosesion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanainiciosesion.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanainiciosesion.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanainiciosesion.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanainiciosesion.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanainicio.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanainicio.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanainicio.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanainicio.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanainicio.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanainicio.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaimagendejugador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaimagendejugador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaimagendejugador.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaestadisticas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaestadisticas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaestadisticas.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaestadisticas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaestadisticas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaestadisticas.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanadificultadpartida.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanadificultadpartida.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanadificultadpartida.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanadificultadpartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanadificultadpartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanadificultadpartida.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanacontraseniaolvidada.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanacontraseniaolvidada.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanacontraseniaolvidada.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanacodigoinvitado.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanacodigoinvitado.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanacodigoinvitado.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanacambiocontrasenia.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanacambiocontrasenia.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanacambiocontrasenia.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaamigos.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaamigos.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaamigos.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaagregaramigo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaagregaramigo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaagregaramigo.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaagregaramigo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaagregaramigo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaagregaramigo.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanaamigos.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanaamigos.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanaamigos.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanasolicitudesdeamistad.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanasolicitudesdeamistad.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanasolicitudesdeamistad.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanacambiocontrasenia.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanacambiocontrasenia.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanacambiocontrasenia.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanacodigoinvitado.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanacodigoinvitado.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanacodigoinvitado.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\vistas\\ventanacontraseniaolvidada.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\vistas\\ventanacontraseniaolvidada.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{154E4EAE-3DD3-4FED-97DD-2D22981C1335}|PasswordWPFApp.csproj|solutionrelative:vistas\\ventanacontraseniaolvidada.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -156,9 +156,9 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "VentanaSalaEspera.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaSalaEspera.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaSalaEspera.xaml.cs",
               "ViewState": "AgIAAK8AAAAAAAAAAAAEwLYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -168,9 +168,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "VentanaPartidaFinalizada.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPartidaFinalizada.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPartidaFinalizada.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaPartidaFinalizada.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPartidaFinalizada.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPartidaFinalizada.xaml",
               "RelativeToolTip": "Vistas\\VentanaPartidaFinalizada.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T21:43:28.305Z"
@@ -179,9 +179,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "VentanaMenuPrincipal.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaMenuPrincipal.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaMenuPrincipal.xaml.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAcwJ4AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -191,9 +191,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "VentanaMenuPrincipal.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaMenuPrincipal.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaMenuPrincipal.xaml",
               "RelativeToolTip": "Vistas\\VentanaMenuPrincipal.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T21:38:24.856Z"
@@ -202,9 +202,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "VentanaInicioSesion.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaInicioSesion.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaInicioSesion.xaml.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABcAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -214,9 +214,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "VentanaLogros.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaLogros.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaLogros.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaLogros.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaLogros.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaLogros.xaml",
               "RelativeToolTip": "Vistas\\VentanaLogros.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T21:34:43.028Z"
@@ -225,9 +225,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "VentanaInicioSesion.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaInicioSesion.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicioSesion.xaml",
               "RelativeToolTip": "Vistas\\VentanaInicioSesion.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T21:33:01.509Z"
@@ -236,9 +236,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "VentanaInicio.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaInicio.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaInicio.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -248,9 +248,9 @@
               "$type": "Document",
               "DocumentIndex": 29,
               "Title": "VentanaSolicitudesDeAmistad.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaSolicitudesDeAmistad.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaSolicitudesDeAmistad.xaml.cs",
               "ViewState": "AgIAALgAAAAAAAAAAAAswMUAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -260,9 +260,9 @@
               "$type": "Document",
               "DocumentIndex": 31,
               "Title": "VentanaCodigoInvitado.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaCodigoInvitado.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaCodigoInvitado.xaml.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAewDYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -272,9 +272,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "VentanaInicio.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaInicio.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaInicio.xaml",
               "RelativeToolTip": "Vistas\\VentanaInicio.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:19:49.882Z"
@@ -283,9 +283,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "VentanaImagenDeJugador.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaImagenDeJugador.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaImagenDeJugador.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaImagenDeJugador.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaImagenDeJugador.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaImagenDeJugador.xaml",
               "RelativeToolTip": "Vistas\\VentanaImagenDeJugador.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:19:41.686Z"
@@ -294,9 +294,9 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "VentanaEstadisticas.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaEstadisticas.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaEstadisticas.xaml.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAkwE0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -306,9 +306,9 @@
               "$type": "Document",
               "DocumentIndex": 19,
               "Title": "VentanaEstadisticas.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaEstadisticas.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaEstadisticas.xaml",
               "RelativeToolTip": "Vistas\\VentanaEstadisticas.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:18:39.168Z"
@@ -317,9 +317,9 @@
               "$type": "Document",
               "DocumentIndex": 20,
               "Title": "VentanaDificultadPartida.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaDificultadPartida.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaDificultadPartida.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -329,9 +329,9 @@
               "$type": "Document",
               "DocumentIndex": 21,
               "Title": "VentanaDificultadPartida.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaDificultadPartida.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaDificultadPartida.xaml",
               "RelativeToolTip": "Vistas\\VentanaDificultadPartida.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:17:24.319Z"
@@ -340,9 +340,9 @@
               "$type": "Document",
               "DocumentIndex": 32,
               "Title": "VentanaContraseniaOlvidada.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaContraseniaOlvidada.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaContraseniaOlvidada.xaml.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAcwCQAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -352,9 +352,9 @@
               "$type": "Document",
               "DocumentIndex": 22,
               "Title": "VentanaContraseniaOlvidada.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaContraseniaOlvidada.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaContraseniaOlvidada.xaml",
               "RelativeToolTip": "Vistas\\VentanaContraseniaOlvidada.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:16:49.674Z"
@@ -363,9 +363,9 @@
               "$type": "Document",
               "DocumentIndex": 30,
               "Title": "VentanaCambioContrasenia.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaCambioContrasenia.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaCambioContrasenia.xaml.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAcwCUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -375,9 +375,9 @@
               "$type": "Document",
               "DocumentIndex": 24,
               "Title": "VentanaCambioContrasenia.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaCambioContrasenia.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCambioContrasenia.xaml",
               "RelativeToolTip": "Vistas\\VentanaCambioContrasenia.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:16:05.666Z"
@@ -386,9 +386,9 @@
               "$type": "Document",
               "DocumentIndex": 25,
               "Title": "VentanaAmigos.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaAmigos.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml",
               "RelativeToolTip": "Vistas\\VentanaAmigos.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:15:23.36Z"
@@ -397,9 +397,9 @@
               "$type": "Document",
               "DocumentIndex": 27,
               "Title": "VentanaAgregarAmigo.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaAgregarAmigo.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaAgregarAmigo.xaml.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAmwCoAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -409,9 +409,9 @@
               "$type": "Document",
               "DocumentIndex": 26,
               "Title": "VentanaAgregarAmigo.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaAgregarAmigo.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAgregarAmigo.xaml",
               "RelativeToolTip": "Vistas\\VentanaAgregarAmigo.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:14:55.98Z"
@@ -420,9 +420,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "VentanaSolicitudesDeAmistad.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaSolicitudesDeAmistad.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSolicitudesDeAmistad.xaml",
               "RelativeToolTip": "Vistas\\VentanaSolicitudesDeAmistad.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:13:27.369Z"
@@ -431,9 +431,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "VentanaUnionPartida.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaUnionPartida.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaUnionPartida.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaUnionPartida.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaUnionPartida.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaUnionPartida.xaml",
               "RelativeToolTip": "Vistas\\VentanaUnionPartida.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:07:20.776Z",
@@ -443,9 +443,9 @@
               "$type": "Document",
               "DocumentIndex": 23,
               "Title": "VentanaCodigoInvitado.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaCodigoInvitado.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaCodigoInvitado.xaml",
               "RelativeToolTip": "Vistas\\VentanaCodigoInvitado.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T18:06:38.137Z"
@@ -454,9 +454,9 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "VentanaSalaEspera.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaSalaEspera.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaSalaEspera.xaml",
               "RelativeToolTip": "Vistas\\VentanaSalaEspera.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T17:57:15.996Z"
@@ -465,9 +465,9 @@
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "VentanaRegistro.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaRegistro.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaRegistro.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaRegistro.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaRegistro.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaRegistro.xaml",
               "RelativeToolTip": "Vistas\\VentanaRegistro.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T17:53:50.449Z"
@@ -476,9 +476,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "VentanaPregunta.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPregunta.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPregunta.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaPregunta.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPregunta.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPregunta.xaml",
               "RelativeToolTip": "Vistas\\VentanaPregunta.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T17:53:12.933Z"
@@ -487,9 +487,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "VentanaPersonalizarPerfil.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPersonalizarPerfil.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPersonalizarPerfil.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaPersonalizarPerfil.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPersonalizarPerfil.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPersonalizarPerfil.xaml",
               "RelativeToolTip": "Vistas\\VentanaPersonalizarPerfil.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T17:50:30.514Z"
@@ -498,9 +498,9 @@
               "$type": "Document",
               "DocumentIndex": 28,
               "Title": "VentanaAmigos.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaAmigos.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaAmigos.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaAmigos.xaml.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAA1wB8AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -510,9 +510,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "VentanaPerfilDeJugador.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml.cs",
               "RelativeDocumentMoniker": "Vistas\\VentanaPerfilDeJugador.xaml.cs",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml.cs",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml.cs",
               "RelativeToolTip": "Vistas\\VentanaPerfilDeJugador.xaml.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -522,9 +522,9 @@
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "VentanaPerfilDeJugador.xaml",
-              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml",
+              "DocumentMoniker": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml",
               "RelativeDocumentMoniker": "Vistas\\VentanaPerfilDeJugador.xaml",
-              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteMario\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml",
+              "ToolTip": "C:\\Users\\hizza\\Desktop\\ClienteNuevoDef\\JuegoPasswordCliente\\Vistas\\VentanaPerfilDeJugador.xaml",
               "RelativeToolTip": "Vistas\\VentanaPerfilDeJugador.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-12-07T17:45:44.739Z"

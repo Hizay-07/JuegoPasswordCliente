@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\hizza\Desktop\ClienteMario\JuegoPasswordCliente\obj\Debug\
+C:\Users\hizza\Desktop\ClienteNuevoDef\JuegoPasswordCliente\obj\Debug\
 Cliente
 none
 false
 DEBUG;TRACE
-C:\Users\hizza\Desktop\ClienteMario\JuegoPasswordCliente\App.xaml
+C:\Users\hizza\Desktop\ClienteNuevoDef\JuegoPasswordCliente\App.xaml
 21750442729
 
 39-342801211
-222027595033
+22-92896155
 MainWindow.xaml;Vistas\VentanaEstadisticas.xaml;Vistas\VentanaLogros.xaml;Vistas\VentanaPartidaFinalizada.xaml;Vistas\VentanaAgregarAmigo.xaml;Vistas\VentanaAmigos.xaml;Vistas\VentanaCambioContrasenia.xaml;Vistas\VentanaCodigoInvitado.xaml;Vistas\VentanaContraseniaOlvidada.xaml;Vistas\VentanaDificultadPartida.xaml;Vistas\VentanaImagenDeJugador.xaml;Vistas\VentanaInicio.xaml;Vistas\VentanaInicioSesion.xaml;Vistas\VentanaMenuPrincipal.xaml;Vistas\VentanaPerfilDeJugador.xaml;Vistas\VentanaPersonalizarPerfil.xaml;Vistas\VentanaPregunta.xaml;Vistas\VentanaRegistro.xaml;Vistas\VentanaSalaEspera.xaml;Vistas\VentanaSolicitudesDeAmistad.xaml;Vistas\VentanaUnionPartida.xaml;
 
 False
