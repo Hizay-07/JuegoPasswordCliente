@@ -1,137 +1,778 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/AccesoADatos" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AccesoADatos" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="Acceso">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Jugador" nillable="true" type="tns:ArrayOfJugador" />
-      <xs:element minOccurs="0" name="contrasenia" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="idAcceso" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Acceso" nillable="true" type="tns:Acceso" />
-  <xs:complexType name="ArrayOfJugador">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Jugador" nillable="true" type="tns:Jugador" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfJugador" nillable="true" type="tns:ArrayOfJugador" />
-  <xs:complexType name="Jugador">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Acceso" nillable="true" type="tns:Acceso" />
-      <xs:element minOccurs="0" name="Amistad" nillable="true" type="tns:ArrayOfAmistad" />
-      <xs:element minOccurs="0" name="DetalleLogro" nillable="true" type="tns:ArrayOfDetalleLogro" />
-      <xs:element minOccurs="0" name="DetallePartida" nillable="true" type="tns:ArrayOfDetallePartida" />
-      <xs:element minOccurs="0" name="Estadistica" nillable="true" type="tns:Estadistica" />
-      <xs:element minOccurs="0" name="FKidAcceso" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="FKidEstadistica" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="idJugador" type="xs:int" />
-      <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="rutaImagen" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Jugador" nillable="true" type="tns:Jugador" />
-  <xs:complexType name="ArrayOfAmistad">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Amistad" nillable="true" type="tns:Amistad" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfAmistad" nillable="true" type="tns:ArrayOfAmistad" />
-  <xs:complexType name="Amistad">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FKidJugador" type="xs:int" />
-      <xs:element minOccurs="0" name="Jugador" nillable="true" type="tns:Jugador" />
-      <xs:element minOccurs="0" name="fechaRespuesta" nillable="true" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="fechaSolicitud" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="idAmistad" type="xs:int" />
-      <xs:element minOccurs="0" name="idJugadorAmigo" type="xs:int" />
-      <xs:element minOccurs="0" name="respuesta" nillable="true" type="xs:boolean" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Amistad" nillable="true" type="tns:Amistad" />
-  <xs:complexType name="ArrayOfDetalleLogro">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetalleLogro" nillable="true" type="tns:DetalleLogro" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDetalleLogro" nillable="true" type="tns:ArrayOfDetalleLogro" />
-  <xs:complexType name="DetalleLogro">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FKIdJugador" type="xs:int" />
-      <xs:element minOccurs="0" name="FKIdLogro" type="xs:int" />
-      <xs:element minOccurs="0" name="Jugador" nillable="true" type="tns:Jugador" />
-      <xs:element minOccurs="0" name="Logro" nillable="true" type="tns:Logro" />
-      <xs:element minOccurs="0" name="idDetalleLogro" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DetalleLogro" nillable="true" type="tns:DetalleLogro" />
-  <xs:complexType name="Logro">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DetalleLogro" nillable="true" type="tns:ArrayOfDetalleLogro" />
-      <xs:element minOccurs="0" name="idLogro" type="xs:int" />
-      <xs:element minOccurs="0" name="regla" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Logro" nillable="true" type="tns:Logro" />
-  <xs:complexType name="ArrayOfDetallePartida">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetallePartida" nillable="true" type="tns:DetallePartida" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDetallePartida" nillable="true" type="tns:ArrayOfDetallePartida" />
-  <xs:complexType name="DetallePartida">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FKidJugador" type="xs:int" />
-      <xs:element minOccurs="0" name="FKidPartida" type="xs:int" />
-      <xs:element minOccurs="0" name="Jugador" nillable="true" type="tns:Jugador" />
-      <xs:element minOccurs="0" name="Partida" nillable="true" type="tns:Partida" />
-      <xs:element minOccurs="0" name="idDetallePartida" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DetallePartida" nillable="true" type="tns:DetallePartida" />
-  <xs:complexType name="Partida">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DetallePartida" nillable="true" type="tns:ArrayOfDetallePartida" />
-      <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="estadoPartida" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="idAnfitrion" type="xs:int" />
-      <xs:element minOccurs="0" name="idPartida" type="xs:int" />
-      <xs:element minOccurs="0" name="modoJuego" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Partida" nillable="true" type="tns:Partida" />
-  <xs:complexType name="Estadistica">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Jugador" nillable="true" type="tns:ArrayOfJugador" />
-      <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
-      <xs:element minOccurs="0" name="partidasGanadas" type="xs:int" />
-      <xs:element minOccurs="0" name="partidasPerdidas" type="xs:int" />
-      <xs:element minOccurs="0" name="puntaje" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Estadistica" nillable="true" type="tns:Estadistica" />
-  <xs:complexType name="ArrayOfRespuesta">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Respuesta" nillable="true" type="tns:Respuesta" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRespuesta" nillable="true" type="tns:ArrayOfRespuesta" />
-  <xs:complexType name="Respuesta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="FKidPregunta" type="xs:int" />
-      <xs:element minOccurs="0" name="Pregunta" nillable="true" type="tns:Pregunta" />
-      <xs:element minOccurs="0" name="idRespuesta" type="xs:int" />
-      <xs:element minOccurs="0" name="respuesta1" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Respuesta" nillable="true" type="tns:Respuesta" />
-  <xs:complexType name="Pregunta">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Respuesta" nillable="true" type="tns:ArrayOfRespuesta" />
-      <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
-      <xs:element minOccurs="0" name="pregunta1" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="respuestaCorrecta" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Pregunta" nillable="true" type="tns:Pregunta" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8080/?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" />
+  <xs:element name="Chatear">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="chat" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Responder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="respuesta" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResponderResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarNuevoJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="acceso" nillable="true" type="q1:Acceso" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="jugador" nillable="true" type="q2:Jugador" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarNuevoJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarNuevoJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarInicioDeSesion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="acceso" nillable="true" type="q3:Acceso" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarInicioDeSesionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarInicioDeSesionResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EncriptarContrasenia">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="contrasenia" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EncriptarContraseniaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EncriptarContraseniaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarNombreUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarNombreUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarNombreUsuarioResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarCuentaPorCorreo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarCuentaPorCorreoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares" minOccurs="0" name="RecuperarCuentaPorCorreoResult" nillable="true" type="q4:Cuenta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarPresenciaDeCorreo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarPresenciaDeCorreoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarPresenciaDeCorreoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarCuentaPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarCuentaPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AccesoADatos.Auxiliares" minOccurs="0" name="RecuperarCuentaPorIdJugadorResult" nillable="true" type="q5:Cuenta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarCorreoPorIdAcceso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAcceso" type="xs:int" />
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarCorreoPorIdAccesoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarCorreoPorIdAccesoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarDescripcionPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+        <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarDescripcionPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarDescripcionPorIdJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarNombreUsuarioPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarNombreUsuarioPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarNombreUsuarioPorIdJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarRutaImagenPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+        <xs:element minOccurs="0" name="rutaImagen" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarRutaImagenPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarRutaImagenPorIdJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarContraseniaPorIdAcceso">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idAcceso" type="xs:int" />
+        <xs:element minOccurs="0" name="contrasenia" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditarContraseniaPorIdAccesoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EditarContraseniaPorIdAccesoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarIdAccesoPorCorreo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarIdAccesoPorCorreoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecuperarIdAccesoPorCorreoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarAmistad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="amistad" nillable="true" type="q6:Amistad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarAmistadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarAmistadResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResponderSolicitudAmistad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="amistad" nillable="true" type="q7:Amistad" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResponderSolicitudAmistadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ResponderSolicitudAmistadResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarSolicitudesAmistadPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarSolicitudesAmistadPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConsultarSolicitudesAmistadPorIdJugadorResult" nillable="true" type="q8:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarAmistadesPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarAmistadesPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ConsultarAmistadesPorIdJugadorResult" nillable="true" type="q9:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarIdJugadorPorCorreo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="correo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarIdJugadorPorCorreoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsultarIdJugadorPorCorreoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNombresDeUsuarioPorIdJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idJugadores" nillable="true" type="q10:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerNombresDeUsuarioPorIdJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerNombresDeUsuarioPorIdJugadoresResult" nillable="true" type="q11:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarExistenciaAmistadPorIdJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugadorUno" type="xs:int" />
+        <xs:element minOccurs="0" name="idJugadorDos" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarExistenciaAmistadPorIdJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarExistenciaAmistadPorIdJugadoresResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarIdAmistadPorIdJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugadorUno" type="xs:int" />
+        <xs:element minOccurs="0" name="idJugadorDos" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarIdAmistadPorIdJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RecuperarIdAmistadPorIdJugadoresResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarPartidaPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="partida" nillable="true" type="q12:Partida" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarPartidaPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarPartidaPorIdJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarEstadoPorIdPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPartida" type="xs:int" />
+        <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarEstadoPorIdPartidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActualizarEstadoPorIdPartidaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarCodigoPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarCodigoPartidaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidarCodigoPartidaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntas">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPreguntasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="ObtenerPreguntasResult" nillable="true" type="q13:ArrayOfPreguntaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerRespuestaPorIdPregunta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idPregunta" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerRespuestaPorIdPreguntaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/AccesoADatos" minOccurs="0" name="ObtenerRespuestaPorIdPreguntaResult" nillable="true" type="q14:ArrayOfRespuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarPartidaPorCodigo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarPartidaPorCodigoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="RecuperarPartidaPorCodigoResult" nillable="true" type="q15:PartidaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarRespuestasPorIdPreguntas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="idRespuestas" nillable="true" type="q16:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecuperarRespuestasPorIdPreguntasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="RecuperarRespuestasPorIdPreguntasResult" nillable="true" type="q17:ArrayOfRespuestaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SeleccionarPreguntasAlAzar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cantidadPreguntas" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SeleccionarPreguntasAlAzarResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="SeleccionarPreguntasAlAzarResult" nillable="true" type="q18:ArrayOfPreguntaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIdPreguntas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="preguntasSeleccionadas" nillable="true" type="q19:ArrayOfPreguntaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIdPreguntasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerIdPreguntasResult" nillable="true" type="q20:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConectarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugador" nillable="true" type="q21:JugadorContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesconectarJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugador" nillable="true" type="q22:JugadorContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IniciarPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cantidadPreguntas" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarListaJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="jugadores" nillable="true" type="q23:ArrayOfJugadorContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarListaJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbrirVentanaPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="preguntasSeleccionadas" nillable="true" type="q24:ArrayOfPreguntaContrato" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="respuestasSeleccionadas" nillable="true" type="q25:ArrayOfRespuestaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AbrirVentanaPartidaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConectarJugadorJuego">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConectarJugadorJuegoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConectarJugadorJuegoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesconectarJugadorJuego">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesconectarJugadorJuegoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerJugadores">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerJugadoresResult" nillable="true" type="q26:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarConexionUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jugador" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarConexionUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarConexionUsuarioResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InicializarPartida">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numeroPreguntas" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InicializarPartidaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfigurarJugadores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="jugadores" nillable="true" type="q27:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConfigurarJugadoresResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluarPregunta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="numeroPregunta" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EvaluarPreguntaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestarPuntaje">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RestarPuntajeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPuntaje">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nombreUsuario" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPuntajeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerPuntajeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerGanador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigoPartida" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerGanadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerGanadorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SumarPuntajePorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+        <xs:element minOccurs="0" name="puntaje" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SumarPuntajePorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SumarPuntajePorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasGanadasPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasGanadasPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AumentarPartidasGanadasPorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasPerdidasPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AumentarPartidasPerdidasPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AumentarPartidasPerdidasPorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerEstadisticaPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerEstadisticaPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ServicioJuegoPassword.Interfaces" minOccurs="0" name="ObtenerEstadisticaPorIdEstadisticaResult" nillable="true" type="q28:EstadisticaContrato" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarNuevoLogroPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+        <xs:element minOccurs="0" name="idLogro" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarNuevoLogroPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RegistrarNuevoLogroPorIdJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarRegistroEspecificoLogroPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+        <xs:element minOccurs="0" name="idLogro" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarRegistroEspecificoLogroPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarRegistroEspecificoLogroPorIdJugadorResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIdLogrosPorIdJugador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idJugador" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerIdLogrosPorIdJugadorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ObtenerIdLogrosPorIdJugadorResult" nillable="true" type="q29:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarCatalogoDeLogros">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarCatalogoDeLogrosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarCatalogoDeLogrosResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarPrimerLogroPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarPrimerLogroPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarPrimerLogroPorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarSegundoLogroPorIdEstadistica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idEstadistica" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarSegundoLogroPorIdEstadisticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarSegundoLogroPorIdEstadisticaResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

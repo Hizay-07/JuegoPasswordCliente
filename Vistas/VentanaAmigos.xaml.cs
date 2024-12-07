@@ -18,10 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaAmigos.xaml
-    /// </summary>
+{    
     public partial class VentanaAmigos : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -29,92 +26,65 @@ namespace Cliente.Vistas
         public VentanaAmigos()
         {
             InitializeComponent();
-            //RecuperarAmigos();            
+            RecuperarAmigos();            
         }
 
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
-/*
+
         private void RecuperarAmigos()
         {
             try
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
-                List<int> idAmistades = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
-                int idAmistad = idAmistades.FirstOrDefault();
-                if (idAmistad > 0)
+                List<JugadorContrato> amigos = servicioGestionAmistad.ConsultarAmistadesPorIdJugador(JugadorSingleton.IdJugador).ToList();
+                if (amigos.Any()) 
                 {
-                    RecuperarJugadores(idAmistades);
-                }
-                else if(idAmistad == -1)
+                    int idJugador = amigos[0].IdJugador;
+                    if (idJugador > 0)
+                    {
+                        List<JugadorAmistad> amigosConectados = ObtenerConexionAmigos(amigos);
+                        ListaAmigos.ItemsSource = amigosConectados;
+                    }
+                    else if (idJugador == -1)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    }
+                }                
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+        }
+        
+        private List<JugadorAmistad> ObtenerConexionAmigos(List<JugadorContrato> jugadores) 
+        {
+            List<JugadorAmistad> amigos=new List<JugadorAmistad>();
+            foreach (var jugador in jugadores) 
+            {
+                JugadorAmistad jugadorAmistad = new JugadorAmistad 
                 {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);                    
-                }
+                    NombreUsuario=jugador.NombreUsuario,
+                    IdJugador=jugador.IdJugador,
+                    Estado=VerificarConexionAmigo(jugador.NombreUsuario),
+                };
+                amigos.Add(jugadorAmistad);
             }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }
-        }
-*/
-        private List<string> ObtenerJugadoresConectados() 
-        {
-            List<string> jugadoresActivos = new List<string>();
-            try 
-            {
-                ServicioJugadoresClient servicioJugadores = new ServicioJugadoresClient();
-                jugadoresActivos=servicioJugadores.ObtenerJugadores().ToList();
-            }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }
-            return jugadoresActivos;
-        }
-
-        private void RecuperarJugadores(List<int> amistades)
-        {
-            try
-            {
-                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
-                AsignarNombresUsuario(nombresUsuario,amistades);
-            }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-            }
-        }
-
-        private void AsignarNombresUsuario(List<string> nombresUsuario,List<int> idAmistades)
-        {
-            string primerNombreUsuario = nombresUsuario.First();
-            if (primerNombreUsuario != "excepcion")
-            {
-                List<JugadorAmistad> amistades = CombinarListas(idAmistades, nombresUsuario);
-                ListaAmigos.ItemsSource = amistades;              
-            }
-            else
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-            }
-        }
-         
-
-        private List<JugadorAmistad> CombinarListas(List<int> idJugadores, List<string> nombresUsuario)
-        {
-            List<JugadorAmistad> jugadores = idJugadores.Zip(nombresUsuario, (id, nombre) => new JugadorAmistad
-            {
-                IdJugador = id,
-                NombreUsuario = nombre,
-                Estado = VerificarConexionAmigo(nombre),
-            }).ToList();
-            return jugadores;
+            return amigos;
         }
 
         private bool VerificarConexionAmigo(string nombreUsuario) 
@@ -128,7 +98,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
             return resultadoVerificaion;
         }
@@ -155,11 +135,21 @@ namespace Cliente.Vistas
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
                 }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-                }                             
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
             }
         }
 

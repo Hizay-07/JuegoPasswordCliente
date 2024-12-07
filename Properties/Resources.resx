@@ -153,6 +153,12 @@
   <data name="Title_Registro" xml:space="preserve">
     <value>Registro</value>
   </data>
+  <data name="Lbl_Nombre" xml:space="preserve">
+    <value>Nombre(s)</value>
+  </data>
+  <data name="Lbl_Apellidos" xml:space="preserve">
+    <value>Apellido(s)</value>
+  </data>
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Nombre de usuario</value>
   </data>
@@ -174,6 +180,9 @@
   <data name="Lbl_NombreUsuarioPerfil" xml:space="preserve">
     <value>Nombre de 
 usuario</value>
+  </data>
+  <data name="Btn_CambiarContrasenia" xml:space="preserve">
+    <value>Cambiar contraseña</value>
   </data>
   <data name="Btn_GuardarCambios" xml:space="preserve">
     <value>Guardar cambios</value>
@@ -218,7 +227,7 @@ usuario</value>
     <value>Revise que la información de los campos sea correcta.</value>
   </data>
   <data name="MensajeErrorConexion" xml:space="preserve">
-    <value>No hay conexión a la red. Por favor, inténtelo más tarde. </value>
+    <value>La conexión al servidor no se pudo hacer. Verifique la conexión al servidor y vuelva intentarlo.</value>
   </data>
   <data name="Lbl_MensajeEnvioContrasena" xml:space="preserve">
     <value>Se le enviará una nueva contraseña al correo que registre.</value>
@@ -233,7 +242,7 @@ usuario</value>
     <value>Ya ha enviado o le han enviado una solicitud de amistad el jugador</value>
   </data>
   <data name="MensajeErrorEnvioCorreo" xml:space="preserve">
-    <value>El correo no pudo ser enviado, inténtalo más tarde</value>
+    <value>El correo no pudo ser enviado, intentálo más tarde</value>
   </data>
   <data name="MensajeSinSolicitudes" xml:space="preserve">
     <value>Actualmente no tienes solicitudes de amistad</value>
@@ -251,7 +260,7 @@ usuario</value>
     <value>La partida ya no se encuentra disponible</value>
   </data>
   <data name="Btn_AgregarAmigo" xml:space="preserve">
-    <value>Agregar Amigo</value>
+    <value>AgregarAmigo</value>
   </data>
   <data name="Btn_RegresarGlobal" xml:space="preserve">
     <value>Regresar</value>
@@ -330,7 +339,7 @@ Amigos</value>
     <value>Rechazar</value>
   </data>
   <data name="Lbl_SolicitudesDeAmistad" xml:space="preserve">
-    <value>Solicitudes de amistad</value>
+    <value>Soliciudes de amistad</value>
   </data>
   <data name="Lbl_Estadisticas" xml:space="preserve">
     <value>Estadisticas</value>
@@ -402,7 +411,31 @@ Los cambios se aplicarán al reiniciar el juago</value>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Se ha conectado</value>
   </data>
-  <data name="Btn_CambiarContrasenia" xml:space="preserve">
-    <value>Cambiar contraseña</value>
+  <data name="MensajeNoEresAnfitrion" xml:space="preserve">
+    <value>No puedes iniciar la partida, ya que no eres su anfitrión</value>
+  </data>
+  <data name="AsuntoNuevaContrasenia" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="CuerpoContrasenia" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="MensajeCuentaEnUso" xml:space="preserve">
+    <value>La cuenta con la que intentas acceder esta en uso.</value>
+  </data>
+  <data name="MensajeCatalogosFaltantes" xml:space="preserve">
+    <value>No se han encontrado los catálogos necesarios para completar esta operación, inténtelo más tarde.</value>
+  </data>
+  <data name="MensajePartidaConLimiteJugadores" xml:space="preserve">
+    <value>La partida ha llegado al límite de jugadores, juega otra partida.</value>
+  </data>
+  <data name="MensajeExpulsionJugador" xml:space="preserve">
+    <value>¿Desesas expulsar al jugador de la partida?</value>
+  </data>
+  <data name="MensajeErrorTiempoTerminado" xml:space="preserve">
+    <value>El tiempo de espera ha terminado. Verifique la conexión con el servidor.</value>
+  </data>
+  <data name="MensajeErrorComunicacion" xml:space="preserve">
+    <value>Ha ocurrido un error de comunicación con el servidor. Verifique la conexión con el servidor.</value>
   </data>
 </root>

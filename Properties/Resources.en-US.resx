@@ -153,8 +153,17 @@
   <data name="Title_Registro" xml:space="preserve">
     <value>Sing in</value>
   </data>
+  <data name="Lbl_Nombre" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Lbl_Apellidos" xml:space="preserve">
+    <value>Lastnames</value>
+  </data>
   <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="Txbl_PoliticaContraseña" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
   </data>
   <data name="Btn_Registrarme" xml:space="preserve">
     <value>Register</value>
@@ -170,6 +179,9 @@
   </data>
   <data name="Lbl_NombreUsuarioPerfil" xml:space="preserve">
     <value>Username</value>
+  </data>
+  <data name="Btn_CambiarContrasenia" xml:space="preserve">
+    <value>Change password</value>
   </data>
   <data name="Btn_GuardarCambios" xml:space="preserve">
     <value>Save changes</value>
@@ -214,7 +226,7 @@
     <value>Please check that the information in the fields is correct. </value>
   </data>
   <data name="MensajeErrorConexion" xml:space="preserve">
-    <value>There is no network connection. Please try again later. </value>
+    <value>The connection to the server could not be made. Please check the connection to the server and try again.</value>
   </data>
   <data name="Lbl_MensajeEnvioContrasena" xml:space="preserve">
     <value>A new password will be sent to the registered email. </value>
@@ -398,7 +410,31 @@ The changes will be applied when the game is restarted</value>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Has been connected</value>
   </data>
-  <data name="Btn_CambiarContrasenia" xml:space="preserve">
-    <value>Change password</value>
+  <data name="MensajeNoEresAnfitrion" xml:space="preserve">
+    <value>You cannot start the game because you are not the host.</value>
+  </data>
+  <data name="AsuntoNuevaContrasenia" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="CuerpoContrasenia" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="MensajeCuentaEnUso" xml:space="preserve">
+    <value>The account you are trying to access is in use.</value>
+  </data>
+  <data name="MensajeCatalogosFaltantes" xml:space="preserve">
+    <value>The catalogs required to complete this operation were not found, please try again later.</value>
+  </data>
+  <data name="MensajePartidaConLimiteJugadores" xml:space="preserve">
+    <value>The game has reached the player limit, please play another game.</value>
+  </data>
+  <data name="MensajeExpulsionJugador" xml:space="preserve">
+    <value>Do you want to kick the player from the game?</value>
+  </data>
+  <data name="MensajeErrorTiempoTerminado" xml:space="preserve">
+    <value>The timeout has expired. Please check the connection to the server.</value>
+  </data>
+  <data name="MensajeErrorComunicacion" xml:space="preserve">
+    <value>A communication error has occurred with the server. Please check the connection to the server.</value>
   </data>
 </root>
