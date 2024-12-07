@@ -18,10 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaEstadisticas.xaml
-    /// </summary>
+{    
     public partial class VentanaEstadisticas : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -32,9 +29,10 @@ namespace Cliente.Vistas
             ObtenerEstadisticas();
         }
 
-        private void RegresarClick(object sender, RoutedEventArgs e)
+        private void RegresarClick(object remitente, RoutedEventArgs argumentos)
         {
-            NavigationService.GoBack();
+            VentanaMenuPrincipal paginaMenuPrincipal= new VentanaMenuPrincipal();
+            this.NavigationService.Navigate(paginaMenuPrincipal);
         }
 
         private void ObtenerEstadisticas() 
@@ -55,7 +53,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
@@ -68,11 +76,42 @@ namespace Cliente.Vistas
             Txbl_Puntaje.Text = estadistica.Puntaje.ToString();
         }
 
-        private void LogrosClick(object sender, RoutedEventArgs e)
+        private void LogrosClick(object remitente, RoutedEventArgs argumentos)
         {
-            VentanaLogros paginaLogros = new VentanaLogros();
-            this.NavigationService.Navigate(paginaLogros);
+            try 
+            {
+                ServicioGestionLogrosClient servicioGestionLogros=new ServicioGestionLogrosClient();
+                int resultadoVerificacion=servicioGestionLogros.VerificarCatalogoDeLogros();
+                switch (resultadoVerificacion) 
+                {
+                    case 0:
+                        MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCatalogosFaltantes);
+                        break;
+                    case 1:
+                        VentanaLogros paginaLogros = new VentanaLogros();
+                        this.NavigationService.Navigate(paginaLogros);
+                        break;
+                    default:
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                    break;
+                }
 
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
         }
     }
 }

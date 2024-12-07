@@ -19,10 +19,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaCambioContrasenia.xaml
-    /// </summary>
+{    
     public partial class VentanaCambioContrasenia : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -45,17 +42,17 @@ namespace Cliente.Vistas
             {
                 try
                 {
-                    ServidorPassword.ServicioGestionAccesoClient proxyServicioAcceso = new ServidorPassword.ServicioGestionAccesoClient();
+                    ServicioGestionAccesoClient proxyServicioAcceso = new ServicioGestionAccesoClient();
                     Acceso acceso = ObtenerAcceso();
                     int validacionContrasenia = proxyServicioAcceso.ValidarInicioDeSesion(acceso);
                     if (validacionContrasenia == 1)
                     {
-                        ServidorPassword.ServicioPersonalizacionPerfilClient proxyPersonalizacionPerfil = new ServidorPassword.ServicioPersonalizacionPerfilClient();
-                        int resultadoActualizacion = proxyPersonalizacionPerfil.EditarContraseniaPorIdAcceso(JugadorSingleton.IdAcceso, Txb_NuevaContrasenia.Text);
+                        ServicioPersonalizacionPerfilClient proxyPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
+                        int resultadoActualizacion = proxyPersonalizacionPerfil.EditarContraseniaPorIdAcceso(JugadorSingleton.IdAcceso, EncriptadorContrasenia.EncriptarContrasenia(Txb_NuevaContrasenia.Text));
                         if (resultadoActualizacion >=0)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
-                            JugadorSingleton.Contrasenia = EncriptarContrasenia(Txb_NuevaContrasenia.Text);
+                            JugadorSingleton.Contrasenia = EncriptadorContrasenia.EncriptarContrasenia(Txb_NuevaContrasenia.Text);
                             VentanaPersonalizarPerfil paginaPersonalizarPerfil = new VentanaPersonalizarPerfil();
                             this.NavigationService.Navigate(paginaPersonalizarPerfil);
                         }
@@ -69,11 +66,21 @@ namespace Cliente.Vistas
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
                     }
                 }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-                }                
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
             }
             else 
             {
@@ -87,28 +94,26 @@ namespace Cliente.Vistas
             Acceso acceso = new Acceso
             {
                 correo=JugadorSingleton.Correo,
-                contrasenia=Txb_ContraseniaActual.Text,
+                contrasenia=EncriptadorContrasenia.EncriptarContrasenia(Txb_ContraseniaActual.Text),
             };
             return acceso;
         }
 
         private bool ValidarCampos() 
-        {
-            ValidacionAcceso validacionAcceso=new ValidacionAcceso();
-            bool validacionContraseniaActual=validacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text);
-            bool validacionContraseniaNueva=validacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text);
+        {            
+            bool validacionContraseniaActual=ValidacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text);
+            bool validacionContraseniaNueva=ValidacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text);
             return validacionContraseniaActual && validacionContraseniaNueva;
         }
 
         private void MostrarErrores() 
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            if (!validacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text)) 
+        {            
+            if (!ValidacionAcceso.ValidarContrasenia(Txb_ContraseniaActual.Text)) 
             {
                 Txb_ContraseniaActual.BorderBrush = Brushes.Red;
                 Txb_ContraseniaActual.BorderThickness = new Thickness(2);
             }
-            if (!validacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text)) 
+            if (!ValidacionAcceso.ValidarContrasenia(Txb_NuevaContrasenia.Text)) 
             {
                 Txb_NuevaContrasenia.BorderBrush = Brushes.Red;
                 Txb_NuevaContrasenia.BorderThickness = new Thickness(2);
@@ -122,17 +127,6 @@ namespace Cliente.Vistas
             Txb_NuevaContrasenia.BorderBrush = Brushes.Transparent;
             Txb_NuevaContrasenia.BorderThickness = new Thickness(1);
         }
-
-        private string EncriptarContrasenia(string contrasenia)
-        {
-            var sha256 = SHA256.Create();
-            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(contrasenia));
-            var constructorCadena = new StringBuilder();
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                constructorCadena.Append(bytes[i].ToString("x2"));
-            }
-            return constructorCadena.ToString();
-        }
+        
     }
 }

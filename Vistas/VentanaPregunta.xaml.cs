@@ -1,4 +1,5 @@
 ﻿using Cliente.Auxiliares;
+using Cliente.Enums;
 using Cliente.ServidorPassword;
 using log4net;
 using System;
@@ -21,16 +22,13 @@ using System.Windows.Threading;
 
 
 namespace Cliente.Vistas
-{
-
-    /// <summary>
-    /// Lógica de interacción para VentanaPregunta.xaml
-    /// </summary>
+{    
     public partial class VentanaPregunta : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private int _numeroPreguntaActual = 1;        
-        private int _tiempoRestante;        
+        private int _tiempoRestante;
+        private int _tiempoSinModificar;
         private int _totalPreguntas;
         private DispatcherTimer _temporizadorDespachador;
         private List<PreguntaContrato> _preguntas;
@@ -54,6 +52,7 @@ namespace Cliente.Vistas
         public void ConfigurarPartida(int tiempoRestante,int totalPreguntas,string codigoPartida) 
         {           
             _tiempoRestante = tiempoRestante;
+            _tiempoSinModificar = _tiempoRestante;
             _totalPreguntas = totalPreguntas;                                                
             Txbl_NumeroPreguntaTotal.Text = _totalPreguntas.ToString();
             Txbl_NumeroPreguntaActual.Text = _numeroPreguntaActual.ToString();
@@ -71,7 +70,7 @@ namespace Cliente.Vistas
         private void DisminuirTiempo(object sender, EventArgs e)
         {
             _tiempoRestante--;
-            Txbl_Cronometro.Text = _tiempoRestante.ToString();            
+            Txbl_Cronometro.Text = _tiempoRestante.ToString();
             if (_tiempoRestante == 0)
             {
                 _temporizadorDespachador.Stop();
@@ -92,7 +91,8 @@ namespace Cliente.Vistas
             Txbl_Respuesta2.Text = respuestasAlAzar[1];
             Txbl_Respuesta3.Text = respuestasAlAzar[2];
             Txbl_Respuesta4.Text = respuestasAlAzar[3];
-            _tiempoRestante = 10;            
+            _tiempoRestante = _tiempoSinModificar;
+            Txbl_Cronometro.Text = _tiempoRestante.ToString();
         }
 
         private List<string> ObtenerRespuestasDePreguntaActual(int idPregunta) 
@@ -108,7 +108,7 @@ namespace Cliente.Vistas
             return respuestas;
         }
 
-        private List<string> ObtenerRespuestasAlAzar(List<string> respuestasActuales) 
+        private static List<string> ObtenerRespuestasAlAzar(List<string> respuestasActuales) 
         {
             Random aleatorio=new Random();
             return respuestasActuales.OrderBy(x=>aleatorio.Next()).ToList();
@@ -126,7 +126,9 @@ namespace Cliente.Vistas
             }
             else
             {
-                string ganador=DeterminarGanador();               
+                string ganador=DeterminarGanador();
+                AsignarEstadisticas();
+                AsignarLogros();                
                 VentanaPartidaFinalizada paginaPartidaFinalizada=new VentanaPartidaFinalizada();
                 paginaPartidaFinalizada.Lbl_NombreUsuario.Content = ganador;
                 this.NavigationService.Navigate(paginaPartidaFinalizada);                
@@ -144,7 +146,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
             return ganador;
         }
@@ -159,83 +171,35 @@ namespace Cliente.Vistas
 
         private void RevisarRespuesta1(object sender, RoutedEventArgs e)
         {
-            DesactivarBotones();
-            int puntaje = ObtenerCantidadPuntaje();
-            int numeroPregunta = _numeroPreguntaActual - 1;            
-            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta1.Text == respuestaCorrecta)
-            {
-                DeterminarPuntaje();                
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
-            }
-            else 
-            {
-                if (puntaje >= 10) 
-                {
-                    RestarPuntaje();
-                    puntaje -= 10;
-                }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+            RevisarRespuesta(Txbl_Respuesta1.Text);
         }        
 
         private void RevisarRespuesta2(object sender, RoutedEventArgs e)
         {
-            DesactivarBotones();
-            int puntaje = ObtenerCantidadPuntaje();
-            int numeroPregunta = _numeroPreguntaActual - 1;
-            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta2.Text == respuestaCorrecta)
-            {
-                DeterminarPuntaje();
-                puntaje = ObtenerCantidadPuntaje();
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
-            }
-            else
-            {
-                if (puntaje >= 10)
-                {
-                    RestarPuntaje();
-                    puntaje -= 10;
-                }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+            RevisarRespuesta(Txbl_Respuesta2.Text);
         }
 
         private void RevisarRespuesta3(object sender, RoutedEventArgs e)
         {
-            DesactivarBotones();
-            int puntaje = ObtenerCantidadPuntaje();
-            int numeroPregunta = _numeroPreguntaActual - 1;
-            string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta3.Text == respuestaCorrecta)
-            {
-                DeterminarPuntaje();
-                puntaje = ObtenerCantidadPuntaje();
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
-            }
-            else
-            {
-                if (puntaje >= 10)
-                {
-                    RestarPuntaje();
-                    puntaje -= 10;
-                }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+            RevisarRespuesta(Txbl_Respuesta3.Text);
         }
 
         private void RevisarRespuesta4(object sender, RoutedEventArgs e)
+        {
+            RevisarRespuesta(Txbl_Respuesta4.Text);            
+        }
+
+        private void RevisarRespuesta(string respuestaSeleccionada) 
         {
             DesactivarBotones();
             int puntaje = ObtenerCantidadPuntaje();
             int numeroPregunta = _numeroPreguntaActual - 1;
             string respuestaCorrecta = _preguntasSinModificar[numeroPregunta].RespuestaCorrecta;
-            if (Txbl_Respuesta4.Text == respuestaCorrecta)
+            if (respuestaSeleccionada == respuestaCorrecta)
             {
                 DeterminarPuntaje();
-                puntaje = ObtenerCantidadPuntaje();
-                MessageBox.Show($"Correcto. Puntaje obtenido: {puntaje}");
+                puntaje = ObtenerCantidadPuntaje();                
+                Txbl_Puntaje.Text=($"Correcto. Puntaje: {puntaje}");
             }
             else
             {
@@ -244,10 +208,9 @@ namespace Cliente.Vistas
                     RestarPuntaje();
                     puntaje -= 10;
                 }
-                MessageBox.Show($"Incorrecto. Puntaje obtenido: {puntaje}");
-            }            
+                Txbl_Puntaje.Text = ($"Incorrecto. Puntaje: {puntaje}");
+            }                       
         }
-
 
         private void DeterminarPuntaje() 
         {
@@ -259,7 +222,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
@@ -273,7 +246,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
@@ -288,7 +271,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
             return puntaje;
         }
@@ -306,6 +299,307 @@ namespace Cliente.Vistas
             Btn_Respuesta2.IsHitTestVisible = true;
             Btn_Respuesta3.IsHitTestVisible = true;
             Btn_Respuesta4.IsHitTestVisible = true;
+        }
+
+        private bool ValidarJugadorRegistrado() 
+        {
+            return JugadorSingleton.IdJugador > ValoresConstantes.IdJugadorInvitado;
+        }
+
+        private void AsignarEstadisticas() 
+        {
+            if (ValidarJugadorRegistrado()) 
+            {
+                SumarPuntaje();
+                AumentarNumeroPartidas();
+            }
+        }
+
+        private void SumarPuntaje() 
+        {
+            int puntaje = ObtenerCantidadPuntaje();
+            if (puntaje > 0) 
+            {
+                try
+                {
+                    ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
+                    servicioGestionEstadisticas.SumarPuntajePorIdEstadistica(JugadorSingleton.IdEstadistica, puntaje);
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
+            }            
+        }
+
+        private void AumentarNumeroPartidas() 
+        {
+            if (DeterminarGanador() == JugadorSingleton.NombreUsuario)
+            {
+                try
+                {
+                    ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
+                    servicioGestionEstadisticas.AumentarPartidasGanadasPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
+            }
+            else 
+            {
+                try
+                {
+                    ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
+                    servicioGestionEstadisticas.AumentarPartidasPerdidasPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
+            }
+
+        }
+
+        private void AsignarLogros() 
+        {
+            if (ValidarJugadorRegistrado())
+            {
+                AsignarPrimerLogro();
+                AsignarSegundoLogro();
+                AsignarTercerLogro();
+                AsignarCuartoLogro();
+                AsignarQuintoLogro();
+            }            
+        }
+
+        private void AsignarPrimerLogro() 
+        {
+            try 
+            {
+                ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                int verificacionPrimerLogro=servicioGestionLogros.VerificarPrimerLogroPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                if (verificacionPrimerLogro == 1)
+                {
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdPrimerLogro);
+                    if (verificacionRegistro == 0) 
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdPrimerLogro);
+                    }                    
+                }
+                else if (verificacionPrimerLogro == -1) 
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+        }
+
+        private void AsignarSegundoLogro() 
+        {
+            try
+            {
+                ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                int verificacionSegundoLogro = servicioGestionLogros.VerificarSegundoLogroPorIdEstadistica(JugadorSingleton.IdEstadistica);
+                if (verificacionSegundoLogro == 1)
+                {
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdSegundoLogro);
+                    if (verificacionRegistro == 0)
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdSegundoLogro);
+                    }
+                }
+                else if (verificacionSegundoLogro == -1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+        }
+
+        private void AsignarTercerLogro() 
+        {            
+            if (ObtenerCantidadPuntaje() >= ValoresConstantes.PuntajeTecerLogro) 
+            {
+                try
+                {
+                    ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdTercerLogro);
+                    if (verificacionRegistro == 0)
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdTercerLogro);
+                    }                    
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
+            }
+        }
+
+        private void AsignarCuartoLogro() 
+        {            
+            if (DeterminarGanador() == JugadorSingleton.NombreUsuario)
+            {
+                PartidaContrato partida = ObtenerPartida();
+                if (partida.ModoJuego == Enumeracion.EnumModoJuegoPartida.Dificil.ToString())
+                {
+                    try
+                    {
+                        ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                        int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdCuartoLogro);
+                        if (verificacionRegistro == 0)
+                        {
+                            servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdCuartoLogro);
+                        }
+                    }
+                    catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                    }
+                    catch (TimeoutException excepcionTiempoEspera)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                        _bitacora.Warn(excepcionTiempoEspera);
+                    }
+                    catch (CommunicationException excepcionComunicacion)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                        _bitacora.Error(excepcionComunicacion);
+                    }
+                }
+            }
+            
+        }
+
+        private PartidaContrato ObtenerPartida() 
+        {
+            PartidaContrato partidaRecuperada=new PartidaContrato();
+            try 
+            {
+                ServicioGestionPartidaClient servicioGestionPartida=new ServicioGestionPartidaClient();
+                partidaRecuperada=servicioGestionPartida.RecuperarPartidaPorCodigo(_codigoPartida);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+            return partidaRecuperada;
+        }
+
+        private void AsignarQuintoLogro() 
+        {
+            if (ObtenerCantidadPuntaje() >= ValoresConstantes.PuntajeQuintoLogro)
+            {
+                try
+                {
+                    ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
+                    int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdQuintoLogro);
+                    if (verificacionRegistro == 0)
+                    {
+                        servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdQuintoLogro);
+                    }
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
+            }
         }
     }
 }

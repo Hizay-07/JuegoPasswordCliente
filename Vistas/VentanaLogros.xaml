@@ -85,7 +85,7 @@
                    VerticalAlignment="Top"
                    Margin="140,358,0,0" Width="545" Height="54" Grid.ColumnSpan="3" />
 
-                <Image x:Name="bloqueado1"  
+                <Image x:Name="Img_LogroUno"  
                    Source="/Imagenes/Iconos/bloqueado.png"
                    Width="104" Height="68"
                    HorizontalAlignment="Left"
@@ -94,7 +94,7 @@
                    RenderTransformOrigin="-0.261,0.553"
                    Panel.ZIndex="1" Grid.Column="2"/>
 
-                <Image x:Name="bloqueado2"  
+                <Image x:Name="Img_LogroDos"  
                    Source="/Imagenes/Iconos/bloqueado.png"
                    Width="90" Height="67"
                    HorizontalAlignment="Left"
@@ -103,7 +103,7 @@
                    RenderTransformOrigin="0.5,0.5"
                    Panel.ZIndex="1" Grid.Column="2"/>
 
-                <Image x:Name="bloqueado3"  
+                <Image x:Name="Img_LogroTres"  
                    Source="/Imagenes/Iconos/bloqueado.png"
                    Width="65" Height="68"
                    HorizontalAlignment="Left"
@@ -112,7 +112,7 @@
                    RenderTransformOrigin="0.5,0.5"
                    Panel.ZIndex="1" Grid.Column="2"/>
 
-                <Image x:Name="bloqueado4"  
+                <Image x:Name="Img_LogroCuatro"  
                        Source="/Imagenes/Iconos/bloqueado.png"
                        Width="85" Height="68"
                        HorizontalAlignment="Left"
@@ -121,7 +121,7 @@
                        RenderTransformOrigin="0.5,0.5"
                        Panel.ZIndex="1" Grid.Column="2"/>
 
-                <Image x:Name="bloqueado5"  
+                <Image x:Name="Img_LogroCinco"  
                        Source="/Imagenes/Iconos/bloqueado.png"
                        Width="90" Height="64"
                        HorizontalAlignment="Left"

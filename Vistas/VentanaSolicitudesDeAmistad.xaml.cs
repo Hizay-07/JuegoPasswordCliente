@@ -19,10 +19,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaSolicitudesDeAmistad.xaml
-    /// </summary>
+{    
     public partial class VentanaSolicitudesDeAmistad : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -37,11 +34,11 @@ namespace Cliente.Vistas
         {
             try
             {
-                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
+                ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
                 List<int> amistades = proxy.ConsultarSolicitudesAmistadPorIdJugador(JugadorSingleton.IdJugador).ToList();
                 if (amistades.Count > 0)
                 {
-                    int amistad = amistades.First();
+                    int amistad = amistades[0];
                     if (amistad != -1)
                     {
                         RecuperarJugadores(amistades);
@@ -59,7 +56,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
@@ -67,21 +74,31 @@ namespace Cliente.Vistas
         {
             try
             {
-                ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                List<string> nombresUsuario = proxy.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                List<string> nombresUsuario = servicioGestionAmistad.ObtenerNombresDeUsuarioPorIdJugadores(amistades.ToArray()).ToList();
                 AsignarNombresUsuario(nombresUsuario,amistades);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
         private void AsignarNombresUsuario(List<string> nombresUsuario,List<int> idJugadores)
         {
-            string primerNombreUsuario = nombresUsuario.First();
-            if (primerNombreUsuario != "excepcion")
+            string primerNombreUsuario = nombresUsuario[0];
+            if (primerNombreUsuario != ValoresConstantes.ValorExcepcion)
             {
                 List<JugadorAmistad> amistades=CombinarListas(idJugadores, nombresUsuario);
                 ListaSolicitudes.ItemsSource = amistades;                
@@ -98,18 +115,28 @@ namespace Cliente.Vistas
             this.NavigationService.Navigate(paginaMenuPrincipal);
         }
 
-        private int ObtenerIdAmidstadPorIdJugadores(int idJugadorDestinatario)
+        private static int ObtenerIdAmidstadPorIdJugadores(int idJugadorDestinatario)
         {
             int idAmistad = 0;
             try
             {
-                ServidorPassword.ServicioGestionAmistadClient proxy=new ServidorPassword.ServicioGestionAmistadClient();
-                idAmistad=proxy.RecuperarIdAmistadPorIdJugadores(idJugadorDestinatario, JugadorSingleton.IdJugador);
+                ServicioGestionAmistadClient servicioGestionAmistad=new ServicioGestionAmistadClient();
+                idAmistad= servicioGestionAmistad.RecuperarIdAmistadPorIdJugadores(idJugadorDestinatario, JugadorSingleton.IdJugador);
             }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
             return idAmistad;
         }
@@ -126,8 +153,8 @@ namespace Cliente.Vistas
                     amistad.idAmistad=idAmistad;
                     try
                     {
-                        ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                        int resultadoRegistro = proxy.ResponderSolicitudAmistad(amistad);
+                        ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                        int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
                         if (resultadoRegistro == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
@@ -142,7 +169,17 @@ namespace Cliente.Vistas
                     catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                        _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                    }
+                    catch (TimeoutException excepcionTiempoEspera)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                        _bitacora.Warn(excepcionTiempoEspera);
+                    }
+                    catch (CommunicationException excepcionComunicacion)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                        _bitacora.Error(excepcionComunicacion);
                     }
                 }
                 else 
@@ -164,8 +201,8 @@ namespace Cliente.Vistas
                     amistad.idAmistad = idAmistad;
                     try
                     {
-                        ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                        int resultadoRegistro = proxy.ResponderSolicitudAmistad(amistad);
+                        ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                        int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
                         if (resultadoRegistro == 1)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
@@ -180,7 +217,17 @@ namespace Cliente.Vistas
                     catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                        _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                    }
+                    catch (TimeoutException excepcionTiempoEspera)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                        _bitacora.Warn(excepcionTiempoEspera);
+                    }
+                    catch (CommunicationException excepcionComunicacion)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                        _bitacora.Error(excepcionComunicacion);
                     }
                 }
                 else

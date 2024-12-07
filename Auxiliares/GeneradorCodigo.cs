@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace Cliente.Auxiliares
 {
-    public class GeneradorCodigo
-    {       
-        public string GenerarCodigoPartida() 
+    public static class GeneradorCodigo
+    {
+        private static Random _aleatorio = new Random();
+
+        public static string GenerarCodigoPartida() 
         {
-            Random _aleatorio = new Random();
-            string codigoPartida=string.Empty;            
+            StringBuilder codigoPartida = new StringBuilder();
             for (int i = 0; i < 8; i++)
             {
-                codigoPartida += _aleatorio.Next(0, 10).ToString();
+                codigoPartida.Append(_aleatorio.Next(0, 10).ToString());
             }
-            return codigoPartida;
+            return codigoPartida.ToString();
         }
     }
 }

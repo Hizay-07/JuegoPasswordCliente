@@ -18,10 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaAgregarAmigo.xaml
-    /// </summary>
+{    
     public partial class VentanaAgregarAmigo : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -42,23 +39,14 @@ namespace Cliente.Vistas
             {
                 try
                 {
-                    ServidorPassword.ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
-                    int idJugador = proxy.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
+                    ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                    int idJugador = servicioGestionAmistad.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
                     if (idJugador > 0)
                     {
-                        int validacionExistenciaAmistad = proxy.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
+                        int validacionExistenciaAmistad = servicioGestionAmistad.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
                         if (validacionExistenciaAmistad == 0)
                         {
-                            Amistad amistad = ObtenerAmistad(idJugador);
-                            int resultadoRegistroAmistad = proxy.RegistrarAmistad(amistad);
-                            if (resultadoRegistroAmistad == 1)
-                            {
-                                MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
-                            }
-                            else
-                            {
-                                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                            }
+                            RegistrarAmistad(idJugador);   
                         }
                         else if (validacionExistenciaAmistad == 1) 
                         {
@@ -79,15 +67,58 @@ namespace Cliente.Vistas
                     }
 
                 }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
                 }
             }
             else 
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
+            }
+        }
+
+        private void RegistrarAmistad(int idJugador) 
+        {
+            Amistad amistad = ObtenerAmistad(idJugador);
+            try 
+            {
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                int resultadoRegistroAmistad = servicioGestionAmistad.RegistrarAmistad(amistad);
+                if (resultadoRegistroAmistad == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
@@ -103,9 +134,8 @@ namespace Cliente.Vistas
         }
 
         private bool ValidarCorreo() 
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            return validacionAcceso.ValidarCorreo(Txb_Correo.Text);
+        {            
+            return ValidacionAcceso.ValidarCorreo(Txb_Correo.Text);
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Cliente.Vistas
 
         private void RegresarVentana(object sender, RoutedEventArgs e)
         {
-            if (JugadorSingleton.IdJugador > 0)
+            if (ValidarJugadorRegistrado())
             {
                 VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
                 this.NavigationService.Navigate(paginaMenuPrincipal);
@@ -25,6 +25,11 @@ namespace Cliente.Vistas
                 VentanaInicio paginaInicio=new VentanaInicio();
                 this.NavigationService.Navigate(paginaInicio);
             }
+        }
+
+        private bool ValidarJugadorRegistrado()
+        {
+            return JugadorSingleton.IdJugador > ValoresConstantes.IdJugadorInvitado;
         }
     }
 }

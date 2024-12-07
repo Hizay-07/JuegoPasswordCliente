@@ -18,10 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para InicioSesion.xaml
-    /// </summary>
+{    
     public partial class VentanaInicioSesion : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -81,14 +78,13 @@ namespace Cliente.Vistas
         }
 
         private void MarcarErrores() 
-        {
-            ValidacionAcceso validacionAcceso = new ValidacionAcceso();
-            if (!validacionAcceso.ValidarCorreo(Txb_Correo.Text))
+        {            
+            if (!ValidacionAcceso.ValidarCorreo(Txb_Correo.Text))
             {
                 Txb_Correo.BorderBrush = Brushes.Red;
                 Txb_Correo.BorderThickness = new Thickness(2);
             }
-            if (!validacionAcceso.ValidarContrasenia(Pwd_Contrasenia.Password))
+            if (!ValidacionAcceso.ValidarContrasenia(Pwd_Contrasenia.Password))
             {
                 Pwd_Contrasenia.BorderBrush = Brushes.Red;
                 Pwd_Contrasenia.BorderThickness = new Thickness(2);
@@ -111,8 +107,10 @@ namespace Cliente.Vistas
                 Acceso acceso = ObtenerAcceso();
                 try
                 {
-                    ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
-                    int resultado = proxy.ValidarInicioDeSesion(acceso);
+                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                    string contraseniaEncriptada = EncriptadorContrasenia.EncriptarContrasenia(acceso.contrasenia);
+                    acceso.contrasenia= contraseniaEncriptada;
+                    int resultado = servicioGestionAcceso.ValidarInicioDeSesion(acceso);
                     if (resultado == 1)
                     {
                         ObtenerJugadorSingleton(acceso.correo);
@@ -131,15 +129,25 @@ namespace Cliente.Vistas
                 catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
-                }                
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                }
             }                                  
         }
 
         private void ObtenerJugadorSingleton(string correo)
         {
-            ServidorPassword.ServicioGestionAccesoClient proxy = new ServidorPassword.ServicioGestionAccesoClient();
-            ServidorPassword.Cuenta cuenta = proxy.RecuperarCuentaPorCorreo(correo);
+            ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+            Cuenta cuenta = servicioGestionAcceso.RecuperarCuentaPorCorreo(correo);
             JugadorSingleton.jugadorSingleton.CrearJugadorSingleton(cuenta);
         }
 
@@ -156,15 +164,24 @@ namespace Cliente.Vistas
                 }
                 else 
                 {
-                    MessageBox.Show("Ya estas jugando");
+                    MessageBox.Show(Properties.Resources.MensajeCuentaEnUso);
                 }
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
             }
-            
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
         }
 
         private void MostrarOcultarContrasena(object sender, RoutedEventArgs e)
@@ -188,7 +205,6 @@ namespace Cliente.Vistas
         private void Pwd_Contrasenia_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (_sincronizando) return;
-
             _sincronizando = true;
             Txt_ContraseniaVisible.Text = Pwd_Contrasenia.Password;
             _sincronizando = false;
@@ -197,15 +213,9 @@ namespace Cliente.Vistas
         private void Txt_ContraseniaVisible_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (_sincronizando) return;
-
             _sincronizando = true;
             Pwd_Contrasenia.Password = Txt_ContraseniaVisible.Text;
             _sincronizando = false;
         }
-
-
-
-
-
     }
 }

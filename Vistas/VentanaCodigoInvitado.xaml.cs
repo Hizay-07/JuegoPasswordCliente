@@ -19,10 +19,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaCodigoInvitado.xaml
-    /// </summary>
+{    
     public partial class VentanaCodigoInvitado : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -38,7 +35,14 @@ namespace Cliente.Vistas
             {
                 if (ValidarEstadoPartida())
                 {
-                    CargarDatosPartida();
+                    if (ValidarNumeroJugadores())
+                    {
+                        CargarDatosPartida();
+                    }
+                    else 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajePartidaConLimiteJugadores);
+                    }
                 }
                 else
                 {
@@ -51,6 +55,32 @@ namespace Cliente.Vistas
         private void RegresarInicio(object remitente, RoutedEventArgs argumento)
         {
             NavigationService.GoBack();
+        }
+
+        private bool ValidarNumeroJugadores() 
+        {
+            bool validacionJugadores = false;
+            try 
+            {
+                ServicioJugadoresClient servicioJugadores = new ServicioJugadoresClient();
+                validacionJugadores = servicioJugadores.ValidarNumeroJugadoresEnPartida(Txb_CodigoPartida.Text);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+            return validacionJugadores;
         }
 
         private bool ValidarCodigoPartida()
@@ -76,7 +106,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
             return validacion;
         }
@@ -88,18 +128,25 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
                 var partida = servicioGestionPartida.RecuperarPartidaPorCodigo(Txb_CodigoPartida.Text);
-                if (partida.IdPartida > 0)
+                if (partida.IdPartida > 0 && partida.EstadoPartida == Enumeracion.EnumEstadoPartida.Iniciada.ToString())
                 {
-                    if (partida.EstadoPartida == Enumeracion.EnumEstadoPartida.Iniciada.ToString())
-                    {
-                        validacionEstadoPartida = true;
-                    }
+                    validacionEstadoPartida = true;                    
                 }
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
             return validacionEstadoPartida;
         }
@@ -118,14 +165,24 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
         private void AbrirSalaDeEspera()
         {
             InicializarJugador();
-            VentanaLobby paginaSalaEspera = new VentanaLobby();
+            VentanaSalaEspera paginaSalaEspera = new VentanaSalaEspera();
             paginaSalaEspera.Txbl_CodigoPartida.Text = Txb_CodigoPartida.Text;
             paginaSalaEspera.Stpl_Amigos.Visibility = Visibility.Hidden;
             paginaSalaEspera.ConfigurarJugadores();
@@ -136,9 +193,9 @@ namespace Cliente.Vistas
 
         private void InicializarJugador() 
         {
-            JugadorSingleton.IdJugador = 0;
+            JugadorSingleton.IdJugador = ValoresConstantes.IdJugadorInvitado;
             JugadorSingleton.NombreUsuario=GenerarNombreUsuarioAleatorio();
-            JugadorSingleton.RutaImagen = "pack://application:,,,/Imagenes/Fondos/perfil1.png";
+            JugadorSingleton.RutaImagen = ValoresConstantes.RutaImagenJugadorPorDefecto;
         }
 
         private string GenerarNombreUsuarioAleatorio() 
@@ -148,8 +205,5 @@ namespace Cliente.Vistas
             string nombreUsuario = "Invitado" + numeroUsuarioAleatorio;
             return nombreUsuario;
         }
-
-
-
     }
 }
