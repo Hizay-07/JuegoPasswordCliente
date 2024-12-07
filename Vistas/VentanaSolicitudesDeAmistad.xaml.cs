@@ -19,10 +19,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaSolicitudesDeAmistad.xaml
-    /// </summary>
+{    
     public partial class VentanaSolicitudesDeAmistad : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -59,7 +56,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
@@ -74,14 +81,24 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
         private void AsignarNombresUsuario(List<string> nombresUsuario,List<int> idJugadores)
         {
             string primerNombreUsuario = nombresUsuario[0];
-            if (primerNombreUsuario != "excepcion")
+            if (primerNombreUsuario != ValoresConstantes.ValorExcepcion)
             {
                 List<JugadorAmistad> amistades=CombinarListas(idJugadores, nombresUsuario);
                 ListaSolicitudes.ItemsSource = amistades;                
@@ -106,10 +123,20 @@ namespace Cliente.Vistas
                 ServicioGestionAmistadClient servicioGestionAmistad=new ServicioGestionAmistadClient();
                 idAmistad= servicioGestionAmistad.RecuperarIdAmistadPorIdJugadores(idJugadorDestinatario, JugadorSingleton.IdJugador);
             }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado) 
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
             return idAmistad;
         }
@@ -142,7 +169,17 @@ namespace Cliente.Vistas
                     catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                        _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                    }
+                    catch (TimeoutException excepcionTiempoEspera)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                        _bitacora.Warn(excepcionTiempoEspera);
+                    }
+                    catch (CommunicationException excepcionComunicacion)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                        _bitacora.Error(excepcionComunicacion);
                     }
                 }
                 else 
@@ -180,7 +217,17 @@ namespace Cliente.Vistas
                     catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                        _bitacora.Warn(excepcionPuntoFinalNoEncontrado);
+                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                    }
+                    catch (TimeoutException excepcionTiempoEspera)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                        _bitacora.Warn(excepcionTiempoEspera);
+                    }
+                    catch (CommunicationException excepcionComunicacion)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                        _bitacora.Error(excepcionComunicacion);
                     }
                 }
                 else

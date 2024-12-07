@@ -720,7 +720,16 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No hay conexión a la red. Por favor, inténtelo más tarde. .
+        ///   Busca una cadena traducida similar a Ha ocurrido un error de comunicación con el servidor. Verifique la conexión con el servidor..
+        /// </summary>
+        public static string MensajeErrorComunicacion {
+            get {
+                return ResourceManager.GetString("MensajeErrorComunicacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La conexión al servidor no se pudo hacer. Verifique la conexión al servidor y vuelva intentarlo..
         /// </summary>
         public static string MensajeErrorConexion {
             get {
@@ -734,6 +743,15 @@ namespace Cliente.Properties {
         public static string MensajeErrorEnvioCorreo {
             get {
                 return ResourceManager.GetString("MensajeErrorEnvioCorreo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El tiempo de espera ha terminado. Verifique la conexión con el servidor..
+        /// </summary>
+        public static string MensajeErrorTiempoTerminado {
+            get {
+                return ResourceManager.GetString("MensajeErrorTiempoTerminado", resourceCulture);
             }
         }
         

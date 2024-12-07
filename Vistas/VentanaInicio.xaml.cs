@@ -3,10 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 namespace Cliente.Vistas
-{
-    /// <summary>
-    /// Lógica de interacción para VentanaInicio.xaml
-    /// </summary>
+{    
     public partial class VentanaInicio : Page
     {
         public VentanaInicio()
