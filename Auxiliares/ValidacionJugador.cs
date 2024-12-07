@@ -13,7 +13,7 @@ namespace Cliente.Auxiliares
     {
         public ValidacionJugador()
         {
-            RuleFor(jugador => jugador.nombreUsuario).NotEmpty().MaximumLength(50).Matches(@"^[^\s]+$");
+            RuleFor(jugador => jugador.nombreUsuario).NotEmpty().MaximumLength(50).Matches(@"^[a-zA-Z0-9]+$");
             RuleFor(jugador => jugador.descripcion).MaximumLength(280);
         }
 
@@ -24,7 +24,7 @@ namespace Cliente.Auxiliares
 
         public static bool ValidarNombreUsuario(string nombreUsuario) 
         {
-            string patronNombreUsuario = @"^[^\s]+$";            
+            string patronNombreUsuario = @"^[a-zA-Z0-9]+$";            
             return !string.IsNullOrEmpty(nombreUsuario) && nombreUsuario.Length <= 50&& Regex.IsMatch(nombreUsuario, patronNombreUsuario);
         }
     }
