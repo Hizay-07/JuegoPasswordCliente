@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Btn_IniciarSesión" xml:space="preserve">
+    <value>Iniciar Sesión</value>
+  </data>
+  <data name="Btn_Invitado" xml:space="preserve">
+    <value>Invitado</value>
+  </data>
+  <data name="Btn_Enviar" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="Btn_AceptarGlobal" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="Btn_CancelarGlobal" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Lbl_CorreoGlobal" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="Lbl_ContraseñaGlobal" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Lbl_TituloJuegoGlobal" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Title_Inicio" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Title_InicioSesion" xml:space="preserve">
+    <value>Inicio Sesion</value>
+  </data>
+  <data name="Btn_OlvideMiContrasena" xml:space="preserve">
+    <value>Olvide Mi Contraseña</value>
+  </data>
+  <data name="Title_Registro" xml:space="preserve">
+    <value>Registro</value>
+  </data>
+  <data name="Lbl_Nombre" xml:space="preserve">
+    <value>Nombre(s)</value>
+  </data>
+  <data name="Lbl_Apellidos" xml:space="preserve">
+    <value>Apellido(s)</value>
+  </data>
+  <data name="Lbl_NombreUsuarioRegistro" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="Txbl_PoliticaContraseña" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
+  </data>
+  <data name="Btn_Registrarme" xml:space="preserve">
+    <value>Registrarme</value>
+  </data>
+  <data name="Title_PersonalizarPerfil" xml:space="preserve">
+    <value>Personalizar perfil</value>
+  </data>
+  <data name="Lbl_PersonalizarPerfil" xml:space="preserve">
+    <value>Personalizar perfil</value>
+  </data>
+  <data name="Lbl_DescripcionPerfil" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Lbl_NombreUsuarioPerfil" xml:space="preserve">
+    <value>Nombre de 
+usuario</value>
+  </data>
+  <data name="Btn_CambiarContrasenia" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="Btn_GuardarCambios" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
+  <data name="Lbl_MensajeContraseñaPerfil" xml:space="preserve">
+    <value>La contraseña ha sido cambiada correctamente</value>
+  </data>
+  <data name="VentanaEmergenteError" xml:space="preserve">
+    <value>Ha ocurrido un error</value>
+  </data>
+  <data name="VentanaEmergenteAdvertencia" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="VentanaEmergenteExito" xml:space="preserve">
+    <value>Éxito</value>
+  </data>
+  <data name="VentanaEmergenteConfirmacion" xml:space="preserve">
+    <value>Confirmación de acción</value>
+  </data>
+  <data name="MensajeCamposRequeridos" xml:space="preserve">
+    <value>Revise que todos los campos solicitados estén llenos. </value>
+  </data>
+  <data name="MensajeCambiosGuardados" xml:space="preserve">
+    <value>Los cambios han sido guardados. </value>
+  </data>
+  <data name="MensajeCorreoRegistrado" xml:space="preserve">
+    <value>El correo elegido ya se encuentra registrado, intente iniciar sesión. </value>
+  </data>
+  <data name="MensajeErrorBaseDeDatos" xml:space="preserve">
+    <value>No hay conexión con la base de datos. Por favor, inténtelo más tarde. </value>
+  </data>
+  <data name="MensajeInformacionInvalida" xml:space="preserve">
+    <value>Revise que la información de los campos sea correcta. </value>
+  </data>
+  <data name="MensajeUsuarioNoDisponible" xml:space="preserve">
+    <value>El nombre de usuario elegido no está disponible, elija otro. </value>
+  </data>
+  <data name="MensajeRegistroExitoso" xml:space="preserve">
+    <value>Su registro ha sido exitoso, ahora puede iniciar sesión con su correo y contraseña elegida.</value>
+  </data>
+  <data name="MensajeCamposIncorrectos" xml:space="preserve">
+    <value>Revise que la información de los campos sea correcta.</value>
+  </data>
+  <data name="MensajeErrorConexion" xml:space="preserve">
+    <value>La conexión al servidor no se pudo hacer. Verifique la conexión al servidor y vuelva intentarlo.</value>
+  </data>
+  <data name="Lbl_MensajeEnvioContrasena" xml:space="preserve">
+    <value>Se le enviará una nueva contraseña al correo que registre.</value>
+  </data>
+  <data name="VentanaEmergenteExpulsion" xml:space="preserve">
+    <value>Se expulsará al juador de la partida</value>
+  </data>
+  <data name="VentanaEmergenteExpulsado" xml:space="preserve">
+    <value>Se expulsó al jugador correctamente</value>
+  </data>
+  <data name="MensajeAmistadAnterior" xml:space="preserve">
+    <value>Ya ha enviado o le han enviado una solicitud de amistad el jugador</value>
+  </data>
+  <data name="MensajeErrorEnvioCorreo" xml:space="preserve">
+    <value>El correo no pudo ser enviado, intentálo más tarde</value>
+  </data>
+  <data name="MensajeSinSolicitudes" xml:space="preserve">
+    <value>Actualmente no tienes solicitudes de amistad</value>
+  </data>
+  <data name="CorreoInvitacionPartida" xml:space="preserve">
+    <value>Has sido invitado a una nueva partida</value>
+  </data>
+  <data name="MensajeCorreoEnviado" xml:space="preserve">
+    <value>El correo ha sido enviado</value>
+  </data>
+  <data name="MensajeCodigoPartidaInexistente" xml:space="preserve">
+    <value>El código proporcionado no pertenece a ninguna partida, asegurese de colocar el código correcto</value>
+  </data>
+  <data name="MensajePartidaNoDisponible" xml:space="preserve">
+    <value>La partida ya no se encuentra disponible</value>
+  </data>
+  <data name="Btn_AgregarAmigo" xml:space="preserve">
+    <value>AgregarAmigo</value>
+  </data>
+  <data name="Btn_RegresarGlobal" xml:space="preserve">
+    <value>Regresar</value>
+  </data>
+  <data name="Lbl_BuscarPorCorreo" xml:space="preserve">
+    <value>Buscar por correo</value>
+  </data>
+  <data name="Tittle_AgregarAmigo" xml:space="preserve">
+    <value>Agregar Amigo</value>
+  </data>
+  <data name="Tittle_Amigos" xml:space="preserve">
+    <value>Amigos</value>
+  </data>
+  <data name="Btn_VerPerfil" xml:space="preserve">
+    <value>Ver perfil</value>
+  </data>
+  <data name="Lbl_ContraseñaActual" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
+  <data name="Lbl_NuevaContrasenia" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="Lbl_CodigoDeSala" xml:space="preserve">
+    <value>Codigo de sala</value>
+  </data>
+  <data name="Tittle_Dificultad" xml:space="preserve">
+    <value>Dificultad</value>
+  </data>
+  <data name="Txbl_Licenciatura" xml:space="preserve">
+    <value>Licenciatura</value>
+  </data>
+  <data name="Txbl_Maestria" xml:space="preserve">
+    <value>Maestria</value>
+  </data>
+  <data name="Txbl_Doctorado" xml:space="preserve">
+    <value>Doctorado</value>
+  </data>
+  <data name="Txbl_Facil" xml:space="preserve">
+    <value>Fácil</value>
+  </data>
+  <data name="Txbl_Medio" xml:space="preserve">
+    <value>Medio</value>
+  </data>
+  <data name="Txbl_Dificil" xml:space="preserve">
+    <value>Dificil</value>
+  </data>
+  <data name="Btn_SalirGlobal" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="Lbl_SeleccionarImagen" xml:space="preserve">
+    <value>Seleccionar Imagen de Jugador</value>
+  </data>
+  <data name="Lbl_Jugadores" xml:space="preserve">
+    <value>Jugadores</value>
+  </data>
+  <data name="Btn_Invitar" xml:space="preserve">
+    <value>Invitar</value>
+  </data>
+  <data name="Btn_ListaDeAmigos" xml:space="preserve">
+    <value>Lista de 
+Amigos</value>
+  </data>
+  <data name="Btn_Unirse" xml:space="preserve">
+    <value>Unirse</value>
+  </data>
+  <data name="Btn_Jugar" xml:space="preserve">
+    <value>Jugar</value>
+  </data>
+  <data name="Btn_Solicitudes" xml:space="preserve">
+    <value>Solicitudes</value>
+  </data>
+  <data name="Btn_ElegirImagen" xml:space="preserve">
+    <value>Elegir imagen de jugador</value>
+  </data>
+  <data name="Btn_Rechazar" xml:space="preserve">
+    <value>Rechazar</value>
+  </data>
+  <data name="Lbl_SolicitudesDeAmistad" xml:space="preserve">
+    <value>Soliciudes de amistad</value>
+  </data>
+  <data name="Lbl_Estadisticas" xml:space="preserve">
+    <value>Estadisticas</value>
+  </data>
+  <data name="Lbl_PartidasJugadas" xml:space="preserve">
+    <value>Partidas Jugadas</value>
+  </data>
+  <data name="Lbl_PartidasGanadas" xml:space="preserve">
+    <value>Partidas Ganadas</value>
+  </data>
+  <data name="Lbl_PartidasPerdidas" xml:space="preserve">
+    <value>Partidas Perdidas</value>
+  </data>
+  <data name="Lbl_PartidaFinalizada" xml:space="preserve">
+    <value>Partida Finalizada</value>
+  </data>
+  <data name="Lbl_Ganador" xml:space="preserve">
+    <value>Ganador</value>
+  </data>
+  <data name="Lbl_PoliticaNombreUsuario" xml:space="preserve">
+    <value>El nombre de usuario podrá contener solo números y letras</value>
+  </data>
+  <data name="Lbl_PoliticaContraseña" xml:space="preserve">
+    <value>La contraseña debe tener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.</value>
+  </data>
+  <data name="Btn_Español" xml:space="preserve">
+    <value>Cambiar a español</value>
+  </data>
+  <data name="Btn_Inglés" xml:space="preserve">
+    <value>Cambiar a inglés</value>
+  </data>
+  <data name="Lbl_Puntaje" xml:space="preserve">
+    <value>Puntaje</value>
+  </data>
+  <data name="Lbl_Logro1" xml:space="preserve">
+    <value>Gana una partida</value>
+  </data>
+  <data name="Lbl_Logro2" xml:space="preserve">
+    <value>Gana 10 partidas</value>
+  </data>
+  <data name="Lbl_Logro3" xml:space="preserve">
+    <value>Obtén 200 de puntaje en una partida</value>
+  </data>
+  <data name="Lbl_Logro4" xml:space="preserve">
+    <value>Gana una partida en la dificultad más alta</value>
+  </data>
+  <data name="Lbl_Logro5" xml:space="preserve">
+    <value>Obtén 600 de puntaje en una partida</value>
+  </data>
+  <data name="Lbl_Logros" xml:space="preserve">
+    <value>Logros</value>
+  </data>
+  <data name="Btn_Logros" xml:space="preserve">
+    <value>Logros</value>
+  </data>
+  <data name="VentanaEmergenteCambioIdioma" xml:space="preserve">
+    <value>El idioma cambiará a inglés
+Los cambios se aplicarán al reiniciar el juago</value>
+  </data>
+  <data name="Lbl_CambioIdioma" xml:space="preserve">
+    <value>Cambio de idioma</value>
+  </data>
+  <data name="Estado_Conectado" xml:space="preserve">
+    <value>Conectado</value>
+  </data>
+  <data name="Estado_Desconectado" xml:space="preserve">
+    <value>Desconectado</value>
+  </data>
+  <data name="Estado_Conexion" xml:space="preserve">
+    <value>Se ha conectado</value>
+  </data>
+  <data name="MensajeNoEresAnfitrion" xml:space="preserve">
+    <value>No puedes iniciar la partida, ya que no eres su anfitrión</value>
+  </data>
+  <data name="AsuntoNuevaContrasenia" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="CuerpoContrasenia" xml:space="preserve">
+    <value>Contraseña:</value>
+  </data>
+  <data name="MensajeCuentaEnUso" xml:space="preserve">
+    <value>La cuenta con la que intentas acceder esta en uso.</value>
+  </data>
+  <data name="MensajeCatalogosFaltantes" xml:space="preserve">
+    <value>No se han encontrado los catálogos necesarios para completar esta operación, inténtelo más tarde.</value>
+  </data>
+  <data name="MensajePartidaConLimiteJugadores" xml:space="preserve">
+    <value>La partida ha llegado al límite de jugadores, juega otra partida.</value>
+  </data>
+  <data name="MensajeExpulsionJugador" xml:space="preserve">
+    <value>¿Desesas expulsar al jugador de la partida?</value>
+  </data>
+  <data name="MensajeErrorTiempoTerminado" xml:space="preserve">
+    <value>El tiempo de espera ha terminado. Verifique la conexión con el servidor.</value>
+  </data>
+</root>

@@ -1,0 +1,73 @@
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.TestPlatform.AdapterUtilities.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.TestPlatform.CoreUtilities.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Properties\Resources.resx
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\PruebaAuxiliares.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\PruebaAuxiliares.pdb
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Cliente.exe
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\FluentValidation.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Cliente.pdb
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Cliente.exe.config
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\FluentValidation.xml
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\en-US\Cliente.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es-MX\Cliente.resources.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.AssemblyReference.cache
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.CoreCompileInputs.cache
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAu.BCAD453C.Up2Date
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.dll
+C:\Users\Oscar Hizay\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.pdb
+C:\Users\mario\Desktop\ClienteNuevo\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.AssemblyReference.cache
+C:\Users\mario\Desktop\ClienteNuevo\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.CoreCompileInputs.cache
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.TestPlatform.AdapterUtilities.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.TestPlatform.CoreUtilities.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Properties\Resources.resx
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\PruebaAuxiliares.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\PruebaAuxiliares.pdb
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Cliente.exe
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\FluentValidation.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\log4net.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Cliente.pdb
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Cliente.exe.config
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\FluentValidation.xml
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\log4net.pdb
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\log4net.xml
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\en-US\Cliente.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\bin\Debug\es-MX\Cliente.resources.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.AssemblyReference.cache
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.CoreCompileInputs.cache
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAu.BCAD453C.Up2Date
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.dll
+C:\Users\mario\Desktop\Cliente\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.pdb
+C:\Users\hizza\Desktop\ClienteMario\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.AssemblyReference.cache
+C:\Users\hizza\Desktop\ClienteMario\PruebaAuxiliares\obj\Debug\PruebaAuxiliares.csproj.CoreCompileInputs.cache

@@ -1,0 +1,101 @@
+﻿C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\App.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\EncriptadorContrasenia.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\EnvioCorreo.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\GeneradorCodigo.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\GeneradorContrasenia.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\JugadorAmistad.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\JugadorSingleton.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\MensajeVentana.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\ValidacionAcceso.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\ValidacionJugador.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Auxiliares\ValoresConstantes.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Enums\Enumeracion.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaEstadisticas.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaLogros.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPartidaFinalizada.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaAgregarAmigo.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaAmigos.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaCambioContrasenia.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaCodigoInvitado.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaContraseniaOlvidada.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaDificultadPartida.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaImagenDeJugador.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaInicio.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaInicioSesion.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaMenuPrincipal.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPerfilDeJugador.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPersonalizarPerfil.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPregunta.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaRegistro.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaSalaEspera.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaSolicitudesDeAmistad.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaUnionPartida.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\App.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\MainWindow.xaml.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Properties\AssemblyInfo.cs
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Properties\Resources.resx
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Properties\Resources.es-MX.resx
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Properties\Resources.en-US.resx
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\Cliente.ServidorPassword.Cuenta.datasource
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\Cliente.ServidorPassword.EstadisticaContrato1.datasource
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\Cliente.ServidorPassword.PartidaContrato.datasource
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\Cliente.ServidorPassword.PreguntaContrato.datasource
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\Cliente.ServidorPassword.Respuesta.datasource
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\Cliente.ServidorPassword.RespuestaContrato.datasource
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\item.xsd
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\item1.xsd
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\item2.xsd
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\item3.xsd
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\item4.xsd
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\item5.xsd
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\ServicioChat.wsdl
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\packages.config
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Properties\Settings.settings
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\App.config
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\item.disco
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\configuration91.svcinfo
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\configuration.svcinfo
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Connected Services\ServidorPassword\Reference.svcmap
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\MainWindow.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaEstadisticas.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaLogros.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPartidaFinalizada.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaAgregarAmigo.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaAmigos.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaCambioContrasenia.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaCodigoInvitado.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaContraseniaOlvidada.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaDificultadPartida.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaImagenDeJugador.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaInicio.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaInicioSesion.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaMenuPrincipal.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPerfilDeJugador.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPersonalizarPerfil.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaPregunta.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaRegistro.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaSalaEspera.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaSolicitudesDeAmistad.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Vistas\VentanaUnionPartida.xaml
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\PasswordLogo.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\fondo.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\agregar-usuario.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\peppo.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\usuario.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil1.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil2.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil3.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil4.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil5.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil6.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil7.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\perfil8.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\victoria.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\partida.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\derrota.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\ojo.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Iconos\bloqueado.png
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Niveles\doctorado.jpg
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Niveles\licenciatura.jpg
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Niveles\maestria.jpg
+C:\Users\mario\Desktop\Cliente\JuegoPasswordCliente\Imagenes\Fondos\partida.jpg
