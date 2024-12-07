@@ -1,0 +1,924 @@
+{
+  "$schema": "http://json.schemastore.org/sarif-1.0.0",
+  "version": "1.0.0",
+  "runs": [
+    {
+      "tool": {
+        "name": "Compilador de Microsoft (R) Visual C#",
+        "version": "4.11.0.0",
+        "fileVersion": "4.11.0-3.24376.4 (5e3a11e2)",
+        "semanticVersion": "4.11.0",
+        "language": "es-MX"
+      },
+      "results": [
+        {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Auxiliares/GeneradorCodigo.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 44,
+                  "endLine": 11,
+                  "endColumn": 56
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Auxiliares/GeneradorContrasenia.cs",
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 53,
+                  "endLine": 11,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaEstadisticas.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/MainWindow.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 38,
+                  "endLine": 28,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaAmigos.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaAgregarAmigo.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaCodigoInvitado.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 38,
+                  "endLine": 28,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaLogros.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaCambioContrasenia.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 38,
+                  "endLine": 28,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaContraseniaOlvidada.xaml.cs",
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 38,
+                  "endLine": 26,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaDificultadPartida.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 38,
+                  "endLine": 28,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPersonalizarPerfil.xaml.cs",
+                "region": {
+                  "startLine": 25,
+                  "startColumn": 38,
+                  "endLine": 25,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaMenuPrincipal.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaImagenDeJugador.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaInicioSesion.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaRegistro.xaml.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 38,
+                  "endLine": 23,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPregunta.xaml.cs",
+                "region": {
+                  "startLine": 32,
+                  "startColumn": 38,
+                  "endLine": 32,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaSolicitudesDeAmistad.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 38,
+                  "endLine": 28,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaUnionPartida.xaml.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 38,
+                  "endLine": 28,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6669",
+          "level": "warning",
+          "message": "Rename this field '_bitacora' to match the regular expression '^_?[Ll]og(ger)?$'.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaSalaEspera.xaml.cs",
+                "region": {
+                  "startLine": 27,
+                  "startColumn": 38,
+                  "endLine": 27,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'MainWindow_Closed' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/MainWindow.xaml.cs",
+                "region": {
+                  "startLine": 36,
+                  "startColumn": 22,
+                  "endLine": 36,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Auxiliares/ValidacionJugador.cs",
+                "region": {
+                  "startLine": 28,
+                  "startColumn": 89,
+                  "endLine": 28,
+                  "endColumn": 138
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Auxiliares/ValidacionAcceso.cs",
+                "region": {
+                  "startLine": 23,
+                  "startColumn": 20,
+                  "endLine": 23,
+                  "endColumn": 55
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S6444",
+          "level": "warning",
+          "message": "Pass a timeout to limit the execution time.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Auxiliares/ValidacionAcceso.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 20,
+                  "endLine": 29,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'CrearJugadorSingleton' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Auxiliares/JugadorSingleton.cs",
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 21,
+                  "endLine": 29,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ValidarJugadorRegistrado' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPartidaFinalizada.xaml.cs",
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 22,
+                  "endLine": 30,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'VerificarConexionAmigo' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaAmigos.xaml.cs",
+                "region": {
+                  "startLine": 104,
+                  "startColumn": 22,
+                  "endLine": 104,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaCodigoInvitado.xaml.cs",
+                "region": {
+                  "startLine": 143,
+                  "startColumn": 31,
+                  "endLine": 143,
+                  "endColumn": 43
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'GenerarNombreUsuarioAleatorio' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaCodigoInvitado.xaml.cs",
+                "region": {
+                  "startLine": 141,
+                  "startColumn": 24,
+                  "endLine": 141,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ObtenerCodigoPartida' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaDificultadPartida.xaml.cs",
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 24,
+                  "endLine": 91,
+                  "endColumn": 44
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'DesconectarJugador' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaMenuPrincipal.xaml.cs",
+                "region": {
+                  "startLine": 66,
+                  "startColumn": 22,
+                  "endLine": 66,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ObtenerJugadorSingleton' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaInicioSesion.xaml.cs",
+                "region": {
+                  "startLine": 138,
+                  "startColumn": 22,
+                  "endLine": 138,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ValidarNuevoCorreo' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPersonalizarPerfil.xaml.cs",
+                "region": {
+                  "startLine": 120,
+                  "startColumn": 22,
+                  "endLine": 120,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ValidarNuevaDescripcion' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPersonalizarPerfil.xaml.cs",
+                "region": {
+                  "startLine": 125,
+                  "startColumn": 22,
+                  "endLine": 125,
+                  "endColumn": 45
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ValidarNuevoNombreUsuario' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPersonalizarPerfil.xaml.cs",
+                "region": {
+                  "startLine": 130,
+                  "startColumn": 22,
+                  "endLine": 130,
+                  "endColumn": 47
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'CambioIdiomaClick' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaMenuPrincipal.xaml.cs",
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 22,
+                  "endLine": 126,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2245",
+          "level": "warning",
+          "message": "Make sure that using this pseudorandom number generator is safe here.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPregunta.xaml.cs",
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 30,
+                  "endLine": 115,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'ValidarJugadorRegistrado' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPregunta.xaml.cs",
+                "region": {
+                  "startLine": 266,
+                  "startColumn": 22,
+                  "endLine": 266,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'AsignarPrimerLogro' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPregunta.xaml.cs",
+                "region": {
+                  "startLine": 341,
+                  "startColumn": 22,
+                  "endLine": 341,
+                  "endColumn": 40
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2325",
+          "level": "warning",
+          "message": "Make 'AsignarSegundoLogro' a static method.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Users/mario/Desktop/Cliente/JuegoPasswordCliente/Vistas/VentanaPregunta.xaml.cs",
+                "region": {
+                  "startLine": 367,
+                  "startColumn": 22,
+                  "endLine": 367,
+                  "endColumn": 41
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        }
+      ],
+      "rules": {
+        "S2245": {
+          "id": "S2245",
+          "shortDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive",
+          "fullDescription": "Using pseudorandom number generators (PRNGs) is security-sensitive. For example, it has led in the past to the following vulnerabilities:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2245",
+          "properties": {
+            "category": "Critical Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S2325": {
+          "id": "S2325",
+          "shortDescription": "Methods and properties that don't access instance data should be static",
+          "fullDescription": "Methods and properties that don’t access instance data should be marked as static for the following reasons:",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-2325",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "TestSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6444": {
+          "id": "S6444",
+          "shortDescription": "Not specifying a timeout for regular expressions is security-sensitive",
+          "fullDescription": "Not specifying a timeout for regular expressions can lead to a Denial-of-Service attack. Pass a timeout when using System.Text.RegularExpressions to process untrusted input because a malicious user might craft a value for which the evaluation lasts excessively long.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6444",
+          "properties": {
+            "category": "Major Security Hotspot",
+            "isEnabledByDefault": true,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        },
+        "S6669": {
+          "id": "S6669",
+          "shortDescription": "Logger field or property name should comply with a naming convention",
+          "fullDescription": "Sharing some naming conventions is a key point to make it possible for a team to efficiently collaborate. This rule checks that the logger field or property name matches a provided regular expression.",
+          "defaultLevel": "warning",
+          "helpUri": "https://rules.sonarsource.com/csharp/RSPEC-6669",
+          "properties": {
+            "category": "Minor Code Smell",
+            "isEnabledByDefault": false,
+            "tags": [
+              "C#",
+              "MainSourceScope",
+              "SonarWay"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+﻿<Page x:Class="Cliente.Vistas.VentanaLogros"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p="clr-namespace:Cliente.Properties"
+      xmlns:local="clr-namespace:Cliente.Vistas"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280">
+
+    <DockPanel RenderTransformOrigin="0.706,0.807">
+        <Border CornerRadius="20">
+            <Border.Background>
+                <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+            </Border.Background>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="1058" Cursor="">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="439*"/>
+                    <ColumnDefinition Width="168*"/>
+                    <ColumnDefinition Width="451*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="1" FontSize="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,28,0,0" FontWeight="Bold" Foreground="White" Height="60" Width="47"/>
+                <TextBlock Text="2" FontSize="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,113,0,0" FontWeight="Bold" Foreground="White" RenderTransformOrigin="-0.131,0.555"/>
+                <TextBlock Text="3" FontSize="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,197,0,0" FontWeight="Bold" Foreground="White" RenderTransformOrigin="-0.456,0.591"/>
+                <TextBlock Text="4" FontSize="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,282,0,0" FontWeight="Bold" Foreground="White" RenderTransformOrigin="0.139,0.581"/>
+                <TextBlock Text="5" FontSize="45" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="57,360,0,0" FontWeight="Bold" Foreground="White" RenderTransformOrigin="-0.209,0.548"/>
+
+                <Label x:Name="Lbl_Logros" Content="{x:Static p:Resources.Lbl_Logros}"
+                       Background="#6c6c6c"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       FontSize="45"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Padding="10"
+                       BorderBrush="Transparent" Width="391" Grid.ColumnSpan="3" Margin="355,-77,0,0" />
+
+                <Label x:Name="Lbl_Logro1" Content="{x:Static p:Resources.Lbl_Logro1}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="140,28,0,0" Width="545" Height="62" Grid.ColumnSpan="3" />
+
+                <Label x:Name="Lbl_Logro2" Content="{x:Static p:Resources.Lbl_Logro2}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="140,113,0,0" Width="545" Height="60" Grid.ColumnSpan="3" />
+
+                <Label x:Name="Lbl_Logro3" Content="{x:Static p:Resources.Lbl_Logro3}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="140,199,0,0" Width="545" Height="60" Grid.ColumnSpan="3" />
+
+                <Label x:Name="Lbl_Logro4" Content="{x:Static p:Resources.Lbl_Logro4}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="140,282,0,0" Width="545" Height="52" Grid.ColumnSpan="3" />
+
+                <Label x:Name="Lbl_Logro5" Content="{x:Static p:Resources.Lbl_Logro5}"
+                       Background="#3b92c4"
+                       Foreground="Beige"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="140,358,0,0" Width="545" Height="54" Grid.ColumnSpan="3" />
+
+                <Image x:Name="Img_LogroUno"  
+                   Source="/Imagenes/Iconos/bloqueado.png"
+                   Width="104" Height="68"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="323,28,0,0"
+                   RenderTransformOrigin="-0.261,0.553"
+                   Panel.ZIndex="1" Grid.Column="2"/>
+
+                <Image x:Name="Img_LogroDos"  
+                   Source="/Imagenes/Iconos/bloqueado.png"
+                   Width="90" Height="67"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="323,106,0,0"
+                   RenderTransformOrigin="0.5,0.5"
+                   Panel.ZIndex="1" Grid.Column="2"/>
+
+                <Image x:Name="Img_LogroTres"  
+                   Source="/Imagenes/Iconos/bloqueado.png"
+                   Width="65" Height="68"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="323,194,0,0"
+                   RenderTransformOrigin="0.5,0.5"
+                   Panel.ZIndex="1" Grid.Column="2"/>
+
+                <Image x:Name="Img_LogroCuatro"  
+                       Source="/Imagenes/Iconos/bloqueado.png"
+                       Width="85" Height="68"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="323,274,0,0"
+                       RenderTransformOrigin="0.5,0.5"
+                       Panel.ZIndex="1" Grid.Column="2"/>
+
+                <Image x:Name="Img_LogroCinco"  
+                       Source="/Imagenes/Iconos/bloqueado.png"
+                       Width="90" Height="64"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="323,356,0,0"
+                       RenderTransformOrigin="0.05,-0.253"
+                       Panel.ZIndex="1" Grid.Column="2"/>
+
+
+                <Button x:Name="Btn_Regresar" 
+                    Content="{x:Static p:Resources.Btn_RegresarGlobal}" 
+                    Width="150" 
+                    Height="65" 
+                    Background="#36D25B" 
+                    Foreground="White" 
+                    FontWeight="Bold" 
+                    FontSize="25" 
+                    BorderThickness="0" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="37,435,0,0" 
+                    Click="Regresar" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Page>
