@@ -214,7 +214,7 @@
     <value>Please ensure the field information is correct.</value>
   </data>
   <data name="MensajeUsuarioNoDisponible" xml:space="preserve">
-    <value>The chosen username is unavailable, please select another.</value>
+    <value>The username or email you selected is not available, please choose another one.</value>
   </data>
   <data name="MensajeRegistroExitoso" xml:space="preserve">
     <value>Your registration has been successful; you can now log in with your email and chosen password. </value>
