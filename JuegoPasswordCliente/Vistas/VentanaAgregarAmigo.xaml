@@ -1,0 +1,62 @@
+﻿<Page x:Class="Cliente.Vistas.VentanaAgregarAmigo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:p="clr-namespace:Cliente.Properties"
+      Title="VentanaAgregarAmigo">
+
+    <DockPanel>
+        <Border CornerRadius="10" BorderThickness="2" BorderBrush="DarkSlateGray">
+            <Border.Background>
+                <ImageBrush ImageSource="/Imagenes/Fondos/fondo.png" Stretch="UniformToFill" />
+            </Border.Background>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
+
+                <Label x:Name="Lbl_AgregarAmigo" Content="{x:Static p:Resources.Lbl_AgregarAmigo}" Background="#6c6c6c" Foreground="White" 
+                       FontWeight="Bold" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                       Margin="0,20,0,0" Padding="10" Width="400" />
+
+                <Label x:Name="Lbl_BuscarCorreo" Content="{x:Static p:Resources.Lbl_BuscarPorCorreo}" Foreground="White" FontSize="18" 
+                       HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" />
+
+                <TextBox Name="Txb_Correo" Width="400" Height="35" FontSize="18" 
+                         HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,140,0,0" 
+                          MaxLength="150"/>
+
+                <Button x:Name="Btn_Agregaramigo" Content="{x:Static p:Resources.Btn_AgregarAmigo}" Width="150" Height="40" Background="#00d2ff" Foreground="White" 
+                        FontWeight="Bold" FontSize="18" BorderThickness="0" HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" Margin="350,223,0,0" Click="AgregarAmigo">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+
+                <Button x:Name="Btn_Regresar" Content="{x:Static p:Resources.Btn_RegresarGlobal}" Width="150" Height="65" Background="#00f0ff" Foreground="White" 
+                        FontWeight="Bold" FontSize="25" BorderThickness="0" HorizontalAlignment="Center" 
+                        VerticalAlignment="Top" Margin="0,335,0,0" Click="Regresar">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5" BorderThickness="0">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                    <Button.Effect>
+                        <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Page>

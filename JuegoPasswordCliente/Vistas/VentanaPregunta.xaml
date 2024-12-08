@@ -1,0 +1,49 @@
+﻿<Page x:Class="Cliente.Vistas.VentanaPregunta"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+
+    <DockPanel>
+        <Border CornerRadius="10" BorderThickness="2" BorderBrush="DarkSlateGray">
+            <Border.Background>
+                <ImageBrush ImageSource="/Imagenes/Fondos/partida.jpg" Stretch="UniformToFill" />
+            </Border.Background>
+
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="430">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-70,-20,0,0" Background="#00b0ff" >
+                    <TextBlock Name="Txbl_NumeroPreguntaActual" Text=" " Width="28" FontSize="25" Foreground="White"/>
+                    <TextBlock Name="Txbl_Barra" Text="/" Width="12" FontSize="25" Foreground="White"/>
+                    <TextBlock Name="Txbl_NumeroPreguntaTotal" Text="{Binding NumeroPregunta}" FontSize="25" Foreground="White" VerticalAlignment="Center" Width="28"/>
+                </StackPanel>
+
+                <TextBlock Name="Txbl_Cronometro" Text="{Binding TiempoRestante}" FontSize="25" FontWeight="Bold" Foreground="White" Background="#00d2ff"
+                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-20,-95,0" Padding="10" />
+
+                <TextBlock Name="Txbl_Puntaje" FontSize="25" FontWeight="Bold" Foreground="White" Background="#00d2ff"
+                            HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,-60,200,0" Padding="10" TextAlignment="Center"/>
+                                                
+                <TextBlock Name="Txbl_Pregunta" Text="{Binding PreguntaActual}" FontSize="28" FontWeight="Bold" Foreground="White" 
+                           Background="#00b0ff" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="10" 
+                           TextWrapping="Wrap" Margin="0,0,0,0"/>
+
+                <UniformGrid Rows="2" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,134,0,0" Width="580" Height="296">
+                    <Button Name="Btn_Respuesta1" Background="#6c6c6c" Foreground="White" Padding="10" Margin="5" Click="RevisarRespuesta1">
+                        <TextBlock Name="Txbl_Respuesta1" Text="{Binding Respuesta1}" TextWrapping="Wrap" TextAlignment="Center" FontSize="18" />
+                    </Button>
+                    <Button Name="Btn_Respuesta2" Background="#6c6c6c" Foreground="White" Padding="10" Margin="5" Click="RevisarRespuesta2">
+                        <TextBlock Name="Txbl_Respuesta2" Text="{Binding Respuesta2}" TextWrapping="Wrap" TextAlignment="Center" FontSize="18" />
+                    </Button>
+                    <Button Name="Btn_Respuesta3" Background="#6c6c6c" Foreground="White" Padding="10" Margin="5" Click="RevisarRespuesta3">
+                        <TextBlock Name="Txbl_Respuesta3" Text="{Binding Respuesta3}" TextWrapping="Wrap" TextAlignment="Center" FontSize="18" />
+                    </Button>
+                    <Button Name="Btn_Respuesta4" Background="#6c6c6c" Foreground="White" Padding="10" Margin="5" Click="RevisarRespuesta4">
+                        <TextBlock Name="Txbl_Respuesta4" Text="{Binding Respuesta4}" TextWrapping="Wrap" TextAlignment="Center" FontSize="18" />
+                    </Button>
+                </UniformGrid>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Page>
