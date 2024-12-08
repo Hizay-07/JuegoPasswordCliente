@@ -18,6 +18,9 @@ namespace Cliente.Vistas
     public partial class VentanaRegistro : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        
+
+
         public VentanaRegistro()
         {
             InitializeComponent();
@@ -29,31 +32,33 @@ namespace Cliente.Vistas
             {
                 Acceso acceso = ObtenerAcceso();                
                 Jugador jugador = ObtenerJugador();
+                string contraseniaEncriptada = EncriptadorContrasenia.EncriptarContrasenia(acceso.contrasenia);
+                acceso.contrasenia = contraseniaEncriptada;
                 try
                 {
                     ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
-                    int validacionCorreo = servicioGestionAcceso.ValidarPresenciaDeCorreo(acceso.correo);
-                    if (validacionCorreo == 0)
-                    {
-                        int validacionNombreUsuario = servicioGestionAcceso.ValidarNombreUsuario(jugador.nombreUsuario);
-                        if (validacionNombreUsuario == 0)
+                    int validacionCuenta = servicioGestionAcceso.ValidarPresenciaCuenta(jugador.nombreUsuario,acceso.correo);
+                    if (validacionCuenta == 0)
+                    {                        
+                        int resultadoRegistro = servicioGestionAcceso.RegistrarNuevoJugador(acceso, jugador);
+                        if (resultadoRegistro == 1)
                         {
-                            string contraseniaEncriptada = EncriptadorContrasenia.EncriptarContrasenia(acceso.contrasenia);
-                            acceso.contrasenia = contraseniaEncriptada;
-                            RegistrarNuevoJugador(acceso, jugador);
+                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
+                            VentanaInicio inicioPage = new VentanaInicio();
+                            this.NavigationService.Navigate(inicioPage);
                         }
-                        else if (validacionNombreUsuario == 1)
+                        else if (resultadoRegistro == 2) 
                         {
                             MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
                         }
                         else
                         {
                             MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }
+                        }                        
                     }
-                    else if (validacionCorreo == 1)
+                    else if (validacionCuenta == 1)
                     {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCorreoRegistrado);
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
                     }
                     else
                     {
@@ -77,41 +82,7 @@ namespace Cliente.Vistas
                 }
             }            
         }
-
-        private void RegistrarNuevoJugador(Acceso acceso, Jugador jugador) 
-        {
-            try 
-            {
-                ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
-                int resultadoRegistro = servicioGestionAcceso.RegistrarNuevoJugador(acceso, jugador);
-                if (resultadoRegistro == 1)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
-                    VentanaInicio inicioPage = new VentanaInicio();
-                    this.NavigationService.Navigate(inicioPage);
-                }
-                else
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                }
-            }
-            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-            }
-            catch (TimeoutException excepcionTiempoEspera)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                _bitacora.Warn(excepcionTiempoEspera);
-            }
-            catch (CommunicationException excepcionComunicacion)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                _bitacora.Error(excepcionComunicacion);
-            }
-        }
-
+        
         private Jugador ObtenerJugador()
         {
             Jugador jugador = new Jugador

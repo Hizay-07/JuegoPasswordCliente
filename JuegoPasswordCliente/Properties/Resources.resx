@@ -215,7 +215,7 @@ usuario</value>
     <value>Revise que la información de los campos sea correcta. </value>
   </data>
   <data name="MensajeUsuarioNoDisponible" xml:space="preserve">
-    <value>El nombre de usuario elegido no está disponible, elija otro. </value>
+    <value>El nombre de usuario o correo elegido no está disponible, elija otro. </value>
   </data>
   <data name="MensajeRegistroExitoso" xml:space="preserve">
     <value>Su registro ha sido exitoso, ahora puede iniciar sesión con su correo y contraseña elegida.</value>
