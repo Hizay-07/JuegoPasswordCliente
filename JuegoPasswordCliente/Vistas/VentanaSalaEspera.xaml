@@ -200,7 +200,7 @@
                 </StackPanel>
 
                 <StackPanel Margin="436,540,678,96" >
-                    <Button Name="Btn_Jugar" Content="Jugar" Height="87" FontSize="25" Background="#33c1ff"  Foreground="White" FontWeight="Bold" Visibility="Hidden" Click="IniciarPartida"/>
+                    <Button Name="Btn_Jugar" Content="{x:Static p:Resources.Btn_Jugar}" Height="87" FontSize="25" Background="#33c1ff"  Foreground="White" FontWeight="Bold" Visibility="Hidden" Click="IniciarPartida"/>
                 </StackPanel>
 
             </Grid>
