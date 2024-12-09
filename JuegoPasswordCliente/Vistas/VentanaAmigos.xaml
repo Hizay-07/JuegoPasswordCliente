@@ -44,10 +44,10 @@
                                         <Style TargetType="TextBlock">
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding Estado}" Value="True">
-                                                    <Setter Property="Text" Value="{x:Static p:Resources.Estado_Conectado}" />
+                                                    <Setter Property="Text" Value="{x:Static p:Resources.Lbl_EstadoConectado}" />
                                                 </DataTrigger>
                                                 <DataTrigger Binding="{Binding Estado}" Value="False">
-                                                    <Setter Property="Text" Value="{x:Static p:Resources.Estado_Desconectado}" />
+                                                    <Setter Property="Text" Value="{x:Static p:Resources.Lbl_EstadoDesconectado}" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
