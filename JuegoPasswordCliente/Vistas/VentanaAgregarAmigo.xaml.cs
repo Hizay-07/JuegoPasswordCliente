@@ -51,15 +51,15 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
                 int idJugador = servicioGestionAmistad.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
-                if (idJugador > 0)
+                if (idJugador > ValoresConstantes.ConsultaSinRegistro)
                 {
                     ValidarExitenciaAmistad(idJugador);   
                 }
-                else if (idJugador == 0)
+                else if (idJugador == ValoresConstantes.ConsultaSinRegistro)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
                 }
-                else
+                else if (idJugador==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -87,15 +87,15 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
                 int validacionExistenciaAmistad = servicioGestionAmistad.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
-                if (validacionExistenciaAmistad == 0)
+                if (validacionExistenciaAmistad == ValoresConstantes.ConsultaSinRegistro)
                 {
                     RegistrarAmistad(idJugador);
                 }
-                else if (validacionExistenciaAmistad == 1)
+                else if (validacionExistenciaAmistad == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeAmistadAnterior);
                 }
-                else
+                else if (validacionExistenciaAmistad==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -124,11 +124,11 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
                 int resultadoRegistroAmistad = servicioGestionAmistad.RegistrarAmistad(amistad);
-                if (resultadoRegistroAmistad == 1)
+                if (resultadoRegistroAmistad == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
                 }
-                else
+                else if (resultadoRegistroAmistad==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }

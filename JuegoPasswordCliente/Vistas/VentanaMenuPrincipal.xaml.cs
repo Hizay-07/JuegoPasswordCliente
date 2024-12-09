@@ -104,17 +104,17 @@ namespace Cliente.Vistas
                 int verificacionCatalogoPreguntas=servicioGestionPartida.VerificarCatalogoCompletoPreguntas();
                 switch (verificacionCatalogoPreguntas) 
                 {
-                    case 0:
+                    case ValoresConstantes.ConsultaSinRegistro:
                         MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCatalogosFaltantes);
                         break;
-                    case 1:
+                    case ValoresConstantes.OperacionExitosa:
                         int verificacionCatalogoRespuestas=servicioGestionPartida.VerificarCatalogoCompletoRespuestas();
                         switch (verificacionCatalogoRespuestas) 
                         {
-                            case 0:
+                            case ValoresConstantes.ConsultaSinRegistro:
                                 MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCatalogosFaltantes);
                                 break;
-                            case 1:
+                            case ValoresConstantes.OperacionExitosa:
                                 VentanaDificultadPartida paginaDificultadPartida = new VentanaDificultadPartida();
                                 this.NavigationService.Navigate(paginaDificultadPartida);
                                 break;

@@ -45,11 +45,11 @@ namespace Cliente.Vistas
                 if (idLogros.Any())
                 {
                     int primerLogro = idLogros[0];
-                    if (primerLogro != -1)
+                    if (primerLogro > ValoresConstantes.ConsultaSinRegistro)
                     {
                         MostrarLogros(idLogros);
                     }
-                    else
+                    else if (primerLogro==ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }

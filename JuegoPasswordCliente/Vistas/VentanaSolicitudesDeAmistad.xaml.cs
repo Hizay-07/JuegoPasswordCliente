@@ -37,19 +37,19 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAmistadClient proxy = new ServidorPassword.ServicioGestionAmistadClient();
                 List<int> amistades = proxy.ConsultarSolicitudesAmistadPorIdJugador(JugadorSingleton.IdJugador).ToList();
-                if (amistades.Count > 0)
+                if (amistades.Count > ValoresConstantes.ConsultaSinRegistro)
                 {
                     int amistad = amistades[0];
-                    if (amistad != -1)
+                    if (amistad > ValoresConstantes.ConsultaSinRegistro)
                     {
                         RecuperarJugadores(amistades);
                     }
-                    else
+                    else if (amistad==ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
                 }
-                else 
+                else if (amistades.Count==ValoresConstantes.ConsultaSinRegistro)
                 {
                     MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeSinSolicitudes);                    
                 }                
@@ -118,7 +118,7 @@ namespace Cliente.Vistas
 
         private static int ObtenerIdAmidstadPorIdJugadores(int idJugadorDestinatario)
         {
-            int idAmistad = 0;
+            int idAmistad = ValoresConstantes.ConsultaSinRegistro;
             try
             {
                 ServicioGestionAmistadClient servicioGestionAmistad=new ServicioGestionAmistadClient();
@@ -148,7 +148,7 @@ namespace Cliente.Vistas
             {                
                 int idJugadorDestinatario = jugadorSeleccionado.IdJugador;
                 int idAmistad=ObtenerIdAmidstadPorIdJugadores(idJugadorDestinatario);
-                if (idAmistad > 0)
+                if (idAmistad > ValoresConstantes.ConsultaSinRegistro)
                 {
                     Amistad amistad = ObtenerAmistadAceptada();
                     amistad.idAmistad=idAmistad;
@@ -167,13 +167,13 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
                 int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
-                if (resultadoRegistro == 1)
+                if (resultadoRegistro == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
                     Ltb_ListaSolicitudes.ItemsSource = new List<JugadorAmistad>();
                     RecuperarAmistadesPendientes();
                 }
-                else
+                else if (resultadoRegistro==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -202,13 +202,13 @@ namespace Cliente.Vistas
             {
                 int idJugadorDestinatario = jugadorSeleccionado.IdJugador;
                 int idAmistad = ObtenerIdAmidstadPorIdJugadores(idJugadorDestinatario);
-                if (idAmistad > 0)
+                if (idAmistad > ValoresConstantes.ConsultaSinRegistro)
                 {
                     Amistad amistad = ObtenerAmistadRechazada();
                     amistad.idAmistad = idAmistad;
                     ResponderSolicitudAmistadEspecifica(amistad);
                 }
-                else
+                else if (idAmistad==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }

@@ -111,16 +111,16 @@ namespace Cliente.Vistas
                     string contraseniaEncriptada = EncriptadorContrasenia.EncriptarContrasenia(acceso.contrasenia);
                     acceso.contrasenia= contraseniaEncriptada;
                     int resultado = servicioGestionAcceso.ValidarInicioDeSesion(acceso);
-                    if (resultado == 1)
+                    if (resultado == ValoresConstantes.OperacionExitosa)
                     {
                         ObtenerJugadorSingleton(acceso.correo);
                         ConectarJugador();                        
                     }
-                    else if (resultado == 0)
+                    else if (resultado == ValoresConstantes.ConsultaSinRegistro)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
                     }
-                    else 
+                    else if (resultado==ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
@@ -157,12 +157,12 @@ namespace Cliente.Vistas
             {   
                 ServicioJugadoresClient servicioJugadores=new ServicioJugadoresClient();
                 int resultadoConexion=servicioJugadores.ConectarJugadorJuego(JugadorSingleton.NombreUsuario);
-                if (resultadoConexion == 1)
+                if (resultadoConexion == ValoresConstantes.OperacionExitosa)
                 {
                     VentanaMenuPrincipal paginaMenuPrincipal = new VentanaMenuPrincipal();
                     this.NavigationService.Navigate(paginaMenuPrincipal);
                 }
-                else 
+                else
                 {
                     MessageBox.Show(Properties.Resources.MensajeCuentaEnUso);
                 }

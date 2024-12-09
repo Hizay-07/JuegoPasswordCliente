@@ -78,7 +78,7 @@ namespace Cliente.Vistas
         {
             _tiempoRestante--;
             Txbl_Cronometro.Text = _tiempoRestante.ToString();
-            if (_tiempoRestante == 0)
+            if (_tiempoRestante == ValoresConstantes.TiempoFinal)
             {
                 _temporizadorDespachador.Stop();
                 CambiarPregunta();
@@ -144,7 +144,7 @@ namespace Cliente.Vistas
 
         private string DeterminarGanador() 
         {
-            string ganador ="";
+            string ganador =ValoresConstantes.GanadorDefecto;
             try 
             {
                 ServicioPartidaClient servicioPartida=new ServicioPartidaClient();
@@ -210,10 +210,10 @@ namespace Cliente.Vistas
             }
             else
             {
-                if (puntaje >= 10)
+                if (puntaje >= ValoresConstantes.PuntajePorPregunta)
                 {
                     RestarPuntaje();
-                    puntaje -= 10;
+                    puntaje -= ValoresConstantes.PuntajePorPregunta;
                 }
                 Txbl_Puntaje.Text = ($"Incorrecto. Puntaje: {puntaje}");
             }                       
@@ -269,7 +269,7 @@ namespace Cliente.Vistas
 
         private int ObtenerCantidadPuntaje() 
         {
-            int puntaje = 0;
+            int puntaje = ValoresConstantes.PuntajeDefecto;
             try
             {
                 ServicioPartidaClient servicioPartida = new ServicioPartidaClient();
@@ -328,7 +328,7 @@ namespace Cliente.Vistas
         private void SumarPuntaje() 
         {
             int puntaje = ObtenerCantidadPuntaje();
-            if (puntaje > 0) 
+            if (puntaje > ValoresConstantes.PuntajeDefecto) 
             {
                 try
                 {
@@ -422,15 +422,15 @@ namespace Cliente.Vistas
             {
                 ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
                 int verificacionPrimerLogro=servicioGestionLogros.VerificarPrimerLogroPorIdEstadistica(JugadorSingleton.IdEstadistica);
-                if (verificacionPrimerLogro == 1)
+                if (verificacionPrimerLogro == ValoresConstantes.OperacionExitosa)
                 {
                     int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdPrimerLogro);
-                    if (verificacionRegistro == 0) 
+                    if (verificacionRegistro == ValoresConstantes.ConsultaSinRegistro) 
                     {
                         servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdPrimerLogro);
                     }                    
                 }
-                else if (verificacionPrimerLogro == -1) 
+                else if (verificacionPrimerLogro == ValoresConstantes.ErrorConexionBaseDatos) 
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -458,15 +458,15 @@ namespace Cliente.Vistas
             {
                 ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
                 int verificacionSegundoLogro = servicioGestionLogros.VerificarSegundoLogroPorIdEstadistica(JugadorSingleton.IdEstadistica);
-                if (verificacionSegundoLogro == 1)
+                if (verificacionSegundoLogro == ValoresConstantes.OperacionExitosa)
                 {
                     int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdSegundoLogro);
-                    if (verificacionRegistro == 0)
+                    if (verificacionRegistro == ValoresConstantes.ConsultaSinRegistro)
                     {
                         servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdSegundoLogro);
                     }
                 }
-                else if (verificacionSegundoLogro == -1)
+                else if (verificacionSegundoLogro == ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -496,7 +496,7 @@ namespace Cliente.Vistas
                 {
                     ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
                     int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdTercerLogro);
-                    if (verificacionRegistro == 0)
+                    if (verificacionRegistro == ValoresConstantes.ConsultaSinRegistro)
                     {
                         servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdTercerLogro);
                     }                    
@@ -530,7 +530,7 @@ namespace Cliente.Vistas
                     {
                         ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
                         int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdCuartoLogro);
-                        if (verificacionRegistro == 0)
+                        if (verificacionRegistro == ValoresConstantes.ConsultaSinRegistro)
                         {
                             servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdCuartoLogro);
                         }
@@ -589,7 +589,7 @@ namespace Cliente.Vistas
                 {
                     ServicioGestionLogrosClient servicioGestionLogros = new ServicioGestionLogrosClient();
                     int verificacionRegistro = servicioGestionLogros.VerificarRegistroEspecificoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdQuintoLogro);
-                    if (verificacionRegistro == 0)
+                    if (verificacionRegistro == ValoresConstantes.ConsultaSinRegistro)
                     {
                         servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdQuintoLogro);
                     }

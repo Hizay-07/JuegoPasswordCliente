@@ -45,23 +45,23 @@ namespace Cliente.Vistas
                     ServicioGestionAccesoClient proxyServicioAcceso = new ServicioGestionAccesoClient();
                     Acceso acceso = ObtenerAcceso();
                     int validacionContrasenia = proxyServicioAcceso.ValidarInicioDeSesion(acceso);
-                    if (validacionContrasenia == 1)
+                    if (validacionContrasenia == ValoresConstantes.OperacionExitosa)
                     {
                         ServicioPersonalizacionPerfilClient proxyPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
                         int resultadoActualizacion = proxyPersonalizacionPerfil.EditarContraseniaPorIdAcceso(JugadorSingleton.IdAcceso, EncriptadorContrasenia.EncriptarContrasenia(Txb_NuevaContrasenia.Text));
-                        if (resultadoActualizacion >=0)
+                        if (resultadoActualizacion >=ValoresConstantes.ConsultaSinRegistro)
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
                             JugadorSingleton.Contrasenia = EncriptadorContrasenia.EncriptarContrasenia(Txb_NuevaContrasenia.Text);
                             VentanaPersonalizarPerfil paginaPersonalizarPerfil = new VentanaPersonalizarPerfil();
                             this.NavigationService.Navigate(paginaPersonalizarPerfil);
                         }
-                        else 
+                        else if (resultadoActualizacion==ValoresConstantes.ErrorConexionBaseDatos)
                         {
                             MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                         }
                     }
-                    else
+                    else if (validacionContrasenia==ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
                     }

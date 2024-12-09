@@ -13,7 +13,7 @@ namespace Cliente.Auxiliares
     {
         public ValidacionAcceso()
         {
-            RuleFor(acceso => acceso.contrasenia).MinimumLength(8).Matches(@"^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).*$");
+            RuleFor(acceso => acceso.contrasenia).Must(ValidarContrasenia);
             RuleFor(acceso => acceso.correo).EmailAddress();
         }
 
@@ -24,9 +24,14 @@ namespace Cliente.Auxiliares
         }
 
         public static bool ValidarContrasenia(string contrasenia)
-        {            
-            string patronContrasenia = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$";
-            return Regex.IsMatch(contrasenia, patronContrasenia);
+        {
+            bool validacionContrasenia=false;
+            if (!contrasenia.Contains(" ")) 
+            {
+                string patronContrasenia = @"^(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$";
+                validacionContrasenia=Regex.IsMatch(contrasenia, patronContrasenia);
+            }
+            return validacionContrasenia;
         }
     }
 }

@@ -151,11 +151,11 @@ namespace Cliente.Vistas
                 if (amigos.Any()) 
                 {
                     int idJugador = amigos[0].IdJugador;
-                    if (idJugador > 0)
+                    if (idJugador > ValoresConstantes.ConsultaSinRegistro)
                     {
                         Ltv_Amigos.ItemsSource = amigos;
                     }
-                    else if (idJugador == -1)
+                    else if (idJugador == ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
@@ -188,7 +188,7 @@ namespace Cliente.Vistas
                 {
                     ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
                     Cuenta cuenta = servicioGestionAcceso.RecuperarCuentaPorIdJugador(amigo.IdJugador);
-                    if (cuenta.IdAcceso != -1)
+                    if (cuenta.IdAcceso > ValoresConstantes.ConsultaSinRegistro)
                     {
                         EnviarCorreo(cuenta.Correo);
                     }
@@ -233,7 +233,7 @@ namespace Cliente.Vistas
         {
             _jugadores = jugadores.ToList();
             ConfigurarJugadoresActivos();
-            if (_jugadores.Count > 1)
+            if (_jugadores.Count > ValoresConstantes.NumeroJugadoresMinimo)
             {
                 ActivarBotonJugar();
             }
@@ -354,7 +354,7 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
                 int resultadoActualizacion = servicioGestionPartida.ActualizarEstadoPorIdPartida(_partidaActual.IdPartida, Enumeracion.EnumEstadoPartida.Proceso.ToString());
-                if (resultadoActualizacion == -1)
+                if (resultadoActualizacion == ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -384,11 +384,11 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
                 PartidaContrato partidaContrato = servicioGestionPartida.RecuperarPartidaPorCodigo(codigoPartida);
-                if (partidaContrato.IdPartida > 0)
+                if (partidaContrato.IdPartida > ValoresConstantes.ConsultaSinRegistro)
                 {
                     _partidaActual = partidaContrato;
                 }
-                else
+                else if (partidaContrato.IdPartida==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -417,7 +417,7 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
                 int resultadoActualizacion = servicioGestionPartida.ActualizarEstadoPorIdPartida(_partidaActual.IdPartida, Enumeracion.EnumEstadoPartida.Cancelada.ToString());
-                if (resultadoActualizacion == -1)
+                if (resultadoActualizacion == ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
