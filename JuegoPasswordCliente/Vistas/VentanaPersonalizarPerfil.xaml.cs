@@ -81,15 +81,15 @@ namespace Cliente.Vistas
             {                
                 ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
                 int validacionCorreo = servicioGestionAcceso.ValidarPresenciaDeCorreo(nuevoCorreo);
-                if (validacionCorreo == 0)
+                if (validacionCorreo == ValoresConstantes.ConsultaSinRegistro)
                 {
                     GuardarNuevoCorreo(nuevoCorreo);   
                 }
-                else if (validacionCorreo == 1)
+                else if (validacionCorreo == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCorreoRegistrado);
                 }
-                else
+                else if(validacionCorreo==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -117,12 +117,12 @@ namespace Cliente.Vistas
             {
                 ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
                 int resultadoEdicionCorreo = servicioPersonalizacionPerfil.EditarCorreoPorIdAcceso(JugadorSingleton.IdJugador, nuevoCorreo);
-                if (resultadoEdicionCorreo == 1)
+                if (resultadoEdicionCorreo == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
                     JugadorSingleton.Correo = nuevoCorreo;
                 }
-                else
+                else if(resultadoEdicionCorreo==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -176,14 +176,12 @@ namespace Cliente.Vistas
                 {
                     ServicioPersonalizacionPerfilClient proxy = new ServidorPassword.ServicioPersonalizacionPerfilClient();
                     int resultadoEdicionDescripcion = proxy.EditarDescripcionPorIdJugador(idJugador, nuevaDescripcion);
-                    if (resultadoEdicionDescripcion == 1)
+                    if (resultadoEdicionDescripcion == ValoresConstantes.OperacionExitosa)
                     {
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
-                        JugadorSingleton.Descripcion = nuevaDescripcion;
-                        VentanaMenuPrincipal paginaMenuPrincipal= new VentanaMenuPrincipal();
-                        this.NavigationService.Navigate(paginaMenuPrincipal);
+                        JugadorSingleton.Descripcion = nuevaDescripcion;                        
                     }
-                    else 
+                    else  if(resultadoEdicionDescripcion==ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
@@ -232,15 +230,15 @@ namespace Cliente.Vistas
             {                
                 ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
                 int validacionNombreUsuario = servicioGestionAcceso.ValidarNombreUsuario(nuevoNombreUsuario);
-                if (validacionNombreUsuario == 0)
+                if (validacionNombreUsuario == ValoresConstantes.ConsultaSinRegistro)
                 {
                     GuardarNombreUsuario(nuevoNombreUsuario);   
                 }
-                else if (validacionNombreUsuario == 1)
+                else if (validacionNombreUsuario == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
                 }
-                else
+                else if (validacionNombreUsuario==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -269,12 +267,12 @@ namespace Cliente.Vistas
             {
                 ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
                 int resultadoEdicionNombreUsuario = servicioPersonalizacionPerfil.EditarNombreUsuarioPorIdJugador(JugadorSingleton.IdJugador, nuevoNombreUsuario);
-                if (resultadoEdicionNombreUsuario == 1)
+                if (resultadoEdicionNombreUsuario == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
-                    JugadorSingleton.NombreUsuario = nuevoNombreUsuario;
+                    JugadorSingleton.NombreUsuario = nuevoNombreUsuario;                    
                 }
-                else
+                else if (resultadoEdicionNombreUsuario==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }

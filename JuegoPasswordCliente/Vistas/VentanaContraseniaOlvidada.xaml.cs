@@ -41,31 +41,31 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
                 int validacionCorreo= servicioGestionAcceso.ValidarPresenciaDeCorreo(Txb_Correo.Text);
-                if (validacionCorreo == 1)
+                if (validacionCorreo == ValoresConstantes.OperacionExitosa)
                 {
                     ServicioPersonalizacionPerfilClient proxyPersonalizacion = new ServicioPersonalizacionPerfilClient();
                     int idAcceso=proxyPersonalizacion.RecuperarIdAccesoPorCorreo(Txb_Correo.Text);
-                    if (idAcceso > 0) 
+                    if (idAcceso > ValoresConstantes.ConsultaSinRegistro) 
                     {
                         string nuevaContrasenia = GeneradorContrasenia.GenerarContraseña();
                         int resultadoEdicion=proxyPersonalizacion.EditarContraseniaPorIdAcceso(idAcceso,EncriptadorContrasenia.EncriptarContrasenia(nuevaContrasenia));
-                        if (resultadoEdicion == 1)
+                        if (resultadoEdicion == ValoresConstantes.OperacionExitosa)
                         {
                             EnviarCorreo(nuevaContrasenia);                            
                             VentanaInicio paginaInicio=new VentanaInicio();
                             this.NavigationService.Navigate(paginaInicio);
                         }
-                        else 
+                        else if (resultadoEdicion==ValoresConstantes.ErrorConexionBaseDatos)
                         {
                             MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                         }
                     }                    
                 }
-                else if (validacionCorreo == 0)
+                else if (validacionCorreo == ValoresConstantes.ConsultaSinRegistro)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
                 }
-                else 
+                else if (validacionCorreo==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }

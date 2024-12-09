@@ -53,7 +53,7 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPatida = new ServicioGestionPartidaClient();
                 int resultadoRegistro = servicioGestionPatida.RegistrarPartidaPorIdJugador(JugadorSingleton.IdJugador, partida);
-                if (resultadoRegistro != -1)
+                if (resultadoRegistro > ValoresConstantes.ConsultaSinRegistro)
                 {
                     paginaSalaEspera.Txbl_CodigoPartida.Text = codigoPartida;                    
                     paginaSalaEspera.ConfigurarJugadores();
@@ -61,7 +61,7 @@ namespace Cliente.Vistas
                     paginaSalaEspera.RecuperarPartidaActual();
                     this.NavigationService.Navigate(paginaSalaEspera);
                 }
-                else
+                else if(resultadoRegistro==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -104,11 +104,11 @@ namespace Cliente.Vistas
                 int resultadoValidacion = servicioGestionPartida.ValidarCodigoPartida(codigoPartida);
                 switch (resultadoValidacion)
                 {
-                    case -1:
+                    case ValoresConstantes.ErrorConexionBaseDatos:
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                         break;
-                    case 1:
-                        while (resultadoValidacion == 1)
+                    case ValoresConstantes.OperacionExitosa:
+                        while (resultadoValidacion == ValoresConstantes.OperacionExitosa)
                         {
                             codigoPartida = GeneradorCodigo.GenerarCodigoPartida();
                             resultadoValidacion = servicioGestionPartida.ValidarCodigoPartida(codigoPartida);

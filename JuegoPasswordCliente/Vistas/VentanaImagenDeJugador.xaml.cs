@@ -36,17 +36,17 @@ namespace Cliente.Vistas
                 {
                     ServicioPersonalizacionPerfilClient proxy = new ServicioPersonalizacionPerfilClient();
                     int resultadoActualizacionImagen = proxy.EditarRutaImagenPorIdJugador(JugadorSingleton.IdJugador, _imagenSeleccionada.Source.ToString());
-                    if (resultadoActualizacionImagen == 1)
+                    if (resultadoActualizacionImagen == ValoresConstantes.OperacionExitosa)
                     {
                         MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
                         JugadorSingleton.RutaImagen = _imagenSeleccionada.Source.ToString();
                         NavegarAMenuPrincipal();
                     }
-                    else if (resultadoActualizacionImagen == 0)
+                    else if (resultadoActualizacionImagen == ValoresConstantes.ConsultaSinRegistro)
                     {
                         NavegarAMenuPrincipal();
                     }
-                    else 
+                    else if(resultadoActualizacionImagen==ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                         NavegarAMenuPrincipal();

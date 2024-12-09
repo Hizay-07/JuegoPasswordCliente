@@ -41,7 +41,7 @@ namespace Cliente.Vistas
             {
                 ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
                 EstadisticaContrato estadistica = servicioGestionEstadisticas.ObtenerEstadisticaPorIdEstadistica(JugadorSingleton.IdEstadistica);
-                if (estadistica.IdEstadistica > 0)
+                if (estadistica.IdEstadistica > ValoresConstantes.ConsultaSinRegistro)
                 {
                     ConfigurarEstadisticas(estadistica);
                 }
@@ -84,14 +84,14 @@ namespace Cliente.Vistas
                 int resultadoVerificacion=servicioGestionLogros.VerificarCatalogoDeLogros();
                 switch (resultadoVerificacion) 
                 {
-                    case 0:
+                    case ValoresConstantes.ConsultaSinRegistro:
                         MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCatalogosFaltantes);
                         break;
-                    case 1:
+                    case ValoresConstantes.OperacionExitosa:
                         VentanaLogros paginaLogros = new VentanaLogros();
                         this.NavigationService.Navigate(paginaLogros);
                         break;
-                    default:
+                    case ValoresConstantes.ErrorConexionBaseDatos:
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     break;
                 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration.Internal;
 using System.IO.Packaging;
 using System.Linq;
 using System.Text;
@@ -44,5 +45,23 @@ namespace Cliente.Auxiliares
         public const int IdJugadorInvitado = 0;
 
         public const string ValorExcepcion = "excepcion";
+
+        public const int OperacionExitosa = 1;
+
+        public const int ErrorConexionBaseDatos = -1;
+
+        public const int CuentaRegistrada = 2;
+
+        public const int ConsultaSinRegistro= 0;
+
+        public const int TiempoFinal = 0;
+
+        public const string GanadorDefecto = " ";
+
+        public const int PuntajePorPregunta = 10;
+
+        public const int PuntajeDefecto = 0;
+
+        public const int NumeroJugadoresMinimo = 1;
     }
 }

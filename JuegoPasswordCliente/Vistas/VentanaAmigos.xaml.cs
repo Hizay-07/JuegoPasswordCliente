@@ -43,7 +43,7 @@ namespace Cliente.Vistas
                 if (amigos.Any()) 
                 {
                     int idJugador = amigos[0].IdJugador;
-                    if (idJugador > 0)
+                    if (idJugador > ValoresConstantes.ConsultaSinRegistro)
                     {
                         List<JugadorAmistad> amigosConectados = ObtenerConexionAmigos(amigos);
                         Ltb_ListaAmigos.ItemsSource = amigosConectados;
@@ -121,7 +121,7 @@ namespace Cliente.Vistas
                 {
                     ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
                     Cuenta cuenta=servicioGestionAcceso.RecuperarCuentaPorIdJugador(idJugador);
-                    if (cuenta.IdAcceso != -1)
+                    if (cuenta.IdAcceso > ValoresConstantes.ConsultaSinRegistro)
                     {
                         VentanaPerfilDeJugador paginaPerfilDeJugador=new VentanaPerfilDeJugador();
                         paginaPerfilDeJugador.Txbl_Correo.Text = cuenta.Correo;
@@ -130,7 +130,7 @@ namespace Cliente.Vistas
                         paginaPerfilDeJugador.Img_Perfil.Source = new BitmapImage(new Uri(cuenta.RutaImagen));
                         this.NavigationService.Navigate(paginaPerfilDeJugador);
                     }
-                    else 
+                    else if (cuenta.IdAcceso==ValoresConstantes.ErrorConexionBaseDatos)
                     {
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                     }
