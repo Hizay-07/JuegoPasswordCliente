@@ -296,6 +296,33 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string Estado_Conectado {
+            get {
+                return ResourceManager.GetString("Estado_Conectado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string Estado_Conexion {
+            get {
+                return ResourceManager.GetString("Estado_Conexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string Estado_Desconectado {
+            get {
+                return ResourceManager.GetString("Estado_Desconectado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Agregar Amigo.
         /// </summary>
         public static string Lbl_AgregarAmigo {
@@ -512,24 +539,6 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a La contraseña ha sido cambiada correctamente.
-        /// </summary>
-        public static string Lbl_MensajeContraseñaPerfil {
-            get {
-                return ResourceManager.GetString("Lbl_MensajeContraseñaPerfil", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Se le enviará una nueva contraseña al correo que registre..
-        /// </summary>
-        public static string Lbl_MensajeEnvioContrasena {
-            get {
-                return ResourceManager.GetString("Lbl_MensajeEnvioContrasena", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Nombre(s).
         /// </summary>
         public static string Lbl_Nombre {
@@ -720,6 +729,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña ha sido cambiada correctamente.
+        /// </summary>
+        public static string MensajeContraseñaPerfil {
+            get {
+                return ResourceManager.GetString("MensajeContraseñaPerfil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El correo ha sido enviado.
         /// </summary>
         public static string MensajeCorreoEnviado {
@@ -743,6 +761,15 @@ namespace Cliente.Properties {
         public static string MensajeCuentaEnUso {
             get {
                 return ResourceManager.GetString("MensajeCuentaEnUso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se le enviará una nueva contraseña al correo que registre..
+        /// </summary>
+        public static string MensajeEnvioContrasena {
+            get {
+                return ResourceManager.GetString("MensajeEnvioContrasena", resourceCulture);
             }
         }
         
@@ -855,7 +882,7 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El nombre de usuario elegido no está disponible, elija otro. .
+        ///   Busca una cadena traducida similar a El nombre de usuario elegido o correo no está disponible, elija otro. .
         /// </summary>
         public static string MensajeUsuarioNoDisponible {
             get {

@@ -15,7 +15,7 @@
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="400">
 
-                <Label x:Name="Llb_NuevaContrasena" Content="{x:Static p:Resources.Lbl_MensajeEnvioContrasena}" Foreground="White" FontSize="20" 
+                <Label x:Name="Llb_NuevaContrasena" Content="{x:Static p:Resources.MensajeEnvioContrasena}" Foreground="White" FontSize="20" 
                  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,68,0,0" />
 
                 <Label x:Name="Lbl_Correo" Content="{x:Static p:Resources.Lbl_CorreoGlobal}" Foreground="White" FontSize="25" 

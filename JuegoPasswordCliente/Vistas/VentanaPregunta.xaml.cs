@@ -44,6 +44,12 @@ namespace Cliente.Vistas
             InitializeComponent();
         }
 
+        private void RegresarInicio()
+        {
+            VentanaInicio paginaInicio = new VentanaInicio();
+            this.NavigationService.Navigate(paginaInicio);
+        }
+
         public void ConfigurarPreguntas(List<PreguntaContrato> preguntas, List<RespuestaContrato> respuestas) 
         {
             _preguntas = preguntas;
@@ -273,16 +279,19 @@ namespace Cliente.Vistas
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
             }
             catch (TimeoutException excepcionTiempoEspera)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
                 _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
             }
             catch (CommunicationException excepcionComunicacion)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                 _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
             }
             return puntaje;
         }
