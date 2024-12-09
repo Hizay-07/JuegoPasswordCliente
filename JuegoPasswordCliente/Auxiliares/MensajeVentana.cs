@@ -26,13 +26,13 @@ namespace Cliente.Auxiliares
 
         public static bool MostrarVentanaEmergenteConfirmacion(string confirmMessage)
         {
-            MessageBoxResult result = MessageBox.Show(confirmMessage, Properties.Resources.VentanaEmergenteConfirmacion, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show(confirmMessage, Properties.Resources.VentanaEmergenteConfirmacion, MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.OK;
         }
 
         public static void MostrarVentanaEmergenteExpulsion(string successMessage)
         {
-            MessageBox.Show(successMessage, Properties.Resources.VentanaEmergenteExpulsion, MessageBoxButton.OKCancel, MessageBoxImage.Information);
+            MessageBox.Show(successMessage, Properties.Resources.VentanaEmergenteExpulsion, MessageBoxButton.YesNo, MessageBoxImage.Information);
         }
 
         public static void MostrarVentanaEmergenteExpulsado(string successMessage)
@@ -42,7 +42,7 @@ namespace Cliente.Auxiliares
 
         public static bool MostrarVentanaEmergenteCambioIdioma(string ConfirmMessage)
         {
-            MessageBoxResult result = MessageBox.Show(ConfirmMessage, Properties.Resources.VentanaEmergenteCambioIdioma, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show(ConfirmMessage, Properties.Resources.VentanaEmergenteCambioIdioma, MessageBoxButton.YesNo, MessageBoxImage.Question);
             return result == MessageBoxResult.OK;
         }
     }

@@ -3,6 +3,7 @@ using Cliente.ServidorPassword;
 using log4net;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO.Packaging;
 using System.Linq;
 using System.ServiceModel;
@@ -23,6 +24,7 @@ namespace Cliente.Vistas
     public partial class VentanaSolicitudesDeAmistad : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private ObservableCollection<JugadorAmistad> _amistades;
 
         public VentanaSolicitudesDeAmistad()
         {
@@ -159,7 +161,7 @@ namespace Cliente.Vistas
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
                             Ltb_ListaSolicitudes.ItemsSource = new List<JugadorAmistad>();
-                            RecuperarAmistadesPendientes();                            
+                            RecuperarAmistadesPendientes();
                         }
                         else
                         {
@@ -207,7 +209,7 @@ namespace Cliente.Vistas
                         {
                             MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
                             Ltb_ListaSolicitudes.ItemsSource=new List<JugadorAmistad>();
-                            RecuperarAmistadesPendientes();
+                            RecuperarAmistadesPendientes();;
                         }
                         else
                         {

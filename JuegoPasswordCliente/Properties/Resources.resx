@@ -396,13 +396,13 @@ Los cambios se aplicarán al reiniciar el juago</value>
   <data name="Lbl_CambioIdioma" xml:space="preserve">
     <value>Cambio de idioma</value>
   </data>
-  <data name="Estado_Conectado" xml:space="preserve">
+  <data name="Lbl_EstadoConectado" xml:space="preserve">
     <value>Conectado</value>
   </data>
-  <data name="Estado_Desconectado" xml:space="preserve">
+  <data name="Lbl_EstadoDesconectado" xml:space="preserve">
     <value>Desconectado</value>
   </data>
-  <data name="Estado_Conexion" xml:space="preserve">
+  <data name="Lbl_EstadoConexion" xml:space="preserve">
     <value>Se ha conectado</value>
   </data>
   <data name="MensajeNoEresAnfitrion" xml:space="preserve">

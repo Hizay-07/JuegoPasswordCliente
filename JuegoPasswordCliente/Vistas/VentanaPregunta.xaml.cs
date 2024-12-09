@@ -9,6 +9,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -35,12 +36,12 @@ namespace Cliente.Vistas
         private List<PreguntaContrato> _preguntasSinModificar;
         private List<RespuestaContrato> _respuestas;
         private string _codigoPartida;
-        
+
         public string TiempoRestante => _tiempoRestante.ToString();        
 
         public VentanaPregunta()
         {
-            InitializeComponent();                                    
+            InitializeComponent();
         }
 
         public void ConfigurarPreguntas(List<PreguntaContrato> preguntas, List<RespuestaContrato> respuestas) 
@@ -601,5 +602,7 @@ namespace Cliente.Vistas
                 }
             }
         }
+
+        
     }
 }
