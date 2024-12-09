@@ -183,7 +183,7 @@
   <data name="Btn_GuardarCambios" xml:space="preserve">
     <value>Save changes</value>
   </data>
-  <data name="Lbl_MensajeContraseñaPerfil" xml:space="preserve">
+  <data name="MensajeContraseñaPerfil" xml:space="preserve">
     <value>The password has been changed successfully</value>
   </data>
   <data name="VentanaEmergenteError" xml:space="preserve">
@@ -214,7 +214,7 @@
     <value>Please ensure the field information is correct.</value>
   </data>
   <data name="MensajeUsuarioNoDisponible" xml:space="preserve">
-    <value>The username or email you selected is not available, please choose another one.</value>
+    <value>The chosen username or email is unavailable, please select another.</value>
   </data>
   <data name="MensajeRegistroExitoso" xml:space="preserve">
     <value>Your registration has been successful; you can now log in with your email and chosen password. </value>
@@ -225,7 +225,7 @@
   <data name="MensajeErrorConexion" xml:space="preserve">
     <value>The connection to the server could not be made. Please check the connection to the server and try again.</value>
   </data>
-  <data name="Lbl_MensajeEnvioContrasena" xml:space="preserve">
+  <data name="MensajeEnvioContrasena" xml:space="preserve">
     <value>A new password will be sent to the registered email. </value>
   </data>
   <data name="VentanaEmergenteExpulsion" xml:space="preserve">
