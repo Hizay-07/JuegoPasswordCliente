@@ -23,8 +23,7 @@ namespace Cliente.Vistas
 {    
     public partial class VentanaSolicitudesDeAmistad : Page
     {
-        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-        private ObservableCollection<JugadorAmistad> _amistades;
+        private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);        
 
         public VentanaSolicitudesDeAmistad()
         {
@@ -153,42 +152,48 @@ namespace Cliente.Vistas
                 {
                     Amistad amistad = ObtenerAmistadAceptada();
                     amistad.idAmistad=idAmistad;
-                    try
-                    {
-                        ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
-                        int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
-                        if (resultadoRegistro == 1)
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
-                            Ltb_ListaSolicitudes.ItemsSource = new List<JugadorAmistad>();
-                            RecuperarAmistadesPendientes();
-                        }
-                        else
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }
-                    }
-                    catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-                    }
-                    catch (TimeoutException excepcionTiempoEspera)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                        _bitacora.Warn(excepcionTiempoEspera);
-                    }
-                    catch (CommunicationException excepcionComunicacion)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                        _bitacora.Error(excepcionComunicacion);
-                    }
+                    ResponderSolicitudAmistadEspecifica(amistad);
                 }
                 else 
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
             }                            
+        }
+
+        private void ResponderSolicitudAmistadEspecifica(Amistad amistad) 
+        {
+            try
+            {
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
+                if (resultadoRegistro == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                    Ltb_ListaSolicitudes.ItemsSource = new List<JugadorAmistad>();
+                    RecuperarAmistadesPendientes();
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+
         }
 
         private void CancelarSolicitud(object remitente, RoutedEventArgs argumento) 
@@ -201,36 +206,7 @@ namespace Cliente.Vistas
                 {
                     Amistad amistad = ObtenerAmistadRechazada();
                     amistad.idAmistad = idAmistad;
-                    try
-                    {
-                        ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
-                        int resultadoRegistro = servicioGestionAmistad.ResponderSolicitudAmistad(amistad);
-                        if (resultadoRegistro == 1)
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
-                            Ltb_ListaSolicitudes.ItemsSource=new List<JugadorAmistad>();
-                            RecuperarAmistadesPendientes();;
-                        }
-                        else
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }
-                    }
-                    catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-                    }
-                    catch (TimeoutException excepcionTiempoEspera)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                        _bitacora.Warn(excepcionTiempoEspera);
-                    }
-                    catch (CommunicationException excepcionComunicacion)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                        _bitacora.Error(excepcionComunicacion);
-                    }
+                    ResponderSolicitudAmistadEspecifica(amistad);
                 }
                 else
                 {

@@ -27,7 +27,7 @@ namespace Cliente.Auxiliares
         public static bool MostrarVentanaEmergenteConfirmacion(string confirmMessage)
         {
             MessageBoxResult result = MessageBox.Show(confirmMessage, Properties.Resources.VentanaEmergenteConfirmacion, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            return result == MessageBoxResult.OK;
+            return result == MessageBoxResult.Yes;
         }
 
         public static void MostrarVentanaEmergenteExpulsion(string successMessage)

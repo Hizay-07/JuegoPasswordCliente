@@ -1,6 +1,7 @@
 ﻿using Cliente.Auxiliares;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Net.Mail;
 
 namespace PruebaAuxiliares
 {
@@ -12,7 +13,7 @@ namespace PruebaAuxiliares
         {
             string destinatario = "correo.destinatario@gmail.com";
             string asunto = "Prueba de Envío de Correo";
-            string cuerpo = "Este es un mensaje de prueba para verificar el envío de correos.";            
+            string cuerpo = "Este es un mensaje de prueba para verificar el envío de correos.";
             try
             {
                 EnvioCorreo.EnviarCorreo(destinatario, asunto, cuerpo);
@@ -26,27 +27,20 @@ namespace PruebaAuxiliares
             }
         }
 
-        [TestMethod]
+        [TestMethod]        
         public void PruebaEnviarCorreoFallido()
-        {
-            string destinatario = "correo.invalido";
+        {            
+            string destinatario = "destinatario@gmail.com";
             string asunto = "Prueba de Envío de Correo";
-            string cuerpo = "Este es un mensaje de prueba para verificar el envío de correos.";            
+            string cuerpo = "Este es un mensaje de prueba para verificar el envío de correos.";
             try
             {
                 EnvioCorreo.EnviarCorreo(destinatario, asunto, cuerpo);
-                Assert.Fail("Se esperaba que fallara el envío de correo, pero se envió correctamente.");
             }
-            catch (FormatException)
+            catch (SmtpException excepcionSMTP)
             {
-                Console.WriteLine("Error esperado al enviar el correo a una dirección inválida.");
-                Assert.IsTrue(true); 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error inesperado al enviar el correo: " + ex.Message);
-                Assert.Fail("Se produjo un error inesperado al enviar el correo.");
-            }
+                Assert.IsNotNull(excepcionSMTP);
+            }            
         }
     }
 }

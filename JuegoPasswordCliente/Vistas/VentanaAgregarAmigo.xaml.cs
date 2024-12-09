@@ -37,55 +37,83 @@ namespace Cliente.Vistas
         {
             if (ValidarCorreo())
             {
-                try
-                {
-                    ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
-                    int idJugador = servicioGestionAmistad.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
-                    if (idJugador > 0)
-                    {
-                        int validacionExistenciaAmistad = servicioGestionAmistad.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
-                        if (validacionExistenciaAmistad == 0)
-                        {
-                            RegistrarAmistad(idJugador);   
-                        }
-                        else if (validacionExistenciaAmistad == 1) 
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeAmistadAnterior);
-                        }
-                        else 
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }                        
-                    }
-                    else if (idJugador == 0)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
-                    }
-                    else
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                    }
-
-                }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-                }
-                catch (TimeoutException excepcionTiempoEspera)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                    _bitacora.Warn(excepcionTiempoEspera);
-                }
-                catch (CommunicationException excepcionComunicacion)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                    _bitacora.Error(excepcionComunicacion);
-                }
+                ValidarExitenciaJugador();
             }
-            else 
+            else
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
+            }
+        }
+
+        private void ValidarExitenciaJugador() 
+        {
+            try
+            {
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                int idJugador = servicioGestionAmistad.ConsultarIdJugadorPorCorreo(Txb_Correo.Text);
+                if (idJugador > 0)
+                {
+                    ValidarExitenciaAmistad(idJugador);   
+                }
+                else if (idJugador == 0)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+        }
+
+        private void ValidarExitenciaAmistad(int idJugador) 
+        {
+            try
+            {
+                ServicioGestionAmistadClient servicioGestionAmistad = new ServicioGestionAmistadClient();
+                int validacionExistenciaAmistad = servicioGestionAmistad.ValidarExistenciaAmistadPorIdJugadores(JugadorSingleton.IdJugador, idJugador);
+                if (validacionExistenciaAmistad == 0)
+                {
+                    RegistrarAmistad(idJugador);
+                }
+                else if (validacionExistenciaAmistad == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeAmistadAnterior);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
