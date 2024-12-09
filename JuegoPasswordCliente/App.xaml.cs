@@ -15,18 +15,21 @@ namespace Cliente
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs argumento)
         {
-            base.OnStartup(e);
+            base.OnStartup(argumento);
 
             string savedLanguage = Cliente.Properties.Settings.Default.Lenguaje;
 
             if (string.IsNullOrEmpty(savedLanguage))
             {
-                savedLanguage = CultureInfo.CurrentCulture.Name.StartsWith("es") ? "es-MX" : "en-US";
+                savedLanguage = "en-US";
                 Cliente.Properties.Settings.Default.Lenguaje = savedLanguage;
                 Cliente.Properties.Settings.Default.Save();
             }
+            CultureInfo culture = new CultureInfo(savedLanguage);
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
             CambioIdioma(savedLanguage);
 

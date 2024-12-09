@@ -184,7 +184,7 @@ usuario</value>
   <data name="Btn_GuardarCambios" xml:space="preserve">
     <value>Guardar cambios</value>
   </data>
-  <data name="Lbl_MensajeContraseñaPerfil" xml:space="preserve">
+  <data name="MensajeContraseñaPerfil" xml:space="preserve">
     <value>La contraseña ha sido cambiada correctamente</value>
   </data>
   <data name="VentanaEmergenteError" xml:space="preserve">
@@ -226,7 +226,7 @@ usuario</value>
   <data name="MensajeErrorConexion" xml:space="preserve">
     <value>La conexión al servidor no se pudo hacer. Verifique la conexión al servidor y vuelva intentarlo.</value>
   </data>
-  <data name="Lbl_MensajeEnvioContrasena" xml:space="preserve">
+  <data name="MensajeEnvioContrasena" xml:space="preserve">
     <value>Se le enviará una nueva contraseña al correo que registre.</value>
   </data>
   <data name="VentanaEmergenteExpulsion" xml:space="preserve">
@@ -434,5 +434,14 @@ Los cambios se aplicarán al reiniciar el juago</value>
   </data>
   <data name="Txbl_CodigoDeSala" xml:space="preserve">
     <value>Código de sala</value>
+  </data>
+  <data name="Estado_Conectado" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Estado_Desconectado" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Estado_Conexion" xml:space="preserve">
+    <value />
   </data>
 </root>
