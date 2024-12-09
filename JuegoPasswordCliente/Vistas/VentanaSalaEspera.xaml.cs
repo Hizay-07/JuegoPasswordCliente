@@ -44,7 +44,7 @@ namespace Cliente.Vistas
                 _servicioChat = new ServicioChatClient(contexto);
                 string nombreUsuario = JugadorSingleton.NombreUsuario;
                 string codigoPartida = Txbl_CodigoPartida.Text;
-                string mensajeInicial = $"{nombreUsuario}:{codigoPartida}: " + $"{Properties.Resources.Estado_Conexion}";
+                string mensajeInicial = $"{nombreUsuario}:{codigoPartida}: " + $"{Properties.Resources.Lbl_EstadoConexion}";
                 _servicioChat.Chatear(mensajeInicial);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)

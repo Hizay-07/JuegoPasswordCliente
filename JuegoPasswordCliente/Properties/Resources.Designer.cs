@@ -296,33 +296,6 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Conectado.
-        /// </summary>
-        public static string Estado_Conectado {
-            get {
-                return ResourceManager.GetString("Estado_Conectado", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Se ha conectado.
-        /// </summary>
-        public static string Estado_Conexion {
-            get {
-                return ResourceManager.GetString("Estado_Conexion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Desconectado.
-        /// </summary>
-        public static string Estado_Desconectado {
-            get {
-                return ResourceManager.GetString("Estado_Desconectado", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Busca una cadena traducida similar a Agregar Amigo.
         /// </summary>
         public static string Lbl_AgregarAmigo {
@@ -418,6 +391,33 @@ namespace Cliente.Properties {
         public static string Lbl_Estadisticas {
             get {
                 return ResourceManager.GetString("Lbl_Estadisticas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Conectado.
+        /// </summary>
+        public static string Lbl_EstadoConectado {
+            get {
+                return ResourceManager.GetString("Lbl_EstadoConectado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha conectado.
+        /// </summary>
+        public static string Lbl_EstadoConexion {
+            get {
+                return ResourceManager.GetString("Lbl_EstadoConexion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desconectado.
+        /// </summary>
+        public static string Lbl_EstadoDesconectado {
+            get {
+                return ResourceManager.GetString("Lbl_EstadoDesconectado", resourceCulture);
             }
         }
         
