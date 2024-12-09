@@ -882,7 +882,7 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El nombre de usuario elegido o correo no está disponible, elija otro. .
+        ///   Busca una cadena traducida similar a El nombre de usuario o correo elegido no está disponible, elija otro. .
         /// </summary>
         public static string MensajeUsuarioNoDisponible {
             get {
