@@ -44,15 +44,15 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
                 int validacionCuenta = servicioGestionAcceso.ValidarPresenciaCuenta(jugador.nombreUsuario, acceso.correo);
-                if (validacionCuenta == 0)
+                if (validacionCuenta == ValoresConstantes.ConsultaSinRegistro)
                 {
                     RegistrarNuevoJugador(jugador,acceso);
                 }
-                else if (validacionCuenta == 1)
+                else if (validacionCuenta > ValoresConstantes.ConsultaSinRegistro)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
                 }
-                else
+                else if(validacionCuenta==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }
@@ -80,17 +80,17 @@ namespace Cliente.Vistas
             {
                 ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
                 int resultadoRegistro = servicioGestionAcceso.RegistrarNuevoJugador(acceso, jugador);
-                if (resultadoRegistro == 1)
+                if (resultadoRegistro == ValoresConstantes.OperacionExitosa)
                 {
                     MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
                     VentanaInicio inicioPage = new VentanaInicio();
                     this.NavigationService.Navigate(inicioPage);
                 }
-                else if (resultadoRegistro == 2)
+                else if (resultadoRegistro == ValoresConstantes.CuentaRegistrada)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
                 }
-                else
+                else if(resultadoRegistro==ValoresConstantes.ErrorConexionBaseDatos)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                 }

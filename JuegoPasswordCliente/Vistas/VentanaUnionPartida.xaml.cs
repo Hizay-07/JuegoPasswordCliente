@@ -89,7 +89,7 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPartida=new ServicioGestionPartidaClient();                
                 var partida = servicioGestionPartida.RecuperarPartidaPorCodigo(Txb_CodigoPartida.Text);
-                if (partida.IdPartida > 0 && partida.EstadoPartida == Enumeracion.EnumEstadoPartida.Iniciada.ToString()) 
+                if (partida.IdPartida > ValoresConstantes.ConsultaSinRegistro && partida.EstadoPartida == Enumeracion.EnumEstadoPartida.Iniciada.ToString()) 
                 {                   
                     validacionEstadoPartida = true;                    
                 }
@@ -121,13 +121,13 @@ namespace Cliente.Vistas
                 int validacionCodigo=servicioGestionPartida.ValidarCodigoPartida(Txb_CodigoPartida.Text);
                 switch (validacionCodigo) 
                 {
-                    case -1:
+                    case ValoresConstantes.ErrorConexionBaseDatos:
                         MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
                         break;
-                    case 0:
+                    case ValoresConstantes.ConsultaSinRegistro:
                         MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeCodigoPartidaInexistente);
                         break;
-                    case 1:
+                    case ValoresConstantes.OperacionExitosa:
                         validacion = true;
                         break;
                 }
@@ -157,7 +157,7 @@ namespace Cliente.Vistas
             {
                 ServicioGestionPartidaClient servicioGestionPartida = new ServicioGestionPartidaClient();
                 var partida = servicioGestionPartida.RecuperarPartidaPorCodigo(Txb_CodigoPartida.Text);
-                if (partida.IdPartida > 0)
+                if (partida.IdPartida > ValoresConstantes.ConsultaSinRegistro)
                 {
                     AbrirSalaDeEspera();                    
                 }
