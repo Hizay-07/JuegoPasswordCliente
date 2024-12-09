@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO.Packaging;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,11 +46,10 @@ namespace Cliente.Vistas
         private void CompararCampos()
         {
             ReiniciarCampos();
-            int idJugador = JugadorSingleton.IdJugador;
-            int idAcceso = JugadorSingleton.IdAcceso;            
+            int idJugador = JugadorSingleton.IdJugador;            
             if (Txb_Correo.Text != JugadorSingleton.Correo)
             {
-                EditarCorreoPorIdAcceso(idAcceso, Txb_Correo.Text);
+                EditarCorreoPorIdAcceso(Txb_Correo.Text);
             }
             if (Txb_Descripcion.Text != JugadorSingleton.Descripcion)
             {
@@ -57,62 +57,90 @@ namespace Cliente.Vistas
             }
             if (Txb_NombreDeUsuario.Text != JugadorSingleton.NombreUsuario)
             {
-                EditarNombreUsuarioPorIdJugador(idJugador, Txb_NombreDeUsuario.Text);
+                EditarNombreUsuarioPorIdJugador(Txb_NombreDeUsuario.Text);
             }
         }
 
-        public void EditarCorreoPorIdAcceso(int idAcceso, string nuevoCorreo)
+        public void EditarCorreoPorIdAcceso(string nuevoCorreo)
         {            
             if (ValidarNuevoCorreo(nuevoCorreo))
             {
-                try
-                {
-                    ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
-                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
-                    int validacionCorreo = servicioGestionAcceso.ValidarPresenciaDeCorreo(nuevoCorreo);
-                    if (validacionCorreo == 0)
-                    {
-                        int resultadoEdicionCorreo = servicioPersonalizacionPerfil.EditarCorreoPorIdAcceso(idAcceso, nuevoCorreo);
-                        if (resultadoEdicionCorreo == 1)
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
-                            JugadorSingleton.Correo = nuevoCorreo;
-                        }
-                        else
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }
-                    }
-                    else if (validacionCorreo == 1)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCorreoRegistrado);
-                    }
-                    else 
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                    }                    
-                }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-                }
-                catch (TimeoutException excepcionTiempoEspera)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                    _bitacora.Warn(excepcionTiempoEspera);
-                }
-                catch (CommunicationException excepcionComunicacion)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                    _bitacora.Error(excepcionComunicacion);
-                }
+                ValidarPresenciaNuevoCorreo(nuevoCorreo);
             }
             else
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeInformacionInvalida);
                 Txb_Correo.BorderBrush = Brushes.Red;
                 Txb_Correo.BorderThickness = new Thickness(2);
+            }
+        }
+
+        private void ValidarPresenciaNuevoCorreo(string nuevoCorreo) 
+        {
+            try
+            {                
+                ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                int validacionCorreo = servicioGestionAcceso.ValidarPresenciaDeCorreo(nuevoCorreo);
+                if (validacionCorreo == 0)
+                {
+                    GuardarNuevoCorreo(nuevoCorreo);   
+                }
+                else if (validacionCorreo == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeCorreoRegistrado);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+        }
+
+        private void GuardarNuevoCorreo(string nuevoCorreo) 
+        {
+            try
+            {
+                ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
+                int resultadoEdicionCorreo = servicioPersonalizacionPerfil.EditarCorreoPorIdAcceso(JugadorSingleton.IdJugador, nuevoCorreo);
+                if (resultadoEdicionCorreo == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
+                    JugadorSingleton.Correo = nuevoCorreo;
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
             }
         }
 
@@ -184,52 +212,11 @@ namespace Cliente.Vistas
             }
         }
 
-        public void EditarNombreUsuarioPorIdJugador(int idJugador, string nuevoNombreUsuario)
+        public void EditarNombreUsuarioPorIdJugador(string nuevoNombreUsuario)
         {            
             if (ValidarNuevoNombreUsuario(nuevoNombreUsuario))
             {
-                try
-                {
-                    ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
-                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
-                    int validacionNombreUsuario = servicioGestionAcceso.ValidarNombreUsuario(nuevoNombreUsuario);
-                    if (validacionNombreUsuario == 0)
-                    {
-                        int resultadoEdicionNombreUsuario = servicioPersonalizacionPerfil.EditarNombreUsuarioPorIdJugador(idJugador, nuevoNombreUsuario);
-                        if (resultadoEdicionNombreUsuario == 1)
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
-                            JugadorSingleton.NombreUsuario = nuevoNombreUsuario;
-                        }
-                        else
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }
-                    }
-                    else if (validacionNombreUsuario == 1)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
-                    }
-                    else 
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                    }                    
-                }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-                }
-                catch (TimeoutException excepcionTiempoEspera)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                    _bitacora.Warn(excepcionTiempoEspera);
-                }
-                catch (CommunicationException excepcionComunicacion)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                    _bitacora.Error(excepcionComunicacion);
-                }
+                ValidarPresenciaNombreUsuario(nuevoNombreUsuario);
             }
             else
             {
@@ -237,6 +224,78 @@ namespace Cliente.Vistas
                 Txb_NombreDeUsuario.BorderBrush = Brushes.Red;
                 Txb_NombreDeUsuario.BorderThickness = new Thickness(2);
             }
+        }
+
+        private void ValidarPresenciaNombreUsuario(string nuevoNombreUsuario) 
+        {
+            try
+            {                
+                ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                int validacionNombreUsuario = servicioGestionAcceso.ValidarNombreUsuario(nuevoNombreUsuario);
+                if (validacionNombreUsuario == 0)
+                {
+                    GuardarNombreUsuario(nuevoNombreUsuario);   
+                }
+                else if (validacionNombreUsuario == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+
+        }
+
+        private void GuardarNombreUsuario(string nuevoNombreUsuario) 
+        {
+            try
+            {
+                ServicioPersonalizacionPerfilClient servicioPersonalizacionPerfil = new ServicioPersonalizacionPerfilClient();
+                int resultadoEdicionNombreUsuario = servicioPersonalizacionPerfil.EditarNombreUsuarioPorIdJugador(JugadorSingleton.IdJugador, nuevoNombreUsuario);
+                if (resultadoEdicionNombreUsuario == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCambiosGuardados);
+                    JugadorSingleton.NombreUsuario = nuevoNombreUsuario;
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+
         }
 
         private void CancelarPersonalizacion(object remitente, RoutedEventArgs argumento)

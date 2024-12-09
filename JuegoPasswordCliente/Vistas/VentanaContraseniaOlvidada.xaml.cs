@@ -4,6 +4,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,8 +51,7 @@ namespace Cliente.Vistas
                         int resultadoEdicion=proxyPersonalizacion.EditarContraseniaPorIdAcceso(idAcceso,EncriptadorContrasenia.EncriptarContrasenia(nuevaContrasenia));
                         if (resultadoEdicion == 1)
                         {
-                            EnviarCorreo(nuevaContrasenia);
-                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+                            EnviarCorreo(nuevaContrasenia);                            
                             VentanaInicio paginaInicio=new VentanaInicio();
                             this.NavigationService.Navigate(paginaInicio);
                         }
@@ -90,7 +90,16 @@ namespace Cliente.Vistas
         private void EnviarCorreo(String nuevaContrasenia) 
         {
             string cuerpo = $"{Properties.Resources.CuerpoContrasenia}\n {nuevaContrasenia}";
-            EnvioCorreo.EnviarCorreo(Txb_Correo.Text, Properties.Resources.AsuntoNuevaContrasenia, cuerpo);
+            try 
+            {
+                EnvioCorreo.EnviarCorreo(Txb_Correo.Text, Properties.Resources.AsuntoNuevaContrasenia, cuerpo);
+                MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.VentanaEmergenteExito);
+            }
+            catch (SmtpException excepcionSMTP)
+            {
+                _bitacora.Warn(excepcionSMTP);
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorEnvioCorreo);
+            }            
         }
         
     }

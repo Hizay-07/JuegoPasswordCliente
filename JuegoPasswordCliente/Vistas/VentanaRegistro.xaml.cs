@@ -34,55 +34,84 @@ namespace Cliente.Vistas
                 Jugador jugador = ObtenerJugador();
                 string contraseniaEncriptada = EncriptadorContrasenia.EncriptarContrasenia(acceso.contrasenia);
                 acceso.contrasenia = contraseniaEncriptada;
-                try
-                {
-                    ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
-                    int validacionCuenta = servicioGestionAcceso.ValidarPresenciaCuenta(jugador.nombreUsuario,acceso.correo);
-                    if (validacionCuenta == 0)
-                    {                        
-                        int resultadoRegistro = servicioGestionAcceso.RegistrarNuevoJugador(acceso, jugador);
-                        if (resultadoRegistro == 1)
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
-                            VentanaInicio inicioPage = new VentanaInicio();
-                            this.NavigationService.Navigate(inicioPage);
-                        }
-                        else if (resultadoRegistro == 2) 
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
-                        }
-                        else
-                        {
-                            MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                        }                        
-                    }
-                    else if (validacionCuenta == 1)
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
-                    }
-                    else
-                    {
-                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                    }
-                }
-                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-                }
-                catch (TimeoutException excepcionTiempoEspera)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                    _bitacora.Warn(excepcionTiempoEspera);
-                }
-                catch (CommunicationException excepcionComunicacion)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                    _bitacora.Error(excepcionComunicacion);
-                }
+                ValidarPresenciaCuenta(jugador,acceso);               
             }            
         }
-        
+
+        private void ValidarPresenciaCuenta(Jugador jugador,Acceso acceso) 
+        {
+            try
+            {
+                ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                int validacionCuenta = servicioGestionAcceso.ValidarPresenciaCuenta(jugador.nombreUsuario, acceso.correo);
+                if (validacionCuenta == 0)
+                {
+                    RegistrarNuevoJugador(jugador,acceso);
+                }
+                else if (validacionCuenta == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+        }
+
+        private void RegistrarNuevoJugador(Jugador jugador,Acceso acceso) 
+        {
+            try
+            {
+                ServicioGestionAccesoClient servicioGestionAcceso = new ServicioGestionAccesoClient();
+                int resultadoRegistro = servicioGestionAcceso.RegistrarNuevoJugador(acceso, jugador);
+                if (resultadoRegistro == 1)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeRegistroExitoso);
+                    VentanaInicio inicioPage = new VentanaInicio();
+                    this.NavigationService.Navigate(inicioPage);
+                }
+                else if (resultadoRegistro == 2)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeUsuarioNoDisponible);
+                }
+                else
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
+                }
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+            }
+        }
+
         private Jugador ObtenerJugador()
         {
             Jugador jugador = new Jugador

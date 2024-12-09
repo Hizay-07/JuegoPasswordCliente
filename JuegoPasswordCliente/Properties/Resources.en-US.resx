@@ -395,6 +395,15 @@ The changes will be applied when the game is restarted</value>
   <data name="Lbl_CambioIdioma" xml:space="preserve">
     <value>Language change</value>
   </data>
+  <data name="Lbl_EstadoConectado" xml:space="preserve">
+    <value>Online</value>
+  </data>
+  <data name="Lbl_EstadoDesconectado" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="Lbl_EstadoConexion" xml:space="preserve">
+    <value>Has been conected</value>
+  </data>
   <data name="MensajeNoEresAnfitrion" xml:space="preserve">
     <value>You cannot start the game because you are not the host.</value>
   </data>

@@ -13,8 +13,7 @@ namespace Cliente.Auxiliares
     {
         public static void EnviarCorreo(string destinatario, string asunto, string cuerpo) 
         {
-            try
-            {                
+                   
                 MailMessage mensaje = new MailMessage();
                 mensaje.From = new MailAddress(ConfigurationManager.AppSettings["CorreoUsuario"]);
                 mensaje.To.Add(destinatario);
@@ -27,12 +26,7 @@ namespace Cliente.Auxiliares
                     ConfigurationManager.AppSettings["CorreoContrasenia"]
                 );
                 clienteSmtp.EnableSsl = true;                 
-                clienteSmtp.Send(mensaje);                
-            }
-            catch (SmtpException)
-            {
-                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorEnvioCorreo);
-            }
+                clienteSmtp.Send(mensaje);                                        
         }        
     }
 }

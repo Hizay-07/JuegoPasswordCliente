@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO.Packaging;
 using System.Linq;
+using System.Net.Mail;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -189,8 +190,7 @@ namespace Cliente.Vistas
                     Cuenta cuenta = servicioGestionAcceso.RecuperarCuentaPorIdJugador(amigo.IdJugador);
                     if (cuenta.IdAcceso != -1)
                     {
-                        EnvioCorreo.EnviarCorreo(cuenta.Correo, Properties.Resources.CorreoInvitacionPartida, Txbl_CodigoPartida.Text);
-                        MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCorreoEnviado);
+                        EnviarCorreo(cuenta.Correo);
                     }
                     else
                     {
@@ -212,6 +212,20 @@ namespace Cliente.Vistas
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                     _bitacora.Error(excepcionComunicacion);
                 }
+            }
+        }
+
+        private void EnviarCorreo(string correo) 
+        {
+            try
+            {
+                EnvioCorreo.EnviarCorreo(correo, Properties.Resources.CorreoInvitacionPartida, Txbl_CodigoPartida.Text);
+                MensajeVentana.MostrarVentanaEmergenteExitosa(Properties.Resources.MensajeCorreoEnviado);
+            }
+            catch (SmtpException excepcionSMTP) 
+            {
+                _bitacora.Warn(excepcionSMTP);
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorEnvioCorreo);
             }
         }
        
@@ -495,7 +509,7 @@ namespace Cliente.Vistas
 
         private void ExpulsarJugador(string nombreUsuario,string rutaImagen) 
         {
-            if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion) 
+            if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion)                
             {
                 if (MensajeVentana.MostrarVentanaEmergenteConfirmacion(Properties.Resources.MensajeExpulsionJugador)) 
                 {

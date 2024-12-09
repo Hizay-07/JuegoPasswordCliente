@@ -396,6 +396,15 @@ Los cambios se aplicarán al reiniciar el juago</value>
   <data name="Lbl_CambioIdioma" xml:space="preserve">
     <value>Cambio de idioma</value>
   </data>
+  <data name="Lbl_EstadoConectado" xml:space="preserve">
+    <value>Conectado</value>
+  </data>
+  <data name="Lbl_EstadoDesconectado" xml:space="preserve">
+    <value>Desconectado</value>
+  </data>
+  <data name="Lbl_EstadoConexion" xml:space="preserve">
+    <value>Se ha conectado</value>
+  </data>
   <data name="MensajeNoEresAnfitrion" xml:space="preserve">
     <value>No puedes iniciar la partida, ya que no eres su anfitrión</value>
   </data>
