@@ -63,5 +63,9 @@ namespace Cliente.Auxiliares
         public const int PuntajeDefecto = 0;
 
         public const int NumeroJugadoresMinimo = 1;
+
+        public const string NombreUsuarioInvitado = "Invitado";
+
+        public const string ArchivoAudio = "Recursos/salaEspera.mp3";
     }
 }

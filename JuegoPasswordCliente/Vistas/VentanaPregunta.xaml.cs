@@ -46,6 +46,7 @@ namespace Cliente.Vistas
 
         private void RegresarInicio()
         {
+            _temporizadorDespachador.Stop();
             VentanaInicio paginaInicio = new VentanaInicio();
             this.NavigationService.Navigate(paginaInicio);
         }
@@ -133,12 +134,12 @@ namespace Cliente.Vistas
             }
             else
             {
-                string ganador=DeterminarGanador();
-                AsignarEstadisticas();
-                AsignarLogros();                
+                string ganador=DeterminarGanador();                
                 VentanaPartidaFinalizada paginaPartidaFinalizada=new VentanaPartidaFinalizada();
                 paginaPartidaFinalizada.Lbl_NombreUsuario.Content = ganador;
-                this.NavigationService.Navigate(paginaPartidaFinalizada);                
+                this.NavigationService.Navigate(paginaPartidaFinalizada);
+                AsignarEstadisticas();
+                AsignarLogros();
             }
         }
 
@@ -276,22 +277,20 @@ namespace Cliente.Vistas
                 puntaje=servicioPartida.ObtenerPuntaje(_codigoPartida,JugadorSingleton.NombreUsuario);
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
-            {
+            {                
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
-                RegresarInicio();
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);                
             }
             catch (TimeoutException excepcionTiempoEspera)
-            {
+            {                
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
                 _bitacora.Warn(excepcionTiempoEspera);
                 RegresarInicio();
             }
             catch (CommunicationException excepcionComunicacion)
-            {
+            {                
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                _bitacora.Error(excepcionComunicacion);
-                RegresarInicio();
+                _bitacora.Error(excepcionComunicacion);                
             }
             return puntaje;
         }
@@ -333,7 +332,11 @@ namespace Cliente.Vistas
                 try
                 {
                     ServicioGestionEstadisticasClient servicioGestionEstadisticas = new ServicioGestionEstadisticasClient();
-                    servicioGestionEstadisticas.SumarPuntajePorIdEstadistica(JugadorSingleton.IdEstadistica, puntaje);
+                    int validacionRegistroPuntaje=servicioGestionEstadisticas.SumarPuntajePorIdEstadistica(JugadorSingleton.IdEstadistica, puntaje);
+                    if (validacionRegistroPuntaje == -1) 
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorGuardarDatos);
+                    }
                 }
                 catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
                 {
@@ -429,11 +432,7 @@ namespace Cliente.Vistas
                     {
                         servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdPrimerLogro);
                     }                    
-                }
-                else if (verificacionPrimerLogro == ValoresConstantes.ErrorConexionBaseDatos) 
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                }
+                }                
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
@@ -465,11 +464,7 @@ namespace Cliente.Vistas
                     {
                         servicioGestionLogros.RegistrarNuevoLogroPorIdJugador(JugadorSingleton.IdJugador, ValoresConstantes.IdSegundoLogro);
                     }
-                }
-                else if (verificacionSegundoLogro == ValoresConstantes.ErrorConexionBaseDatos)
-                {
-                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorBaseDeDatos);
-                }
+                }                
             }
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {

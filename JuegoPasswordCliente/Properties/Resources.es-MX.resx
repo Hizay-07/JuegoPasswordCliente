@@ -224,7 +224,7 @@ usuario</value>
     <value>Revise que la información de los campos sea correcta.</value>
   </data>
   <data name="MensajeErrorConexion" xml:space="preserve">
-    <value>The connection to the server could not be made. Please check the connection to the server and try again.</value>
+    <value>La conexión al servidor no se pudo hacer. Verifique la conexión al servidor y vuelva intentarlo.</value>
   </data>
   <data name="MensajeEnvioContrasena" xml:space="preserve">
     <value>Se le enviará una nueva contraseña al correo que registre. </value>
@@ -443,5 +443,8 @@ Los cambios se aplicarán al reiniciar el juago</value>
   </data>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Se ha conectado</value>
+  </data>
+  <data name="MensajeErrorGuardarDatos" xml:space="preserve">
+    <value>Error de base de datos, los datos de la partida no pudieron ser guardados</value>
   </data>
 </root>

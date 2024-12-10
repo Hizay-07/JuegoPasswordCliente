@@ -444,4 +444,7 @@ Los cambios se aplicarán al reiniciar el juago</value>
   <data name="Estado_Conexion" xml:space="preserve">
     <value />
   </data>
+  <data name="MensajeErrorGuardarDatos" xml:space="preserve">
+    <value>Error de base de datos, los datos de la partida no pudieron ser guardados</value>
+  </data>
 </root>

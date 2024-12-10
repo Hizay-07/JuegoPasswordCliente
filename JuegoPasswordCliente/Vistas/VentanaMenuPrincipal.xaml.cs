@@ -13,6 +13,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -22,13 +23,36 @@ namespace Cliente.Vistas
     public partial class VentanaMenuPrincipal : Page
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private Storyboard _rotateStoryboard;
 
         public VentanaMenuPrincipal()
         {
             InitializeComponent();
+            IncializarRotacionaAmimacion();
             ConfigurarImagenPerfil();
             AsignarBotonesIdioma();
 
+        }
+
+        private void IncializarRotacionaAmimacion()
+        {            
+            var rotateAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = 360, 
+                Duration = new Duration(System.TimeSpan.FromSeconds(2)),
+                RepeatBehavior = RepeatBehavior.Forever, 
+                AutoReverse = false
+            };            
+            Storyboard.SetTarget(rotateAnimation, rotateTransform);
+            Storyboard.SetTargetProperty(rotateAnimation, new PropertyPath(RotateTransform.AngleProperty));
+            _rotateStoryboard = new Storyboard();
+            _rotateStoryboard.Children.Add(rotateAnimation);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            _rotateStoryboard.Begin();
         }
 
         private void ConfigurarImagenPerfil() 
@@ -178,14 +202,14 @@ namespace Cliente.Vistas
             if (remitente is Button Btn_Idioma)
             {
                 string nuevoLenguaje = Btn_Idioma.Name == "Btn_Espanol" ? "es-MX" : "en-US";
-                MessageBoxResult result = MessageBox.Show(
+                MessageBoxResult resultado = MessageBox.Show(
                    Properties.Resources.VentanaEmergenteCambioIdioma,
                    Properties.Resources.Lbl_CambioIdioma,
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question
                 );
 
-                if (result == MessageBoxResult.Yes)
+                if (resultado == MessageBoxResult.Yes)
                 {
                     App.CambioIdioma(nuevoLenguaje);
                     System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);

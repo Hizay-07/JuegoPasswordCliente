@@ -810,6 +810,15 @@ namespace Cliente.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Error de base de datos, los datos de la partida no pudieron ser guardados.
+        /// </summary>
+        public static string MensajeErrorGuardarDatos {
+            get {
+                return ResourceManager.GetString("MensajeErrorGuardarDatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a El tiempo de espera ha terminado. Verifique la conexión con el servidor..
         /// </summary>
         public static string MensajeErrorTiempoTerminado {

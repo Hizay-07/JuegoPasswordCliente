@@ -15,6 +15,10 @@
             </Border.Background>
 
             <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Height="397" Width="1058">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="553*"/>
+                    <ColumnDefinition Width="505*"/>
+                </Grid.ColumnDefinitions>
 
                 <Image x:Name="Img_AgregarUsuario"  
                        Source="/Imagenes/Iconos/agregar-usuario.png"
@@ -61,7 +65,11 @@
                        VerticalAlignment="Top"
                        Margin="330,-176,0,0"
                        RenderTransformOrigin="0.5,0.5"
-                       Panel.ZIndex="1"/>
+                       Panel.ZIndex="1" Grid.ColumnSpan="2">
+                    <Image.RenderTransform>
+                        <RotateTransform x:Name="rotateTransform"/>
+                    </Image.RenderTransform>
+                </Image>
 
                 <Button x:Name="Btn_Jugar" Content="{x:Static p:Resources.Btn_Jugar}" 
                         Width="164"
@@ -71,7 +79,7 @@
                         FontSize="35"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="793,311,0,-34" Click="ElegirDificultadPartida">
+                        Margin="240,311,0,-34" Click="ElegirDificultadPartida" Grid.Column="1">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -94,7 +102,7 @@
                         FontSize="30"
                         BorderThickness="0"
                         HorizontalAlignment="Left"
-                        Margin="381,402,0,-69" Click="VerSolicitudesDeAmistad">
+                        Margin="381,402,0,-69" Click="VerSolicitudesDeAmistad" Grid.ColumnSpan="2">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -116,9 +124,9 @@
                         FontWeight="Bold"
                         FontSize="30"
                         HorizontalAlignment="Left"
-                        Margin="793,60,0,245"
+                        Margin="240,60,0,245"
                         BorderThickness="0"
-                        RenderTransformOrigin="0.515,0.26" Click="ConsultarAmigos">
+                        RenderTransformOrigin="0.515,0.26" Click="ConsultarAmigos" Grid.Column="1">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <Border Background="{TemplateBinding Background}" 
@@ -133,7 +141,7 @@
                     </Button.Effect>
                 </Button>
 
-                <UniformGrid Rows="1" Columns="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,80,0,60"/>
+                <UniformGrid Rows="1" Columns="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="529,208,0,0"/>
 
                 <Button x:Name="Btn_Salir" Content="{x:Static p:Resources.Btn_SalirGlobal}"
                     Width="226"
@@ -157,7 +165,7 @@
                         <DropShadowEffect Color="Black" ShadowDepth="3" Opacity="0.5" BlurRadius="10"/>
                     </Button.Effect>
                 </Button>
-                <Image Name="Img_Perfil" Cursor="Hand" Margin="384,134,454,61" MouseLeftButtonDown="VerEstadisticas"/>
+                <Image Name="Img_Perfil" Cursor="Hand" Margin="384,134,454,61" MouseLeftButtonDown="VerEstadisticas" Grid.ColumnSpan="2"/>
                 <Button x:Name="Btn_Unirse" Content="{x:Static p:Resources.Btn_Unirse}" 
                     Width="164"
                     Background="#00E0FF"
@@ -166,7 +174,7 @@
                     FontSize="35"
                     BorderThickness="0"
                     HorizontalAlignment="Left"
-                    Margin="793,194,0,0" Click="AbrirCodigoPartida" Height="82" VerticalAlignment="Top">
+                    Margin="240,194,0,0" Click="AbrirCodigoPartida" Height="82" VerticalAlignment="Top" Grid.Column="1">
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border Background="{TemplateBinding Background}" 
