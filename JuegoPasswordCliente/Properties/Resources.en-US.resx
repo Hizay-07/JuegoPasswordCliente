@@ -443,4 +443,7 @@ The changes will be applied when the game is restarted</value>
   <data name="Estado_Conexion" xml:space="preserve">
     <value>Has been connected</value>
   </data>
+  <data name="MensajeErrorGuardarDatos" xml:space="preserve">
+    <value>Database error, game data could not be saved.</value>
+  </data>
 </root>

@@ -19,8 +19,6 @@ namespace Cliente.Vistas
     {
         private static readonly ILog _bitacora = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         
-
-
         public VentanaRegistro()
         {
             InitializeComponent();

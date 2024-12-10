@@ -5,6 +5,7 @@ using log4net;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.IO.Packaging;
 using System.Linq;
 using System.Net.Mail;
@@ -29,13 +30,58 @@ namespace Cliente.Vistas
         private ServicioChatClient _servicioChat;
         private ServicioSalaDeEsperaClient _servicioSalaDeEspera;
         private List<JugadorContrato> _jugadores;
-        private PartidaContrato _partidaActual;        
+        private PartidaContrato _partidaActual;
+        private MediaPlayer _mediaPlayer;
 
         public VentanaSalaEspera()
         {
             InitializeComponent();
-            RecuperarAmigos();            
-        }        
+            Loaded += CargarVentanaSalaEspera;
+            Unloaded += QuitarVentanaSalaEspera;
+            _mediaPlayer = new MediaPlayer();
+            RecuperarAmigos();
+        }
+
+        private void CargarVentanaSalaEspera(object sender, RoutedEventArgs e)
+        {
+            ReproducirCancionDeFondo();
+        }
+
+        private void QuitarVentanaSalaEspera(object sender, RoutedEventArgs e)
+        {
+            DetenerCancionDeFondo();
+        }
+
+        private void ReproducirCancionDeFondo()
+        {
+            try
+            {
+                string rutaCancion = ValoresConstantes.ArchivoAudio;
+                _mediaPlayer.Open(new Uri(rutaCancion, UriKind.Relative));
+                _mediaPlayer.MediaEnded += ReiniciarCancion;
+                _mediaPlayer.Play();
+            }
+            catch (FileNotFoundException excepcionArchivoNoEncontrado)
+            {
+                _bitacora.Error(excepcionArchivoNoEncontrado);
+            }
+        }
+
+        private void ReiniciarCancion(object sender, EventArgs e)
+        {            
+            _mediaPlayer.Position = TimeSpan.Zero;
+            _mediaPlayer.Play();
+        }
+
+        private void DetenerCancionDeFondo()
+        {
+            if (_mediaPlayer != null)
+            {
+                _mediaPlayer.Stop();
+                _mediaPlayer.Close();
+                _mediaPlayer = null;
+            }
+        }
 
         public void ConfigurarChat()
         {
@@ -51,17 +97,17 @@ namespace Cliente.Vistas
             catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
-                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);                
             }
             catch (TimeoutException excepcionTiempoEspera)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
-                _bitacora.Warn(excepcionTiempoEspera);
+                _bitacora.Warn(excepcionTiempoEspera);                
             }
             catch (CommunicationException excepcionComunicacion)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
-                _bitacora.Error(excepcionComunicacion);
+                _bitacora.Error(excepcionComunicacion);                
             }
         }
 
@@ -120,7 +166,28 @@ namespace Cliente.Vistas
             string codigoPartida = Txbl_CodigoPartida.Text;
             string mensaje = $"{nombreUsuario}:{codigoPartida}: " + Txb_Mensaje.Text;
             Txb_Mensaje.Text = string.Empty;
-            _servicioChat.Chatear(mensaje);
+            try 
+            {
+                _servicioChat.Chatear(mensaje);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
+            }
         }
 
         private void SalirMenuPrincipal(object remitente, RoutedEventArgs argumento)
@@ -128,7 +195,28 @@ namespace Cliente.Vistas
             if (JugadorSingleton.IdJugador == _partidaActual.IdAnfitrion)
             {
                 CerrarPartida();
-                _servicioSalaDeEspera.ExpulsarTodosJugadores(Txbl_CodigoPartida.Text);
+                try 
+                {
+                    _servicioSalaDeEspera.ExpulsarTodosJugadores(Txbl_CodigoPartida.Text);
+                }
+                catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                    _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                    RegresarInicio();
+                }
+                catch (TimeoutException excepcionTiempoEspera)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                    _bitacora.Warn(excepcionTiempoEspera);
+                    RegresarInicio();
+                }
+                catch (CommunicationException excepcionComunicacion)
+                {
+                    MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                    _bitacora.Error(excepcionComunicacion);
+                    RegresarInicio();
+                }
             }
             else 
             {
@@ -139,7 +227,28 @@ namespace Cliente.Vistas
         private void DesconectarJugadorDePartida()
         {
             JugadorContrato jugador = ObtenerJugador();
-            _servicioSalaDeEspera.DesconectarJugador(Txbl_CodigoPartida.Text, jugador);
+            try 
+            {
+                _servicioSalaDeEspera.DesconectarJugador(Txbl_CodigoPartida.Text, jugador);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
+            }
         }
 
         private void RecuperarAmigos()
@@ -293,22 +402,48 @@ namespace Cliente.Vistas
                 if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Facil.ToString())
                 {
                     ConfigurarPartida(ValoresConstantes.CantidadPreguntasFacil);
-                    _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasFacil);
+                    ConfigurarPreguntasPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasFacil);
                 }
                 else if (modoJuegoPartida == Enumeracion.EnumModoJuegoPartida.Medio.ToString())
                 {
                     ConfigurarPartida(ValoresConstantes.CantidadPreguntasMedio);
-                    _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasMedio);
+                    ConfigurarPreguntasPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasMedio);
                 }
                 else
                 {
                     ConfigurarPartida(ValoresConstantes.CantidadPreguntasDificil);
-                    _servicioSalaDeEspera.IniciarPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasDificil);
+                    ConfigurarPreguntasPartida(Txbl_CodigoPartida.Text, ValoresConstantes.CantidadPreguntasDificil);                    
                 }
             }
             else
             {
                 MensajeVentana.MostrarVentanaEmergenteAdvertencia(Properties.Resources.MensajeNoEresAnfitrion);
+            }
+        }
+
+        private void ConfigurarPreguntasPartida(string codigoPartida,int cantidadPreguntas) 
+        {
+            try 
+            {
+                _servicioSalaDeEspera.IniciarPartida(codigoPartida,cantidadPreguntas);
+            }
+            catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
+            }
+            catch (TimeoutException excepcionTiempoEspera)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
+            }
+            catch (CommunicationException excepcionComunicacion)
+            {
+                MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
             }
         }
 
@@ -363,16 +498,19 @@ namespace Cliente.Vistas
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
             }
             catch (TimeoutException excepcionTiempoEspera)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
                 _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
             }
             catch (CommunicationException excepcionComunicacion)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                 _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
             }
         }
 
@@ -426,16 +564,19 @@ namespace Cliente.Vistas
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
             }
             catch (TimeoutException excepcionTiempoEspera)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
                 _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
             }
             catch (CommunicationException excepcionComunicacion)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                 _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
             }
         }
 
@@ -518,7 +659,25 @@ namespace Cliente.Vistas
                         NombreUsuario = nombreUsuario,
                         RutaImagen = rutaImagen,
                     };
-                    _servicioSalaDeEspera.ExpulsarJugador(Txbl_CodigoPartida.Text, jugador);
+                    try 
+                    {
+                        _servicioSalaDeEspera.ExpulsarJugador(Txbl_CodigoPartida.Text, jugador);
+                    }
+                    catch (EndpointNotFoundException excepcionPuntoFinalNoEncontrado)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
+                        _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);                        
+                    }
+                    catch (TimeoutException excepcionTiempoEspera)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
+                        _bitacora.Warn(excepcionTiempoEspera);                        
+                    }
+                    catch (CommunicationException excepcionComunicacion)
+                    {
+                        MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
+                        _bitacora.Error(excepcionComunicacion);
+                    }
                 }                
             }
         }
@@ -541,6 +700,12 @@ namespace Cliente.Vistas
                 VentanaInicio paginaInicio = new VentanaInicio();
                 this.NavigationService.Navigate(paginaInicio);
             }
+        }
+
+        private void RegresarInicio()
+        {
+            VentanaInicio paginaInicio = new VentanaInicio();
+            this.NavigationService.Navigate(paginaInicio);
         }
     }
 }

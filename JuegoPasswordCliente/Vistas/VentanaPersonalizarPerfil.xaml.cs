@@ -98,16 +98,19 @@ namespace Cliente.Vistas
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
             }
             catch (TimeoutException excepcionTiempoEspera)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
                 _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
             }
             catch (CommunicationException excepcionComunicacion)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                 _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
             }
         }
 
@@ -190,16 +193,19 @@ namespace Cliente.Vistas
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                     _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                    RegresarInicio();
                 }
                 catch (TimeoutException excepcionTiempoEspera)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
                     _bitacora.Warn(excepcionTiempoEspera);
+                    RegresarInicio();
                 }
                 catch (CommunicationException excepcionComunicacion)
                 {
                     MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                     _bitacora.Error(excepcionComunicacion);
+                    RegresarInicio();
                 }
             }
             else
@@ -247,16 +253,19 @@ namespace Cliente.Vistas
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorConexion);
                 _bitacora.Fatal(excepcionPuntoFinalNoEncontrado);
+                RegresarInicio();
             }
             catch (TimeoutException excepcionTiempoEspera)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorTiempoTerminado);
                 _bitacora.Warn(excepcionTiempoEspera);
+                RegresarInicio();
             }
             catch (CommunicationException excepcionComunicacion)
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                 _bitacora.Error(excepcionComunicacion);
+                RegresarInicio();
             }
 
         }
@@ -292,8 +301,7 @@ namespace Cliente.Vistas
             {
                 MensajeVentana.MostrarVentanaEmergenteError(Properties.Resources.MensajeErrorComunicacion);
                 _bitacora.Error(excepcionComunicacion);
-            }
-
+            }            
         }
 
         private void CancelarPersonalizacion(object remitente, RoutedEventArgs argumento)
@@ -312,6 +320,12 @@ namespace Cliente.Vistas
         {
             VentanaImagenDeJugador paginaImagenDeJugador = new VentanaImagenDeJugador();
             this.NavigationService.Navigate(paginaImagenDeJugador);
+        }
+
+        private void RegresarInicio()
+        {
+            VentanaInicio paginaInicio = new VentanaInicio();
+            this.NavigationService.Navigate(paginaInicio);
         }
     }
 }

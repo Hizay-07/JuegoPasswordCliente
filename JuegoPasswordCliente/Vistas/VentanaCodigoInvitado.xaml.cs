@@ -202,7 +202,7 @@ namespace Cliente.Vistas
         {
             Random aleatorio= new Random();
             int numeroUsuarioAleatorio = aleatorio.Next(1, 1000000);
-            string nombreUsuario = "Invitado" + numeroUsuarioAleatorio;
+            string nombreUsuario = ValoresConstantes.NombreUsuarioInvitado + numeroUsuarioAleatorio;
             return nombreUsuario;
         }
     }
